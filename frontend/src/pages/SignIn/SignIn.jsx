@@ -38,30 +38,34 @@ const SignIn = () => {
 
 	return (
 		<div className='signin-container'>
-			<form className='signin-form'>
-				<div>
-					<img src={b_logo} alt='' className='glogo'></img>
-				</div>
-				{/* <h2>Sign In</h2> */}
+			<div className='signin-form-border'>
+				<form className='signin-form'>
+					<div>
+						<img src={b_logo} alt='' className='glogo'></img>
+					</div>
+					{/* <h2>Sign In</h2> */}
 
-				<input
-					type='email'
-					placeholder='Email'
-					onChange={(e) => setEmail(e.target.value)}
-					onKeyPress={handleKeyPress} // Added keypress event handler
-				/>
+					<input
+						type='email'
+						placeholder='Email'
+						onChange={(e) => setEmail(e.target.value)}
+						onKeyPress={handleKeyPress} // Added keypress event handler
+					/>
 
-				<input
-					type='password'
-					placeholder='Password'
-					onChange={(e) => setPassword(e.target.value)}
-					onKeyPress={handleKeyPress} // Added keypress event handler
-				/>
+					<input
+						type='password'
+						placeholder='Password'
+						onChange={(e) => setPassword(e.target.value)}
+						onKeyPress={handleKeyPress} // Added keypress event handler
+					/>
 
-				{errorMessage && <div className='error-message'>{errorMessage}</div>}
+					{(errorMessage && <div className='error-message'>{errorMessage}</div>) || (
+						<div className='error-message'></div>
+					)}
 
-				<Button onClick={handleSignIn}>Sign In</Button>
-			</form>
+					<Button onClick={handleSignIn}>Sign In</Button>
+				</form>
+			</div>
 		</div>
 	);
 };
