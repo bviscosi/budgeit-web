@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SignIn.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:5000/';
 
 const SignIn = () => {
 	let navigate = useNavigate();
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [errorMessage, setErrorMessage] = useState('');
+	const [response, setResponse] = useState('');
+
+	useEffect(() => {
+		async function fetch() {
+			const response = await axios.get('/signIn');
+			setResponse(response);
+		}
+		fetch();
+	}, []);
+
+	useEffect(() => {
+		console.log(response);
+	}, [response]);
 
 	const handleSignIn = async () => {
 		try {
