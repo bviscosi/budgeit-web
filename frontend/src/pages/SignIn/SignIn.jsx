@@ -18,14 +18,15 @@ const SignIn = () => {
 			const response = await axios.post('/signIn', { email, password });
 			if (response.status === 200) {
 				navigate('/home');
-			} else if (response.status === 401) {
-				setErrorMessage('Invalid password. Please try again.');
-			} else if (response.status === 404) {
-				setErrorMessage('User not found. Please try again.');
 			}
 		} catch (error) {
+			console.log(error);
 			// Handle other errors
-			setErrorMessage('An error occurred. Please try again later.');
+			if (error.response.status === 401) {
+				setErrorMessage('Invalid password. Please try again.');
+			} else if (error.response.status === 404) {
+				setErrorMessage('User not found. Please try again.');
+			}
 		}
 	};
 
