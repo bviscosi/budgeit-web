@@ -8,7 +8,21 @@ const SignIn = () => {
 	const [password, setPassword] = useState('');
 	const [errorMessage, setErrorMessage] = useState('');
 
-	const handleSignIn = async () => {};
+	const handleSignIn = async () => {
+		try {
+			const response = { statusCode: 200 };
+			if (response.statusCode === 200) {
+				navigate('/home');
+			} else if (response.statusCode === 401) {
+				setErrorMessage('Invalid password. Please try again.');
+			} else if (response.statusCode === 404) {
+				setErrorMessage('User not found. Please try again.');
+			}
+		} catch (error) {
+			// Handle other errors
+			setErrorMessage('An error occurred. Please try again later.');
+		}
+	};
 
 	const handleKeyPress = (e) => {
 		if (e.key === 'Enter') {
