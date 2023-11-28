@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './SignIn.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import b_logo from '../../assets/b.png';
+import Button from '@mui/material/Button';
 
 axios.defaults.baseURL = 'http://localhost:5000/';
 
@@ -10,28 +12,15 @@ const SignIn = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [errorMessage, setErrorMessage] = useState('');
-	const [response, setResponse] = useState('');
-
-	useEffect(() => {
-		async function fetch() {
-			const response = await axios.get('/signIn');
-			setResponse(response);
-		}
-		fetch();
-	}, []);
-
-	useEffect(() => {
-		console.log(response);
-	}, [response]);
 
 	const handleSignIn = async () => {
 		try {
-			const response = { statusCode: 200 };
-			if (response.statusCode === 200) {
+			const response = await axios.post('/signIn', { email, password });
+			if (response.status === 200) {
 				navigate('/home');
-			} else if (response.statusCode === 401) {
+			} else if (response.status === 401) {
 				setErrorMessage('Invalid password. Please try again.');
-			} else if (response.statusCode === 404) {
+			} else if (response.status === 404) {
 				setErrorMessage('User not found. Please try again.');
 			}
 		} catch (error) {
@@ -49,7 +38,11 @@ const SignIn = () => {
 	return (
 		<div className='signin-container'>
 			<form className='signin-form'>
-				<h2>Sign In</h2>
+				<div>
+					<img src={b_logo} alt='' className='glogo'></img>
+				</div>
+				{/* <h2>Sign In</h2> */}
+
 				<input
 					type='email'
 					placeholder='Email'
@@ -66,7 +59,7 @@ const SignIn = () => {
 
 				{errorMessage && <div className='error-message'>{errorMessage}</div>}
 
-				<button onClick={handleSignIn}>Sign In</button>
+				<Button onClick={handleSignIn}>Sign In</Button>
 			</form>
 		</div>
 	);

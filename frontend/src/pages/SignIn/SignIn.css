@@ -24,42 +24,54 @@
 }
 
 .signin-form h2 {
+      margin-top: 2vh;
    padding: 10px;
+      font-size: 1.5rem;
    text-align: center;
    margin-bottom: 20px;
 }
 
 .signin-form input {
-
+   margin-top: 1vh;
    width: 95%;
    padding: 10px;
    margin-bottom: 20px;
    border: 1px solid #ddd;
-   border-radius: 5px;
+   border-radius: 10px;
+   font-size: 1rem;
 }
 
 .signin-form input:focus {
    outline: none;
    /* Removes the default focus outline */
-   border-color: #789a3c;
+   border-color: #677fd2;
    /* Change to your preferred shade of green */
 }
 
 .signin-form button {
+   margin-top: 10vh;
    width: 100%;
    padding: 10px;
    border: none;
-   border-radius: 5px;
-   background-color: #789a3c;
+   border-radius: 10px;
+   background-color: #677fd2;
    color: white;
-   font-size: 1rem;
+   font-size: 1.25rem;
    cursor: pointer;
 }
 
 .signin-form button:hover {
-   background-color: #789a3c;
+   background-color: #677fd2;
 }
 
+.glogo {
+   display: flex;
+   width: 7vw;
+   height: 7vw;
+         margin-top: 2vh;
+         margin-bottom: 3vh;
+
+}
 
 .error-message {
    color: red;
