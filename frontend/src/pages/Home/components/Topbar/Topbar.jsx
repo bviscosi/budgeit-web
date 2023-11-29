@@ -5,6 +5,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { profileCircle, lightModeButton } from './styles.jsx';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import b_logo from '../../../../assets/b.png';
 
 const Topbar = () => {
 	return (
@@ -12,23 +13,29 @@ const Topbar = () => {
 			className='topbar'
 			style={{
 				marginRight: '10px',
-				marginTop: '5px',
-				marginBottom: '5px',
 				display: 'flex',
 				justifyContent: 'flex-end',
-				// height: '10vh',
+				margin: '10px',
 			}}>
-			<Button>
-				<div style={lightModeButton}>
-					<DarkModeIcon />
-				</div>
-			</Button>
-			<Button sx={{ border: '1px solid #d8dee8', borderRadius: '30px' }}>
-				<div style={profileCircle}></div>
+			<div>
+				<Button>
+					<div style={lightModeButton}>
+						<DarkModeIcon />
+					</div>
+				</Button>
+				<Button
+					sx={{
+						border: '1px solid #d8dee8',
+						borderRadius: '30px',
+						boxShadow: '0px 4px 8px rgba(0.5, 0.5, 0.5, 0.1)',
+						backgroundColor: '#F7F8FA',
+					}}>
+					<div style={profileCircle}></div>
 
-				<h3 style={{ margin: '0', marginRight: '0.75rem', color: '#14141f' }}>Benjamin</h3>
-				<KeyboardArrowDownIcon style={{ color: '#6c7793' }} />
-			</Button>
+					<h4 style={{ margin: '0', marginRight: '0.5rem', color: '#14141f' }}>Benjamin</h4>
+					<KeyboardArrowDownIcon style={{ color: '#6c7793' }} />
+				</Button>
+			</div>
 		</div>
 	);
 };

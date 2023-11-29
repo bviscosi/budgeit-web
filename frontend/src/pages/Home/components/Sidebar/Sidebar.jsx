@@ -13,23 +13,19 @@ import Person from '@mui/icons-material/Person';
 
 const Sidebar = () => {
 	return (
-		<div
-			style={{
-				width: '5vw',
-				height: '95%',
-				display: 'flex',
-				flexDirection: 'column',
-				justifyContent: 'space-between',
-				paddingTop: '10px',
-			}}
-			className='sidebar'>
-			<img src={b_logo} alt='' style={{ width: '70px' }}></img>
+		<div className='sidebar'>
+			<img
+				src={b_logo}
+				alt=''
+				style={{
+					width: '70px',
+				}}></img>
 			<div
 				style={{
 					display: 'flex',
 					flexDirection: 'column',
 					height: '100%',
-					gap: '10vh',
+					gap: '7vh',
 					justifyContent: 'center',
 				}}>
 				<Button sx={{ color: '#6c7793' }}>
