@@ -39,7 +39,7 @@ const Sidebar = () => {
 				}}>
 				<Button
 					sx={{
-						color: active === 'dashboard' ? '#ffffff' : '#B5BBC9',
+						color: active === 'dashboard' ? '#ffffff' : '#858585',
 					}}
 					onClick={() => handleSetActive('dashboard')}>
 					<GridViewIcon
@@ -53,7 +53,7 @@ const Sidebar = () => {
 				</Button>
 				<Button
 					sx={{
-						color: active === 'savings' ? '#ffffff' : '#B5BBC9',
+						color: active === 'savings' ? '#ffffff' : '#858585',
 					}}
 					onClick={() => handleSetActive('savings')}>
 					<SavingsIcon
@@ -67,7 +67,7 @@ const Sidebar = () => {
 				</Button>
 				<Button
 					sx={{
-						color: active === 'wallet' ? '#ffffff' : '#B5BBC9',
+						color: active === 'wallet' ? '#ffffff' : '#858585',
 					}}
 					onClick={() => handleSetActive('wallet')}>
 					<WalletIcon
@@ -81,7 +81,7 @@ const Sidebar = () => {
 				</Button>
 				<Button
 					sx={{
-						color: active === 'account' ? '#ffffff' : '#B5BBC9',
+						color: active === 'account' ? '#ffffff' : '#858585',
 					}}
 					onClick={() => handleSetActive('account')}>
 					<PersonIcon
@@ -97,7 +97,7 @@ const Sidebar = () => {
 
 			<Button
 				sx={{
-					color: active === 'settings' ? '#ffffff' : '#B5BBC9',
+					color: active === 'settings' ? '#ffffff' : '#858585',
 				}}
 				onClick={() => handleSetActive('settings')}>
 				<SettingsIcon

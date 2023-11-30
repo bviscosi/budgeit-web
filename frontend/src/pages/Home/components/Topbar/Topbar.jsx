@@ -19,7 +19,7 @@ const Topbar = () => {
 					alignItems: 'center',
 					// margin: '0.5rem',
 				}}>
-				<h1 style={{ marginLeft: '2rem', color: '#272727' }}>Dashboard</h1>
+				<h1 style={{ marginLeft: '2rem', fontSize: '2.5rem', color: '#3C3C3C' }}>Dashboard</h1>
 				<div className='row'>
 					<Button>
 						<div style={lightModeButton}>
@@ -35,7 +35,7 @@ const Topbar = () => {
 						}}>
 						<div style={profileCircle}></div>
 
-						<h4 style={{ margin: '0', marginRight: '0.5rem', color: '#14141f' }}>Benjamin</h4>
+						<h4 style={{ margin: '0', marginRight: '0.5rem', color: '#3C3C3C' }}>Benjamin</h4>
 						<KeyboardArrowDownIcon style={{ color: '#6c7793' }} />
 					</Button>
 				</div>
