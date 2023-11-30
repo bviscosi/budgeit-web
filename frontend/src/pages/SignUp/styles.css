@@ -1,0 +1,104 @@
+.signin-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   width: 50vw;
+   background-color: #fff;
+   /* border-radius: 1rem 0 0 1rem; */
+   /* margin-right: 5rem; */
+}
+
+.signin-form {
+   max-width: 400px;
+   width: 100%;
+   padding: 40px;
+   background-color: #fff;
+   border-radius: 10px;
+   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+   height: 80%;
+   display: flex;
+   justify-content: space-evenly;
+   flex-direction: column;
+}
+.signin-form h2 {
+   padding: 10px;
+   text-align: center;
+}
+
+.signin-form input {
+      height: 3vh;
+
+   width: 95%;
+   padding: 10px;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+}
+
+.signin-form input:focus {
+   outline: none;
+   border-color: #6274e7;
+}
+
+.signin-form button {
+   width: 100%;
+   padding: 1rem;
+   border: none;
+   border-radius: 30px;
+   background-color: #6274e7;
+   color: white;
+   font-size: 1rem;
+   cursor: pointer;
+}
+
+.signin-form button:hover {
+   background-color: #6274e7;
+}
+
+.glogo {
+   display: flex;
+   /* width: 25vw; */
+
+   
+}
+
+.sign-in-right {
+   background: linear-gradient(#242acf, #b57bee);
+   color: #f7f7f7;
+   width: 50vw;
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;   
+}
+
+.create-account-action {
+   color: #007BFF;
+   /* This is a typical 'link' blue, adjust the color as needed */
+   cursor: pointer;
+   /* text-decoration: underline; */
+}
+
+.forgotpassword {
+   width: 100%;
+   display: flex;
+   justify-content: flex-end;
+   text-align: flex-end;
+   color: #007BFF;
+   cursor: pointer;
+}
+
+.logo {
+   display: 'flex';
+   width: '10px';
+   height: '1rem';
+   border: '1px solid black';
+}
+
+.error-message {
+   color: red;
+   text-align: center;
+   margin-top: 10px;
+   margin-bottom: 30px;
+}

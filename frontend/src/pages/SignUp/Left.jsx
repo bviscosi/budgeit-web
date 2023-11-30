@@ -75,25 +75,10 @@ const Left = () => {
 					/>
 
 					{errorMessage && <div className='error-message'>{errorMessage}</div>}
-					<div className='row  jcsb aic'>
-						<div className='row  w100 aic' style={{ gap: '0.5rem' }}>
-							<input
-								type='checkbox'
-								id='rememberMe'
-								name='rememberMe'
-								checked={rememberMe}
-								onChange={(e) => setRememberMe(e.target.checked)}
-								style={{ width: '10%' }}
-							/>
-							<p style={{ fontWeight: '600' }}>Remember me</p>
-						</div>
-						<div className='forgotpassword' onClick={() => navigate('/register')}>
-							Forgot Password?
-						</div>
-					</div>
+					<div className='row  jcsb aic'></div>
 
 					<Button variant='contained' onClick={handleSignIn}>
-						Sign In
+						Sign Up
 					</Button>
 					<div
 						style={{
@@ -102,9 +87,9 @@ const Left = () => {
 							gap: '0.3rem',
 							marginTop: '1rem',
 						}}>
-						Not registered yet?
-						<div className='create-account-action' onClick={() => navigate('/sign-up')}>
-							Create account
+						Already have an account?
+						<div className='create-account-action' onClick={() => navigate('/sign-in')}>
+							Sign in
 						</div>
 					</div>
 				</div>
