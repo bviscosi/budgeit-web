@@ -17,7 +17,67 @@ const Home = () => {
 					}}>
 					<Topbar></Topbar>
 
-					<div className='main'>Home</div>
+					<div className='main'>
+						<div style={{ display: 'flex', height: '100%', width: '100%', gap: '1rem' }}>
+							<div
+								style={{
+									display: 'flex',
+									height: '100%',
+									width: '100%',
+									border: '1px solid #e6e8ec',
+									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
+
+									backgroundColor: '#f7f8fa',
+									borderRadius: '10px',
+								}}></div>
+							<div
+								style={{
+									display: 'flex',
+									height: '100%',
+									width: '100%',
+									border: '1px solid #e6e8ec',
+									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
+
+									backgroundColor: '#f7f8fa',
+									borderRadius: '10px',
+								}}></div>
+						</div>
+						<div style={{ display: 'flex', height: '100%', width: '100%', gap: '1rem' }}>
+							<div
+								style={{
+									display: 'flex',
+									height: '100%',
+									width: '100%',
+									border: '1px solid #e6e8ec',
+									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
+
+									backgroundColor: '#f7f8fa',
+									borderRadius: '10px',
+								}}></div>
+							<div
+								style={{
+									display: 'flex',
+									height: '100%',
+									width: '100%',
+									border: '1px solid #e6e8ec',
+									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
+
+									backgroundColor: '#f7f8fa',
+									borderRadius: '10px',
+								}}></div>
+							<div
+								style={{
+									display: 'flex',
+									height: '100%',
+									width: '100%',
+									border: '1px solid #e6e8ec',
+									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
+
+									backgroundColor: '#f7f8fa',
+									borderRadius: '10px',
+								}}></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

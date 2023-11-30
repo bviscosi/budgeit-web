@@ -13,12 +13,15 @@
 
 .main {
    display: flex;
+   flex-direction: column;
    background-color: #eff1f5;
    align-items: center;
    justify-content: center;
    height: 100%;
-   width: 100%;
    border-radius: 30px 0px 0px 30px;
+   gap: 1rem;
+   margin: 0rem 1rem 1rem 1rem;
+   
 }
 
 .sidebar {
@@ -26,19 +29,17 @@
    flex-direction: column;
    justify-content: space-between;
    align-items: center;
-   width: 5vw;
-   margin-top: 30px;
-   margin-bottom: 30px;
-   padding-top: 30px;
+   width: 5rem;
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+   padding-top: 0.5rem;
    padding-bottom: 30px;
-   margin-left: 20px;
+   margin-left: 1rem;
    background-color: #F7F8FA;
    /* border: 1px solid #d8dee8; */
-   border-radius: 30px;
+   border-radius: 10px;
    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-   
-   
-   
+      /* border: 1px solid black */
 }
 
 .row {
@@ -50,6 +51,8 @@
    display: flex;
    align-items: center;
    justify-content: center;
+   margin-top: .5rem;
+   /* border: 1px solid black */
    
 }
 

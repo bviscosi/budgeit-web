@@ -39,60 +39,76 @@ const Sidebar = () => {
 				}}>
 				<Button
 					sx={{
-						color: '#d8dee8',
-						backgroundColor: active === 'dashboard' ? '#14141f' : 'transparent',
-						'&:hover': {
-							backgroundColor: active === 'dashboard' ? '#14141f' : 'transparent',
-						},
+						color: active === 'dashboard' ? '#ffffff' : '#B5BBC9',
 					}}
 					onClick={() => handleSetActive('dashboard')}>
-					<GridViewIcon />
+					<GridViewIcon
+						sx={{
+							padding: '0.5rem',
+							display: 'flex',
+							backgroundColor: active === 'dashboard' ? '#272727' : 'transparent',
+							borderRadius: '100%',
+						}}
+					/>
 				</Button>
 				<Button
 					sx={{
-						color: '#d8dee8',
-						backgroundColor: active === 'savings' ? '#14141f' : 'transparent',
-						'&:hover': {
-							backgroundColor: active === 'savings' ? '#14141f' : 'transparent',
-						},
+						color: active === 'savings' ? '#ffffff' : '#B5BBC9',
 					}}
 					onClick={() => handleSetActive('savings')}>
-					<SavingsIcon />
+					<SavingsIcon
+						sx={{
+							padding: '0.5rem',
+							display: 'flex',
+							backgroundColor: active === 'savings' ? '#272727' : 'transparent',
+							borderRadius: '100%',
+						}}
+					/>
 				</Button>
 				<Button
 					sx={{
-						color: '#d8dee8',
-						backgroundColor: active === 'wallet' ? '#14141f' : 'transparent',
-						'&:hover': {
-							backgroundColor: active === 'wallet' ? '#14141f' : 'transparent',
-						},
+						color: active === 'wallet' ? '#ffffff' : '#B5BBC9',
 					}}
 					onClick={() => handleSetActive('wallet')}>
-					<WalletIcon />
+					<WalletIcon
+						sx={{
+							padding: '0.5rem',
+							display: 'flex',
+							backgroundColor: active === 'wallet' ? '#272727' : 'transparent',
+							borderRadius: '100%',
+						}}
+					/>
 				</Button>
 				<Button
 					sx={{
-						color: '#d8dee8',
-						backgroundColor: active === 'account' ? '#14141f' : 'transparent',
-						'&:hover': {
-							backgroundColor: active === 'account' ? '#14141f' : 'transparent',
-						},
+						color: active === 'account' ? '#ffffff' : '#B5BBC9',
 					}}
 					onClick={() => handleSetActive('account')}>
-					<PersonIcon />
+					<PersonIcon
+						sx={{
+							padding: '0.5rem',
+							display: 'flex',
+							backgroundColor: active === 'account' ? '#272727' : 'transparent',
+							borderRadius: '100%',
+						}}
+					/>
 				</Button>
 			</div>
 
 			<Button
 				sx={{
-					color: '#d8dee8',
-					backgroundColor: active === 'settings' ? '#14141f' : 'transparent',
-					'&:hover': {
-						backgroundColor: active === 'settings' ? '#14141f' : 'transparent',
-					},
+					color: active === 'settings' ? '#ffffff' : '#B5BBC9',
 				}}
 				onClick={() => handleSetActive('settings')}>
-				<SettingsIcon />
+				<SettingsIcon
+					sx={{
+						// width: '3rem',
+						padding: '0.5rem',
+						display: 'flex',
+						backgroundColor: active === 'settings' ? '#272727' : 'transparent',
+						borderRadius: '100%',
+					}}
+				/>
 			</Button>
 		</div>
 	);
