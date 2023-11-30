@@ -28,7 +28,7 @@ const Home = () => {
 									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
 
 									backgroundColor: '#f7f8fa',
-									borderRadius: '10px',
+									borderRadius: '30px',
 								}}></div>
 							<div
 								style={{
@@ -39,7 +39,7 @@ const Home = () => {
 									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
 
 									backgroundColor: '#f7f8fa',
-									borderRadius: '10px',
+									borderRadius: '30px',
 								}}></div>
 						</div>
 						<div style={{ display: 'flex', height: '100%', width: '100%', gap: '1rem' }}>
@@ -52,7 +52,7 @@ const Home = () => {
 									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
 
 									backgroundColor: '#f7f8fa',
-									borderRadius: '10px',
+									borderRadius: '30px',
 								}}></div>
 							<div
 								style={{
@@ -63,7 +63,7 @@ const Home = () => {
 									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
 
 									backgroundColor: '#f7f8fa',
-									borderRadius: '10px',
+									borderRadius: '30px',
 								}}></div>
 							<div
 								style={{
@@ -74,7 +74,7 @@ const Home = () => {
 									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
 
 									backgroundColor: '#f7f8fa',
-									borderRadius: '10px',
+									borderRadius: '30px',
 								}}></div>
 						</div>
 					</div>

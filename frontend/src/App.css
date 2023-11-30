@@ -37,7 +37,7 @@
    margin-left: 1rem;
    background-color: #F7F8FA;
    /* border: 1px solid #d8dee8; */
-   border-radius: 10px;
+   border-radius: 30px;
    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
       /* border: 1px solid black */
 }
@@ -45,6 +45,24 @@
 .row {
    display: flex;
    flex-direction: row;
+}
+
+.page {
+   height: 100vh;
+   width: 100vw;
+   display: flex;
+}
+
+.jcsb {
+   justify-content: space-between;
+}
+
+.aic {
+   align-items: center;
+}
+
+.w100 {
+   width: 100%;
 }
 
 .topbar {

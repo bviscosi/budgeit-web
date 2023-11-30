@@ -1,8 +1,9 @@
-.signin-container {
+.signin-container-left {
    display: flex;
    justify-content: center;
    align-items: center;
    height: 100vh;
+   width: 50vw;
    /* Full height of the viewport */
    /* background-color: #f7f7f7; */
 }

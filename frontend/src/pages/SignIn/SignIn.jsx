@@ -37,7 +37,7 @@ const SignIn = () => {
 	};
 
 	return (
-		<div className='signin-container'>
+		<div className='signin-container-left'>
 			<div className='signin-form-border'>
 				<form className='signin-form'>
 					<div>
