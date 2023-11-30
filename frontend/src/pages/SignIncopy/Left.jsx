@@ -40,9 +40,15 @@ const Left = () => {
 	return (
 		<div className='signin-container'>
 			<form className='signin-form'>
-				<div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-					<img src={b_logo} alt='' style={{ width: '7rem' }}></img>
-					<h1 style={{ fontSize: '3rem', fontWeight: '700' }}>BudgeIt</h1>
+				<div
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+						gap: '0.5rem',
+					}}>
+					<img src={b_logo} alt='' style={{ width: '8rem' }}></img>
+					{/* <h1 style={{ fontSize: '3rem', fontWeight: '700' }}>BudgeIt</h1> */}
 				</div>
 
 				<div

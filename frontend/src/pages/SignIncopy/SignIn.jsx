@@ -8,8 +8,8 @@ import Right from './Right';
 const SignIn = () => {
 	return (
 		<div className='row'>
-			<Left />
 			<Right />
+			<Left />
 		</div>
 	);
 };

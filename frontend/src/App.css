@@ -1,5 +1,6 @@
 .App {
-   background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+   /* background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%); */
+      background: linear-gradient(#242acf, #b57bee);
 }
 
 .page {
