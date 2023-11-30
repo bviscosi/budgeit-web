@@ -37,7 +37,7 @@
 
 .signin-form input:focus {
    outline: none;
-   border-color: #5200d6;
+   border-color: #667bd0;
 }
 
 .signin-form button {
@@ -45,14 +45,14 @@
    padding: 1rem;
    border: none;
    border-radius: 30px;
-   background-color: #5200d6;
+   background-color: #667bd0;
    color: white;
    font-size: 1rem;
    cursor: pointer;
 }
 
 .signin-form button:hover {
-   background-color: #5200d6;
+   background-color: #667bd0;
 }
 
 .glogo {
@@ -63,7 +63,7 @@
 }
 
 .sign-in-right {
-   background-color: #150822;
+   background: linear-gradient(#242acf, #b57bee);
    color: #f7f7f7;
    width: 50vw;
    height: 100vh;
