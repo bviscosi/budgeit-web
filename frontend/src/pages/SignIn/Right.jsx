@@ -11,7 +11,7 @@ const Right = () => {
 			}}>
 			<div className='sign-in-right'>
 				<div style={{ width: '50%' }}>
-					<h1 style={{ fontSize: '3rem' }}>Welcome Back</h1>
+					<h1 style={{ fontSize: '3rem', color: '#e6e8ec' }}>Welcome Back</h1>
 					<h3 style={{ fontSize: '1.5rem', color: '#e6e8ec' }}>
 						Please login to access your account
 					</h3>

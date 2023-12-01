@@ -13,7 +13,7 @@ const Home = () => {
 						flexDirection: 'column',
 						width: '100%',
 						height: '100%',
-						backgroundColor: '#eff1f5',
+						// backgroundColor: '#eff1f5',
 					}}>
 					<Topbar></Topbar>
 

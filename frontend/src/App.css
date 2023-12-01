@@ -15,7 +15,6 @@
 .main {
    display: flex;
    flex-direction: column;
-   background-color: #eff1f5;
    align-items: center;
    justify-content: center;
    height: 100%;
@@ -37,10 +36,8 @@
    padding-bottom: 30px;
    margin-left: 1rem;
    background-color: #f7f8fa;
-   /* border: 1px solid #d8dee8; */
    border-radius: 20px;
    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      /* border: 1px solid black */
 }
 
 .row {
@@ -48,11 +45,7 @@
    flex-direction: row;
 }
 
-.page {
-   height: 100vh;
-   width: 100vw;
-   display: flex;
-}
+
 
 .jcsb {
    justify-content: space-between;
@@ -70,19 +63,33 @@
    display: flex;
    align-items: center;
    justify-content: center;
-   margin-top: .5rem;
-   /* border: 1px solid black */
-   
+   margin-top: .5rem;   
 }
 
+h1 {
+   color: #3c3c3c;
+}
+
+h4 {
+   color: #3c3c3c;
+}
 /* 
 
-black -> #14141f
-white -> #F7F8FA
-main area background -> #eff1f5
+-> light mode 
+black -> #272727
+h1 dark gray: #3c3c3c
+
+sidebar menu item: #8f8f8f
+
+foreground -> #f7f8fa
+background -> #eff1f5
 
 lightGray -> #d8dee8
 gray -> #6c7793
 grey3 -> 
+
+-> dark mode
+lightText -> #fffefc
+darkBackground -> #0e1a30
 
 */
