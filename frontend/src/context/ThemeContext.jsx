@@ -63,8 +63,8 @@ const themes = {
 			h1: {
 				fontSize: '2.5rem',
 				fontWeight: 600,
-				// color: '#e0e0e0',
-				color: '#9e9e9e',
+				color: '#bdbdbd',
+				// color: '#9e9e9e',
 			},
 			h2: {
 				fontSize: '2.5rem',

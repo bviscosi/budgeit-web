@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
-import './styles.css';
 
 axios.defaults.baseURL = 'http://localhost:5000/';
 
