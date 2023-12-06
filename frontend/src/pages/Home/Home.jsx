@@ -1,10 +1,13 @@
 import React from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
+import { Box, Container, Paper, useTheme } from '@mui/material';
 
 const Home = () => {
+	const theme = useTheme(); // Accessing the theme
+
 	return (
-		<div className='page'>
+		<Box className='page' sx={{ backgroundColor: theme.palette.background.main }}>
 			<div style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '100%' }}>
 				<Sidebar />
 				<div
@@ -13,74 +16,73 @@ const Home = () => {
 						flexDirection: 'column',
 						width: '100%',
 						height: '100%',
-						// backgroundColor: '#eff1f5',
 					}}>
 					<Topbar></Topbar>
 
 					<div className='main'>
 						<div style={{ display: 'flex', height: '100%', width: '100%', gap: '2rem' }}>
-							<div
+							<Paper
 								style={{
 									display: 'flex',
 									height: '100%',
 									width: '100%',
-									border: '1px solid #e6e8ec',
+									// border: `1px solid ${theme.palette.card.border}`,
 									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
 
-									backgroundColor: '#f7f8fa',
+									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
-								}}></div>
-							<div
+								}}></Paper>
+							<Paper
 								style={{
 									display: 'flex',
 									height: '100%',
 									width: '100%',
-									border: '1px solid #e6e8ec',
+									// border: `1px solid ${theme.palette.card.border}`,
 									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
 
-									backgroundColor: '#f7f8fa',
+									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
-								}}></div>
+								}}></Paper>
 						</div>
 						<div style={{ display: 'flex', height: '100%', width: '100%', gap: '2rem' }}>
-							<div
+							<Paper
 								style={{
 									display: 'flex',
 									height: '100%',
 									width: '100%',
-									border: '1px solid #e6e8ec',
+									// border: `1px solid ${theme.palette.card.border}`,
 									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
 
-									backgroundColor: '#f7f8fa',
+									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
-								}}></div>
-							<div
+								}}></Paper>
+							<Paper
 								style={{
 									display: 'flex',
 									height: '100%',
 									width: '100%',
-									border: '1px solid #e6e8ec',
+									// border: `1px solid ${theme.palette.card.border}`,
 									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
 
-									backgroundColor: '#f7f8fa',
+									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
-								}}></div>
-							<div
+								}}></Paper>
+							<Paper
 								style={{
 									display: 'flex',
 									height: '100%',
 									width: '100%',
-									border: '1px solid #e6e8ec',
+									// border: `1px solid ${theme.palette.card.border}`,
 									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
 
-									backgroundColor: '#f7f8fa',
+									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
-								}}></div>
+								}}></Paper>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</Box>
 	);
 };
 

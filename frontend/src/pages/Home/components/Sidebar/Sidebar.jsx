@@ -7,10 +7,11 @@ import SavingsIcon from '@mui/icons-material/Savings';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import WalletIcon from '@mui/icons-material/Wallet';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import { Button } from '@mui/material';
+import { Button, Paper } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import Person from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
+import { sidebar } from './styles';
 
 const Sidebar = () => {
 	const navigate = useNavigate();
@@ -22,13 +23,14 @@ const Sidebar = () => {
 	};
 
 	return (
-		<div className='sidebar'>
+		<Paper sx={sidebar}>
 			<img
 				src={b_logo}
 				alt=''
 				style={{
 					width: '70px',
-				}}></img>
+				}}
+			/>
 			<div
 				style={{
 					display: 'flex',
@@ -110,7 +112,7 @@ const Sidebar = () => {
 					}}
 				/>
 			</Button>
-		</div>
+		</Paper>
 	);
 };
 

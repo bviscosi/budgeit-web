@@ -9,7 +9,7 @@
    height: 100vh;
    align-items: center;
    justify-content: space-between;
-   background-color: #eff1f5;
+   /* background-color: #eff1f5; */
 }
 
 .main {
@@ -24,28 +24,16 @@
    
 }
 
-.sidebar {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   align-items: center;
-   width: 5rem;
-   margin-top: 1rem;
-   margin-bottom: 1rem;
-   padding-top: 0.5rem;
-   padding-bottom: 30px;
-   margin-left: 1rem;
-   background-color: #f7f8fa;
-   border-radius: 20px;
-   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
+
 
 .row {
    display: flex;
    flex-direction: row;
 }
 
-
+.outline {
+   border: 1px solid black;
+}
 
 .jcsb {
    justify-content: space-between;

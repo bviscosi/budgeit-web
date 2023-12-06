@@ -5,10 +5,10 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { profileCircle, lightModeButton } from './styles.jsx';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '../../../../context/ThemeContext.jsx';
 
 const Topbar = () => {
-	const theme = useTheme();
+	const { theme, toggleThemeMode } = useTheme();
 
 	return (
 		<div>
@@ -20,7 +20,7 @@ const Topbar = () => {
 					justifyContent: 'space-between',
 					alignItems: 'center',
 
-					// margin: '0.5rem',
+					margin: '1rem',
 				}}>
 				<Typography
 					variant='h1'
@@ -33,7 +33,7 @@ const Topbar = () => {
 					Dashboard
 				</Typography>
 				<div className='row'>
-					<Button>
+					<Button onClick={toggleThemeMode}>
 						<div style={lightModeButton}>
 							<DarkModeIcon />
 						</div>
@@ -47,8 +47,10 @@ const Topbar = () => {
 						}}>
 						<div style={profileCircle}></div>
 
-						<h4 style={{ margin: '0', marginRight: '0.5rem' }}>Benjamin</h4>
-						<KeyboardArrowDownIcon style={{ color: '#6c7793' }} />
+						<Typography variant='h4' style={{ margin: '0', marginRight: '0.5rem' }}>
+							Benjamin
+						</Typography>
+						<KeyboardArrowDownIcon />
 					</Button>
 				</div>
 			</div>
