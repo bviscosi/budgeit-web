@@ -4,14 +4,14 @@
    align-items: center;
    justify-content: center;
    height: 100vh;
-   width: 50vw;
+   width: 100%;
    background-color: #fff;
    /* border-radius: 1rem 0 0 1rem; */
    /* margin-right: 5rem; */
 }
 
 .signin-form {
-   max-width: 400px;
+   /* max-width: 400px; */
    width: 100%;
    padding: 40px;
    background-color: #fff;
@@ -64,7 +64,7 @@
 }
 
 .sign-in-right {
-   background: linear-gradient(#242acf, #b57bee);
+   background: linear-gradient(#242acf, #696eff);
    color: #f7f7f7;
    width: 50vw;
    height: 100vh;

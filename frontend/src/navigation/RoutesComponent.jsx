@@ -7,7 +7,7 @@ import SignIn from '../pages/SignIn/SignIn';
 const RoutesComponent = () => {
 	return (
 		<Routes>
-			<Route path='/' element={<Home />} />
+			<Route path='/' element={<SignIn />} />
 			<Route path='/home' element={<Home />} />
 			<Route path='/sign-in' element={<SignIn />} />
 			<Route path='/sign-up' element={<SignUp />} />
