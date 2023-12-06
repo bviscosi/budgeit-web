@@ -8,7 +8,7 @@ const themes = {
 			primary: { main: '#3f51b5' },
 			secondary: { main: '#f50057' },
 			accent: { main: '#000' },
-			gray: { main: '#e3e3e3' },
+			gray: { 100: '#e3e3e3' },
 			card: { border: '#e6e8ec' },
 			background: { paper: '#f7f8fa', main: '#eff1f5' },
 		},
@@ -55,30 +55,31 @@ const themes = {
 			primary: { main: '#6573c3' },
 			secondary: { main: '#ff4081' },
 			// Define other colors for dark mode as needed
-			card: { border: '#272727' },
+			card: { border: '#424242' },
 
-			background: { paper: '#1c1c22', main: '#101114' },
+			background: { paper: '#111415', main: '#0c0e0f' },
 		},
 		typography: {
 			h1: {
 				fontSize: '2.5rem',
 				fontWeight: 600,
-				color: '#f7f7f7',
+				// color: '#e0e0e0',
+				color: '#9e9e9e',
 			},
 			h2: {
 				fontSize: '2.5rem',
 				fontWeight: 500,
-				color: '#f7f7f7',
+				color: '#bdbdbd',
 			},
 			h3: {
 				fontSize: '2.5rem',
 				fontWeight: 400,
-				color: '#f7f7f7',
+				color: '#9e9e9e',
 			},
 			h4: {
 				fontSize: '1.25rem',
 				fontWeight: 300,
-				color: '#f7f7f7',
+				color: '#bdbdbd',
 			},
 			h5: {
 				fontSize: '2.5rem',

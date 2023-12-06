@@ -1,4 +1,4 @@
-import { Button, Typography } from '@mui/material';
+import { Button, Paper, Typography } from '@mui/material';
 import React from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -19,7 +19,6 @@ const Topbar = () => {
 					display: 'flex',
 					justifyContent: 'space-between',
 					alignItems: 'center',
-
 					margin: '1rem',
 				}}>
 				<Typography
@@ -34,13 +33,13 @@ const Topbar = () => {
 				</Typography>
 				<div className='row'>
 					<Button onClick={toggleThemeMode}>
-						<div style={lightModeButton}>
+						<Paper style={lightModeButton}>
 							<DarkModeIcon />
-						</div>
+						</Paper>
 					</Button>
 					<Button
 						sx={{
-							border: '1px solid #d8dee8',
+							border: `1px solid ${theme.palette.card.border}`,
 							borderRadius: '30px',
 							boxShadow: '0px 4px 8px rgba(0.5, 0.5, 0.5, 0.1)',
 							// backgroundColor: '#F7F8FA',
