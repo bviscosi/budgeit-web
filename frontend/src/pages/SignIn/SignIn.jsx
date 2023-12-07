@@ -4,7 +4,7 @@ import Left from './Left';
 import Right from './Right';
 
 //test
-const SignIn = () => {
+const SignIn = ({ handleLogin }) => {
 	const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
 
 	useEffect(() => {
@@ -20,9 +20,9 @@ const SignIn = () => {
 		};
 	}, []);
 	return (
-		<div className='row'>
+		<div className='row outline'>
 			{!isMobile && <Right />}
-			<Left />
+			<Left handleLogin={handleLogin} />
 		</div>
 	);
 };

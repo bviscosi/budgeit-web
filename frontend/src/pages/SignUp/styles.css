@@ -1,4 +1,4 @@
-.signin-container {
+.signup-container {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -10,7 +10,7 @@
    /* margin-right: 5rem; */
 }
 
-.signin-form {
+.signup-form {
    max-width: 400px;
    width: 100%;
    padding: 40px;
@@ -22,12 +22,9 @@
    justify-content: space-evenly;
    flex-direction: column;
 }
-.signin-form h2 {
-   padding: 10px;
-   text-align: center;
-}
 
-.signin-form input {
+
+.signup-form input {
       height: 3vh;
 
    width: 95%;
@@ -36,12 +33,12 @@
    border-radius: 5px;
 }
 
-.signin-form input:focus {
+.signup-form input:focus {
    outline: none;
    border-color: #6274e7;
 }
 
-.signin-form button {
+.signup-form button {
    width: 100%;
    padding: 1rem;
    border: none;
@@ -52,7 +49,7 @@
    cursor: pointer;
 }
 
-.signin-form button:hover {
+.signup-form button:hover {
    background-color: #6274e7;
 }
 
@@ -64,7 +61,6 @@
 }
 
 .sign-in-right {
-   background: linear-gradient(#242acf, #b57bee);
    color: #f7f7f7;
    width: 50vw;
    height: 100vh;

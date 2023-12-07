@@ -3,13 +3,13 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
 import { Box, Container, Paper, useTheme } from '@mui/material';
 
-const Home = () => {
+const Home = ({ handleLogout }) => {
 	const theme = useTheme(); // Accessing the theme
 
 	return (
 		<Box className='page' sx={{ backgroundColor: theme.palette.background.main }}>
 			<div style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '100%' }}>
-				<Sidebar />
+				<Sidebar handleLogout={handleLogout} />
 				<div
 					style={{
 						display: 'flex',

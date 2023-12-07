@@ -13,7 +13,7 @@ import Person from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
 import { sidebar } from './styles';
 
-const Sidebar = () => {
+const Sidebar = ({ handleLogout }) => {
 	const navigate = useNavigate();
 	const [active, setActive] = useState('settings');
 
@@ -101,7 +101,11 @@ const Sidebar = () => {
 				sx={{
 					color: active === 'settings' ? '#ffffff' : '#858585',
 				}}
-				onClick={() => handleSetActive('settings')}>
+				onClick={() => {
+					handleSetActive('settings');
+					handleLogout();
+					navigate('/sign-in');
+				}}>
 				<SettingsIcon
 					sx={{
 						// width: '3rem',

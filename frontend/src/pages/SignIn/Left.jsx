@@ -1,12 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@mui/material';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
+import { signInContainer, signInForm } from './styles';
+import { Button, Input, Typography, Container, Box, useTheme, TextField } from '@mui/material';
 
 axios.defaults.baseURL = 'http://localhost:5000/';
 
-const Left = () => {
+const Left = ({ handleLogin }) => {
+	const theme = useTheme(); // Accessing the theme
+
 	let navigate = useNavigate();
 
 	const [email, setEmail] = useState('');
@@ -18,6 +21,7 @@ const Left = () => {
 		try {
 			const response = await axios.post('/signIn', { email, password });
 			if (response.status === 200) {
+				handleLogin();
 				navigate('/home');
 			}
 		} catch (error) {
@@ -37,17 +41,14 @@ const Left = () => {
 		}
 	};
 	return (
-		<div className='signin-container'>
-			<form className='signin-form'>
+		<Container style={signInContainer} sx={{ backgroundColor: theme.palette.background.main }}>
+			<form style={signInForm}>
 				<div
 					style={{
 						display: 'flex',
-						alignItems: 'center',
 						justifyContent: 'center',
-						gap: '0.5rem',
 					}}>
 					<img src={b_logo} alt='' style={{ width: '8rem' }}></img>
-					{/* <h1 style={{ fontSize: '3rem', fontWeight: '700' }}>BudgeIt</h1> */}
 				</div>
 
 				<div
@@ -57,16 +58,37 @@ const Left = () => {
 						flexDirection: 'column',
 						justifyContent: 'space-evenly',
 					}}>
-					<h3>Email</h3>
+					<Typography variant='h5'>Email</Typography>
+
 					<input
+						style={{
+							backgroundColor: theme.palette.background.paper,
+							// height: '3rem',
+							borderRadius: '0.5rem',
+							padding: '1.5rem',
+							color: theme.palette.gray[1],
+							boxShadow: 'none',
+							borderStyle: 'none',
+							border: `1px solid ${theme.palette.gray[2]}`,
+						}}
 						type='email'
 						placeholder='Enter your email'
 						onChange={(e) => setEmail(e.target.value)}
 						onKeyPress={handleKeyPress} // Added keypress event handler
 					/>
-					<h3>Password</h3>
+					<Typography variant='h5'>Password</Typography>
 
 					<input
+						style={{
+							backgroundColor: theme.palette.background.paper,
+							// height: '3rem',
+							borderRadius: '0.5rem',
+							padding: '1.5rem',
+							color: theme.palette.gray[1],
+							boxShadow: 'none',
+							borderStyle: 'none',
+							border: `1px solid ${theme.palette.gray[2]}`,
+						}}
 						type='password'
 						placeholder='Enter your password'
 						onChange={(e) => setPassword(e.target.value)}
@@ -84,32 +106,51 @@ const Left = () => {
 								onChange={(e) => setRememberMe(e.target.checked)}
 								style={{ width: '10%' }}
 							/>
-							<p style={{ fontWeight: '600' }}>Remember me</p>
+							<Typography variant='p'>Remember me</Typography>
 						</div>
-						<div className='forgotpassword' onClick={() => navigate('/register')}>
+
+						<Typography
+							variant='p'
+							sx={{
+								width: '100%',
+								display: 'flex',
+								justifyContent: 'flex-end',
+								textAlign: 'flex-end',
+								color: '#007BFF',
+								cursor: 'pointer',
+							}}
+							onClick={() => navigate('/register')}>
 							Forgot Password?
-						</div>
+						</Typography>
 					</div>
 
-					<Button variant='contained' onClick={handleSignIn}>
-						Sign In
+					<Button
+						variant='contained'
+						sx={{ borderRadius: '1rem', padding: '0.75rem' }}
+						onClick={handleSignIn}>
+						<Typography variant='signInButton'>Sign In</Typography>
 					</Button>
 					<div
 						style={{
 							display: 'flex',
 							flexDirection: 'row',
+							alignItems: 'center',
+							justifyContent: 'center',
 							gap: '0.3rem',
 							marginTop: '1rem',
 						}}>
-						Not registered yet?
-						<div className='create-account-action' onClick={() => navigate('/sign-up')}>
+						<Typography variant='p'> Not registered yet?</Typography>
+						<Button
+							variant='text'
+							sx={{ textTransform: 'none' }}
+							onClick={() => navigate('/sign-up')}>
 							Create account
-						</div>
+						</Button>
 					</div>
 				</div>
 				{/* <h2 style={{ fontSize: '1.75rem' }}>Welcome Back</h2> */}
 			</form>
-		</div>
+		</Container>
 	);
 };
 

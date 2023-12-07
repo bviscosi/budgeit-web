@@ -10,7 +10,11 @@ const themes = {
 			accent: { main: '#000' },
 			gray: { 100: '#e3e3e3' },
 			card: { border: '#e6e8ec' },
-			background: { paper: '#f7f8fa', main: '#eff1f5' },
+			background: {
+				paper: '#f7f8fa',
+				main: '#eff1f5',
+				purpleGradient: 'linear-gradient(#242acf, #b57bee)',
+			},
 		},
 		typography: {
 			h1: {
@@ -44,7 +48,7 @@ const themes = {
 				color: '#272727',
 			},
 			p: {
-				fontSize: '2.5rem',
+				fontSize: '0.25rem',
 				fontWeight: 300,
 				color: '#272727',
 			},
@@ -56,8 +60,13 @@ const themes = {
 			secondary: { main: '#ff4081' },
 			// Define other colors for dark mode as needed
 			card: { border: '#424242' },
+			gray: { 1: '#bdbdbd', 2: '#424242' },
 
-			background: { paper: '#111415', main: '#0c0e0f' },
+			background: {
+				paper: '#111415',
+				main: '#0c0e0f',
+				purpleGradient: 'linear-gradient(#242acf, #b57bee)',
+			},
 		},
 		typography: {
 			h1: {
@@ -67,34 +76,44 @@ const themes = {
 				// color: '#9e9e9e',
 			},
 			h2: {
-				fontSize: '2.5rem',
+				fontSize: '2rem',
 				fontWeight: 500,
 				color: '#bdbdbd',
 			},
 			h3: {
-				fontSize: '2.5rem',
+				fontSize: '1.75rem',
 				fontWeight: 400,
 				color: '#9e9e9e',
 			},
 			h4: {
-				fontSize: '1.25rem',
+				fontSize: '1.5rem',
 				fontWeight: 300,
 				color: '#bdbdbd',
 			},
 			h5: {
-				fontSize: '2.5rem',
+				fontSize: '1.25rem',
 				fontWeight: 300,
 				color: '#f7f7f7',
 			},
 			h6: {
-				fontSize: '2.5rem',
+				fontSize: '1rem',
 				fontWeight: 300,
 				color: '#f7f7f7',
 			},
 			p: {
-				fontSize: '2.5rem',
+				fontSize: '1rem',
 				fontWeight: 300,
 				color: '#f7f7f7',
+			},
+			signInButton: {
+				fontSize: '1.5rem',
+				fontWeight: 600,
+				color: '#f7f7f7',
+			},
+			button: {
+				fontSize: '1.1rem',
+				fontWeight: 300,
+				color: '#6573c3',
 			},
 		},
 	},

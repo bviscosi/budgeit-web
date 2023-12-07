@@ -38,8 +38,8 @@ const Left = () => {
 		}
 	};
 	return (
-		<div className='signin-container'>
-			<form className='signin-form'>
+		<div className='signup-container'>
+			<form className='signup-form'>
 				<div
 					style={{
 						display: 'flex',
