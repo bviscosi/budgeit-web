@@ -18,7 +18,6 @@ const RoutesComponent = ({ toggleThemeMode }) => {
 	// Function to update isLoggedIn and local storage
 	const handleLogin = () => {
 		console.log('logged in');
-
 		setIsLoggedIn(true);
 		localStorage.setItem('isLoggedIn', true);
 	};
