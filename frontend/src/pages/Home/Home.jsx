@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
-import { Box, Container, Paper, useTheme } from '@mui/material';
+import { Box, Container, Grid, Paper, useTheme } from '@mui/material';
 
 const Home = ({ handleLogout }) => {
 	const theme = useTheme(); // Accessing the theme
@@ -19,8 +19,16 @@ const Home = ({ handleLogout }) => {
 					}}>
 					<Topbar></Topbar>
 
-					<div className='main'>
-						<div style={{ display: 'flex', height: '100%', width: '100%', gap: '2rem' }}>
+					{/* <div className='main'> */}
+					<Grid
+						container
+						spacing={{ xs: 2, sm: 2, md: 3 }}
+						sx={{
+							height: '100%',
+							width: '100%',
+							padding: '2rem',
+						}}>
+						<Grid item xs={6} md={6}>
 							<Paper
 								style={{
 									display: 'flex',
@@ -32,6 +40,8 @@ const Home = ({ handleLogout }) => {
 									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
 								}}></Paper>
+						</Grid>
+						<Grid item xs={6} md={6}>
 							<Paper
 								style={{
 									display: 'flex',
@@ -43,8 +53,8 @@ const Home = ({ handleLogout }) => {
 									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
 								}}></Paper>
-						</div>
-						<div style={{ display: 'flex', height: '100%', width: '100%', gap: '2rem' }}>
+						</Grid>
+						<Grid item xs={6} md={6}>
 							<Paper
 								style={{
 									display: 'flex',
@@ -56,6 +66,8 @@ const Home = ({ handleLogout }) => {
 									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
 								}}></Paper>
+						</Grid>
+						<Grid item xs={6} md={6}>
 							<Paper
 								style={{
 									display: 'flex',
@@ -67,19 +79,8 @@ const Home = ({ handleLogout }) => {
 									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
 								}}></Paper>
-							<Paper
-								style={{
-									display: 'flex',
-									height: '100%',
-									width: '100%',
-									// border: `1px solid ${theme.palette.card.border}`,
-									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
-
-									// backgroundColor: '#f7f8fa',
-									borderRadius: '20px',
-								}}></Paper>
-						</div>
-					</div>
+						</Grid>
+					</Grid>
 				</div>
 			</div>
 		</Box>
