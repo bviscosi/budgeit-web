@@ -19,7 +19,6 @@ const Home = ({ handleLogout }) => {
 					}}>
 					<Topbar></Topbar>
 
-					{/* <div className='main'> */}
 					<Grid
 						container
 						spacing={{ xs: 2, sm: 2, md: 3 }}
