@@ -53,7 +53,7 @@ const Left = ({ handleLogin }) => {
 
 				<div
 					style={{
-						height: '70%',
+						height: '69%',
 						display: 'flex',
 						flexDirection: 'column',
 						justifyContent: 'space-evenly',
