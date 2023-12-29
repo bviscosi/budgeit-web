@@ -44,25 +44,17 @@ const PLAID_COUNTRY_CODES = (process.env.PLAID_COUNTRY_CODES || 'US').split(',')
 
 recordRoutes.route('/createLinkToken').get(async (req, res) => {
 	try {
-		console.log('got in');
-
 		const response = await client.linkTokenCreate({
 			user: {
-				// This should be a unique identifier for the user
 				client_user_id: 'unique-user-id',
 			},
 			client_name: 'BudgeIt',
-			products: PLAID_PRODUCTS, // Specify the Plaid products you want to use
-			country_codes: PLAID_COUNTRY_CODES, // Adjust based on your needs
+			products: PLAID_PRODUCTS,
+			country_codes: PLAID_COUNTRY_CODES,
 			language: 'en',
-			// Add other configurations if needed
 		});
-
-		// console.log(response);
-
 		res.status(200).json(response.data);
 	} catch (error) {
-		console.log(error);
 		res.status(500).json({ error: error.toString() });
 	}
 });
