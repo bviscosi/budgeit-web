@@ -16,17 +16,19 @@ const PlaidLink = () => {
 		const fetchLinkToken = async () => {
 			const response = await axios.get('/createLinkToken');
 			setLinkToken(response.data.link_token);
-			console.log(response);
+			console.log('Got Link Token: ', response.data.link_token);
 		};
 
 		fetchLinkToken();
 	}, []);
 
 	useEffect(() => {
+		console.log('publicTokenUpdated: ', publicToken);
 		if (publicToken) {
 			const fetchLinkToken = async () => {
+				console.log('calling token-exchange');
 				const response = await axios.post('/token-exchange', { publicToken: publicToken });
-				console.log(response);
+				console.log('Got Access Token: ', response);
 			};
 
 			fetchLinkToken();
@@ -36,15 +38,13 @@ const PlaidLink = () => {
 	const plaidLinkConfig = {
 		token: linkToken,
 		onSuccess: (publicToken, metadata) => {
-			// Handle the successful linking here
-			console.log(publicToken);
 			setPublicToken(publicToken);
-			navigate('/home');
-			// console.log('Plaid Link Success:', publicToken, metadata);
+			// navigate('/home');
+			console.log('Got Public Token: ', publicToken);
 		},
 		onExit: (error, metadata) => {
 			// Handle the case when Plaid Link is exited
-			console.log('Plaid Link Exited:', error, metadata);
+			console.log('Plaid Link Exited: ', error, metadata);
 		},
 		// ... other configurations
 	};

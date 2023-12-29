@@ -10,8 +10,6 @@ require('dotenv').config({ path: './config.env' });
 const dbo = require('./db/conn');
 const recordRoutes = require('./routes/record');
 
-// const bodyParser = require('body-parser');
-
 // Constants
 const port = process.env.PORT || 5000;
 
@@ -21,7 +19,6 @@ const util = require('util');
 // Middleware
 app.use(cors());
 app.use(express.json());
-// app.use(bodyParser.json());
 
 // Routes
 app.use('/api', recordRoutes);

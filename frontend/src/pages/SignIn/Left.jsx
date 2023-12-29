@@ -4,7 +4,6 @@ import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signInContainer, signInForm } from './styles';
 import { Button, Input, Typography, Container, Box, useTheme, TextField } from '@mui/material';
-import { usePlaidLink } from 'react-plaid-link';
 
 axios.defaults.baseURL = 'http://localhost:5000/';
 
@@ -18,23 +17,12 @@ const Left = ({ handleLogin }) => {
 	const [errorMessage, setErrorMessage] = useState('');
 	const [rememberMe, setRememberMe] = useState(false);
 
-	// const handlePlaidSignIn = () => {
-	// 	if (readyPlaid) {
-	// 		openPlaid();
-	// 	} else {
-	// 		console.log('Plaid Link is not ready');
-	// 	}
-	// };
-
 	const handleSignIn = async () => {
 		try {
 			const response = await axios.post('/signIn', { email, password });
 			if (response.status === 200) {
+				console.log(response.data.accessToken);
 				navigate('/plaid-link');
-				// Optionally trigger Plaid Link after successful sign-in
-				// if (readyPlaid && linkToken) {
-				// 	openPlaid();
-				// }
 			}
 		} catch (error) {
 			console.log(error);
