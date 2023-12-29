@@ -9,8 +9,8 @@ recordRoutes.route('/signIn').post(async (req, res) => {
 		const { email, password } = req.body;
 		console.log(email, password);
 
-		client = getCloudDb();
-		const BudgeIt = client.db('BudgeIt');
+		cloudDb = getCloudDb();
+		const BudgeIt = cloudDb.db('BudgeIt');
 		const users = BudgeIt.collection('users');
 		const user = await users.findOne({ email: email });
 		if (!user) {

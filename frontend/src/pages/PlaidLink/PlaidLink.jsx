@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { usePlaidLink } from 'react-plaid-link';
+import { useNavigate } from 'react-router-dom';
 
 axios.defaults.baseURL = 'http://localhost:5000/';
 
 const PlaidLink = () => {
+	const navigate = useNavigate();
 	// New state for Plaid Link token
 	const [linkToken, setLinkToken] = useState(null);
 	const [publicToken, setPublicToken] = useState(null);
@@ -37,6 +39,7 @@ const PlaidLink = () => {
 			// Handle the successful linking here
 			console.log(publicToken);
 			setPublicToken(publicToken);
+			navigate('/home');
 			// console.log('Plaid Link Success:', publicToken, metadata);
 		},
 		onExit: (error, metadata) => {
@@ -54,7 +57,7 @@ const PlaidLink = () => {
 		}
 	}, [linkToken, openPlaid, readyPlaid]);
 
-	return <div>PlaidLink</div>;
+	return <div></div>;
 };
 
 export default PlaidLink;

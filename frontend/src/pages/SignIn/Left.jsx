@@ -30,7 +30,7 @@ const Left = ({ handleLogin }) => {
 		try {
 			const response = await axios.post('/signIn', { email, password });
 			if (response.status === 200) {
-				navigate('/PlaidLink');
+				navigate('/plaid-link');
 				// Optionally trigger Plaid Link after successful sign-in
 				// if (readyPlaid && linkToken) {
 				// 	openPlaid();
