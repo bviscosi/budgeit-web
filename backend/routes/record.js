@@ -59,10 +59,21 @@ recordRoutes.route('/createLinkToken').get(async (req, res) => {
 	}
 });
 
-recordRoutes.route('/getAccessToken').get(async (req, res) => {
+recordRoutes.route('/token-exchange').post(async (req, res) => {
+	// console.log(req.body);
 	try {
-		res.status(200).json({ message: 'getAccessToken' });
+		const { publicToken } = req.body;
+		// const response = await client.itemPublicTokenExchange({ public_token: publicToken });
+
+		const { access_token: accessToken } = await client.itemPublicTokenExchange({
+			public_token: publicToken,
+		});
+
+		console.log('accessToken: ' + accessToken);
+
+		res.status(200).json('success!');
 	} catch (error) {
+		console.log(error);
 		res.status(500).json({ error: error.toString() });
 	}
 });

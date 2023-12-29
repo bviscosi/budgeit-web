@@ -9,7 +9,7 @@ import { usePlaidLink } from 'react-plaid-link';
 axios.defaults.baseURL = 'http://localhost:5000/';
 
 const Left = ({ handleLogin }) => {
-	const theme = useTheme(); // Accessing the theme
+	const theme = useTheme();
 
 	let navigate = useNavigate();
 
@@ -20,50 +20,69 @@ const Left = ({ handleLogin }) => {
 
 	// New state for Plaid Link token
 	const [linkToken, setLinkToken] = useState(null);
+	const [publicToken, setPublicToken] = useState(null);
 
 	// Fetch the link_token from your backend
 	useEffect(() => {
 		const fetchLinkToken = async () => {
 			const response = await axios.get('/createLinkToken');
-			console.log(response);
 			setLinkToken(response.data.link_token);
+			console.log(response);
 		};
 
 		fetchLinkToken();
 	}, []);
 
+	useEffect(() => {
+		if (publicToken) {
+			const fetchLinkToken = async () => {
+				const response = await axios.post('/token-exchange', { publicToken: publicToken });
+				console.log(response);
+			};
+
+			fetchLinkToken();
+		}
+	}, [publicToken]);
+
 	const plaidLinkConfig = {
 		token: linkToken,
 		onSuccess: (publicToken, metadata) => {
-			// Handle Plaid Link success
+			// Handle the successful linking here
+			setPublicToken(publicToken);
 			console.log('Plaid Link Success:', publicToken, metadata);
-			// Optionally proceed to sign-in after successful Plaid Link operation
-			handleSignIn();
 		},
 		onExit: (error, metadata) => {
-			// Optionally handle the exit
+			// Handle the case when Plaid Link is exited
 			console.log('Plaid Link Exited:', error, metadata);
 		},
-		// Add other configurations as needed
+		// ... other configurations
 	};
 
 	const { open: openPlaid, ready: readyPlaid } = usePlaidLink(plaidLinkConfig);
 
-	const handlePlaidSignIn = () => {
-		if (readyPlaid) {
+	// const handlePlaidSignIn = () => {
+	// 	if (readyPlaid) {
+	// 		openPlaid();
+	// 	} else {
+	// 		console.log('Plaid Link is not ready');
+	// 	}
+	// };
+
+	useEffect(() => {
+		if (readyPlaid && linkToken) {
 			openPlaid();
-		} else {
-			console.log('Plaid Link is not ready');
 		}
-	};
+	}, [linkToken, openPlaid, readyPlaid]);
 
 	const handleSignIn = async () => {
 		try {
 			const response = await axios.post('/signIn', { email, password });
 			if (response.status === 200) {
-				// handleLogin();
-				handlePlaidSignIn();
-				navigate('/home');
+				// navigate('/home');
+				// Optionally trigger Plaid Link after successful sign-in
+				if (readyPlaid && linkToken) {
+					openPlaid();
+				}
 			}
 		} catch (error) {
 			console.log(error);
