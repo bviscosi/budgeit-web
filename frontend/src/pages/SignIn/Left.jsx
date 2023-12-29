@@ -48,8 +48,9 @@ const Left = ({ handleLogin }) => {
 		token: linkToken,
 		onSuccess: (publicToken, metadata) => {
 			// Handle the successful linking here
+			console.log(publicToken);
 			setPublicToken(publicToken);
-			console.log('Plaid Link Success:', publicToken, metadata);
+			// console.log('Plaid Link Success:', publicToken, metadata);
 		},
 		onExit: (error, metadata) => {
 			// Handle the case when Plaid Link is exited

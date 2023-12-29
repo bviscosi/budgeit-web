@@ -65,11 +65,11 @@ recordRoutes.route('/token-exchange').post(async (req, res) => {
 		const { publicToken } = req.body;
 		// const response = await client.itemPublicTokenExchange({ public_token: publicToken });
 
-		const { access_token: accessToken } = await client.itemPublicTokenExchange({
+		const response = await client.itemPublicTokenExchange({
 			public_token: publicToken,
 		});
 
-		console.log('accessToken: ' + accessToken);
+		console.log('accessToken: ' + response.data.access_token);
 
 		res.status(200).json('success!');
 	} catch (error) {
