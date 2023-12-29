@@ -63,16 +63,14 @@ recordRoutes.route('/createLinkToken').get(async (req, res) => {
 });
 
 recordRoutes.route('/token-exchange').post(async (req, res) => {
-	// console.log(req.body);
 	try {
-		const { publicToken } = req.body;
-		// const response = await client.itemPublicTokenExchange({ public_token: publicToken });
+		const { publicToken, userId } = req.body;
+		const response = await client.itemPublicTokenExchange({ public_token: publicToken });
+		const accessToken = response.data.access_token;
 
-		const response = await client.itemPublicTokenExchange({
-			public_token: publicToken,
-		});
-
-		console.log('accessToken: ' + response.data.access_token);
+		// Assuming 'users' is your MongoDB collection
+		const users = BudgeIt.collection('users');
+		await users.updateOne({ _id: userId }, { $set: { plaidAccessToken: accessToken } });
 
 		res.status(200).json('success!');
 	} catch (error) {
