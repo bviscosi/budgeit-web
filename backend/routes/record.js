@@ -4,8 +4,10 @@ const { getCloudDb } = require('../db/conn');
 const { client } = require('../db/Plaid');
 
 recordRoutes.route('/signIn').post(async (req, res) => {
+	console.log('signIn called');
 	try {
 		const { email, password } = req.body;
+		console.log(email, password);
 
 		client = getCloudDb();
 		const BudgeIt = client.db('BudgeIt');
@@ -19,6 +21,7 @@ recordRoutes.route('/signIn').post(async (req, res) => {
 			res.status(200).json({ message: 'Signed in successfully' });
 		}
 	} catch (error) {
+		console.log(error);
 		res.status(500).json({ error: error.toString() });
 	}
 });

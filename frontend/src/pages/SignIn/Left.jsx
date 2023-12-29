@@ -18,49 +18,6 @@ const Left = ({ handleLogin }) => {
 	const [errorMessage, setErrorMessage] = useState('');
 	const [rememberMe, setRememberMe] = useState(false);
 
-	// New state for Plaid Link token
-	const [linkToken, setLinkToken] = useState(null);
-	const [publicToken, setPublicToken] = useState(null);
-
-	// Fetch the link_token from your backend
-	useEffect(() => {
-		const fetchLinkToken = async () => {
-			const response = await axios.get('/createLinkToken');
-			setLinkToken(response.data.link_token);
-			console.log(response);
-		};
-
-		fetchLinkToken();
-	}, []);
-
-	useEffect(() => {
-		if (publicToken) {
-			const fetchLinkToken = async () => {
-				const response = await axios.post('/token-exchange', { publicToken: publicToken });
-				console.log(response);
-			};
-
-			fetchLinkToken();
-		}
-	}, [publicToken]);
-
-	const plaidLinkConfig = {
-		token: linkToken,
-		onSuccess: (publicToken, metadata) => {
-			// Handle the successful linking here
-			console.log(publicToken);
-			setPublicToken(publicToken);
-			// console.log('Plaid Link Success:', publicToken, metadata);
-		},
-		onExit: (error, metadata) => {
-			// Handle the case when Plaid Link is exited
-			console.log('Plaid Link Exited:', error, metadata);
-		},
-		// ... other configurations
-	};
-
-	const { open: openPlaid, ready: readyPlaid } = usePlaidLink(plaidLinkConfig);
-
 	// const handlePlaidSignIn = () => {
 	// 	if (readyPlaid) {
 	// 		openPlaid();
@@ -69,25 +26,18 @@ const Left = ({ handleLogin }) => {
 	// 	}
 	// };
 
-	useEffect(() => {
-		if (readyPlaid && linkToken) {
-			openPlaid();
-		}
-	}, [linkToken, openPlaid, readyPlaid]);
-
 	const handleSignIn = async () => {
 		try {
 			const response = await axios.post('/signIn', { email, password });
 			if (response.status === 200) {
-				// navigate('/home');
+				navigate('/PlaidLink');
 				// Optionally trigger Plaid Link after successful sign-in
-				if (readyPlaid && linkToken) {
-					openPlaid();
-				}
+				// if (readyPlaid && linkToken) {
+				// 	openPlaid();
+				// }
 			}
 		} catch (error) {
 			console.log(error);
-			// Handle other errors
 			if (error.response.status === 401) {
 				setErrorMessage('Invalid password. Please try again.');
 			} else if (error.response.status === 404) {

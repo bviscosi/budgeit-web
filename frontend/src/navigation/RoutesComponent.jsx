@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home/Home';
 import SignUp from '../pages/SignUp/SignUp';
 import SignIn from '../pages/SignIn/SignIn';
+import PlaidLink from '../pages/PlaidLink/PlaidLink';
 
 const RoutesComponent = ({ toggleThemeMode }) => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -44,6 +45,7 @@ const RoutesComponent = ({ toggleThemeMode }) => {
 			<Route path='/home' element={<Home handleLogout={handleLogout} />} />
 			<Route path='/sign-in' element={<SignIn handleLogin={handleLogin} />} />
 			<Route path='/sign-up' element={<SignUp />} />
+			<Route path='/plaid-link' element={<PlaidLink />} />
 		</Routes>
 	);
 };
