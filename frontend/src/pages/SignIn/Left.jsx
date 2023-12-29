@@ -1,9 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signInContainer, signInForm } from './styles';
 import { Button, Input, Typography, Container, Box, useTheme, TextField } from '@mui/material';
+import { usePlaidLink } from 'react-plaid-link';
 
 axios.defaults.baseURL = 'http://localhost:5000/';
 
@@ -17,11 +18,51 @@ const Left = ({ handleLogin }) => {
 	const [errorMessage, setErrorMessage] = useState('');
 	const [rememberMe, setRememberMe] = useState(false);
 
+	// New state for Plaid Link token
+	const [linkToken, setLinkToken] = useState(null);
+
+	// Fetch the link_token from your backend
+	useEffect(() => {
+		const fetchLinkToken = async () => {
+			const response = await axios.get('/createLinkToken');
+			console.log(response);
+			setLinkToken(response.data.link_token);
+		};
+
+		fetchLinkToken();
+	}, []);
+
+	const plaidLinkConfig = {
+		token: linkToken,
+		onSuccess: (publicToken, metadata) => {
+			// Handle Plaid Link success
+			console.log('Plaid Link Success:', publicToken, metadata);
+			// Optionally proceed to sign-in after successful Plaid Link operation
+			handleSignIn();
+		},
+		onExit: (error, metadata) => {
+			// Optionally handle the exit
+			console.log('Plaid Link Exited:', error, metadata);
+		},
+		// Add other configurations as needed
+	};
+
+	const { open: openPlaid, ready: readyPlaid } = usePlaidLink(plaidLinkConfig);
+
+	const handlePlaidSignIn = () => {
+		if (readyPlaid) {
+			openPlaid();
+		} else {
+			console.log('Plaid Link is not ready');
+		}
+	};
+
 	const handleSignIn = async () => {
 		try {
 			const response = await axios.post('/signIn', { email, password });
 			if (response.status === 200) {
-				handleLogin();
+				// handleLogin();
+				handlePlaidSignIn();
 				navigate('/home');
 			}
 		} catch (error) {

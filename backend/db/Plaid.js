@@ -1,10 +1,10 @@
 require('dotenv').config();
-const plaid = require('plaid');
+const { PlaidApi } = require('plaid');
 // Initialize the Plaid client
-const client = new plaid.Client({
+const client = new PlaidApi({
 	clientID: process.env.PLAID_CLIENT_ID,
 	secret: process.env.PLAID_SECRET,
-	env: plaid.environments.sandbox,
+	env: 'sandbox',
 });
 
 module.exports = {

@@ -1,6 +1,7 @@
 const express = require('express');
 const recordRoutes = express.Router();
 const { getCloudDb } = require('../db/conn');
+const { client } = require('../db/Plaid');
 
 recordRoutes.route('/signIn').post(async (req, res) => {
 	try {
@@ -30,9 +31,29 @@ recordRoutes.route('/signUp').get(async (req, res) => {
 	}
 });
 
+// recordRoutes.route('/createLinkToken').get(async (req, res) => {
+// 	try {
+// 		res.status(200).json({ message: 'got to backend' });
+// 	} catch (error) {
+// 		res.status(500).json({ error: error.toString() });
+// 	}
+// });
 recordRoutes.route('/createLinkToken').get(async (req, res) => {
 	try {
-		res.status(200).json({ message: 'createLinkToken' });
+		console.log('got in');
+		const response = await plaidClient.createLinkToken({
+			user: {
+				// This should be a unique identifier for the user
+				client_user_id: 'unique-user-id',
+			},
+			client_name: 'Your App Name',
+			products: ['auth', 'transactions'], // Specify the Plaid products you want to use
+			country_codes: ['US'], // Adjust based on your needs
+			language: 'en',
+			// Add other configurations if needed
+		});
+
+		res.status(200).json(response);
 	} catch (error) {
 		res.status(500).json({ error: error.toString() });
 	}
