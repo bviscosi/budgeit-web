@@ -38,23 +38,31 @@ recordRoutes.route('/signUp').get(async (req, res) => {
 // 		res.status(500).json({ error: error.toString() });
 // 	}
 // });
+
+const PLAID_PRODUCTS = (process.env.PLAID_PRODUCTS || Products.Transactions).split(',');
+const PLAID_COUNTRY_CODES = (process.env.PLAID_COUNTRY_CODES || 'US').split(',');
+
 recordRoutes.route('/createLinkToken').get(async (req, res) => {
 	try {
 		console.log('got in');
-		const response = await plaidClient.createLinkToken({
+
+		const response = await client.linkTokenCreate({
 			user: {
 				// This should be a unique identifier for the user
 				client_user_id: 'unique-user-id',
 			},
-			client_name: 'Your App Name',
-			products: ['auth', 'transactions'], // Specify the Plaid products you want to use
-			country_codes: ['US'], // Adjust based on your needs
+			client_name: 'BudgeIt',
+			products: PLAID_PRODUCTS, // Specify the Plaid products you want to use
+			country_codes: PLAID_COUNTRY_CODES, // Adjust based on your needs
 			language: 'en',
 			// Add other configurations if needed
 		});
 
-		res.status(200).json(response);
+		// console.log(response);
+
+		res.status(200).json(response.data);
 	} catch (error) {
+		console.log(error);
 		res.status(500).json({ error: error.toString() });
 	}
 });

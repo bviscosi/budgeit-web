@@ -1,6 +1,7 @@
 // Core Modules
 const express = require('express');
 const cors = require('cors');
+const app = express();
 
 // Configurations
 require('dotenv').config({ path: './config.env' });
@@ -9,17 +10,21 @@ require('dotenv').config({ path: './config.env' });
 const dbo = require('./db/conn');
 const recordRoutes = require('./routes/record');
 
+// const bodyParser = require('body-parser');
+
 // Constants
-const app = express();
 const port = process.env.PORT || 5000;
+
+const path = require('path');
+const util = require('util');
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+// app.use(bodyParser.json());
 
 // Routes
 app.use('/api', recordRoutes);
-
 app.use(require('./routes/record'));
 
 // Database Connection
