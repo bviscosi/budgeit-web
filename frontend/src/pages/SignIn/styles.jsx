@@ -4,7 +4,7 @@ export const signInContainer = {
 	alignItems: 'center',
 	justifyContent: 'center',
 	height: '100vh',
-	width: '50vw',
+	width: '100%',
 };
 
 export const signInForm = {

@@ -20,7 +20,7 @@ const SignIn = ({ handleLogin }) => {
 		};
 	}, []);
 	return (
-		<div className='row outline'>
+		<div className='row outline w100'>
 			{!isMobile && <Right />}
 			<Left handleLogin={handleLogin} />
 		</div>
