@@ -39,7 +39,7 @@ const PlaidLink = () => {
 		token: linkToken,
 		onSuccess: (publicToken, metadata) => {
 			setPublicToken(publicToken);
-			// navigate('/home');
+			navigate('/home');
 			console.log('Got Public Token: ', publicToken);
 		},
 		onExit: (error, metadata) => {

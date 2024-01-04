@@ -21,6 +21,7 @@ const Left = ({ handleLogin }) => {
 		try {
 			const response = await axios.post('/signIn', { email, password });
 			if (response.status === 200) {
+				handleLogin();
 				console.log(response.data.accessToken);
 				navigate('/plaid-link');
 			}
