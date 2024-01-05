@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
-import { Box, Container, Grid, Paper, useTheme } from '@mui/material';
+import { Box, Container, Grid, Paper, Typography, useTheme } from '@mui/material';
 
 const Home = ({ handleLogout }) => {
 	const theme = useTheme(); // Accessing the theme
@@ -38,7 +38,11 @@ const Home = ({ handleLogout }) => {
 
 									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
-								}}></Paper>
+								}}>
+								<Typography variant='h3' padding='1rem'>
+									Overview
+								</Typography>
+							</Paper>
 						</Grid>
 						<Grid item xs={6} md={6}>
 							<Paper
@@ -51,7 +55,11 @@ const Home = ({ handleLogout }) => {
 
 									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
-								}}></Paper>
+								}}>
+								<Typography variant='h3' padding='1rem'>
+									Budgets
+								</Typography>
+							</Paper>
 						</Grid>
 						<Grid item xs={6} md={6}>
 							<Paper
@@ -59,12 +67,17 @@ const Home = ({ handleLogout }) => {
 									display: 'flex',
 									height: '100%',
 									width: '100%',
+									// padding: '10px',
 									// border: `1px solid ${theme.palette.card.border}`,
 									boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
 
 									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
-								}}></Paper>
+								}}>
+								<Typography variant='h3' padding='1rem'>
+									Accounts
+								</Typography>
+							</Paper>
 						</Grid>
 						<Grid item xs={6} md={6}>
 							<Paper
