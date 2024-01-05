@@ -21,16 +21,24 @@ const Topbar = () => {
 					alignItems: 'center',
 					margin: '1rem',
 				}}>
-				<Typography
-					variant='h1'
-					fontWeight='bold'
+				<div
 					style={{
 						marginLeft: '2rem',
-						fontSize: '2.5rem',
-						// color: theme.palette.primary.main,
 					}}>
-					Dashboard
-				</Typography>
+					<Typography fontSize='24px' fontWeight='bold' color='#6475cc'>
+						Welcome back, Ben 👋
+					</Typography>
+					<Typography
+						variant='h1'
+						fontWeight='bold'
+						style={{
+							// marginLeft: '2rem',
+							fontSize: '2.5rem',
+							// color: theme.palette.primary.main,
+						}}>
+						Dashboard
+					</Typography>
+				</div>
 				<div className='row'>
 					<Button onClick={toggleThemeMode}>
 						<Paper style={lightModeButton}>
@@ -47,7 +55,7 @@ const Topbar = () => {
 						<div style={profileCircle}></div>
 
 						<Typography variant='h4' style={{ margin: '0', marginRight: '0.5rem' }}>
-							Benjamin
+							Ben Viscosi
 						</Typography>
 						<KeyboardArrowDownIcon />
 					</Button>

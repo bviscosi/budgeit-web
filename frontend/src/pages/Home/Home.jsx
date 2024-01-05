@@ -39,7 +39,7 @@ const Home = ({ handleLogout }) => {
 									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
 								}}>
-								<Typography variant='h3' padding='1rem'>
+								<Typography variant='h3' fontSize='24px' fontWeight='bold' padding='1rem'>
 									Overview
 								</Typography>
 							</Paper>
@@ -56,7 +56,7 @@ const Home = ({ handleLogout }) => {
 									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
 								}}>
-								<Typography variant='h3' padding='1rem'>
+								<Typography variant='h3' fontSize='24px' fontWeight='bold' padding='1rem'>
 									Budgets
 								</Typography>
 							</Paper>
@@ -74,7 +74,7 @@ const Home = ({ handleLogout }) => {
 									// backgroundColor: '#f7f8fa',
 									borderRadius: '20px',
 								}}>
-								<Typography variant='h3' padding='1rem'>
+								<Typography variant='h3' fontSize='24px' fontWeight='bold' padding='1rem'>
 									Accounts
 								</Typography>
 							</Paper>
