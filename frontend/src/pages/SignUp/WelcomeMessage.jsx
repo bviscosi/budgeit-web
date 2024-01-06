@@ -1,7 +1,7 @@
-import React from 'react';
 import { useTheme } from '@mui/material';
+import React from 'react';
 
-const Right = () => {
+const WelcomeMessage = () => {
 	const theme = useTheme(); // Accessing the theme
 
 	return (
@@ -23,9 +23,9 @@ const Right = () => {
 					justifyContent: 'center',
 				}}>
 				<div style={{ width: '50%' }}>
-					<h1 style={{ fontSize: '3rem', color: '#e6e8ec' }}>Welcome Back</h1>
+					<h1 style={{ fontSize: '3rem', color: '#e6e8ec' }}>Welcome</h1>
 					<h3 style={{ fontSize: '1.5rem', color: '#e6e8ec' }}>
-						Please login to access your account
+						Please sign up to create your account
 					</h3>
 				</div>
 			</div>
@@ -33,4 +33,4 @@ const Right = () => {
 	);
 };
 
-export default Right;
+export default WelcomeMessage;

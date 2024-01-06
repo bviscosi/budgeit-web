@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import './styles.css';
 
 import Left from './SignUpForm';
-import Right from './Right';
+import Right from './WelcomeMessage';
 
 //test
 const SignUp = () => {

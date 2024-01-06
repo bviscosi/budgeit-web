@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 import Left from './SignInForm';
-import Right from './Right';
+import Right from './WelcomeMessage';
 
 //test
 const SignIn = ({ handleLogin }) => {

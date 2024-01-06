@@ -1,55 +1,54 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { Button, Typography, Container, useTheme } from '@mui/material';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
-import './styles.css';
-
-axios.defaults.baseURL = 'http://localhost:5000/';
+import { signUpContainer, signUpForm } from './styles';
 
 const SignUpForm = ({ handleLogin }) => {
 	let navigate = useNavigate();
 
+	const theme = useTheme();
+
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [errorMessage, setErrorMessage] = useState('');
-	const [rememberMe, setRememberMe] = useState(false);
+	const [rememberMe, setRememberMe] = useState(false); // If you plan to use this, add a checkbox in the form
 
-	const handleSignIn = async () => {
+	const handleSignUp = async (e) => {
+		e.preventDefault(); // Prevent default form submission
+
 		try {
 			const response = await axios.post('/signUp', { email, password });
-			if (response.status === 200) {
-				handleLogin();
+			if (response.status === 201) {
+				// Adjust status code based on your backend
+				handleLogin(); // Make sure this function correctly sets the logged-in state
 				navigate('/plaid-link');
 			}
 		} catch (error) {
-			console.log(error);
-			// Handle other errors
-			if (error.response.status === 401) {
-				setErrorMessage('Invalid password. Please try again.');
-			} else if (error.response.status === 404) {
-				setErrorMessage('User not found. Please try again.');
+			if (error.response) {
+				if (error.response.status === 401) {
+					setErrorMessage('Invalid password. Please try again.');
+				} else if (error.response.status === 404) {
+					setErrorMessage('User not found. Please try again.');
+				} else {
+					setErrorMessage('An error occurred. Please try again.');
+				}
+			} else {
+				setErrorMessage('An unexpected error occurred. Please try again.');
 			}
 		}
 	};
 
-	const handleKeyPress = (e) => {
-		if (e.key === 'Enter') {
-			handleSignIn();
-		}
-	};
 	return (
-		<div className='signup-container'>
-			<form className='signup-form'>
+		<Container style={signUpContainer} sx={{ backgroundColor: theme.palette.background.main }}>
+			<form style={signUpForm} onSubmit={handleSignUp}>
 				<div
 					style={{
 						display: 'flex',
-						alignItems: 'center',
 						justifyContent: 'center',
-						gap: '0.5rem',
 					}}>
 					<img src={b_logo} alt='' style={{ width: '8rem' }}></img>
-					{/* <h1 style={{ fontSize: '3rem', fontWeight: '700' }}>BudgeIt</h1> */}
 				</div>
 
 				<div
@@ -59,44 +58,65 @@ const SignUpForm = ({ handleLogin }) => {
 						flexDirection: 'column',
 						justifyContent: 'space-evenly',
 					}}>
-					<h3>Email</h3>
+					<label htmlFor='email'>Email</label>
 					<input
+						id='email'
 						type='email'
 						placeholder='Enter your email'
+						value={email}
 						onChange={(e) => setEmail(e.target.value)}
-						onKeyPress={handleKeyPress} // Added keypress event handler
 					/>
-					<h3>Password</h3>
 
+					<label htmlFor='password'>Password</label>
 					<input
+						id='password'
 						type='password'
 						placeholder='Enter your password'
+						value={password}
 						onChange={(e) => setPassword(e.target.value)}
-						onKeyPress={handleKeyPress} // Added keypress event handler
 					/>
 
 					{errorMessage && <div className='error-message'>{errorMessage}</div>}
-					<div className='row  jcsb aic'></div>
 
-					<Button variant='contained' onClick={handleSignIn}>
-						Sign Up
+					<div className='row  w100 aic' style={{ gap: '0.5rem' }}>
+						<input
+							type='checkbox'
+							id='rememberMe'
+							name='rememberMe'
+							checked={rememberMe}
+							onChange={(e) => setRememberMe(e.target.checked)}
+							style={{ width: '10%' }}
+						/>
+						<Typography variant='p'>Remember me</Typography>
+					</div>
+
+					<Button
+						variant='contained'
+						sx={{ borderRadius: '1rem', padding: '0.75rem' }}
+						type='submit'>
+						<Typography variant='signInButton'>Sign Up</Typography>
 					</Button>
+
 					<div
 						style={{
 							display: 'flex',
 							flexDirection: 'row',
+							alignItems: 'center',
+							justifyContent: 'center',
 							gap: '0.3rem',
 							marginTop: '1rem',
 						}}>
-						Already have an account?
-						<div className='create-account-action' onClick={() => navigate('/sign-in')}>
-							Sign in
-						</div>
+						<Typography variant='p'> Already have an account?</Typography>
+						<Button
+							variant='text'
+							sx={{ textTransform: 'none' }}
+							onClick={() => navigate('/sign-in')}>
+							Sign In
+						</Button>
 					</div>
 				</div>
-				{/* <h2 style={{ fontSize: '1.75rem' }}>Welcome Back</h2> */}
 			</form>
-		</div>
+		</Container>
 	);
 };
 

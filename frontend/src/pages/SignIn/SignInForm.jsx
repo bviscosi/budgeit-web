@@ -125,8 +125,8 @@ const SignInForm = ({ handleLogin }) => {
 					</div>
 
 					<Button
-						variant='contained'
-						sx={{ borderRadius: '1rem', padding: '0.75rem' }}
+					variant='contained'
+						sx={{ borderRadius: '1rem', padding: '0.75rem' }}	
 						onClick={handleSignIn}>
 						<Typography variant='signInButton'>Sign In</Typography>
 					</Button>
