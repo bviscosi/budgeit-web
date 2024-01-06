@@ -15,7 +15,7 @@ import { sidebar } from './styles';
 
 const Sidebar = () => {
 	const navigate = useNavigate();
-	const [active, setActive] = useState('settings');
+	const [active, setActive] = useState('dashboard');
 
 	const handleSetActive = (page) => {
 		setActive(page);
