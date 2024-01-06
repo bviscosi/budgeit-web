@@ -1,15 +1,9 @@
-import { Button, Paper, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import React from 'react';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { profileCircle, lightModeButton } from './styles.jsx';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import { useTheme } from '../../../../context/ThemeContext.jsx';
+import ThemeModeToggle from './ThemeModeToggle/ThemeModeToggle';
+import UserDropdown from './UserDropdown/UserDropdown';
 
 const Topbar = () => {
-	const { theme, toggleThemeMode } = useTheme();
-
 	return (
 		<div>
 			<div
@@ -40,25 +34,8 @@ const Topbar = () => {
 					</Typography>
 				</div>
 				<div className='row'>
-					<Button onClick={toggleThemeMode}>
-						<Paper style={lightModeButton}>
-							<DarkModeIcon />
-						</Paper>
-					</Button>
-					<Button
-						sx={{
-							border: `1px solid ${theme.palette.card.border}`,
-							borderRadius: '30px',
-							boxShadow: '0px 4px 8px rgba(0.5, 0.5, 0.5, 0.1)',
-							// backgroundColor: '#F7F8FA',
-						}}>
-						<div style={profileCircle}></div>
-
-						<Typography variant='h4' style={{ margin: '0', marginRight: '0.5rem' }}>
-							Ben Viscosi
-						</Typography>
-						<KeyboardArrowDownIcon />
-					</Button>
+					<ThemeModeToggle />
+					<UserDropdown />
 				</div>
 			</div>
 			{/* <hr /> */}
