@@ -7,57 +7,80 @@ axios.defaults.baseURL = 'http://localhost:5000/';
 
 const PlaidLink = () => {
 	const navigate = useNavigate();
-	// New state for Plaid Link token
+
+	// State for Plaid Link token and public token
 	const [linkToken, setLinkToken] = useState(null);
 	const [publicToken, setPublicToken] = useState(null);
+
+	// Function to add JWT to Axios request headers
+	const addJwtHeader = () => {
+		const token = localStorage.getItem('token');
+		return token ? { Authorization: `Bearer ${token}` } : {};
+	};
 
 	// Fetch the link_token from your backend
 	useEffect(() => {
 		const fetchLinkToken = async () => {
-			const response = await axios.get('/createLinkToken');
-			setLinkToken(response.data.link_token);
-			console.log('Got Link Token: ', response.data.link_token);
+			try {
+				const response = await axios.get('/createLinkToken', { headers: addJwtHeader() });
+				setLinkToken(response.data.link_token);
+			} catch (error) {
+				console.error('Error fetching link token: ', error);
+				// Optionally, handle the error in the UI
+			}
 		};
 
 		fetchLinkToken();
 	}, []);
 
+	// Exchange public token for an access token
 	useEffect(() => {
-		console.log('publicTokenUpdated: ', publicToken);
 		if (publicToken) {
-			const fetchLinkToken = async () => {
-				console.log('calling token-exchange');
-				const response = await axios.post('/token-exchange', { publicToken: publicToken });
-				console.log('Got Access Token: ', response);
+			const exchangeToken = async () => {
+				try {
+					const response = await axios.post(
+						'/token-exchange',
+						{ publicToken },
+						{ headers: addJwtHeader() }
+					);
+					console.log('Access Token Exchange Response: ', response);
+					// Optionally, handle the response or navigate to another route
+				} catch (error) {
+					console.error('Error exchanging public token: ', error);
+					// Optionally, handle the error in the UI
+				}
 			};
 
-			fetchLinkToken();
+			exchangeToken();
 		}
 	}, [publicToken]);
 
+	// Configuration for Plaid Link
 	const plaidLinkConfig = {
 		token: linkToken,
 		onSuccess: (publicToken, metadata) => {
 			setPublicToken(publicToken);
 			navigate('/home');
-			console.log('Got Public Token: ', publicToken);
+			console.log('Public Token: ', publicToken);
 		},
 		onExit: (error, metadata) => {
-			// Handle the case when Plaid Link is exited
 			console.log('Plaid Link Exited: ', error, metadata);
+			// Optionally, handle the exit scenario in the UI
 		},
-		// ... other configurations
+		// Add other configurations as needed
 	};
 
+	// Initialize Plaid Link with the configuration
 	const { open: openPlaid, ready: readyPlaid } = usePlaidLink(plaidLinkConfig);
 
+	// Automatically open Plaid Link when ready
 	useEffect(() => {
 		if (readyPlaid && linkToken) {
 			openPlaid();
 		}
 	}, [linkToken, openPlaid, readyPlaid]);
 
-	return <div></div>;
+	return <div>{/* You can add additional UI elements here if needed */}</div>;
 };
 
 export default PlaidLink;
