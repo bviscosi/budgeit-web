@@ -40,6 +40,12 @@ const SignUpForm = ({ handleLogin }) => {
 		}
 	};
 
+	const handleKeyPress = (e) => {
+		if (e.key === 'Enter') {
+			handleSignUp();
+		}
+	};
+
 	return (
 		<Container style={signUpContainer} sx={{ backgroundColor: theme.palette.background.main }}>
 			<form style={signUpForm} onSubmit={handleSignUp}>
@@ -50,21 +56,29 @@ const SignUpForm = ({ handleLogin }) => {
 					}}>
 					<img src={b_logo} alt='' style={{ width: '8rem' }}></img>
 				</div>
-
 				<div
 					style={{
-						height: '70%',
+						height: '69%',
 						display: 'flex',
 						flexDirection: 'column',
 						justifyContent: 'space-evenly',
 					}}>
-					<label htmlFor='email'>Email</label>
+					<Typography variant='h5'>Email</Typography>
 					<input
-						id='email'
+						style={{
+							backgroundColor: theme.palette.background.paper,
+							// height: '3rem',
+							borderRadius: '0.5rem',
+							padding: '1.5rem',
+							color: theme.palette.gray[1],
+							boxShadow: 'none',
+							borderStyle: 'none',
+							border: `1px solid ${theme.palette.gray[2]}`,
+						}}
 						type='email'
 						placeholder='Enter your email'
-						value={email}
 						onChange={(e) => setEmail(e.target.value)}
+						onKeyPress={handleKeyPress} // Added keypress event handler
 					/>
 
 					<label htmlFor='password'>Password</label>
