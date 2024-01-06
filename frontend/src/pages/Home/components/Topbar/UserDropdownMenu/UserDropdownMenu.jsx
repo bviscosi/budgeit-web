@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Typography, Menu, MenuItem, styled } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -13,6 +13,7 @@ const StyledMenu = styled(Menu)(({ theme }) => ({
 		backgroundColor: '#2c2c2c',
 		color: 'white',
 		boxShadow: '0px 4px 8px rgba(0.5, 0.5, 0.5, 0.1)',
+		marginTop: theme.spacing(1),
 	},
 }));
 
@@ -21,6 +22,7 @@ const UserDropdownMenu = ({ handleLogout }) => {
 	const navigate = useNavigate();
 	const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);
+	const buttonRef = useRef(null); // Reference to the button
 
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -33,25 +35,40 @@ const UserDropdownMenu = ({ handleLogout }) => {
 	return (
 		<>
 			<Button
+				ref={buttonRef} // Attach the ref to the button
 				sx={{
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'space-between', // This will ensure spacing around the name and icon
 					border: '1px solid #474747',
 					borderRadius: '30px',
 					boxShadow: '0px 4px 8px rgba(0.5, 0.5, 0.5, 0.1)',
 					textTransform: 'none',
 					color: 'white',
 					padding: 1,
-					marginRight: 2,
+					width: '200px', // Specify the width to match the menu width
 					'&:hover': {
 						backgroundColor: 'rgba(255, 255, 255, 0.08)',
 					},
 				}}
 				onClick={handleClick}
 				endIcon={open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}>
-				<Typography variant='h6' component='span' sx={{ marginRight: 1 }}>
+				<Typography variant='h6' component='span' sx={{ flexGrow: 1, textAlign: 'center' }}>
 					Ben Viscosi
 				</Typography>
 			</Button>
-			<StyledMenu anchorEl={anchorEl} open={open} onClose={handleClose}>
+			<StyledMenu
+				anchorEl={anchorEl}
+				open={open}
+				onClose={handleClose}
+				MenuListProps={{
+					'aria-labelledby': 'basic-button',
+				}}
+				PaperProps={{
+					style: {
+						width: buttonRef.current ? buttonRef.current.clientWidth : undefined, // Set the width of the menu
+					},
+				}}>
 				<MenuItem
 					onClick={() => {
 						handleLogout();
