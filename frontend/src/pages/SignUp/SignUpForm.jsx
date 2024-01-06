@@ -7,7 +7,7 @@ import './styles.css';
 
 axios.defaults.baseURL = 'http://localhost:5000/';
 
-const Left = () => {
+const SignUpForm = ({ handleLogin }) => {
 	let navigate = useNavigate();
 
 	const [email, setEmail] = useState('');
@@ -17,9 +17,10 @@ const Left = () => {
 
 	const handleSignIn = async () => {
 		try {
-			const response = await axios.post('/signIn', { email, password });
+			const response = await axios.post('/signUp', { email, password });
 			if (response.status === 200) {
-				navigate('/home');
+				handleLogin();
+				navigate('/plaid-link');
 			}
 		} catch (error) {
 			console.log(error);
@@ -99,4 +100,4 @@ const Left = () => {
 	);
 };
 
-export default Left;
+export default SignUpForm;

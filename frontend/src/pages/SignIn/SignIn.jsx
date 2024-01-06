@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import Left from './Left';
+import Left from './SignInForm';
 import Right from './Right';
 
 //test

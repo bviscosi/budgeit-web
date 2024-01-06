@@ -44,7 +44,7 @@ const RoutesComponent = ({ toggleThemeMode }) => {
 			/>
 			<Route path='/home' element={<Home handleLogout={handleLogout} />} />
 			<Route path='/sign-in' element={<SignIn handleLogin={handleLogin} />} />
-			<Route path='/sign-up' element={<SignUp />} />
+			<Route path='/sign-up' element={<SignUp handleLogin={handleLogin} />} />
 			<Route path='/plaid-link' element={<PlaidLink />} />
 		</Routes>
 	);

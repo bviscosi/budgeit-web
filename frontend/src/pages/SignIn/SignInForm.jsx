@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signInContainer, signInForm } from './styles';
-import { Button, Input, Typography, Container, Box, useTheme, TextField } from '@mui/material';
+import { Button, Typography, Container, useTheme } from '@mui/material';
 
 axios.defaults.baseURL = 'http://localhost:5000/';
 
-const Left = ({ handleLogin }) => {
+const SignInForm = ({ handleLogin }) => {
 	const theme = useTheme();
 
 	let navigate = useNavigate();
@@ -154,4 +154,4 @@ const Left = ({ handleLogin }) => {
 	);
 };
 
-export default Left;
+export default SignInForm;
