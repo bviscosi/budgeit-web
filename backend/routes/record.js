@@ -51,9 +51,13 @@ recordRoutes.route('/signUp').post(async (req, res) => {
 		const newUser = await users.insertOne({ email: email, password: hashedPassword });
 
 		// Generate JWT Token
-		const token = jwt.sign({ userId: newUser.insertedId, email: email }, process.env.JWT_SECRET, {
-			expiresIn: '1h',
-		});
+		const token = jwt.sign(
+			{ userId: newUser.insertedId, email: email },
+			process.env.JWT_ACCESS_TOKEN_SECRET,
+			{
+				expiresIn: '1h',
+			}
+		);
 
 		// Send the JWT in the response
 		res.status(201).json({ message: 'User created successfully', token: token });
