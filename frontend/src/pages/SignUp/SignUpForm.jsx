@@ -21,6 +21,7 @@ const SignUpForm = ({ handleLogin }) => {
 			const response = await axios.post('/signUp', { email, password });
 			if (response.status === 201) {
 				localStorage.setItem('token', response.data.token);
+				console.log(response.data.token);
 				handleLogin(); // Make sure this function correctly sets the logged-in state
 				navigate('/plaid-link');
 			}

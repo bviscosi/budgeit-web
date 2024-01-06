@@ -18,7 +18,7 @@ const PlaidLink = () => {
 		return token ? { Authorization: `Bearer ${token}` } : {};
 	};
 
-	// Fetch the link_token from your backend
+	// Fetch link_token from backend
 	useEffect(() => {
 		const fetchLinkToken = async () => {
 			try {
@@ -44,23 +44,21 @@ const PlaidLink = () => {
 						{ headers: addJwtHeader() }
 					);
 					console.log('Access Token Exchange Response: ', response);
-					// Optionally, handle the response or navigate to another route
+					navigate('/home');
 				} catch (error) {
 					console.error('Error exchanging public token: ', error);
-					// Optionally, handle the error in the UI
 				}
 			};
 
 			exchangeToken();
 		}
-	}, [publicToken]);
+	}, [navigate, publicToken]);
 
 	// Configuration for Plaid Link
 	const plaidLinkConfig = {
 		token: linkToken,
 		onSuccess: (publicToken, metadata) => {
 			setPublicToken(publicToken);
-			navigate('/home');
 			console.log('Public Token: ', publicToken);
 		},
 		onExit: (error, metadata) => {

@@ -1,26 +1,50 @@
 const express = require('express');
-const recordRoutes = express.Router();
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const { getCloudDb } = require('../db/conn');
 const { client } = require('../db/Plaid');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const ObjectId = require('mongodb').ObjectId;
 
+const recordRoutes = express.Router();
+
+// JWT Verification Middleware
+const authenticateJWT = (req, res, next) => {
+	const authHeader = req.headers.authorization;
+	const token = authHeader && authHeader.split(' ')[1];
+
+	if (token == null) {
+		return res.sendStatus(401);
+	}
+
+	jwt.verify(token, process.env.JWT_ACCESS_TOKEN_SECRET, (err, user) => {
+		if (err) {
+			return res.sendStatus(403);
+		}
+		req.user = user;
+		next();
+	});
+};
+
+// SignIn Route
 recordRoutes.route('/signIn').post(async (req, res) => {
-	console.log('signIn called');
 	try {
 		const { email, password } = req.body;
-		cloudDb = getCloudDb();
+		const cloudDb = getCloudDb();
 		const BudgeIt = cloudDb.db('BudgeIt');
 		const users = BudgeIt.collection('users');
 		const user = await users.findOne({ email: email });
 
 		if (!user) {
-			res.status(404).json({ message: 'User not found. Please try again.' });
+			return res.status(404).json({ message: 'User not found. Please try again.' });
 		} else if (!(await bcrypt.compare(password, user.password))) {
-			res.status(401).json({ message: 'Invalid password. Please try again.' });
+			return res.status(401).json({ message: 'Invalid password. Please try again.' });
 		} else {
-			const accessToken = jwt.sign(email, process.env.JWT_ACCESS_TOKEN_SECRET);
-			res.status(200).json({ accessToken: accessToken });
+			const accessToken = jwt.sign(
+				{ userId: user._id, email },
+				process.env.JWT_ACCESS_TOKEN_SECRET,
+				{ expiresIn: '1h' }
+			);
+			res.status(200).json({ accessToken });
 		}
 	} catch (error) {
 		console.log(error);
@@ -28,38 +52,30 @@ recordRoutes.route('/signIn').post(async (req, res) => {
 	}
 });
 
+// SignUp Route
 recordRoutes.route('/signUp').post(async (req, res) => {
 	try {
 		const { email, password } = req.body;
-
-		// Hashing the password
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(password, salt);
 
-		// Connect to the database
 		const cloudDb = getCloudDb();
 		const BudgeIt = cloudDb.db('BudgeIt');
 		const users = BudgeIt.collection('users');
 
-		// Check if user already exists
 		const existingUser = await users.findOne({ email: email });
 		if (existingUser) {
 			return res.status(400).json({ message: 'User already exists' });
 		}
 
-		// Insert new user
 		const newUser = await users.insertOne({ email: email, password: hashedPassword });
 
-		// Generate JWT Token
 		const token = jwt.sign(
-			{ userId: newUser.insertedId, email: email },
+			{ userId: newUser.insertedId.toString(), email: email },
 			process.env.JWT_ACCESS_TOKEN_SECRET,
-			{
-				expiresIn: '1h',
-			}
+			{ expiresIn: '1h' }
 		);
 
-		// Send the JWT in the response
 		res.status(201).json({ message: 'User created successfully', token: token });
 	} catch (error) {
 		console.log(error);
@@ -67,33 +83,16 @@ recordRoutes.route('/signUp').post(async (req, res) => {
 	}
 });
 
-recordRoutes.route('/authenticateToken').post(async (req, res) => {
-	try {
-		const authHeader = req.headers['authorization'];
-		const token = authHeader && authHeader.split(' ')[1];
-		if (token == null) {
-			res.status(401).json({ message: 'Invalid JWT Access Token' });
-		} else {
-			jwt.verify(token, process.env.accessToken);
-		}
-		res.status(200).json({ message: 'got to backend' });
-	} catch (error) {
-		res.status(500).json({ error: error.toString() });
-	}
-});
-
-const PLAID_PRODUCTS = (process.env.PLAID_PRODUCTS || Products.Transactions).split(',');
-const PLAID_COUNTRY_CODES = (process.env.PLAID_COUNTRY_CODES || 'US').split(',');
-
-recordRoutes.route('/createLinkToken').get(async (req, res) => {
+// Protected Route: Create Link Token for Plaid
+recordRoutes.route('/createLinkToken').get(authenticateJWT, async (req, res) => {
 	try {
 		const response = await client.linkTokenCreate({
 			user: {
-				client_user_id: 'unique-user-id',
+				client_user_id: req.user.userId, // Use the userId from JWT
 			},
 			client_name: 'BudgeIt',
-			products: PLAID_PRODUCTS,
-			country_codes: PLAID_COUNTRY_CODES,
+			products: process.env.PLAID_PRODUCTS.split(','),
+			country_codes: process.env.PLAID_COUNTRY_CODES.split(','),
 			language: 'en',
 		});
 		res.status(200).json(response.data);
@@ -102,23 +101,23 @@ recordRoutes.route('/createLinkToken').get(async (req, res) => {
 	}
 });
 
-recordRoutes.route('/token-exchange').post(async (req, res) => {
-	console.log('tokenExchange called');
+// Protected Route: Token Exchange
+recordRoutes.route('/token-exchange').post(authenticateJWT, async (req, res) => {
 	try {
 		const { publicToken } = req.body;
 		const response = await client.itemPublicTokenExchange({ public_token: publicToken });
 		const accessToken = response.data.access_token;
 
-		// Assuming 'users' is your MongoDB collection
-		cloudDb = getCloudDb();
+		const cloudDb = getCloudDb();
 		const BudgeIt = cloudDb.db('BudgeIt');
 		const users = BudgeIt.collection('users');
+
 		await users.updateOne(
-			{ _id: '656555b208ac2f652604a149' },
+			{ _id: new ObjectId(req.user.userId) },
 			{ $set: { plaidAccessToken: accessToken } }
 		);
 
-		res.status(200).json('success!');
+		res.status(200).json('Access token saved successfully');
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: error.toString() });
