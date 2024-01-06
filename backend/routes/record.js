@@ -27,9 +27,29 @@ recordRoutes.route('/signIn').post(async (req, res) => {
 	}
 });
 
-recordRoutes.route('/signUp').get(async (req, res) => {
+recordRoutes.route('/signUp').post(async (req, res) => {
 	try {
-		res.status(200).json({ message: 'Signed up successfully' });
+		const { email, password } = req.body;
+
+		// Hashing the password
+		const salt = await bcrypt.genSalt(10);
+		const hashedPassword = await bcrypt.hash(password, salt);
+
+		// Store user with hashed password
+		const cloudDb = getCloudDb();
+		const BudgeIt = cloudDb.db('BudgeIt');
+		const users = BudgeIt.collection('users');
+
+		// Check if user already exists
+		const existingUser = await users.findOne({ email: email });
+		if (existingUser) {
+			return res.status(400).json({ message: 'User already exists' });
+		}
+
+		// Insert new user
+		await users.insertOne({ email: email, password: hashedPassword });
+
+		res.status(201).json({ message: 'User created successfully' });
 	} catch (error) {
 		res.status(500).json({ error: error.toString() });
 	}
