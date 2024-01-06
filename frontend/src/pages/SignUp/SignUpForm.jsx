@@ -17,21 +17,28 @@ const SignUpForm = ({ handleLogin }) => {
 
 	const handleSignUp = async () => {
 		try {
-			console.log(email, password);
+			console.log(email, password); // Consider removing console logs in production
 			const response = await axios.post('/signUp', { email, password });
 			if (response.status === 201) {
+				localStorage.setItem('token', response.data.token);
 				handleLogin(); // Make sure this function correctly sets the logged-in state
 				navigate('/plaid-link');
 			}
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 			if (error.response) {
-				if (error.response.status === 401) {
-					setErrorMessage('Invalid password. Please try again.');
-				} else if (error.response.status === 404) {
-					setErrorMessage('User not found. Please try again.');
-				} else {
-					setErrorMessage('An error occurred. Please try again.');
+				switch (error.response.status) {
+					case 400:
+						setErrorMessage('User already exists.');
+						break;
+					case 401:
+						setErrorMessage('Invalid password. Please try again.');
+						break;
+					case 404:
+						setErrorMessage('User not found. Please try again.');
+						break;
+					default:
+						setErrorMessage('An error occurred. Please try again.');
 				}
 			} else {
 				setErrorMessage('An unexpected error occurred. Please try again.');
