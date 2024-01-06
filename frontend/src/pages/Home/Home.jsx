@@ -3,6 +3,8 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
 import { Box, Container, Grid, Paper, Typography, useTheme } from '@mui/material';
 import axios from 'axios';
+import Loading from './components/Loading/Loading';
+import Error from './components/Error/Error';
 
 const Home = ({ handleLogout }) => {
 	const theme = useTheme(); // Accessing the theme
@@ -44,8 +46,8 @@ const Home = ({ handleLogout }) => {
 
 	return (
 		<Box className='page' sx={{ backgroundColor: theme.palette.background.main }}>
-			{loading && <p>Loading transactions...</p>}
-			{error && <p>Error: {error}</p>}
+			{loading && <Loading />}
+			{error && <Error />}
 			{!error && !loading && (
 				<div style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '100%' }}>
 					<Sidebar handleLogout={handleLogout} />
