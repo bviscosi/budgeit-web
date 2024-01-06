@@ -15,7 +15,7 @@ recordRoutes.route('/signIn').post(async (req, res) => {
 
 		if (!user) {
 			res.status(404).json({ message: 'User not found. Please try again.' });
-		} else if (user.password !== password) {
+		} else if (!(await bcrypt.compare(password, user.password))) {
 			res.status(401).json({ message: 'Invalid password. Please try again.' });
 		} else {
 			const accessToken = jwt.sign(email, process.env.JWT_ACCESS_TOKEN_SECRET);
