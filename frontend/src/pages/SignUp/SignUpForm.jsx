@@ -81,27 +81,38 @@ const SignUpForm = ({ handleLogin }) => {
 						onKeyPress={handleKeyPress} // Added keypress event handler
 					/>
 
-					<label htmlFor='password'>Password</label>
+					<Typography variant='h5'>Password</Typography>
+
 					<input
-						id='password'
+						style={{
+							backgroundColor: theme.palette.background.paper,
+							// height: '3rem',
+							borderRadius: '0.5rem',
+							padding: '1.5rem',
+							color: theme.palette.gray[1],
+							boxShadow: 'none',
+							borderStyle: 'none',
+							border: `1px solid ${theme.palette.gray[2]}`,
+						}}
 						type='password'
 						placeholder='Enter your password'
-						value={password}
 						onChange={(e) => setPassword(e.target.value)}
+						onKeyPress={handleKeyPress} // Added keypress event handler
 					/>
 
 					{errorMessage && <div className='error-message'>{errorMessage}</div>}
-
-					<div className='row  w100 aic' style={{ gap: '0.5rem' }}>
-						<input
-							type='checkbox'
-							id='rememberMe'
-							name='rememberMe'
-							checked={rememberMe}
-							onChange={(e) => setRememberMe(e.target.checked)}
-							style={{ width: '10%' }}
-						/>
-						<Typography variant='p'>Remember me</Typography>
+					<div className='row jcsb w100 aic'>
+						<div className='row w100 aic' style={{ gap: '0.5rem' }}>
+							<input
+								type='checkbox'
+								id='rememberMe'
+								name='rememberMe'
+								checked={rememberMe}
+								onChange={(e) => setRememberMe(e.target.checked)}
+								style={{ width: '10%' }}
+							/>
+							<Typography variant='p'>Remember me</Typography>
+						</div>
 					</div>
 
 					<Button
