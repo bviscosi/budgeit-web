@@ -20,7 +20,6 @@ const SignUpForm = ({ handleLogin }) => {
 			console.log(email, password);
 			const response = await axios.post('/signUp', { email, password });
 			if (response.status === 201) {
-				// Adjust status code based on your backend
 				handleLogin(); // Make sure this function correctly sets the logged-in state
 				navigate('/plaid-link');
 			}

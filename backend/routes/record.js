@@ -48,9 +48,7 @@ recordRoutes.route('/signUp').post(async (req, res) => {
 		}
 
 		// Insert new user
-		await users.insertOne({ email: email, password: password });
-
-		console.log(email, password);
+		await users.insertOne({ email: email, password: hashedPassword });
 
 		res.status(201).json({ message: 'User created successfully' });
 	} catch (error) {
