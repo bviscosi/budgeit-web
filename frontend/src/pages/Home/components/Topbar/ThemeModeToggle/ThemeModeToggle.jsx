@@ -6,12 +6,12 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 const ThemeModeToggle = () => {
-	const { theme, toggleThemeMode } = useTheme();
+	const { theme, toggleThemeMode, mode } = useTheme(); // Get the current mode from the context
 
 	return (
 		<Button onClick={toggleThemeMode}>
 			<Paper style={lightModeButton}>
-				<DarkModeIcon />
+				{mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
 			</Paper>
 		</Button>
 	);

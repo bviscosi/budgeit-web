@@ -132,20 +132,24 @@ const themes = {
 // Function to get theme based on mode
 const getTheme = (mode) => responsiveFontSizes(createTheme(themes[mode]));
 
-const ThemeContext = createContext();
+const ThemeContext = createContext({
+	mode: 'dark', // Default value for mode
+	toggleThemeMode: () => {},
+});
 
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeContextProvider = ({ children }) => {
-	const [mode, setMode] = useState('dark');
+	const [mode, setMode] = useState('dark'); // This state tracks the current theme mode
 	const theme = getTheme(mode);
 
 	const toggleThemeMode = () => {
 		setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
 	};
 
+	// Include `mode` in the value object so it can be consumed by the `useTheme` hook
 	return (
-		<ThemeContext.Provider value={{ theme, toggleThemeMode }}>
+		<ThemeContext.Provider value={{ theme, toggleThemeMode, mode }}>
 			<ThemeProvider theme={theme}>{children}</ThemeProvider>
 		</ThemeContext.Provider>
 	);
