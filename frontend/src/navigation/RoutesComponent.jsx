@@ -5,7 +5,7 @@ import SignUp from '../pages/SignUp/SignUp';
 import SignIn from '../pages/SignIn/SignIn';
 import PlaidLink from '../pages/PlaidLink/PlaidLink';
 
-const RoutesComponent = ({ toggleThemeMode }) => {
+const RoutesComponent = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 	// Check local storage on component mount

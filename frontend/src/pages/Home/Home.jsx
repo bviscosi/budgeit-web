@@ -50,7 +50,7 @@ const Home = ({ handleLogout }) => {
 			{error && <Error />}
 			{!error && !loading && (
 				<div style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '100%' }}>
-					<Sidebar handleLogout={handleLogout} />
+					<Sidebar />
 					<div
 						style={{
 							display: 'flex',
@@ -58,7 +58,7 @@ const Home = ({ handleLogout }) => {
 							width: '100%',
 							height: '100%',
 						}}>
-						<Topbar></Topbar>
+						<Topbar handleLogout={handleLogout}></Topbar>
 
 						<Grid
 							container

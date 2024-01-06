@@ -3,7 +3,7 @@ import React from 'react';
 import ThemeModeToggle from './ThemeModeToggle/ThemeModeToggle';
 import UserDropdown from './UserDropdown/UserDropdown';
 
-const Topbar = () => {
+const Topbar = ({ handleLogout }) => {
 	return (
 		<div>
 			<div
@@ -35,7 +35,7 @@ const Topbar = () => {
 				</div>
 				<div className='row'>
 					<ThemeModeToggle />
-					<UserDropdown />
+					<UserDropdown handleLogout={handleLogout} />
 				</div>
 			</div>
 			{/* <hr /> */}
