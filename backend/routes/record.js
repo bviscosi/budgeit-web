@@ -36,8 +36,8 @@ recordRoutes.route('/signUp').post(async (req, res) => {
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(password, salt);
 
-		// Store user with hashed password
-		cloudDb = getCloudDb();
+		// Connect to the database
+		const cloudDb = getCloudDb();
 		const BudgeIt = cloudDb.db('BudgeIt');
 		const users = BudgeIt.collection('users');
 
@@ -48,9 +48,15 @@ recordRoutes.route('/signUp').post(async (req, res) => {
 		}
 
 		// Insert new user
-		await users.insertOne({ email: email, password: hashedPassword });
+		const newUser = await users.insertOne({ email: email, password: hashedPassword });
 
-		res.status(201).json({ message: 'User created successfully' });
+		// Generate JWT Token
+		const token = jwt.sign({ userId: newUser.insertedId, email: email }, process.env.JWT_SECRET, {
+			expiresIn: '1h',
+		});
+
+		// Send the JWT in the response
+		res.status(201).json({ message: 'User created successfully', token: token });
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: error.toString() });
