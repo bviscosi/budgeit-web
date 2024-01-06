@@ -23,7 +23,7 @@ const SignInForm = ({ handleLogin }) => {
 			if (response.status === 200) {
 				handleLogin();
 				console.log(response.data.accessToken);
-				navigate('/plaid-link');
+				navigate('/home');
 			}
 		} catch (error) {
 			console.log(error);
@@ -125,8 +125,8 @@ const SignInForm = ({ handleLogin }) => {
 					</div>
 
 					<Button
-					variant='contained'
-						sx={{ borderRadius: '1rem', padding: '0.75rem' }}	
+						variant='contained'
+						sx={{ borderRadius: '1rem', padding: '0.75rem' }}
 						onClick={handleSignIn}>
 						<Typography variant='signInButton'>Sign In</Typography>
 					</Button>
