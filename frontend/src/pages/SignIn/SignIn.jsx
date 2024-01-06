@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import Left from './SignInForm';
-import Right from './WelcomeMessage';
+import WelcomeMessage from './WelcomeMessage';
+import SignInForm from './SignInForm';
 
 //test
 const SignIn = ({ handleLogin }) => {
@@ -21,8 +21,8 @@ const SignIn = ({ handleLogin }) => {
 	}, []);
 	return (
 		<div className='row outline w100'>
-			{!isMobile && <Right />}
-			<Left handleLogin={handleLogin} />
+			{!isMobile && <WelcomeMessage />}
+			<SignInForm handleLogin={handleLogin} />
 		</div>
 	);
 };

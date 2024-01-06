@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import Left from './SignUpForm';
-import Right from './WelcomeMessage';
+import WelcomeMessage from './WelcomeMessage';
+import SignUpForm from './SignUpForm';
 
-//test
-const SignUp = () => {
+//testrequire('crypt');
+const SignUp = ({ handleLogin }) => {
 	const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
 
 	useEffect(() => {
@@ -21,8 +21,8 @@ const SignUp = () => {
 	}, []);
 	return (
 		<div className='row'>
-			{!isMobile && <Right />}
-			<Left />
+			{!isMobile && <WelcomeMessage />}
+			<SignUpForm handleLogin={handleLogin} />
 		</div>
 	);
 };

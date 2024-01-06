@@ -3,6 +3,7 @@ const recordRoutes = express.Router();
 const { getCloudDb } = require('../db/conn');
 const { client } = require('../db/Plaid');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 recordRoutes.route('/signIn').post(async (req, res) => {
 	console.log('signIn called');
@@ -36,7 +37,7 @@ recordRoutes.route('/signUp').post(async (req, res) => {
 		const hashedPassword = await bcrypt.hash(password, salt);
 
 		// Store user with hashed password
-		const cloudDb = getCloudDb();
+		cloudDb = getCloudDb();
 		const BudgeIt = cloudDb.db('BudgeIt');
 		const users = BudgeIt.collection('users');
 
@@ -47,10 +48,13 @@ recordRoutes.route('/signUp').post(async (req, res) => {
 		}
 
 		// Insert new user
-		await users.insertOne({ email: email, password: hashedPassword });
+		await users.insertOne({ email: email, password: password });
+
+		console.log(email, password);
 
 		res.status(201).json({ message: 'User created successfully' });
 	} catch (error) {
+		console.log(error);
 		res.status(500).json({ error: error.toString() });
 	}
 });

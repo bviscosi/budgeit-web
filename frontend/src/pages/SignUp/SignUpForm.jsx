@@ -15,10 +15,9 @@ const SignUpForm = ({ handleLogin }) => {
 	const [errorMessage, setErrorMessage] = useState('');
 	const [rememberMe, setRememberMe] = useState(false); // If you plan to use this, add a checkbox in the form
 
-	const handleSignUp = async (e) => {
-		e.preventDefault(); // Prevent default form submission
-
+	const handleSignUp = async () => {
 		try {
+			console.log(email, password);
 			const response = await axios.post('/signUp', { email, password });
 			if (response.status === 201) {
 				// Adjust status code based on your backend
@@ -26,6 +25,7 @@ const SignUpForm = ({ handleLogin }) => {
 				navigate('/plaid-link');
 			}
 		} catch (error) {
+			console.log(error);
 			if (error.response) {
 				if (error.response.status === 401) {
 					setErrorMessage('Invalid password. Please try again.');
@@ -118,7 +118,7 @@ const SignUpForm = ({ handleLogin }) => {
 					<Button
 						variant='contained'
 						sx={{ borderRadius: '1rem', padding: '0.75rem' }}
-						type='submit'>
+						onClick={handleSignUp}>
 						<Typography variant='signInButton'>Sign Up</Typography>
 					</Button>
 
