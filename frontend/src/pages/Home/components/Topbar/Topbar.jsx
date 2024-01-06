@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import React from 'react';
 import ThemeModeToggle from './ThemeModeToggle/ThemeModeToggle';
-import UserDropdown from './UserDropdown/UserDropdown';
+import UserDropdownMenu from './UserDropdownMenu/UserDropdownMenu';
 
 const Topbar = ({ handleLogout }) => {
 	return (
@@ -35,7 +35,7 @@ const Topbar = ({ handleLogout }) => {
 				</div>
 				<div className='row'>
 					<ThemeModeToggle />
-					<UserDropdown handleLogout={handleLogout} />
+					<UserDropdownMenu handleLogout={handleLogout} />
 				</div>
 			</div>
 			{/* <hr /> */}
