@@ -22,7 +22,7 @@ const SignInForm = ({ handleLogin }) => {
 			const response = await axios.post('/signIn', { email, password });
 			if (response.status === 200) {
 				handleLogin();
-				console.log(response.data.accessToken);
+				localStorage.setItem('token', response.data.accessToken);
 				navigate('/home');
 			}
 		} catch (error) {
