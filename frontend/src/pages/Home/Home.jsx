@@ -7,6 +7,7 @@ import Loading from './components/Loading/Loading';
 import Error from './components/Error/Error';
 import { home } from './styles';
 import NetWorth from './components/NetWorth/NetWorth';
+import Budgets from './components/Budgets/Budgets';
 
 const Home = ({ handleLogout }) => {
 	const theme = useTheme(); // Accessing the theme
@@ -74,25 +75,7 @@ const Home = ({ handleLogout }) => {
 								<NetWorth />
 							</Grid>
 							<Grid item xs={6} md={6}>
-								<Paper
-									style={{
-										display: 'flex',
-										height: '100%',
-										width: '100%',
-										// border: `1px solid ${theme.palette.card.border}`,
-										boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
-
-										// backgroundColor: '#f7f8fa',
-										borderRadius: '20px',
-									}}>
-									<Typography
-										variant='h3'
-										fontSize='24px'
-										fontWeight='bold'
-										padding='1rem'>
-										Budgets
-									</Typography>
-								</Paper>
+								<Budgets />
 							</Grid>
 							<Grid item xs={6} md={6}>
 								<Paper
