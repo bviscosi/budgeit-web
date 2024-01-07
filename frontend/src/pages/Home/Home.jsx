@@ -73,7 +73,7 @@ const Home = ({ handleLogout }) => {
 							<Grid item xs={6} md={6}>
 								<NetWorth />
 							</Grid>
-							{/* <Grid item xs={6} md={6}>
+							<Grid item xs={6} md={6}>
 								<Paper
 									style={{
 										display: 'flex',
@@ -93,8 +93,8 @@ const Home = ({ handleLogout }) => {
 										Budgets
 									</Typography>
 								</Paper>
-							</Grid> */}
-							{/* <Grid item xs={6} md={6}>
+							</Grid>
+							<Grid item xs={6} md={6}>
 								<Paper
 									style={{
 										display: 'flex',
@@ -115,8 +115,8 @@ const Home = ({ handleLogout }) => {
 										Accounts
 									</Typography>
 								</Paper>
-							</Grid> */}
-							{/* <Grid item xs={6} md={6}>
+							</Grid>
+							<Grid item xs={6} md={6}>
 								<Paper
 									style={{
 										display: 'flex',
@@ -128,7 +128,7 @@ const Home = ({ handleLogout }) => {
 										// backgroundColor: '#f7f8fa',
 										borderRadius: '20px',
 									}}></Paper>
-							</Grid> */}
+							</Grid>
 						</Grid>
 					</div>
 				</div>

@@ -7,12 +7,13 @@ const NetWorth = () => {
 			style={{
 				display: 'flex',
 				// height: '100%',
-				width: '100%',
+				// width: '100%',
 				boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
 				borderRadius: '20px',
 				flexDirection: 'row',
 				justifyContent: 'space-between',
 				padding: '1rem',
+				// padding: '1rem',
 			}}>
 			<div>
 				<Typography variant='h3' fontWeight='bold'>
