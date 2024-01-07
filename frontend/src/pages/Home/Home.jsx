@@ -5,6 +5,8 @@ import { Box, Container, Grid, Paper, Typography, useTheme } from '@mui/material
 import axios from 'axios';
 import Loading from './components/Loading/Loading';
 import Error from './components/Error/Error';
+import { home } from './styles';
+import NetWorth from './components/NetWorth/NetWorth';
 
 const Home = ({ handleLogout }) => {
 	const theme = useTheme(); // Accessing the theme
@@ -49,7 +51,7 @@ const Home = ({ handleLogout }) => {
 			{loading && <Loading />}
 			{error && <Error />}
 			{!error && !loading && (
-				<div style={{ display: 'flex', flexDirection: 'row', width: '100%', height: '100%' }}>
+				<div style={home}>
 					<Sidebar />
 					<div
 						style={{
@@ -69,27 +71,9 @@ const Home = ({ handleLogout }) => {
 								padding: '2rem',
 							}}>
 							<Grid item xs={6} md={6}>
-								<Paper
-									style={{
-										display: 'flex',
-										height: '100%',
-										width: '100%',
-										// border: `1px solid ${theme.palette.card.border}`,
-										boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
-
-										// backgroundColor: '#f7f8fa',
-										borderRadius: '20px',
-									}}>
-									<Typography
-										variant='h3'
-										fontSize='24px'
-										fontWeight='bold'
-										padding='1rem'>
-										Overview
-									</Typography>
-								</Paper>
+								<NetWorth />
 							</Grid>
-							<Grid item xs={6} md={6}>
+							{/* <Grid item xs={6} md={6}>
 								<Paper
 									style={{
 										display: 'flex',
@@ -109,8 +93,8 @@ const Home = ({ handleLogout }) => {
 										Budgets
 									</Typography>
 								</Paper>
-							</Grid>
-							<Grid item xs={6} md={6}>
+							</Grid> */}
+							{/* <Grid item xs={6} md={6}>
 								<Paper
 									style={{
 										display: 'flex',
@@ -131,8 +115,8 @@ const Home = ({ handleLogout }) => {
 										Accounts
 									</Typography>
 								</Paper>
-							</Grid>
-							<Grid item xs={6} md={6}>
+							</Grid> */}
+							{/* <Grid item xs={6} md={6}>
 								<Paper
 									style={{
 										display: 'flex',
@@ -144,7 +128,7 @@ const Home = ({ handleLogout }) => {
 										// backgroundColor: '#f7f8fa',
 										borderRadius: '20px',
 									}}></Paper>
-							</Grid>
+							</Grid> */}
 						</Grid>
 					</div>
 				</div>

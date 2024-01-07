@@ -3,7 +3,7 @@ export const sidebar = {
 	flexDirection: 'column',
 	justifyContent: 'space-between',
 	alignItems: 'center',
-	width: '5rem',
+	width: '4rem',
 	marginTop: '1rem',
 	marginBottom: '1rem',
 	paddingTop: '0.5rem',

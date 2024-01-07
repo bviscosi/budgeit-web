@@ -53,7 +53,7 @@ const UserDropdownMenu = ({ handleLogout }) => {
 				}}
 				onClick={handleClick}
 				endIcon={open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}>
-				<Typography variant='h6' component='span' sx={{ flexGrow: 1, textAlign: 'center' }}>
+				<Typography variant='p' component='span' sx={{ textAlign: 'center' }}>
 					Ben Viscosi
 				</Typography>
 			</Button>

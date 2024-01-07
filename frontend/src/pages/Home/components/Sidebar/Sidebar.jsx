@@ -28,7 +28,7 @@ const Sidebar = () => {
 				src={b_logo}
 				alt=''
 				style={{
-					width: '70px',
+					width: '50px',
 				}}
 			/>
 			<div

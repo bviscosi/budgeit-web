@@ -19,17 +19,19 @@ const Topbar = ({ handleLogout }) => {
 					style={{
 						marginLeft: '2rem',
 					}}>
-					<Typography fontSize='24px' fontWeight='bold' color='#6475cc'>
+					<Typography variant='p' fontWeight='bold' color='#6475cc'>
 						Welcome back, Ben 👋
 					</Typography>
 					<Typography
-						variant='h1'
+						variant='h3'
 						fontWeight='bold'
-						style={{
-							// marginLeft: '2rem',
-							fontSize: '2.5rem',
-							// color: theme.palette.primary.main,
-						}}>
+						style={
+							{
+								// marginLeft: '2rem',
+								// fontSize: '2.5rem',
+								// color: theme.palette.primary.main,
+							}
+						}>
 						Dashboard
 					</Typography>
 				</div>

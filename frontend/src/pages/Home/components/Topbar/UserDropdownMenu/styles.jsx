@@ -1,6 +1,6 @@
 export const profileCircle = {
 	width: '1.5rem',
-	height: '1.5rem',
+	// height: '1.5rem',
 	borderRadius: '50%',
 	display: 'flex',
 	justifyContent: 'center',
