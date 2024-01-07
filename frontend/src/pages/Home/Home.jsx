@@ -42,8 +42,8 @@ const Home = ({ handleLogout }) => {
 		};
 
 		// Example dates, replace with actual dynamic dates
-		const startDate = '2022-01-01';
-		const endDate = '2022-01-31';
+		const startDate = '2019-01-01';
+		const endDate = '2024-01-01';
 		fetchTransactions(startDate, endDate);
 	}, []);
 
