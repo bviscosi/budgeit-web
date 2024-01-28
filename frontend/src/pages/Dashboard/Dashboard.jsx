@@ -58,9 +58,9 @@ const Dashboard = ({ handleLogout }) => {
 				<div style={home}>
 					<Sidebar tab={tab} setTab={setTab} />
 					<div style={body}>
-						<Topbar handleLogout={handleLogout}></Topbar>
+						<Topbar tab={tab} handleLogout={handleLogout}></Topbar>
 						{tab === 'home' && <Home />}
-						{tab === 'transactions' && <Transactions />}
+						{tab === 'transactions' && <Transactions transactions={transactions} />}
 					</div>
 				</div>
 			)}
