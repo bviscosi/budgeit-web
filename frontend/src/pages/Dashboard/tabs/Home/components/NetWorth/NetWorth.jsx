@@ -1,18 +1,11 @@
 import { Paper, Typography, Box } from '@mui/material';
 import CircleIcon from '@mui/icons-material/Circle';
 import React from 'react';
+import { paper } from './styles';
 
 const NetWorth = () => {
 	return (
-		<Paper
-			style={{
-				display: 'flex',
-				boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
-				borderRadius: '20px',
-				flexDirection: 'row',
-				justifyContent: 'space-between',
-				padding: '1rem',
-			}}>
+		<Paper sx={paper}>
 			<div>
 				<Typography variant='h3' fontWeight='bold'>
 					Net Worth
