@@ -24,7 +24,7 @@ const SignInForm = ({ handleLogin }) => {
 			if (response.status === 200) {
 				handleLogin();
 				localStorage.setItem('token', response.data.accessToken);
-				navigate('/home');
+				navigate('/dashboard');
 			}
 		} catch (error) {
 			console.log(error.message);
