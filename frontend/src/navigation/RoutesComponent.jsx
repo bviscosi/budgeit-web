@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from '../pages/Home/Home';
 import SignUp from '../pages/SignUp/SignUp';
 import SignIn from '../pages/SignIn/SignIn';
 import PlaidLink from '../pages/PlaidLink/PlaidLink';
+import Dashboard from '../pages/Dashboard/Dashboard';
 
 const RoutesComponent = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -36,13 +36,13 @@ const RoutesComponent = () => {
 				path='/'
 				element={
 					isLoggedIn ? (
-						<Home handleLogout={handleLogout} />
+						<Dashboard handleLogout={handleLogout} />
 					) : (
 						<SignIn handleLogin={handleLogin} />
 					)
 				}
 			/>
-			<Route path='/home' element={<Home handleLogout={handleLogout} />} />
+			<Route path='/dashboard' element={<Dashboard handleLogout={handleLogout} />} />
 			<Route path='/sign-in' element={<SignIn handleLogin={handleLogin} />} />
 			<Route path='/sign-up' element={<SignUp handleLogin={handleLogin} />} />
 			<Route path='/plaid-link' element={<PlaidLink />} />

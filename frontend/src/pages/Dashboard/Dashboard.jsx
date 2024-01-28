@@ -6,14 +6,15 @@ import axios from 'axios';
 import Loading from './components/Loading/Loading';
 import Error from './components/Error/Error';
 import { body, grid, home, paper } from './styles';
-import NetWorth from './components/NetWorth/NetWorth';
-import Budgets from './components/Budgets/Budgets';
+import NetWorth from './tabs/Home/components/NetWorth/NetWorth';
 import { useCustomTheme } from '../../context/ThemeContext';
+import Home from './tabs/Home/Home';
+import Transactions from './tabs/Transactions/Transactions';
 
-const Home = ({ handleLogout }) => {
+const Dashboard = ({ handleLogout }) => {
 	const { theme } = useCustomTheme(); // Accessing the theme
 
-	const [tab, setTab] = useState('dashboard');
+	const [tab, setTab] = useState('home');
 	// Function to add JWT to Axios request headers
 	const addJwtHeader = () => {
 		const token = localStorage.getItem('token');
@@ -58,29 +59,8 @@ const Home = ({ handleLogout }) => {
 					<Sidebar tab={tab} setTab={setTab} />
 					<div style={body}>
 						<Topbar handleLogout={handleLogout}></Topbar>
-
-						<Grid container spacing={{ xs: 2, sm: 2, md: 3 }} sx={grid}>
-							<Grid item xs={6} md={6}>
-								<NetWorth />
-							</Grid>
-							<Grid item xs={6} md={6}>
-								<Budgets />
-							</Grid>
-							<Grid item xs={6} md={6}>
-								<Paper style={paper}>
-									<Typography
-										variant='h3'
-										fontSize='24px'
-										fontWeight='bold'
-										padding='1rem'>
-										Accounts
-									</Typography>
-								</Paper>
-							</Grid>
-							<Grid item xs={6} md={6}>
-								<Paper style={paper}></Paper>
-							</Grid>
-						</Grid>
+						{tab === 'home' && <Home />}
+						{tab === 'transactions' && <Transactions />}
 					</div>
 				</div>
 			)}
@@ -88,4 +68,4 @@ const Home = ({ handleLogout }) => {
 	);
 };
 
-export default Home;
+export default Dashboard;

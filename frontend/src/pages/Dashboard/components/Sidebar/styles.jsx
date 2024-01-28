@@ -13,3 +13,11 @@ export const sidebar = {
 	borderRadius: '20px',
 	// boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
 };
+
+export const main = {
+	display: 'flex',
+	flexDirection: 'column',
+	height: '100%',
+	gap: '7vh',
+	justifyContent: 'center',
+};

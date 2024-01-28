@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import b_logo from '../../../../assets/b.png';
 import SettingsIcon from '@mui/icons-material/Settings';
 import GridViewIcon from '@mui/icons-material/GridView';
 import SavingsIcon from '@mui/icons-material/Savings';
 import WalletIcon from '@mui/icons-material/Wallet';
+import ListIcon from '@mui/icons-material/List';
 import { Button, Paper } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
-import { sidebar } from './styles';
+import { main, sidebar } from './styles';
+import Logo from './components/Logo/Logo';
 
 const Sidebar = ({ tab, setTab }) => {
 	const handleSetTab = (tab) => {
@@ -15,31 +16,32 @@ const Sidebar = ({ tab, setTab }) => {
 
 	return (
 		<Paper sx={sidebar}>
-			<img
-				src={b_logo}
-				alt=''
-				style={{
-					width: '50px',
-				}}
-			/>
-			<div
-				style={{
-					display: 'flex',
-					flexDirection: 'column',
-					height: '100%',
-					gap: '7vh',
-					justifyContent: 'center',
-				}}>
+			<Logo />
+			<div style={main}>
 				<Button
 					sx={{
-						color: tab === 'dashboard' ? '#ffffff' : '#858585',
+						color: tab === 'home' ? '#ffffff' : '#858585',
 					}}
-					onClick={() => handleSetTab('dashboard')}>
+					onClick={() => handleSetTab('home')}>
 					<GridViewIcon
 						sx={{
 							padding: '0.5rem',
 							display: 'flex',
-							backgroundColor: tab === 'dashboard' ? '#272727' : 'transparent',
+							backgroundColor: tab === 'home' ? '#272727' : 'transparent',
+							borderRadius: '100%',
+						}}
+					/>
+				</Button>
+				<Button
+					sx={{
+						color: tab === 'transactions' ? '#ffffff' : '#858585',
+					}}
+					onClick={() => handleSetTab('transactions')}>
+					<ListIcon
+						sx={{
+							padding: '0.5rem',
+							display: 'flex',
+							backgroundColor: tab === 'transactions' ? '#272727' : 'transparent',
 							borderRadius: '100%',
 						}}
 					/>
