@@ -3,7 +3,7 @@ import React from 'react';
 import ThemeModeToggle from './ThemeModeToggle/ThemeModeToggle';
 import UserDropdownMenu from './UserDropdownMenu/UserDropdownMenu';
 
-const Topbar = ({ handleLogout }) => {
+const Topbar = ({ tab, handleLogout }) => {
 	return (
 		<div>
 			<div
@@ -32,7 +32,8 @@ const Topbar = ({ handleLogout }) => {
 								// color: theme.palette.primary.main,
 							}
 						}>
-						Dashboard
+						{tab === 'home' && 'Dashboard'}
+						{tab === 'transactions' && 'Transactions'}
 					</Typography>
 				</div>
 				<div className='row'>
