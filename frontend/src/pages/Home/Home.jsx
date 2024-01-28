@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
-import { Box, Container, Grid, Paper, Typography, useTheme } from '@mui/material';
+import { Box, Grid, Paper, Typography } from '@mui/material';
 import axios from 'axios';
 import Loading from './components/Loading/Loading';
 import Error from './components/Error/Error';
 import { home } from './styles';
 import NetWorth from './components/NetWorth/NetWorth';
 import Budgets from './components/Budgets/Budgets';
+import { useCustomTheme } from '../../context/ThemeContext';
 
 const Home = ({ handleLogout }) => {
-	const theme = useTheme(); // Accessing the theme
+	const { theme } = useCustomTheme(); // Accessing the theme
 
 	// Function to add JWT to Axios request headers
 	const addJwtHeader = () => {

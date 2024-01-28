@@ -27,6 +27,7 @@ const authenticateJWT = (req, res, next) => {
 
 // SignIn Route
 recordRoutes.route('/signIn').post(async (req, res) => {
+	console.log('sign in called');
 	try {
 		const { email, password } = req.body;
 		const cloudDb = getCloudDb();

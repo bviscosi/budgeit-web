@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { usePlaidLink } from 'react-plaid-link';
 import { useNavigate } from 'react-router-dom';
 
-axios.defaults.baseURL = 'http://localhost:5000/';
+axios.defaults.baseURL = 'http://localhost:5555/';
 
 const PlaidLink = () => {
 	const navigate = useNavigate();

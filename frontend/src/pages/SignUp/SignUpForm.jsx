@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Typography, Container, useTheme } from '@mui/material';
+import { Button, Typography, Container } from '@mui/material';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signUpContainer, signUpForm } from './styles';
+import { useCustomTheme } from '../../context/ThemeContext';
 
 const SignUpForm = ({ handleLogin }) => {
 	let navigate = useNavigate();
 
-	const theme = useTheme();
+	const { theme } = useCustomTheme();
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');

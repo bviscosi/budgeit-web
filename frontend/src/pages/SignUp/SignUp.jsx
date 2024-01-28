@@ -1,9 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import WelcomeMessage from './WelcomeMessage';
 import SignUpForm from './SignUpForm';
 
-//testrequire('crypt');
 const SignUp = ({ handleLogin }) => {
 	const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
 

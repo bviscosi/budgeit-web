@@ -1,10 +1,16 @@
 import React, { createContext, useState, useContext } from 'react';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 
+// Base theme settings common to both light and dark themes
+const baseTheme = {
+	// Add common settings, if any, like typography that doesn't change between light and dark
+};
+
 // Define light and dark theme colors and typography
-const themes = {
+const themeSettings = {
 	light: {
 		palette: {
+			mode: 'light',
 			primary: { main: '#3f51b5' },
 			secondary: { main: '#f50057' },
 			accent: { main: '#000' },
@@ -66,6 +72,7 @@ const themes = {
 	},
 	dark: {
 		palette: {
+			mode: 'dark',
 			primary: { main: '#6573c3' },
 			secondary: { main: '#ff4081' },
 			// Define other colors for dark mode as needed
@@ -130,14 +137,23 @@ const themes = {
 };
 
 // Function to get theme based on mode
-const getTheme = (mode) => responsiveFontSizes(createTheme(themes[mode]));
+const getTheme = (mode) =>
+	responsiveFontSizes(
+		createTheme({
+			...baseTheme,
+			...themeSettings[mode],
+		})
+	);
 
-const ThemeContext = createContext({
-	mode: 'dark', // Default value for mode
-	toggleThemeMode: () => {},
-});
+const ThemeContext = createContext();
 
-export const useTheme = () => useContext(ThemeContext);
+export const useCustomTheme = () => {
+	const context = useContext(ThemeContext);
+	if (!context) {
+		throw new Error('useCustomTheme() must be used within a ThemeContextProvider');
+	}
+	return context;
+};
 
 export const ThemeContextProvider = ({ children }) => {
 	const [mode, setMode] = useState('dark'); // This state tracks the current theme mode

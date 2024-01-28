@@ -3,7 +3,7 @@ import { Button, Typography, Menu, MenuItem, styled } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { profileCircle } from './styles.jsx';
-import { useTheme } from '../../../../../context/ThemeContext.jsx';
+import { useCustomTheme } from '../../../../../context/ThemeContext.jsx';
 import { useNavigate } from 'react-router-dom';
 
 // Custom style for the Menu
@@ -18,7 +18,7 @@ const StyledMenu = styled(Menu)(({ theme }) => ({
 }));
 
 const UserDropdownMenu = ({ handleLogout }) => {
-	const { theme } = useTheme();
+	const { theme } = useCustomTheme();
 	const navigate = useNavigate();
 	const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);

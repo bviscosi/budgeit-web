@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signInContainer, signInForm } from './styles';
-import { Button, Typography, Container, useTheme } from '@mui/material';
+import { Button, Typography, Container } from '@mui/material';
+import { useCustomTheme } from '../../context/ThemeContext';
 
-axios.defaults.baseURL = 'http://localhost:5000/';
+axios.defaults.baseURL = 'http://localhost:5555/';
 
 const SignInForm = ({ handleLogin }) => {
-	const theme = useTheme();
+	const { theme } = useCustomTheme();
 
 	let navigate = useNavigate();
 
@@ -26,7 +27,7 @@ const SignInForm = ({ handleLogin }) => {
 				navigate('/home');
 			}
 		} catch (error) {
-			console.log(error);
+			console.log(error.message);
 			if (error.response.status === 401) {
 				setErrorMessage('Invalid password. Please try again.');
 			} else if (error.response.status === 404) {

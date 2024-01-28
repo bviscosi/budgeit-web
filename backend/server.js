@@ -11,7 +11,7 @@ const dbo = require('./db/conn');
 const recordRoutes = require('./routes/record');
 
 // Constants
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5555;
 
 const path = require('path');
 const util = require('util');

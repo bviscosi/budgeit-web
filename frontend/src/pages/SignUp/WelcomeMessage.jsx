@@ -1,8 +1,8 @@
-import { useTheme } from '@mui/material';
 import React from 'react';
+import { useCustomTheme } from '../../context/ThemeContext';
 
 const WelcomeMessage = () => {
-	const theme = useTheme(); // Accessing the theme
+	const { theme } = useCustomTheme();
 
 	return (
 		<div
