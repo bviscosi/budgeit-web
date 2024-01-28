@@ -1,0 +1,20 @@
+.error-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	width: 100vw;
+	color: #d8000c; /* Error color */
+	background-color: #ffd2d2; /* Light red background */
+}
+
+.error-icon {
+	font-size: 48px;
+	margin-bottom: 10px; /* Space between icon and message */
+}
+
+.error-message {
+	font-size: 20px;
+	text-align: center;
+}
