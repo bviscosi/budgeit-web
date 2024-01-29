@@ -10,7 +10,7 @@ const NetWorth = () => {
 				<Typography variant='h3' fontWeight='bold'>
 					Net Worth
 				</Typography>
-				<Typography variant='h1' color='#09e75f' fontWeight='bold'>
+				<Typography variant='h1' fontWeight='bold'>
 					$190,446.80
 				</Typography>
 				<Typography variant='p' style={{ color: 'red' }}>

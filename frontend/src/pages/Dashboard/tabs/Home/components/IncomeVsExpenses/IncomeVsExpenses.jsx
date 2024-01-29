@@ -23,13 +23,13 @@ const IncomeVsExpenses = () => {
 				label: 'Income',
 				data: [500, 700, 800, 900, 1000], // Sample income data
 				backgroundColor: '#46aa6f',
-				barThickness: 20, // Adjust this value as needed
+				barThickness: 10, // Adjust this value as needed
 			},
 			{
 				label: 'Expenses',
 				data: [300, 400, 500, 600, 700], // Sample expenses data
 				backgroundColor: '#f6685b',
-				barThickness: 20, // Adjust this value as needed
+				barThickness: 10, // Adjust this value as needed
 			},
 		],
 	};
