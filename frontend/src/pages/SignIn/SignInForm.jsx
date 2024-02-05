@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signInContainer, signInForm } from './styles';
-import { Button, Typography, Container } from '@mui/material';
+import { Button, Typography, Container, Box } from '@mui/material';
 import { useCustomTheme } from '../../context/ThemeContext';
 
 axios.defaults.baseURL = 'http://localhost:5555/';
@@ -61,39 +61,51 @@ const SignInForm = ({ handleLogin }) => {
 					}}>
 					<Typography variant='h5'>Email</Typography>
 
-					<input
-						style={{
+					<Box
+						component='input'
+						sx={{
 							backgroundColor: theme.palette.background.paper,
-							// height: '3rem',
 							borderRadius: '0.5rem',
 							padding: '1.5rem',
 							color: theme.palette.gray[1],
 							boxShadow: 'none',
 							borderStyle: 'none',
 							border: `1px solid ${theme.palette.gray[2]}`,
+							'&:focus': {
+								outline: 'none',
+								border: `1px solid ${theme.palette.gray[2]}`,
+							},
+							width: '100%', // Adjust width as needed
+							boxSizing: 'border-box', // Ensures padding does not add to the width
 						}}
 						type='email'
 						placeholder='Enter your email'
 						onChange={(e) => setEmail(e.target.value)}
-						onKeyPress={handleKeyPress} // Added keypress event handler
+						onKeyPress={handleKeyPress}
 					/>
 					<Typography variant='h5'>Password</Typography>
 
-					<input
-						style={{
+					<Box
+						component='input'
+						sx={{
 							backgroundColor: theme.palette.background.paper,
-							// height: '3rem',
 							borderRadius: '0.5rem',
 							padding: '1.5rem',
 							color: theme.palette.gray[1],
 							boxShadow: 'none',
 							borderStyle: 'none',
 							border: `1px solid ${theme.palette.gray[2]}`,
+							'&:focus': {
+								outline: 'none',
+								border: `1px solid ${theme.palette.gray[2]}`,
+							},
+							width: '100%', // Adjust width as needed
+							boxSizing: 'border-box', // Ensures padding does not add to the width
 						}}
 						type='password'
 						placeholder='Enter your password'
 						onChange={(e) => setPassword(e.target.value)}
-						onKeyPress={handleKeyPress} // Added keypress event handler
+						onKeyPress={handleKeyPress}
 					/>
 
 					{errorMessage && <div className='error-message'>{errorMessage}</div>}
