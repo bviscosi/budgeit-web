@@ -1,5 +1,5 @@
 export const grid = {
-	height: '100%',
+	// height: '100%',
 	width: '100%',
-	padding: '2rem',
+	// padding: '2rem',
 };

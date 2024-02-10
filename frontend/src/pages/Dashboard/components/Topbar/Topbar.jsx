@@ -14,8 +14,8 @@ const Topbar = ({ tab, handleLogout }) => {
 					justifyContent: 'space-between',
 					alignItems: 'center',
 					padding: '1rem',
-					border: '1px solid white',
 					margin: 0,
+					border: '1px solid white',
 				}}>
 				<div
 					style={

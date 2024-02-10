@@ -58,9 +58,11 @@ const Dashboard = ({ handleLogout }) => {
 				<div style={home}>
 					{/* <Sidebar tab={tab} setTab={setTab} /> */}
 					<div style={body}>
-						<Topbar tab={tab} handleLogout={handleLogout}></Topbar>
-						{/* {tab === 'home' && <Home />} */}
-						{tab === 'transactions' && <Transactions transactions={transactions} />}
+						{/* <Topbar tab={tab} handleLogout={handleLogout}></Topbar> */}
+						<div style={{ border: '1px solid white', height: '20vh' }}></div>
+						<div style={{ border: '1px solid white', height: '100%' }}></div>
+						{tab === 'home' && <Home />}
+						{/* {tab === 'transactions' && <Transactions transactions={transactions} />} */}
 					</div>
 				</div>
 			)}
