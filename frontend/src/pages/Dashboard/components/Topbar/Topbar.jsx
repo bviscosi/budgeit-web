@@ -9,16 +9,20 @@ const Topbar = ({ tab, handleLogout }) => {
 			<div
 				className='topbar'
 				style={{
-					marginRight: '1rem',
+					paddingRight: '1rem',
 					display: 'flex',
 					justifyContent: 'space-between',
 					alignItems: 'center',
-					margin: '1rem',
+					padding: '1rem',
+					border: '1px solid white',
+					margin: 0,
 				}}>
 				<div
-					style={{
-						marginLeft: '2rem',
-					}}>
+					style={
+						{
+							// marginLeft: '2rem',
+						}
+					}>
 					<Typography variant='p' fontWeight='bold' color='#6475cc'>
 						Welcome back, Ben 👋
 					</Typography>

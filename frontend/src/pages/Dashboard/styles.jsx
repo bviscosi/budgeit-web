@@ -3,6 +3,7 @@ export const home = {
 	flexDirection: 'row',
 	width: '100%',
 	height: '100%',
+	border: '1px solid white',
 };
 
 export const body = {
@@ -10,6 +11,7 @@ export const body = {
 	flexDirection: 'column',
 	width: '100%',
 	height: '100%',
+	border: '1px solid white',
 };
 
 export const grid = {

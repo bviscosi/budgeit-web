@@ -56,10 +56,10 @@ const Dashboard = ({ handleLogout }) => {
 			{error && <Error />}
 			{!error && !loading && (
 				<div style={home}>
-					<Sidebar tab={tab} setTab={setTab} />
+					{/* <Sidebar tab={tab} setTab={setTab} /> */}
 					<div style={body}>
 						<Topbar tab={tab} handleLogout={handleLogout}></Topbar>
-						{tab === 'home' && <Home />}
+						{/* {tab === 'home' && <Home />} */}
 						{tab === 'transactions' && <Transactions transactions={transactions} />}
 					</div>
 				</div>
