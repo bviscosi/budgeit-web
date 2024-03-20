@@ -6,7 +6,7 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 const ThemeModeToggle = () => {
-	const { theme, toggleThemeMode, mode } = useCustomTheme(); // Get the current mode from the context
+	const { toggleThemeMode, mode } = useCustomTheme(); // Get the current mode from the context
 
 	return (
 		<Button onClick={toggleThemeMode}>

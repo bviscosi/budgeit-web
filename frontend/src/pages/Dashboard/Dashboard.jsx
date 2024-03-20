@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
-import { Box, Grid, Paper, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import axios from 'axios';
 import Loading from './components/Loading/Loading';
 import Error from './components/Error/Error';
-import { body, grid, home, paper } from './styles';
-import NetWorth from './tabs/Home/components/NetWorth/NetWorth';
+import { body, home } from './styles';
 import { useCustomTheme } from '../../context/ThemeContext';
 import Home from './tabs/Home/Home';
 import Transactions from './tabs/Transactions/Transactions';
@@ -35,7 +34,7 @@ const Dashboard = ({ handleLogout }) => {
 					{ headers: addJwtHeader() }
 				);
 				setTransactions(response.data);
-				console.log(response.data);
+				// console.log(response.data);
 			} catch (error) {
 				console.error('Error fetching transactions:', error);
 				setError('Failed to fetch transactions');
@@ -56,13 +55,11 @@ const Dashboard = ({ handleLogout }) => {
 			{error && <Error />}
 			{!error && !loading && (
 				<div style={home}>
-					{/* <Sidebar tab={tab} setTab={setTab} /> */}
+					<Sidebar tab={tab} setTab={setTab} />
 					<div style={body}>
-						{/* <Topbar tab={tab} handleLogout={handleLogout}></Topbar> */}
-						<div style={{ border: '1px solid white', height: '20vh' }}></div>
-						<div style={{ border: '1px solid white', height: '100%' }}></div>
+						<Topbar tab={tab} handleLogout={handleLogout}></Topbar>
 						{tab === 'home' && <Home />}
-						{/* {tab === 'transactions' && <Transactions transactions={transactions} />} */}
+						{tab === 'transactions' && <Transactions transactions={transactions} />}
 					</div>
 				</div>
 			)}

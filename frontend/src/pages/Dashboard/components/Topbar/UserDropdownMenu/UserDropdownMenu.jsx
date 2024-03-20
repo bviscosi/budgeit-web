@@ -2,8 +2,6 @@ import React, { useRef, useState } from 'react';
 import { Button, Typography, Menu, MenuItem, styled } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { profileCircle } from './styles.jsx';
-import { useCustomTheme } from '../../../../../context/ThemeContext.jsx';
 import { useNavigate } from 'react-router-dom';
 
 // Custom style for the Menu
@@ -18,7 +16,6 @@ const StyledMenu = styled(Menu)(({ theme }) => ({
 }));
 
 const UserDropdownMenu = ({ handleLogout }) => {
-	const { theme } = useCustomTheme();
 	const navigate = useNavigate();
 	const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);

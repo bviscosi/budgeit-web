@@ -44,7 +44,7 @@ const PlaidLink = () => {
 						{ headers: addJwtHeader() }
 					);
 					console.log('Access Token Exchange Response: ', response);
-					navigate('/home');
+					navigate('/dashboard');
 				} catch (error) {
 					console.error('Error exchanging public token: ', error);
 				}

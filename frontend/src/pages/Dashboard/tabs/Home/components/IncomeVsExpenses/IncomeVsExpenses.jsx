@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Typography } from '@mui/material';
+import { Paper } from '@mui/material';
 import { Bar } from 'react-chartjs-2';
 import {
 	Chart as ChartJS,
@@ -49,9 +49,6 @@ const IncomeVsExpenses = () => {
 
 	return (
 		<Paper sx={paper}>
-			{/* <Typography variant='h3' fontWeight='bold'>
-				Income vs Expenses
-			</Typography> */}
 			<Bar data={data} options={options} />
 		</Paper>
 	);
