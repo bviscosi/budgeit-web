@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import SignUp from '../pages/SignUp/SignUp';
-import SignIn from '../pages/SignIn/SignIn';
-import PlaidLink from '../pages/PlaidLink/PlaidLink';
-import Dashboard from '../pages/Dashboard/Dashboard';
-import LandingPage from '../pages/LandingPage/LandingPage';
+import SignUp from '../../pages/SignUp/SignUp';
+import SignIn from '../../pages/SignIn/SignIn';
+import PlaidLink from '../../pages/PlaidLink/PlaidLink';
+import Dashboard from '../../pages/Dashboard/Dashboard';
+import LandingPage from '../../pages/LandingPage/LandingPage';
 
 const RoutesComponent = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);

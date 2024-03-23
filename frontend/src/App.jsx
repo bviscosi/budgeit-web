@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import RoutesComponent from './navigation/RoutesComponent';
+import RoutesComponent from './utils/navigation/RoutesComponent';
 import { ThemeContextProvider } from './utils/theme/ThemeContext';
 
 function App() {
