@@ -4,7 +4,7 @@ import React from 'react';
 const LaunchButton = ({ sx = {}, ...props }) => {
 	return (
 		<Button variant='contained' sx={{ borderRadius: 4, ...sx }} {...props}>
-			LaunchButton
+			Get Started
 		</Button>
 	);
 };
