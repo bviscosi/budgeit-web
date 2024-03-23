@@ -1,6 +1,6 @@
 import { Button, Stack, Typography } from '@mui/material';
 import React from 'react';
-import { navbarContent } from '../../../utils/assets';
+import { navbarContent } from '../../utils/assets';
 
 const { logo } = navbarContent;
 
