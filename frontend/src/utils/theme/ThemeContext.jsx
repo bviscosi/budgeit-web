@@ -80,6 +80,7 @@ const themeSettings = {
 			gray: { 1: '#bdbdbd', 2: '#424242' },
 
 			background: {
+				default: '#000',
 				paper: '#111415',
 				main: '#0c0e0f',
 				// purpleGradient: 'linear-gradient(#242acf, #b57bee)',

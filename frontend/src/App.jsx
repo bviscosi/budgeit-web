@@ -1,14 +1,17 @@
+import React from 'react';
 import './App.css';
 import RoutesComponent from './navigation/RoutesComponent';
-import { ThemeContextProvider } from './context/ThemeContext';
+import { ThemeContextProvider } from './utils/theme/ThemeContext';
 
 function App() {
 	return (
-		<ThemeContextProvider>
-			<div className='App'>
-				<RoutesComponent />
-			</div>
-		</ThemeContextProvider>
+		<React.StrictMode>
+			<ThemeContextProvider>
+				<div className='App'>
+					<RoutesComponent />
+				</div>
+			</ThemeContextProvider>
+		</React.StrictMode>
 	);
 }
 

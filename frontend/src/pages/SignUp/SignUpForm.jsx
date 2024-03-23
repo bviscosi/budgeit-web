@@ -4,7 +4,7 @@ import { Button, Typography, Container } from '@mui/material';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signUpContainer, signUpForm } from './styles';
-import { useCustomTheme } from '../../context/ThemeContext';
+import { useCustomTheme } from '../../utils/theme/ThemeContext';
 
 const SignUpForm = ({ handleLogin }) => {
 	let navigate = useNavigate();

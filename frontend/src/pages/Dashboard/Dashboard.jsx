@@ -6,7 +6,7 @@ import axios from 'axios';
 import Loading from './components/Loading/Loading';
 import Error from './components/Error/Error';
 import { body, home } from './styles';
-import { useCustomTheme } from '../../context/ThemeContext';
+import { useCustomTheme } from '../../utils/theme/ThemeContext';
 import Home from './tabs/Home/Home';
 import Transactions from './tabs/Transactions/Transactions';
 

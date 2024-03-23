@@ -4,7 +4,7 @@ import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signInContainer, signInForm } from './styles';
 import { Button, Typography, Container, Box } from '@mui/material';
-import { useCustomTheme } from '../../context/ThemeContext';
+import { useCustomTheme } from '../../utils/theme/ThemeContext';
 
 axios.defaults.baseURL = 'http://localhost:5555/';
 
