@@ -1,7 +1,12 @@
 import React from 'react';
+import TopBar from './components/TopBar';
 
 const LandingPage = () => {
-	return <div>LandingPage</div>;
+	return (
+		<div>
+			<TopBar />
+		</div>
+	);
 };
 
 export default LandingPage;

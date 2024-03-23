@@ -33,7 +33,7 @@ const RoutesComponent = () => {
 
 	return (
 		<Routes>
-			<Route
+			{/* <Route
 				path='/'
 				element={
 					isLoggedIn ? (
@@ -42,7 +42,7 @@ const RoutesComponent = () => {
 						<SignIn handleLogin={handleLogin} />
 					)
 				}
-			/>
+			/> */}
 			<Route path='/' element={<LandingPage />} />
 			<Route path='/dashboard' element={<Dashboard handleLogout={handleLogout} />} />
 			<Route path='/sign-in' element={<SignIn handleLogin={handleLogin} />} />
