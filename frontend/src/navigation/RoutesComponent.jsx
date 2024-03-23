@@ -43,7 +43,7 @@ const RoutesComponent = () => {
 					)
 				}
 			/>
-			{/* <Route path='/' element={<LandingPage />} /> */}
+			<Route path='/' element={<LandingPage />} />
 			<Route path='/dashboard' element={<Dashboard handleLogout={handleLogout} />} />
 			<Route path='/sign-in' element={<SignIn handleLogin={handleLogin} />} />
 			<Route path='/sign-up' element={<SignUp handleLogin={handleLogin} />} />
