@@ -4,6 +4,7 @@ import SignUp from '../pages/SignUp/SignUp';
 import SignIn from '../pages/SignIn/SignIn';
 import PlaidLink from '../pages/PlaidLink/PlaidLink';
 import Dashboard from '../pages/Dashboard/Dashboard';
+import LandingPage from '../pages/LandingPage/LandingPage';
 
 const RoutesComponent = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,7 +25,7 @@ const RoutesComponent = () => {
 	};
 
 	// Function to update isLoggedIn and local storage
-	const handleLogout = (loginStatus) => {
+	const handleLogout = () => {
 		console.log('logged out');
 		localStorage.setItem('isLoggedIn', false);
 		setIsLoggedIn(false);
@@ -42,6 +43,7 @@ const RoutesComponent = () => {
 					)
 				}
 			/>
+			<Route path='/' element={<LandingPage />} />
 			<Route path='/dashboard' element={<Dashboard handleLogout={handleLogout} />} />
 			<Route path='/sign-in' element={<SignIn handleLogin={handleLogin} />} />
 			<Route path='/sign-up' element={<SignUp handleLogin={handleLogin} />} />
