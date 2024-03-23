@@ -25,6 +25,7 @@ const Sidebar = ({ tab, setTab }) => {
 					onClick={() => handleSetTab('home')}>
 					<GridViewIcon
 						sx={{
+							fontSize: 40,
 							padding: '0.5rem',
 							display: 'flex',
 							backgroundColor: tab === 'home' ? '#272727' : 'transparent',
@@ -39,6 +40,7 @@ const Sidebar = ({ tab, setTab }) => {
 					onClick={() => handleSetTab('transactions')}>
 					<ListIcon
 						sx={{
+							fontSize: 40,
 							padding: '0.5rem',
 							display: 'flex',
 							backgroundColor: tab === 'transactions' ? '#272727' : 'transparent',
@@ -53,6 +55,7 @@ const Sidebar = ({ tab, setTab }) => {
 					onClick={() => handleSetTab('savings')}>
 					<SavingsIcon
 						sx={{
+							fontSize: 40,
 							padding: '0.5rem',
 							display: 'flex',
 							backgroundColor: tab === 'savings' ? '#272727' : 'transparent',
@@ -67,6 +70,7 @@ const Sidebar = ({ tab, setTab }) => {
 					onClick={() => handleSetTab('wallet')}>
 					<WalletIcon
 						sx={{
+							fontSize: 40,
 							padding: '0.5rem',
 							display: 'flex',
 							backgroundColor: tab === 'wallet' ? '#272727' : 'transparent',
@@ -81,6 +85,7 @@ const Sidebar = ({ tab, setTab }) => {
 					onClick={() => handleSetTab('account')}>
 					<PersonIcon
 						sx={{
+							fontSize: 40,
 							padding: '0.5rem',
 							display: 'flex',
 							backgroundColor: tab === 'account' ? '#272727' : 'transparent',
@@ -99,7 +104,7 @@ const Sidebar = ({ tab, setTab }) => {
 				}}>
 				<SettingsIcon
 					sx={{
-						// width: '3rem',
+						fontSize: 40,
 						padding: '0.5rem',
 						display: 'flex',
 						backgroundColor: tab === 'settings' ? '#272727' : 'transparent',
