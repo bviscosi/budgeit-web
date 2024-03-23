@@ -1,8 +1,8 @@
 import { Typography } from '@mui/material';
 import React from 'react';
-import ThemeModeToggle from './ThemeModeToggle/ThemeModeToggle';
 import UserDropdownMenu from './UserDropdownMenu/UserDropdownMenu';
 import { topbar } from './styles';
+import ThemeModeToggle from '../../../../components/ThemeModeToggle/ThemeModeToggle';
 
 const Topbar = ({ tab, handleLogout }) => {
 	return (
