@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import WelcomeMessage from './WelcomeMessage';
 import SignInForm from './SignInForm';
+import { Stack } from '@mui/material';
 
 //test
 const SignIn = ({ handleLogin }) => {
@@ -20,10 +21,10 @@ const SignIn = ({ handleLogin }) => {
 		};
 	}, []);
 	return (
-		<div className='row outline w100'>
+		<Stack direction={'row'}>
 			{!isMobile && <WelcomeMessage />}
 			<SignInForm handleLogin={handleLogin} />
-		</div>
+		</Stack>
 	);
 };
 

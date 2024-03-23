@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import WelcomeMessage from './WelcomeMessage';
 import SignUpForm from './SignUpForm';
+import { Stack } from '@mui/material';
 
 const SignUp = ({ handleLogin }) => {
 	const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
@@ -18,10 +19,10 @@ const SignUp = ({ handleLogin }) => {
 		};
 	}, []);
 	return (
-		<div className='row'>
+		<Stack direction='row'>
 			{!isMobile && <WelcomeMessage />}
 			<SignUpForm handleLogin={handleLogin} />
-		</div>
+		</Stack>
 	);
 };
 
