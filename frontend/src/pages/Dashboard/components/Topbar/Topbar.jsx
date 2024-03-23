@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import React from 'react';
 import UserDropdownMenu from './UserDropdownMenu/UserDropdownMenu';
 import { topbar } from './styles';
@@ -6,7 +6,7 @@ import ThemeModeToggle from '../../../../components/ThemeModeToggle/ThemeModeTog
 
 const Topbar = ({ tab, handleLogout }) => {
 	return (
-		<div style={topbar}>
+		<Stack direction='row' style={topbar}>
 			<div
 				style={{
 					marginLeft: '2rem',
@@ -19,11 +19,11 @@ const Topbar = ({ tab, handleLogout }) => {
 					{tab === 'transactions' && 'Transactions'}
 				</Typography>
 			</div>
-			<div className='row'>
+			<Stack direction='row'>
 				<ThemeModeToggle />
 				<UserDropdownMenu handleLogout={handleLogout} />
-			</div>
-		</div>
+			</Stack>
+		</Stack>
 	);
 };
 

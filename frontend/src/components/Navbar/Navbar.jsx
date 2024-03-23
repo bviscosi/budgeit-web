@@ -20,8 +20,10 @@ const Navbar = () => {
 					BudgeIt
 				</Typography> */}
 			</Stack>
-			<ThemeModeToggle />
-			<GetStartedButton />
+			<Stack direction={'row'} alignItems={'center'}>
+				<ThemeModeToggle />
+				<GetStartedButton />
+			</Stack>
 		</Stack>
 	);
 };
