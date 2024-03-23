@@ -21,7 +21,13 @@ const Navbar = () => {
 	return (
 		<AppBar
 			elevation={0}
-			sx={{ height: 72, bgcolor: 'transparent', backdropFilter: 'blur(10px)' }}>
+			sx={{
+				height: 72,
+				bgcolor: 'transparent',
+				// bgcolor: 'rgba(0, 0, 0, 0.1)',
+				backdropFilter: 'blur(30px)',
+				justifyContent: 'center',
+			}}>
 			{/* <Container> */}
 			<Stack direction={'row'} justifyContent={'space-between'} p={3}>
 				<img src={logo} alt='logo' style={{ height: '44px', objectFit: 'contain' }} />

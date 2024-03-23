@@ -20,7 +20,7 @@ const LearnMoreButton = () => {
 const Hero = () => {
 	return (
 		<Box>
-			<Container sx={{ height: '80vh', border: '1px solid white' }}>
+			<Container sx={{ height: '80vh' }}>
 				<Stack sx={{ height: 'inherit' }} justifyContent='center'>
 					<Typography variant='h1' sx={{ mb: 1, letterSpacing: '0.02em' }}>
 						Save smarter with BudgeIt

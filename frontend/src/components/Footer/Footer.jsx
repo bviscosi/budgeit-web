@@ -1,10 +1,13 @@
-import { Stack } from '@mui/material';
+import { Divider, Stack, Typography } from '@mui/material';
 import React from 'react';
 
 export const Footer = () => {
 	return (
-		<Stack border='1px solid white' height={'20vh'}>
-			Footer
+		<Stack spacing={2}>
+			<Divider />
+			<Stack direction={'row'} p={2}>
+				<Typography variant='caption'> © 2024 BudgeIt, Inc.</Typography>
+			</Stack>
 		</Stack>
 	);
 };
