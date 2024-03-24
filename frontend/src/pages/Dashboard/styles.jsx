@@ -6,14 +6,6 @@ export const home = {
 	// border: '1px solid white',
 };
 
-export const body = {
-	display: 'flex',
-	flexDirection: 'column',
-	width: '100%',
-	// height: '100%',
-	// border: '1px solid white',
-};
-
 export const paper = {
 	display: 'flex',
 	height: '100%',

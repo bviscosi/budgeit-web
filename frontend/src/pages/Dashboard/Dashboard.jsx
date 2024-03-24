@@ -5,7 +5,6 @@ import { Box, Stack } from '@mui/material';
 import axios from 'axios';
 import Loading from './components/Loading/Loading';
 import Error from './components/Error/Error';
-import { body, home } from './styles';
 import { useCustomTheme } from '../../utils/theme/ThemeContext';
 import Home from './tabs/Home/Home';
 import Transactions from './tabs/Transactions/Transactions';
@@ -54,13 +53,13 @@ const Dashboard = ({ handleLogout }) => {
 			{loading && <Loading />}
 			{error && <Error />}
 			{!error && !loading && (
-				<Stack direction={'row'}>
+				<Stack direction={'row'} justifyContent={'space-between'}>
 					<Sidebar tab={tab} setTab={setTab} />
-					<div style={body}>
+					<Stack direction={'column'} width='100%' ml={'4rem'}>
 						<Topbar tab={tab} handleLogout={handleLogout}></Topbar>
 						{tab === 'home' && <Home transactions={transactions} />}
 						{tab === 'transactions' && <Transactions transactions={transactions} />}
-					</div>
+					</Stack>
 				</Stack>
 			)}
 		</Box>
