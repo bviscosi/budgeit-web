@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Card, Stack, Typography, styled } from '@mui/material';
 
 const GradientBorderWrapper = styled('div')(({ theme }) => ({
