@@ -4,7 +4,7 @@ const Budgets = () => {
 	return (
 		<Stack
 			sx={{
-				border: '1px solid white',
+				// border: '1px solid white',
 				height: '27.5rem',
 				alignItems: 'center',
 				justifyContent: 'center',
