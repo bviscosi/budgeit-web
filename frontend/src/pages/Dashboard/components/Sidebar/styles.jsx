@@ -20,3 +20,9 @@ export const main = {
 	gap: '7vh',
 	justifyContent: 'center',
 };
+
+export const sidebarItem = {
+	padding: '0.5rem',
+	display: 'flex',
+	borderRadius: '100%',
+};

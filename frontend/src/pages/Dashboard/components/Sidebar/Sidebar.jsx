@@ -6,7 +6,7 @@ import WalletIcon from '@mui/icons-material/Wallet';
 import ListIcon from '@mui/icons-material/List';
 import { Button, Paper } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
-import { main, sidebar } from './styles';
+import { main, sidebar, sidebarItem } from './styles';
 import Logo from './components/Logo/Logo';
 
 const Sidebar = ({ tab, setTab }) => {
@@ -24,13 +24,9 @@ const Sidebar = ({ tab, setTab }) => {
 					}}
 					onClick={() => handleSetTab('home')}>
 					<GridViewIcon
-						sx={{
-							fontSize: 40,
-							padding: '0.5rem',
-							display: 'flex',
-							backgroundColor: tab === 'home' ? '#272727' : 'transparent',
-							borderRadius: '100%',
-						}}
+						sx={`
+							backgroundColor: tab === 'home' ? '#272727' : 'transparent', ${sidebarItem}
+						`}
 					/>
 				</Button>
 				<Button
@@ -39,13 +35,9 @@ const Sidebar = ({ tab, setTab }) => {
 					}}
 					onClick={() => handleSetTab('transactions')}>
 					<ListIcon
-						sx={{
-							fontSize: 40,
-							padding: '0.5rem',
-							display: 'flex',
-							backgroundColor: tab === 'transactions' ? '#272727' : 'transparent',
-							borderRadius: '100%',
-						}}
+						sx={`
+							backgroundColor: tab === 'transactions' ? '#272727' : 'transparent', ${sidebarItem}
+						`}
 					/>
 				</Button>
 				<Button
@@ -54,13 +46,9 @@ const Sidebar = ({ tab, setTab }) => {
 					}}
 					onClick={() => handleSetTab('savings')}>
 					<SavingsIcon
-						sx={{
-							fontSize: 40,
-							padding: '0.5rem',
-							display: 'flex',
-							backgroundColor: tab === 'savings' ? '#272727' : 'transparent',
-							borderRadius: '100%',
-						}}
+						sx={`
+							backgroundColor: tab === 'savings' ? '#272727' : 'transparent', ${sidebarItem}
+						`}
 					/>
 				</Button>
 				<Button
@@ -69,13 +57,9 @@ const Sidebar = ({ tab, setTab }) => {
 					}}
 					onClick={() => handleSetTab('wallet')}>
 					<WalletIcon
-						sx={{
-							fontSize: 40,
-							padding: '0.5rem',
-							display: 'flex',
-							backgroundColor: tab === 'wallet' ? '#272727' : 'transparent',
-							borderRadius: '100%',
-						}}
+						sx={`
+							backgroundColor: tab === 'wallet' ? '#272727' : 'transparent', ${sidebarItem}
+						`}
 					/>
 				</Button>
 				<Button
@@ -84,13 +68,9 @@ const Sidebar = ({ tab, setTab }) => {
 					}}
 					onClick={() => handleSetTab('account')}>
 					<PersonIcon
-						sx={{
-							fontSize: 40,
-							padding: '0.5rem',
-							display: 'flex',
-							backgroundColor: tab === 'account' ? '#272727' : 'transparent',
-							borderRadius: '100%',
-						}}
+						sx={`
+							backgroundColor: tab === 'account' ? '#272727' : 'transparent', ${sidebarItem}
+						`}
 					/>
 				</Button>
 			</div>
@@ -103,13 +83,9 @@ const Sidebar = ({ tab, setTab }) => {
 					handleSetTab('settings');
 				}}>
 				<SettingsIcon
-					sx={{
-						fontSize: 40,
-						padding: '0.5rem',
-						display: 'flex',
-						backgroundColor: tab === 'settings' ? '#272727' : 'transparent',
-						borderRadius: '100%',
-					}}
+					sx={`
+							backgroundColor: tab === 'settings' ? '#272727' : 'transparent', ${sidebarItem}
+						`}
 				/>
 			</Button>
 		</Paper>

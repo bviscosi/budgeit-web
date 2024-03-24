@@ -1,4 +1,4 @@
-import { AppBar, IconButton, Stack, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, IconButton, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import { navbarContent } from '../../utils/assets';
 import GetStartedButton from '../Buttons/GetStartedButton';
@@ -17,15 +17,20 @@ const Navbar = () => {
 			sx={{
 				height: 72,
 				bgcolor: 'transparent',
-				// bgcolor: 'rgba(0, 0, 0, 0.1)',
 				backdropFilter: 'blur(30px)',
 				justifyContent: 'center',
 			}}>
 			<Stack direction={'row'} justifyContent={'space-between'} p={3}>
-				<img src={logo} alt='logo' style={{ height: '44px', objectFit: 'contain' }} />
+				<Stack direction='row' alignItems={'center'} spacing={1}>
+					<img src={logo} alt='logo' style={{ height: '50px', objectFit: 'contain' }} />
+					{/* <Typography fontWeight={600} variant='h4'>
+						BudgeIt
+					</Typography> */}
+				</Stack>
+
 				{isMobile ? (
 					<IconButton>
-						<MenuIcon />
+						<MenuIcon color='text-secondary' />
 					</IconButton>
 				) : (
 					<Stack direction={'row'}>

@@ -2,7 +2,11 @@ import React from 'react';
 
 import NetWorth from './components/NetWorth/NetWorth';
 import IncomeVsExpenses from './components/IncomeVsExpenses/IncomeVsExpenses';
-import { Box, Grid, Stack } from '@mui/material';
+import { Box, Grid, Stack, Typography } from '@mui/material';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import MetricCard from '../../../../components/Cards/MetricCard/MetricCard';
 
 const Home = () => {
 	return (
@@ -10,40 +14,31 @@ const Home = () => {
 			{/* top row */}
 			<Grid container spacing={3}>
 				<Grid item xs={4}>
-					<Stack
-						sx={{
-							border: '1px solid white',
-							height: '100%',
-							alignItems: 'center',
-							justifyContent: 'center',
-							borderRadius: '1rem',
-						}}>
-						Balance
-					</Stack>
+					<MetricCard
+						title={'TotalBalance'}
+						icon={<AttachMoneyIcon />}
+						color={'rgb(160, 146, 87)'}
+						backgroundColor={'rgb(160, 146, 87, 0.5)'}
+						value='100,000'
+					/>
 				</Grid>
 				<Grid item xs={4}>
-					<Stack
-						sx={{
-							border: '1px solid white',
-							height: '10rem',
-							alignItems: 'center',
-							justifyContent: 'center',
-							borderRadius: '1rem',
-						}}>
-						Income
-					</Stack>
+					<MetricCard
+						title={'Income'}
+						icon={<ArrowUpwardIcon />}
+						color={'rgb(28, 213, 148)'}
+						backgroundColor={'rgb(28, 213, 148, 0.5)'}
+						value='100,000'
+					/>
 				</Grid>
 				<Grid item xs={4}>
-					<Stack
-						sx={{
-							border: '1px solid white',
-							height: '10rem',
-							alignItems: 'center',
-							justifyContent: 'center',
-							borderRadius: '1rem',
-						}}>
-						Expenses
-					</Stack>
+					<MetricCard
+						title={'Expenses'}
+						icon={<ArrowDownwardIcon />}
+						color={'rgb(235, 58, 61)'}
+						backgroundColor={'rgb(235, 58, 61, 0.5)'}
+						value='100,000'
+					/>
 				</Grid>
 			</Grid>
 			{/* main section */}

@@ -18,7 +18,7 @@ const LandingPage = () => {
 			}}>
 			<Navbar />
 			<Hero />
-			<Box height={300}></Box>
+			<Box height={300} marginTop='20rem'></Box>
 			<Footer />
 		</div>
 	);
