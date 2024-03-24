@@ -2,6 +2,7 @@ import {
 	AppBar,
 	Button,
 	Container,
+	IconButton,
 	Stack,
 	Typography,
 	useMediaQuery,
@@ -11,6 +12,7 @@ import React from 'react';
 import { navbarContent } from '../../utils/assets';
 import GetStartedButton from '../Buttons/GetStartedButton';
 import ThemeModeToggle from '../ThemeModeToggle/ThemeModeToggle';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const { logo } = navbarContent;
 
@@ -28,15 +30,19 @@ const Navbar = () => {
 				backdropFilter: 'blur(30px)',
 				justifyContent: 'center',
 			}}>
-			{/* <Container> */}
 			<Stack direction={'row'} justifyContent={'space-between'} p={3}>
 				<img src={logo} alt='logo' style={{ height: '44px', objectFit: 'contain' }} />
-				<Stack direction={'row'}>
-					<ThemeModeToggle />
-					<GetStartedButton />
-				</Stack>
+				{isMobile ? (
+					<IconButton>
+						<MenuIcon />
+					</IconButton>
+				) : (
+					<Stack direction={'row'}>
+						<ThemeModeToggle />
+						<GetStartedButton />
+					</Stack>
+				)}
 			</Stack>
-			{/* </Container> */}
 		</AppBar>
 	);
 };
