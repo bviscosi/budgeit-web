@@ -1,13 +1,4 @@
-import {
-	AppBar,
-	Button,
-	Container,
-	IconButton,
-	Stack,
-	Typography,
-	useMediaQuery,
-	useTheme,
-} from '@mui/material';
+import { AppBar, IconButton, Stack, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import { navbarContent } from '../../utils/assets';
 import GetStartedButton from '../Buttons/GetStartedButton';
@@ -18,7 +9,6 @@ const { logo } = navbarContent;
 
 const Navbar = () => {
 	const theme = useTheme();
-	const scrollPosition = useScrollPosition();
 	const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
 	return (
