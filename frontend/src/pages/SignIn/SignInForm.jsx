@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signInContainer, signInForm } from './styles';
-import { Button, Typography, Container, Box, Stack } from '@mui/material';
-import { useCustomTheme } from '../../utils/theme/ThemeContext';
+import { Button, Typography, Box, Stack } from '@mui/material';
 
 axios.defaults.baseURL = 'http://localhost:5555/';
 
