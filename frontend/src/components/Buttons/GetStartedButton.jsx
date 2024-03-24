@@ -14,10 +14,19 @@ const GetStartedButton = ({ sx = {}, ...props }) => {
 			variant='contained'
 			sx={{
 				borderRadius: 4,
-				// background: mode === 'dark' ? 'black' : 'white',
-				// color: mode === 'dark' ? 'white' : 'black',
-
-				// boxShadow: 'inset 0/ 2px 2px 0px #5d79cf,inset 2px 0 2px 2px #5d79cf',
+				backgroundImage: 'linear-gradient(145deg, #ea98da, #5b6cf9)',
+				boxShadow:
+					mode === 'dark'
+						? '0 4px 10px 0 rgba(0,0,0,0.5), inset 0 0 10px #5d79cf'
+						: '0 4px 10px 0 rgba(0,0,0,0.1), inset 0 0 10px #5d79cf',
+				textTransform: 'none',
+				// '&:hover': {
+				// 	boxShadow:
+				// 		mode === 'dark'
+				// 			? '0 0 20px 4px #ea98da,  inset 0 0 12px #5d79cf'
+				// 			: '0 0 20px 4px #ea98da,  inset 0 0 12px #5d79cf',
+				// 	transition: 'box-shadow 0.3s ease-in-out',
+				// },
 				...sx,
 			}}
 			{...props}

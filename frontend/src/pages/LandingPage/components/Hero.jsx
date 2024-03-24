@@ -9,7 +9,7 @@ const LearnMoreButton = () => {
 			sx={{
 				borderRadius: 4,
 				height: 58,
-				px: 2,
+				px: 3,
 				color: 'text.primary',
 				borderColor: 'text.primary',
 			}}>
