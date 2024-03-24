@@ -1,4 +1,7 @@
 import { Card, Stack, styled } from '@mui/material';
+import { DataGrid } from '@mui/x-data-grid';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const GradientBorderWrapper = styled('div')(() => ({
 	height: '100%',
@@ -21,7 +24,65 @@ const GradientBorderWrapper = styled('div')(() => ({
 	},
 }));
 
+// Define the columns for the DataGrid
+const columns = [
+	{ field: 'date', headerName: 'Date' },
+	{ field: 'merchant_name', headerName: 'Merchant' },
+	{ field: 'amount', headerName: 'Amount', type: 'number' },
+	{
+		field: 'category',
+		headerName: 'Category',
+		width: '300',
+		valueGetter: (params) => params.row.category.join(', '),
+	},
+	// Add more fields as needed
+];
+
 const Transactions = () => {
+	// Function to add JWT to Axios request headers
+	const addJwtHeader = () => {
+		const token = localStorage.getItem('token');
+		return token ? { Authorization: `Bearer ${token}` } : {};
+	};
+
+	const [transactions, setTransactions] = useState([]);
+	const [rows, setRows] = useState([]);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState('');
+
+	useEffect(() => {
+		const fetchTransactions = async (startDate, endDate) => {
+			setLoading(true);
+			setError('');
+			try {
+				const response = await axios.get(
+					`/transactions?startDate=${startDate}&endDate=${endDate}`,
+					{ headers: addJwtHeader() }
+				);
+
+				const fetchedRows = response.data.transactions.map((transaction, index) => ({
+					id: index, // DataGrid requires a unique 'id' field for each row
+					...transaction,
+				}));
+
+				setRows(fetchedRows);
+
+				setTransactions(response.data.transactions);
+				// console.log(response.data);
+			} catch (error) {
+				console.error('Error fetching transactions:', error);
+				setError('Failed to fetch transactions');
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		// Example dates, replace with actual dynamic dates
+		const startDate = '2023-11-01';
+		const endDate = '2024-01-01';
+		fetchTransactions(startDate, endDate);
+	}, []);
+
 	return (
 		<GradientBorderWrapper>
 			<Card
@@ -41,7 +102,7 @@ const Transactions = () => {
 						justifyContent: 'center',
 						borderRadius: '1rem',
 					}}>
-					Recent Transactions
+					<DataGrid rows={rows} columns={columns} pageSize={5} rowsPerPageOptions={[5]} />
 				</Stack>
 			</Card>
 		</GradientBorderWrapper>
