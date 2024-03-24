@@ -1,10 +1,9 @@
-import React from 'react';
 import SettingsIcon from '@mui/icons-material/Settings';
 import GridViewIcon from '@mui/icons-material/GridView';
 import SavingsIcon from '@mui/icons-material/Savings';
 import WalletIcon from '@mui/icons-material/Wallet';
 import ListIcon from '@mui/icons-material/List';
-import { Paper, Stack, IconButton, styled, Box } from '@mui/material';
+import { Stack, IconButton, Box } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import { sidebar, sidebarItem } from './styles';
 import Logo from './components/Logo/Logo';
