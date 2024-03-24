@@ -2,6 +2,7 @@ import { Grid, Stack } from '@mui/material';
 import Balance from './components/Balance';
 import Income from './components/Income';
 import Expenses from './components/Expenses';
+import Budgets from './components/Budgets';
 
 // pull this into context eventually
 const Home = ({ transactions }) => {
@@ -22,17 +23,7 @@ const Home = ({ transactions }) => {
 			{/* main section */}
 			<Grid container spacing={3}>
 				<Grid item xs={8}>
-					<Stack
-						sx={{
-							border: '1px solid white',
-							height: '27.5rem',
-							alignItems: 'center',
-							justifyContent: 'center',
-							borderRadius: '1rem',
-							marginBottom: '1.5rem',
-						}}>
-						Your Budgets
-					</Stack>
+					<Budgets />
 					<Stack
 						sx={{
 							border: '1px solid white',
