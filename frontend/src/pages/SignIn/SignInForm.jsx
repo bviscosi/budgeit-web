@@ -9,8 +9,6 @@ import { useCustomTheme } from '../../utils/theme/ThemeContext';
 axios.defaults.baseURL = 'http://localhost:5555/';
 
 const SignInForm = ({ handleLogin }) => {
-	const { theme } = useCustomTheme();
-
 	let navigate = useNavigate();
 
 	const [email, setEmail] = useState('');
@@ -42,7 +40,7 @@ const SignInForm = ({ handleLogin }) => {
 		}
 	};
 	return (
-		<Container style={signInContainer} sx={{ backgroundColor: theme.palette.background.main }}>
+		<Stack direction='column' style={signInContainer} sx={{ backgroundColor: 'background.main' }}>
 			<form style={signInForm}>
 				<div
 					style={{
@@ -64,10 +62,10 @@ const SignInForm = ({ handleLogin }) => {
 					<Box
 						component='input'
 						sx={{
+							backgroundColor: 'background.main',
 							borderRadius: '0.5rem',
 							padding: '1.5rem',
 							boxShadow: 'none',
-							borderStyle: 'none',
 							width: '100%', // Adjust width as needed
 							boxSizing: 'border-box', // Ensures padding does not add to the width
 						}}
@@ -81,12 +79,11 @@ const SignInForm = ({ handleLogin }) => {
 					<Box
 						component='input'
 						sx={{
+							backgroundColor: 'background.main',
 							borderRadius: '0.5rem',
 							padding: '1.5rem',
 							boxShadow: 'none',
-							borderStyle: 'none',
 							width: '100%', // Adjust width as needed
-							boxSizing: 'border-box', // Ensures padding does not add to the width
 						}}
 						type='password'
 						placeholder='Enter your password'
@@ -102,9 +99,10 @@ const SignInForm = ({ handleLogin }) => {
 						width='100%'>
 						<Stack
 							direction='row'
-							justifyContent={'space-between'}
+							width='100%'
+							justifyContent={'flex-start'}
 							alignItems={'center'}
-							style={{ gap: '0.5rem' }}>
+							gap={1.5}>
 							<input
 								type='checkbox'
 								id='rememberMe'
@@ -150,13 +148,13 @@ const SignInForm = ({ handleLogin }) => {
 							variant='text'
 							sx={{ textTransform: 'none' }}
 							onClick={() => navigate('/sign-up')}>
-							Create account
+							<Typography>Create account</Typography>
 						</Button>
 					</div>
 				</div>
 				{/* <h2 style={{ fontSize: '1.75rem' }}>Welcome Back</h2> */}
 			</form>
-		</Container>
+		</Stack>
 	);
 };
 
