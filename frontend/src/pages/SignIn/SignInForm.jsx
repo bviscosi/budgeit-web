@@ -38,6 +38,7 @@ const SignInForm = ({ handleLogin }) => {
 			handleSignIn();
 		}
 	};
+
 	return (
 		<Stack direction='column' style={signInContainer} sx={{ backgroundColor: 'background.main' }}>
 			<form style={signInForm}>
