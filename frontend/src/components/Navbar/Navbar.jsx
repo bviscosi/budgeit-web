@@ -18,6 +18,7 @@ const { logo } = navbarContent;
 
 const Navbar = () => {
 	const theme = useTheme();
+	const scrollPosition = useScrollPosition();
 	const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
 	return (
