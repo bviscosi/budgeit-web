@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signInContainer, signInForm } from './styles';
-import { Button, Typography, Container, Box } from '@mui/material';
+import { Button, Typography, Container, Box, Stack } from '@mui/material';
 import { useCustomTheme } from '../../utils/theme/ThemeContext';
 
 axios.defaults.baseURL = 'http://localhost:5555/';
@@ -64,17 +64,10 @@ const SignInForm = ({ handleLogin }) => {
 					<Box
 						component='input'
 						sx={{
-							backgroundColor: theme.palette.background.paper,
 							borderRadius: '0.5rem',
 							padding: '1.5rem',
-							color: theme.palette.gray[1],
 							boxShadow: 'none',
 							borderStyle: 'none',
-							border: `1px solid ${theme.palette.gray[2]}`,
-							'&:focus': {
-								outline: 'none',
-								border: `1px solid ${theme.palette.gray[2]}`,
-							},
 							width: '100%', // Adjust width as needed
 							boxSizing: 'border-box', // Ensures padding does not add to the width
 						}}
@@ -88,17 +81,10 @@ const SignInForm = ({ handleLogin }) => {
 					<Box
 						component='input'
 						sx={{
-							backgroundColor: theme.palette.background.paper,
 							borderRadius: '0.5rem',
 							padding: '1.5rem',
-							color: theme.palette.gray[1],
 							boxShadow: 'none',
 							borderStyle: 'none',
-							border: `1px solid ${theme.palette.gray[2]}`,
-							'&:focus': {
-								outline: 'none',
-								border: `1px solid ${theme.palette.gray[2]}`,
-							},
 							width: '100%', // Adjust width as needed
 							boxSizing: 'border-box', // Ensures padding does not add to the width
 						}}
@@ -109,8 +95,16 @@ const SignInForm = ({ handleLogin }) => {
 					/>
 
 					{errorMessage && <div className='error-message'>{errorMessage}</div>}
-					<div className='row  jcsb aic'>
-						<div className='row  w100 aic' style={{ gap: '0.5rem' }}>
+					<Stack
+						direction='row'
+						justifyContent={'space-between'}
+						alignItems={'center'}
+						width='100%'>
+						<Stack
+							direction='row'
+							justifyContent={'space-between'}
+							alignItems={'center'}
+							style={{ gap: '0.5rem' }}>
 							<input
 								type='checkbox'
 								id='rememberMe'
@@ -119,11 +113,10 @@ const SignInForm = ({ handleLogin }) => {
 								onChange={(e) => setRememberMe(e.target.checked)}
 								style={{ width: '10%' }}
 							/>
-							<Typography variant='p'>Remember me</Typography>
-						</div>
+							<Typography>Remember me</Typography>
+						</Stack>
 
 						<Typography
-							variant='p'
 							sx={{
 								width: '100%',
 								display: 'flex',
@@ -135,13 +128,13 @@ const SignInForm = ({ handleLogin }) => {
 							onClick={() => navigate('/register')}>
 							Forgot Password?
 						</Typography>
-					</div>
+					</Stack>
 
 					<Button
 						variant='contained'
 						sx={{ borderRadius: '1rem', padding: '0.75rem' }}
 						onClick={handleSignIn}>
-						<Typography variant='signInButton'>Sign In</Typography>
+						<Typography>Sign In</Typography>
 					</Button>
 					<div
 						style={{
@@ -152,7 +145,7 @@ const SignInForm = ({ handleLogin }) => {
 							gap: '0.3rem',
 							marginTop: '1rem',
 						}}>
-						<Typography variant='p'> Not registered yet?</Typography>
+						<Typography> Not registered yet?</Typography>
 						<Button
 							variant='text'
 							sx={{ textTransform: 'none' }}

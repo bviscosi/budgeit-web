@@ -13,7 +13,8 @@ const LandingPage = () => {
 			style={{
 				background:
 					mode === 'dark'
-						? 'linear-gradient(145deg, rgba(38,24,62,1) 0%, rgba(0,30,38,1) 67%, rgba(2,10,18,1) 100%)'
+						? // ? 'linear-gradient(145deg, rgba(38,24,62,1) 0%, rgba(0,30,38,1) 67%, rgba(2,10,18,1) 100%)'
+						  '#070707'
 						: 'linear-gradient(60deg, rgba(223,215,237,1) 0%, rgba(231,250,255,1) 67%, rgba(255,255,255,1) 100%)',
 			}}>
 			<Navbar />

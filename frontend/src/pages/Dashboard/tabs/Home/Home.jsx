@@ -15,7 +15,7 @@ const Home = () => {
 			<Grid container spacing={3}>
 				<Grid item xs={4}>
 					<MetricCard
-						title={'TotalBalance'}
+						title={'Total Balance'}
 						icon={<AttachMoneyIcon />}
 						color={'rgb(160, 146, 87)'}
 						backgroundColor={'rgb(160, 146, 87, 0.5)'}

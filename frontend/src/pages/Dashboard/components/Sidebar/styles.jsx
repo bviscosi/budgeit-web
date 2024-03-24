@@ -4,6 +4,8 @@ export const sidebar = {
 	justifyContent: 'space-between',
 	alignItems: 'center',
 	width: '4rem',
+	height: '100vh',
+	position: 'fixed',
 	// marginTop: '1rem',
 	// marginBottom: '1rem',
 	paddingTop: '0.5rem',
