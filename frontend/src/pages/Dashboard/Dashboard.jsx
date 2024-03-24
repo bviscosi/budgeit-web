@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
-import { Box } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import axios from 'axios';
 import Loading from './components/Loading/Loading';
 import Error from './components/Error/Error';
@@ -54,14 +54,14 @@ const Dashboard = ({ handleLogout }) => {
 			{loading && <Loading />}
 			{error && <Error />}
 			{!error && !loading && (
-				<div style={home}>
+				<Stack direction={'row'}>
 					<Sidebar tab={tab} setTab={setTab} />
 					<div style={body}>
 						<Topbar tab={tab} handleLogout={handleLogout}></Topbar>
-						{tab === 'home' && <Home />}
+						{tab === 'home' && <Home transactions={transactions} />}
 						{tab === 'transactions' && <Transactions transactions={transactions} />}
 					</div>
-				</div>
+				</Stack>
 			)}
 		</Box>
 	);

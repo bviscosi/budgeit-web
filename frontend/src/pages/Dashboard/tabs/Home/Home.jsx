@@ -1,14 +1,19 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
-import NetWorth from './components/NetWorth/NetWorth';
-import IncomeVsExpenses from './components/IncomeVsExpenses/IncomeVsExpenses';
-import { Box, Grid, Stack, Typography } from '@mui/material';
+import { Grid, Stack } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import MetricCard from '../../../../components/Cards/MetricCard/MetricCard';
 
-const Home = () => {
+// pull this into context eventually
+const Home = ({ transactions }) => {
+	const [balance, SetBalance] = useState();
+
+	useEffect(() => {
+		console.log('transactions');
+	}, []);
+
 	return (
 		<Stack style={{ gap: '1.5rem', margin: '1rem' }}>
 			{/* top row */}
@@ -19,7 +24,7 @@ const Home = () => {
 						icon={<AttachMoneyIcon />}
 						color={'rgb(160, 146, 87)'}
 						backgroundColor={'rgb(160, 146, 87, 0.5)'}
-						value='100,000'
+						value={balance}
 					/>
 				</Grid>
 				<Grid item xs={4}>
