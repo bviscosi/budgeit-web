@@ -202,4 +202,84 @@ recordRoutes.route('/balance').get(authenticateJWT, async (req, res) => {
 	}
 });
 
+// Protected Route: Fetch income
+recordRoutes.route('/income').get(authenticateJWT, async (req, res) => {
+	try {
+		const { startDate, endDate } = req.query;
+
+		// Validate the startDate and endDate
+		if (!startDate || !endDate) {
+			return res.status(400).json({ message: 'Start date and end date are required.' });
+		}
+
+		const cloudDb = getCloudDb();
+		const BudgeIt = cloudDb.db('BudgeIt');
+		const users = BudgeIt.collection('users');
+
+		// Retrieve the user from the database
+		const user = await users.findOne({ _id: new ObjectId(req.user.userId) });
+		if (!user) {
+			return res.status(404).json({ message: 'User not found.' });
+		}
+
+		// Check if the user has a Plaid access token
+		if (!user.plaidAccessToken) {
+			return res.status(400).json({ message: 'Access token not found.' });
+		}
+
+		// Fetch transactions from Plaid using the access token
+		const response = await client.transactionsGet({
+			access_token: user.plaidAccessToken,
+			start_date: startDate,
+			end_date: endDate,
+		});
+
+		// Send the transactions back to the client
+		res.status(200).json(response.data.transactions);
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ error: error.toString() });
+	}
+});
+
+// Protected Route: Fetch expenses
+recordRoutes.route('/expenses').get(authenticateJWT, async (req, res) => {
+	try {
+		const { startDate, endDate } = req.query;
+
+		// Validate the startDate and endDate
+		if (!startDate || !endDate) {
+			return res.status(400).json({ message: 'Start date and end date are required.' });
+		}
+
+		const cloudDb = getCloudDb();
+		const BudgeIt = cloudDb.db('BudgeIt');
+		const users = BudgeIt.collection('users');
+
+		// Retrieve the user from the database
+		const user = await users.findOne({ _id: new ObjectId(req.user.userId) });
+		if (!user) {
+			return res.status(404).json({ message: 'User not found.' });
+		}
+
+		// Check if the user has a Plaid access token
+		if (!user.plaidAccessToken) {
+			return res.status(400).json({ message: 'Access token not found.' });
+		}
+
+		// Fetch transactions from Plaid using the access token
+		const response = await client.transactionsGet({
+			access_token: user.plaidAccessToken,
+			start_date: startDate,
+			end_date: endDate,
+		});
+
+		// Send the transactions back to the client
+		res.status(200).json(response.data.transactions);
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ error: error.toString() });
+	}
+});
+
 module.exports = recordRoutes;
