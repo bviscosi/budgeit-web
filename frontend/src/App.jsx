@@ -1,4 +1,3 @@
-import React from 'react';
 import RoutesComponent from './utils/navigation/RoutesComponent';
 
 function App() {
