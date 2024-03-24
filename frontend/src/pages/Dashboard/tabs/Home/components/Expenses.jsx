@@ -3,16 +3,12 @@ import axios from 'axios';
 
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import MetricCard from '../../../../../components/Cards/MetricCard/MetricCard';
+import { addJwtHeader } from '../../../../../utils/addJwtHeader';
 
 const Expenses = () => {
 	const [expenses, setExpenses] = useState();
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
-
-	const addJwtHeader = () => {
-		const token = localStorage.getItem('token');
-		return token ? { Authorization: `Bearer ${token}` } : {};
-	};
 
 	// get expenses
 	useEffect(() => {

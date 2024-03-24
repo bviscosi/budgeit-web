@@ -3,16 +3,12 @@ import axios from 'axios';
 
 import MetricCard from '../../../../../components/Cards/MetricCard/MetricCard';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import { addJwtHeader } from '../../../../../utils/addJwtHeader';
 
 const Balance = () => {
 	const [balance, setBalance] = useState();
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
-
-	const addJwtHeader = () => {
-		const token = localStorage.getItem('token');
-		return token ? { Authorization: `Bearer ${token}` } : {};
-	};
 
 	// get current balance
 	useEffect(() => {

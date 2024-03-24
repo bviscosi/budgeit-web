@@ -3,16 +3,12 @@ import { useEffect, useState } from 'react';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MetricCard from '../../../../../components/Cards/MetricCard/MetricCard';
 import axios from 'axios';
+import { addJwtHeader } from '../../../../../utils/addJwtHeader';
 
 const Income = () => {
 	const [income, setIncome] = useState();
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
-
-	const addJwtHeader = () => {
-		const token = localStorage.getItem('token');
-		return token ? { Authorization: `Bearer ${token}` } : {};
-	};
 
 	// get income
 	useEffect(() => {

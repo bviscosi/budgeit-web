@@ -7,7 +7,7 @@ import Transactions from './components/Transactions';
 import Analytics from './components/Analytics';
 
 // pull this into context eventually
-const Home = ({ transactions }) => {
+const Home = () => {
 	return (
 		<Stack style={{ gap: '1.5rem', margin: '1rem' }}>
 			{/* top row */}

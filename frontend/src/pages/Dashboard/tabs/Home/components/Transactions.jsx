@@ -2,14 +2,15 @@ import { Card, Stack, styled } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { addJwtHeader } from '../../../../../utils/addJwtHeader';
 
 const GradientBorderWrapper = styled('div')(() => ({
 	height: '100%',
 	position: 'relative',
-	padding: '2px', // Adjusts the border thickness
+	padding: '2px',
 	background:
 		'linear-gradient(0deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.1) 100%)',
-	borderRadius: '1rem', // Match your Card's borderRadius
+	borderRadius: '1rem',
 	'&:before': {
 		content: '""',
 		position: 'absolute',
@@ -18,7 +19,7 @@ const GradientBorderWrapper = styled('div')(() => ({
 		right: 0,
 		bottom: 0,
 		borderRadius: 'inherit',
-		padding: '1rem', // Adjusts the space for the border inside the wrapper
+		padding: '1rem',
 		background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
 		zIndex: -1,
 	},
@@ -35,17 +36,9 @@ const columns = [
 		width: '300',
 		valueGetter: (params) => params.row.category.join(', '),
 	},
-	// Add more fields as needed
 ];
 
 const Transactions = () => {
-	// Function to add JWT to Axios request headers
-	const addJwtHeader = () => {
-		const token = localStorage.getItem('token');
-		return token ? { Authorization: `Bearer ${token}` } : {};
-	};
-
-	const [transactions, setTransactions] = useState([]);
 	const [rows, setRows] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
@@ -66,9 +59,6 @@ const Transactions = () => {
 				}));
 
 				setRows(fetchedRows);
-
-				setTransactions(response.data.transactions);
-				// console.log(response.data);
 			} catch (error) {
 				console.error('Error fetching transactions:', error);
 				setError('Failed to fetch transactions');
