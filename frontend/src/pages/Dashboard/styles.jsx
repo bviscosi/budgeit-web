@@ -2,18 +2,6 @@ export const home = {
 	display: 'flex',
 	flexDirection: 'row',
 	width: '100%',
-	height: '100%',
+	// height: '100%',
 	// border: '1px solid white',
-};
-
-export const paper = {
-	display: 'flex',
-	height: '100%',
-	width: '100%',
-	// padding: '10px',
-	// border: `1px solid ${theme.palette.card.border}`,
-	boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.05)',
-
-	// backgroundColor: '#f7f8fa',
-	borderRadius: '20px',
 };

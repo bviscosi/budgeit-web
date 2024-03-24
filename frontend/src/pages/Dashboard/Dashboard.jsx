@@ -46,7 +46,7 @@ const Dashboard = ({ handleLogout }) => {
 	}, []);
 
 	return (
-		<Box sx={{ backgroundColor: 'background.main', height: '100vh' }}>
+		<Box sx={{ backgroundColor: 'background.main' }}>
 			{loading && <Loading />}
 			{error && <Error />}
 			{!error && !loading && (
