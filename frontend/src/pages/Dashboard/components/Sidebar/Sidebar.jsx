@@ -19,11 +19,11 @@ const Sidebar = ({ tab, setTab }) => {
 			<Logo />
 			<Stack direction={'column'} gap={7}>
 				<IconButton
-					sx={`
+					sx={{
+						...sidebarItem,
 						color: tab === 'home' ? '#ffffff' : '#858585',
-						
-							backgroundColor: tab === 'home' ? '#272727' : 'transparent', ${sidebarItem}
-						`}
+						backgroundColor: tab === 'home' ? '#272727' : 'transparent',
+					}}
 					onClick={() => handleSetTab('home')}>
 					<GridViewIcon />
 				</IconButton>
@@ -33,9 +33,11 @@ const Sidebar = ({ tab, setTab }) => {
 					}}
 					onClick={() => handleSetTab('transactions')}>
 					<ListIcon
-						sx={`
-							backgroundColor: tab === 'transactions' ? '#272727' : 'transparent', ${sidebarItem}
-						`}
+						sx={{
+							...sidebarItem,
+
+							backgroundColor: tab === 'transactions' ? '#272727' : 'transparent',
+						}}
 					/>
 				</IconButton>
 				<IconButton
@@ -44,9 +46,11 @@ const Sidebar = ({ tab, setTab }) => {
 					}}
 					onClick={() => handleSetTab('savings')}>
 					<SavingsIcon
-						sx={`
-							backgroundColor: tab === 'savings' ? '#272727' : 'transparent', ${sidebarItem}
-						`}
+						sx={{
+							...sidebarItem,
+
+							backgroundColor: tab === 'savings' ? '#272727' : 'transparent',
+						}}
 					/>
 				</IconButton>
 				<IconButton
@@ -55,9 +59,11 @@ const Sidebar = ({ tab, setTab }) => {
 					}}
 					onClick={() => handleSetTab('wallet')}>
 					<WalletIcon
-						sx={`
-							backgroundColor: tab === 'wallet' ? '#272727' : 'transparent', ${sidebarItem}
-						`}
+						sx={{
+							...sidebarItem,
+
+							backgroundColor: tab === 'wallet' ? '#272727' : 'transparent',
+						}}
 					/>
 				</IconButton>
 				<IconButton
@@ -66,9 +72,11 @@ const Sidebar = ({ tab, setTab }) => {
 					}}
 					onClick={() => handleSetTab('account')}>
 					<PersonIcon
-						sx={`
-							backgroundColor: tab === 'account' ? '#272727' : 'transparent', ${sidebarItem}
-						`}
+						sx={{
+							...sidebarItem,
+
+							backgroundColor: tab === 'account' ? '#272727' : 'transparent',
+						}}
 					/>
 				</IconButton>
 			</Stack>
@@ -81,9 +89,11 @@ const Sidebar = ({ tab, setTab }) => {
 					handleSetTab('settings');
 				}}>
 				<SettingsIcon
-					sx={`
-							backgroundColor: tab === 'settings' ? '#272727' : 'transparent', ${sidebarItem}
-						`}
+					sx={{
+						...sidebarItem,
+
+						backgroundColor: tab === 'settings' ? '#272727' : 'transparent',
+					}}
 				/>
 			</IconButton>
 		</Box>

@@ -51,7 +51,7 @@ const Dashboard = ({ handleLogout }) => {
 			{error && <Error />}
 			{!error && !loading && (
 				<Stack direction={'row'} justifyContent={'space-between'}>
-					{/* <Sidebar tab={tab} setTab={setTab} /> */}
+					<Sidebar tab={tab} setTab={setTab} />
 					<Stack direction={'column'} width='100%' ml={'4rem'}>
 						<Topbar tab={tab} handleLogout={handleLogout}></Topbar>
 						{tab === 'home' && <Home transactions={transactions} />}
