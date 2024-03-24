@@ -46,7 +46,7 @@ const Expenses = () => {
 			icon={<ArrowDownwardIcon />}
 			color={'rgb(235, 58, 61)'}
 			backgroundColor={'rgb(235, 58, 61, 0.5)'}
-			value='100,000'
+			value={expenses}
 		/>
 	);
 };

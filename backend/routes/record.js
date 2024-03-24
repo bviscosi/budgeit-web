@@ -172,7 +172,6 @@ recordRoutes.route('/balance').get(authenticateJWT, async (req, res) => {
 		const BudgeIt = cloudDb.db('BudgeIt');
 		const users = BudgeIt.collection('users');
 
-		console.log('got here');
 		// Retrieve the user from the database
 		const user = await users.findOne({ _id: new ObjectId(req.user.userId) });
 		if (!user) {
@@ -282,8 +281,16 @@ recordRoutes.route('/expenses').get(authenticateJWT, async (req, res) => {
 			end_date: endDate,
 		});
 
-		// Send the transactions back to the client
-		res.status(200).json(response.data.transactions);
+		// Calculate the total of all positive amounts
+		const totalPositiveAmounts = response.data.transactions.reduce((acc, transaction) => {
+			if (transaction.amount > 0) {
+				acc += transaction.amount;
+			}
+			return acc;
+		}, 0);
+
+		// Send the absolute value of the sum back to the client
+		res.status(200).json({ expenses: Math.abs(totalPositiveAmounts) });
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: error.toString() });
