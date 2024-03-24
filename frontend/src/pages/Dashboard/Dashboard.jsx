@@ -5,13 +5,10 @@ import { Box, Stack } from '@mui/material';
 import axios from 'axios';
 import Loading from './components/Loading/Loading';
 import Error from './components/Error/Error';
-import { useCustomTheme } from '../../utils/theme/ThemeContext';
 import Home from './tabs/Home/Home';
 import Transactions from './tabs/Transactions/Transactions';
 
 const Dashboard = ({ handleLogout }) => {
-	const { theme } = useCustomTheme(); // Accessing the theme
-
 	const [tab, setTab] = useState('home');
 	// Function to add JWT to Axios request headers
 	const addJwtHeader = () => {
