@@ -29,6 +29,7 @@ const Hero = () => {
 				{`
                 @keyframes gradientAnimation {
                     0% { background-position: 0% 50%; }
+                    0% { background-position: 0% 50%; }
                     50% { background-position: 100% 50%; }
                     100% { background-position: 0% 50%; }
                 }
@@ -44,12 +45,12 @@ const Hero = () => {
 							<Box
 								component='span'
 								sx={{
-									background: 'linear-gradient(45deg, #8076f1, #d692df)',
+									background: 'linear-gradient(to right, #6e72f3,#fcb0f3 )',
 									WebkitBackgroundClip: 'text',
 									WebkitTextFillColor: 'transparent',
 									backgroundClip: 'text',
 									textFillColor: 'transparent',
-									animation: 'gradientAnimation 3s ease infinite',
+									animation: 'gradientAnimation 5s ease infinite',
 									backgroundSize: '200% 200%',
 								}}>
 								BudgeIt

@@ -28,8 +28,8 @@ const themeSettings = {
 
 			background: {
 				default: '#000',
-				paper: '#111415',
-				main: '#0c0e0f',
+				paper: '#14131a',
+				main: '#141319',
 				// purpleGradient: 'linear-gradient(#242acf, #b57bee)',
 				purpleGradient:
 					'linear-gradient(60deg, rgba(2,10,18,1) 0%, rgba(82,50,135,1) 70%, rgba(0,90,116,0.8) 100%)',
