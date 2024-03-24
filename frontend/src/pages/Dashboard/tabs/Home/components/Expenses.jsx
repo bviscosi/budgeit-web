@@ -26,7 +26,7 @@ const Expenses = () => {
 						headers: addJwtHeader(),
 					}
 				);
-				setExpenses(response.data);
+				setExpenses(response.data.expenses);
 			} catch (error) {
 				console.error('Error fetching transactions:', error);
 				setError('Failed to fetch transactions');

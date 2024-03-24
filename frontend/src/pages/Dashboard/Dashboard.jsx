@@ -29,7 +29,7 @@ const Dashboard = ({ handleLogout }) => {
 					`/transactions?startDate=${startDate}&endDate=${endDate}`,
 					{ headers: addJwtHeader() }
 				);
-				setTransactions(response.data);
+				setTransactions(response.data.transactions);
 				// console.log(response.data);
 			} catch (error) {
 				console.error('Error fetching transactions:', error);

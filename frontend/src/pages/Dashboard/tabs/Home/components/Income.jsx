@@ -14,7 +14,7 @@ const Income = () => {
 		return token ? { Authorization: `Bearer ${token}` } : {};
 	};
 
-	// get current balance
+	// get income
 	useEffect(() => {
 		const fetchIncome = async (startDate, endDate) => {
 			setLoading(true);
@@ -23,7 +23,7 @@ const Income = () => {
 				const response = await axios.get(`/income?startDate=${startDate}&endDate=${endDate}`, {
 					headers: addJwtHeader(),
 				});
-				setIncome(response.data);
+				setIncome(response.data.income);
 			} catch (error) {
 				console.error('Error fetching transactions:', error);
 				setError('Failed to fetch transactions');
@@ -44,7 +44,7 @@ const Income = () => {
 			icon={<ArrowUpwardIcon />}
 			color={'rgb(28, 213, 148)'}
 			backgroundColor={'rgb(28, 213, 148, 0.5)'}
-			value='100,000'
+			value={income}
 		/>
 	);
 };

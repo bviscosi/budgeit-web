@@ -158,7 +158,7 @@ recordRoutes.route('/transactions').get(authenticateJWT, async (req, res) => {
 		});
 
 		// Send the transactions back to the client
-		res.status(200).json(response.data.transactions);
+		res.status(200).json({ transactions: response.data.transactions });
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: error.toString() });
@@ -195,7 +195,7 @@ recordRoutes.route('/balance').get(authenticateJWT, async (req, res) => {
 		}, 0);
 
 		// Send the transactions back to the client
-		res.status(200).json(sumAvailableBalances);
+		res.status(200).json({ balance: sumAvailableBalances });
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: error.toString() });
@@ -234,8 +234,16 @@ recordRoutes.route('/income').get(authenticateJWT, async (req, res) => {
 			end_date: endDate,
 		});
 
-		// Send the transactions back to the client
-		res.status(200).json(response.data.transactions);
+		// Calculate the total of all negative amounts
+		const totalNegativeAmounts = response.data.transactions.reduce((acc, transaction) => {
+			if (transaction.amount < 0) {
+				acc += transaction.amount;
+			}
+			return acc;
+		}, 0);
+
+		// Send the absolute value of the sum back to the client
+		res.status(200).json({ income: Math.abs(totalNegativeAmounts) });
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: error.toString() });

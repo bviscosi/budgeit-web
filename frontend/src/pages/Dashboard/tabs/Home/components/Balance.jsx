@@ -24,7 +24,7 @@ const Balance = () => {
 				const response = await axios.get(`/balance`, {
 					headers: addJwtHeader(),
 				});
-				setBalance(response.data);
+				setBalance(response.data.balance);
 			} catch (error) {
 				console.error('Error fetching transactions:', error);
 				setError('Failed to fetch transactions');
