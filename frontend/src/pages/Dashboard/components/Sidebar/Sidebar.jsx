@@ -28,72 +28,52 @@ const Sidebar = ({ tab, setTab }) => {
 				</IconButton>
 				<IconButton
 					sx={{
+						...sidebarItem,
 						color: tab === 'transactions' ? '#ffffff' : '#858585',
+						backgroundColor: tab === 'transactions' ? '#272727' : 'transparent',
 					}}
 					onClick={() => handleSetTab('transactions')}>
-					<ListIcon
-						sx={{
-							...sidebarItem,
-
-							backgroundColor: tab === 'transactions' ? '#272727' : 'transparent',
-						}}
-					/>
+					<ListIcon />
 				</IconButton>
 				<IconButton
 					sx={{
+						...sidebarItem,
 						color: tab === 'savings' ? '#ffffff' : '#858585',
+						backgroundColor: tab === 'savings' ? '#272727' : 'transparent',
 					}}
 					onClick={() => handleSetTab('savings')}>
-					<SavingsIcon
-						sx={{
-							...sidebarItem,
-
-							backgroundColor: tab === 'savings' ? '#272727' : 'transparent',
-						}}
-					/>
+					<SavingsIcon />
 				</IconButton>
 				<IconButton
 					sx={{
+						...sidebarItem,
 						color: tab === 'wallet' ? '#ffffff' : '#858585',
+						backgroundColor: tab === 'wallet' ? '#272727' : 'transparent',
 					}}
 					onClick={() => handleSetTab('wallet')}>
-					<WalletIcon
-						sx={{
-							...sidebarItem,
-
-							backgroundColor: tab === 'wallet' ? '#272727' : 'transparent',
-						}}
-					/>
+					<WalletIcon />
 				</IconButton>
 				<IconButton
 					sx={{
+						...sidebarItem,
 						color: tab === 'account' ? '#ffffff' : '#858585',
+						backgroundColor: tab === 'account' ? '#272727' : 'transparent',
 					}}
 					onClick={() => handleSetTab('account')}>
-					<PersonIcon
-						sx={{
-							...sidebarItem,
-
-							backgroundColor: tab === 'account' ? '#272727' : 'transparent',
-						}}
-					/>
+					<PersonIcon />
 				</IconButton>
 			</Stack>
 
 			<IconButton
 				sx={{
+					...sidebarItem,
 					color: tab === 'settings' ? '#ffffff' : '#858585',
+					backgroundColor: tab === 'settings' ? '#272727' : 'transparent',
 				}}
 				onClick={() => {
 					handleSetTab('settings');
 				}}>
-				<SettingsIcon
-					sx={{
-						...sidebarItem,
-
-						backgroundColor: tab === 'settings' ? '#272727' : 'transparent',
-					}}
-				/>
+				<SettingsIcon />
 			</IconButton>
 		</Box>
 	);
