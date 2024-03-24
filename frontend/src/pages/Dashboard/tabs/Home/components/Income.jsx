@@ -1,7 +1,8 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MetricCard from '../../../../../components/Cards/MetricCard/MetricCard';
+import axios from 'axios';
 
 const Income = () => {
 	const [income, setIncome] = useState();
