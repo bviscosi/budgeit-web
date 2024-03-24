@@ -3,6 +3,8 @@ import Balance from './components/Balance';
 import Income from './components/Income';
 import Expenses from './components/Expenses';
 import Budgets from './components/Budgets';
+import Transactions from './components/Transactions';
+import Analytics from './components/Analytics';
 
 // pull this into context eventually
 const Home = ({ transactions }) => {
@@ -23,30 +25,14 @@ const Home = ({ transactions }) => {
 			{/* main section */}
 			<Grid container spacing={3}>
 				<Grid item xs={8}>
-					<Budgets />
-					<Stack
-						sx={{
-							border: '1px solid white',
-							height: '30rem',
-							alignItems: 'center',
-							justifyContent: 'center',
-							borderRadius: '1rem',
-						}}>
-						Cash Flow Analytics
+					<Stack direction={'column'} spacing={3}>
+						<Budgets />
+						<Analytics />
 					</Stack>
 				</Grid>
 
 				<Grid item xs={4}>
-					<Stack
-						sx={{
-							border: '1px solid white',
-							height: '59rem',
-							alignItems: 'center',
-							justifyContent: 'center',
-							borderRadius: '1rem',
-						}}>
-						Recent Transactions
-					</Stack>
+					<Transactions />
 				</Grid>
 			</Grid>
 		</Stack>

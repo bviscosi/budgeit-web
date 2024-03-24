@@ -1,6 +1,7 @@
 import { Card, Stack, styled } from '@mui/material';
 
-const GradientBorderWrapper = styled('div')(({ theme }) => ({
+const GradientBorderWrapper = styled('div')(() => ({
+	height: '100%',
 	position: 'relative',
 	padding: '2px', // Adjusts the border thickness
 	background:
@@ -20,7 +21,7 @@ const GradientBorderWrapper = styled('div')(({ theme }) => ({
 	},
 }));
 
-const Budgets = () => {
+const Transactions = () => {
 	return (
 		<GradientBorderWrapper>
 			<Card
@@ -35,16 +36,16 @@ const Budgets = () => {
 				}}>
 				<Stack
 					sx={{
-						height: '27.5rem',
+						height: '100%',
 						alignItems: 'center',
 						justifyContent: 'center',
 						borderRadius: '1rem',
 					}}>
-					Your Budgets
+					Recent Transactions
 				</Stack>
 			</Card>
 		</GradientBorderWrapper>
 	);
 };
 
-export default Budgets;
+export default Transactions;
