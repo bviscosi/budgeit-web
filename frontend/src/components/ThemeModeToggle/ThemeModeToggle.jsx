@@ -1,4 +1,4 @@
-import { Box, Stack } from '@mui/material';
+import { Box, IconButton, Stack } from '@mui/material';
 import React from 'react';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -9,17 +9,9 @@ const ThemeModeToggle = () => {
 
 	return (
 		<Stack sx={{ justifyContent: 'center', px: 3 }}>
-			{mode === 'dark' ? (
-				<LightModeIcon
-					sx={{ color: 'text.secondary', cursor: 'pointer' }}
-					onClick={toggleThemeMode}
-				/>
-			) : (
-				<DarkModeIcon
-					sx={{ color: 'text.secondary', cursor: 'pointer' }}
-					onClick={toggleThemeMode}
-				/>
-			)}
+			<IconButton onClick={toggleThemeMode} sx={{ color: 'text.secondary' }}>
+				{mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
+			</IconButton>
 		</Stack>
 	);
 };

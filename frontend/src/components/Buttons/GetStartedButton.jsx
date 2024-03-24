@@ -34,7 +34,7 @@ const GetStartedButton = ({ sx = {}, ...props }) => {
 				navigate('/sign-in');
 			}}>
 			Get Started
-			<KeyboardArrowRightIcon />
+			<KeyboardArrowRightIcon fontSize='small' />
 		</Button>
 	);
 };
