@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import { Grid, Stack } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -8,10 +9,35 @@ import MetricCard from '../../../../components/Cards/MetricCard/MetricCard';
 
 // pull this into context eventually
 const Home = ({ transactions }) => {
-	const [balance, SetBalance] = useState();
+	const [balance, setBalance] = useState();
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState('');
 
+	const addJwtHeader = () => {
+		const token = localStorage.getItem('token');
+		return token ? { Authorization: `Bearer ${token}` } : {};
+	};
+
+	// get current balance
 	useEffect(() => {
-		console.log('transactions');
+		const fetchCurrentBalance = async () => {
+			setLoading(true);
+			setError('');
+			try {
+				const response = await axios.get(`/balance`, {
+					headers: addJwtHeader(),
+				});
+				setBalance(response.data);
+				console.log(response.data);
+			} catch (error) {
+				console.error('Error fetching transactions:', error);
+				setError('Failed to fetch transactions');
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchCurrentBalance();
 	}, []);
 
 	return (
@@ -19,13 +45,13 @@ const Home = ({ transactions }) => {
 			{/* top row */}
 			<Grid container spacing={3}>
 				<Grid item xs={4}>
-					<MetricCard
+					{/* <MetricCard
 						title={'Total Balance'}
 						icon={<AttachMoneyIcon />}
 						color={'rgb(160, 146, 87)'}
 						backgroundColor={'rgb(160, 146, 87, 0.5)'}
 						value={balance}
-					/>
+					/> */}
 				</Grid>
 				<Grid item xs={4}>
 					<MetricCard

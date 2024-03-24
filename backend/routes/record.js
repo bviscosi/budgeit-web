@@ -168,17 +168,11 @@ recordRoutes.route('/transactions').get(authenticateJWT, async (req, res) => {
 // Protected Route: Fetch current balance
 recordRoutes.route('/balance').get(authenticateJWT, async (req, res) => {
 	try {
-		const { startDate, endDate } = req.query;
-
-		// Validate the startDate and endDate
-		if (!startDate || !endDate) {
-			return res.status(400).json({ message: 'Start date and end date are required.' });
-		}
-
 		const cloudDb = getCloudDb();
 		const BudgeIt = cloudDb.db('BudgeIt');
 		const users = BudgeIt.collection('users');
 
+		console.log('got here');
 		// Retrieve the user from the database
 		const user = await users.findOne({ _id: new ObjectId(req.user.userId) });
 		if (!user) {
@@ -191,14 +185,17 @@ recordRoutes.route('/balance').get(authenticateJWT, async (req, res) => {
 		}
 
 		// Fetch transactions from Plaid using the access token
-		const response = await client.transactionsGet({
+		const response = await client.accountsBalanceGet({
 			access_token: user.plaidAccessToken,
-			start_date: startDate,
-			end_date: endDate,
 		});
 
+		// Calculate the sum of available balances
+		const sumAvailableBalances = response.data.accounts.reduce((acc, account) => {
+			return acc + account.balances.available;
+		}, 0);
+
 		// Send the transactions back to the client
-		res.status(200).json(response.data.transactions);
+		res.status(200).json(sumAvailableBalances);
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: error.toString() });
