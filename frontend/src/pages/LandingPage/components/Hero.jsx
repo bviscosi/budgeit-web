@@ -1,6 +1,9 @@
 import { Box, Button, Container, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import GetStartedButton from '../../../components/Buttons/GetStartedButton';
+import { landingPageContent } from '../../../utils/assets';
+
+const { dashboard } = landingPageContent;
 
 const LearnMoreButton = ({ fullWidth }) => {
 	return (
@@ -35,9 +38,17 @@ const Hero = () => {
                 }
             `}
 			</style>
-			<Box>
-				<Container sx={{ height: '80vh' }}>
-					<Stack sx={{ height: 'inherit' }} justifyContent='center'>
+			<Stack direction='column'>
+				<Container sx={{ marginTop: '10rem' }}>
+					<Stack
+						direction='column'
+						sx={{
+							height: 'inherit',
+							textAlign: 'center',
+							alignItems: 'center',
+							width: '100%',
+						}}
+						justifyContent='center'>
 						<Typography
 							variant='h1'
 							sx={{ mb: 1, letterSpacing: '0.02em', display: 'inline' }}>
@@ -53,10 +64,10 @@ const Hero = () => {
 									animation: 'gradientAnimation 5s ease infinite',
 									backgroundSize: '200% 200%',
 								}}>
-								BudgeIt
+								Budgit
 							</Box>
 						</Typography>
-						<Typography variant='h2' sx={{ mb: 6, letterSpacing: '0.05em' }}>
+						<Typography variant='h3' sx={{ mb: 6, letterSpacing: '0.05em' }}>
 							Effortless budgeting, simplified savings.
 						</Typography>
 						<Stack direction={{ xs: 'column', md: 'row' }} alignItems='center' spacing={4}>
@@ -65,7 +76,17 @@ const Hero = () => {
 						</Stack>
 					</Stack>
 				</Container>
-			</Box>
+				<img
+					src={dashboard}
+					alt=''
+					style={{
+						margin: '5rem 15rem 0 15rem',
+						borderRadius: '1rem',
+						border: '1px solid rgb(110, 114, 243, 0.5)',
+						boxShadow: '0 0 24px 12px rgb(110, 114, 243,0.2)',
+					}}
+				/>
+			</Stack>
 		</>
 	);
 };

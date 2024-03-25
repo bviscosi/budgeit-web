@@ -3,9 +3,11 @@ import Hero from './components/Hero';
 import { Footer } from '../../components/Footer/Footer';
 import { useCustomTheme } from '../../utils/theme/ThemeContext';
 import { Box } from '@mui/material';
+import { landingPageContent } from '../../utils/assets';
 
 const LandingPage = () => {
 	const { mode } = useCustomTheme(); // Get the current mode from the context
+	const dashboard = { landingPageContent };
 
 	return (
 		<div
