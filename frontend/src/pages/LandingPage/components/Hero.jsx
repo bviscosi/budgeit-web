@@ -82,8 +82,8 @@ const Hero = () => {
 					style={{
 						margin: '5rem 15rem 0 15rem',
 						borderRadius: '1rem',
-						border: '1px solid rgb(110, 114, 243, 0.5)',
-						boxShadow: '0 0 24px 12px rgb(110, 114, 243,0.2)',
+						border: '2px solid #1e1e23',
+						boxShadow: '0 0 24px 12px #15121a',
 					}}
 				/>
 			</Stack>
