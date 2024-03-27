@@ -74,7 +74,11 @@ const SignInForm = ({ handleLogin }) => {
 						onKeyPress={handleKeyPress}
 					/>
 
-					{errorMessage && <div className='error-message'>{errorMessage}</div>}
+					{errorMessage && (
+						<Typography color='red' textAlign='center'>
+							{errorMessage}
+						</Typography>
+					)}
 					<Stack
 						direction='row'
 						justifyContent={'space-between'}
