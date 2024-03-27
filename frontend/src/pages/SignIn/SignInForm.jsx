@@ -4,6 +4,7 @@ import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signInContainer, signInForm } from './styles';
 import { Button, Typography, Box, Stack } from '@mui/material';
+import AuthButton from '../../components/Buttons/AuthButton';
 
 axios.defaults.baseURL = 'http://localhost:5555/';
 
@@ -102,17 +103,7 @@ const SignInForm = ({ handleLogin }) => {
 							width='100%'
 							justifyContent={'flex-start'}
 							alignItems={'center'}
-							gap={1.5}>
-							<input
-								type='checkbox'
-								id='rememberMe'
-								name='rememberMe'
-								checked={rememberMe}
-								onChange={(e) => setRememberMe(e.target.checked)}
-								style={{ width: '10%' }}
-							/>
-							<Typography>Remember me</Typography>
-						</Stack>
+							gap={1.5}></Stack>
 
 						<Typography
 							sx={{
@@ -128,12 +119,8 @@ const SignInForm = ({ handleLogin }) => {
 						</Typography>
 					</Stack>
 
-					<Button
-						variant='contained'
-						sx={{ borderRadius: '1rem', padding: '0.75rem' }}
-						onClick={handleSignIn}>
-						<Typography>Sign In</Typography>
-					</Button>
+					<AuthButton label={'Sign In'} onClick={handleSignIn} />
+
 					<div
 						style={{
 							display: 'flex',

@@ -5,6 +5,7 @@ import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signUpContainer, signUpForm } from './styles';
 import { useCustomTheme } from '../../utils/theme/ThemeContext';
+import AuthButton from '../../components/Buttons/AuthButton';
 
 const SignUpForm = ({ handleLogin }) => {
 	let navigate = useNavigate();
@@ -109,26 +110,8 @@ const SignUpForm = ({ handleLogin }) => {
 					/>
 
 					{errorMessage && <div className='error-message'>{errorMessage}</div>}
-					<div className='row jcsb w100 aic'>
-						<div className='row w100 aic' style={{ gap: '0.5rem' }}>
-							<input
-								type='checkbox'
-								id='rememberMe'
-								name='rememberMe'
-								checked={rememberMe}
-								onChange={(e) => setRememberMe(e.target.checked)}
-								style={{ width: '10%' }}
-							/>
-							<Typography variant='p'>Remember me</Typography>
-						</div>
-					</div>
 
-					<Button
-						variant='contained'
-						sx={{ borderRadius: '1rem', padding: '0.75rem' }}
-						onClick={handleSignUp}>
-						<Typography variant='signInButton'>Sign Up</Typography>
-					</Button>
+					<AuthButton label={'Sign Up'} onClick={handleSignUp} />
 
 					<div
 						style={{

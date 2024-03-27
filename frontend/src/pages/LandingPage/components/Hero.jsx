@@ -1,5 +1,13 @@
-import { Box, Button, Container, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
-import React from 'react';
+import {
+	Box,
+	Button,
+	Container,
+	Stack,
+	Typography,
+	useMediaQuery,
+	useTheme,
+	alpha,
+} from '@mui/material';
 import GetStartedButton from '../../../components/Buttons/GetStartedButton';
 import { landingPageContent } from '../../../utils/assets';
 
@@ -44,8 +52,6 @@ const Hero = () => {
 						sx={{
 							height: 'inherit',
 							textAlign: 'center',
-							alignItems: 'center',
-							width: '100%',
 						}}
 						justifyContent='center'>
 						<Typography
@@ -69,22 +75,58 @@ const Hero = () => {
 						<Typography variant='h3' sx={{ mb: 6, letterSpacing: '0.05em' }}>
 							Effortless budgeting, simplified savings.
 						</Typography>
-						<Stack direction={{ xs: 'column', md: 'row' }} alignItems='center' spacing={4}>
+						<Stack
+							direction={{ xs: 'column', md: 'row' }}
+							sx={{ justifyContent: 'center' }}
+							alignItems='center'
+							spacing={4}
+							width='100%'>
 							<GetStartedButton sx={{ height: 58, px: 3 }} fullWidth={isMobile} />
 							<LearnMoreButton fullWidth={isMobile} />
 						</Stack>
 					</Stack>
 				</Container>
-				<img
-					src={dashboard}
-					alt=''
-					style={{
-						margin: '5rem 15rem 0 15rem',
-						borderRadius: '1rem',
-						border: '2px solid #1e1e23',
-						boxShadow: '0 0 24px 12px #15121a',
-					}}
-				/>
+				<Container
+					sx={{
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+						pt: { xs: 14, sm: 20 },
+						pb: { xs: 8, sm: 12 },
+					}}>
+					<Box
+						id='image'
+						sx={(theme) => ({
+							mt: { xs: 8, sm: 10 },
+							alignSelf: 'center',
+							height: { xs: 200, sm: 700 },
+							width: '100%',
+							backgroundImage:
+								theme.palette.mode === 'light' ? `url(${dashboard})` : `url(${dashboard})`,
+							backgroundSize: 'cover',
+							borderRadius: '10px',
+							outline: '1px solid',
+							outlineColor:
+								theme.palette.mode === 'light'
+									? alpha('#BFCCD9', 0.5)
+									: alpha('#7673f3', 0.1),
+							boxShadow:
+								theme.palette.mode === 'light'
+									? `0 0 12px 8px ${alpha('#9CCCFC', 0.2)}`
+									: `0 0 24px 12px ${alpha('#7673f3', 0.2)}`,
+						})}
+					/>
+					{/* <img
+						src={dashboard}
+						alt=''
+						style={{
+							margin: '5rem 15rem 0 15rem',
+							borderRadius: '1rem',
+							border: '2px solid #1e1e23',
+							boxShadow: '0 0 24px 12px #15121a',
+						}}
+					/> */}
+				</Container>
 			</Stack>
 		</>
 	);
