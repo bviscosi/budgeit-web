@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signInContainer, signInForm } from './styles';
-import { Button, Typography, Box, Stack } from '@mui/material';
+import { Button, Typography, Box, Stack, TextField } from '@mui/material';
 import AuthButton from '../../components/Buttons/AuthButton';
 
 axios.defaults.baseURL = 'http://localhost:5555/';
@@ -58,36 +58,18 @@ const SignInForm = ({ handleLogin }) => {
 						flexDirection: 'column',
 						justifyContent: 'space-evenly',
 					}}>
-					<Typography variant='h5'>Email</Typography>
-
-					<Box
-						component='input'
-						sx={{
-							backgroundColor: 'background.main',
-							borderRadius: '0.5rem',
-							padding: '1.5rem',
-							boxShadow: 'none',
-							width: '100%', // Adjust width as needed
-							boxSizing: 'border-box', // Ensures padding does not add to the width
-						}}
+					<TextField
 						type='email'
-						placeholder='Enter your email'
+						variant='outlined'
+						label='Email'
 						onChange={(e) => setEmail(e.target.value)}
 						onKeyPress={handleKeyPress}
 					/>
-					<Typography variant='h5'>Password</Typography>
 
-					<Box
-						component='input'
-						sx={{
-							backgroundColor: 'background.main',
-							borderRadius: '0.5rem',
-							padding: '1.5rem',
-							boxShadow: 'none',
-							width: '100%', // Adjust width as needed
-						}}
+					<TextField
 						type='password'
-						placeholder='Enter your password'
+						variant='outlined'
+						label='Password'
 						onChange={(e) => setPassword(e.target.value)}
 						onKeyPress={handleKeyPress}
 					/>
