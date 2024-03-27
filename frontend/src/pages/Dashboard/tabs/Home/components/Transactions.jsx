@@ -1,7 +1,19 @@
-import { Card, Stack, styled } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { styled } from '@mui/material/styles';
+import {
+	Card,
+	Stack,
+	Table,
+	TableBody,
+	TableCell,
+	TableContainer,
+	TableHead,
+	TableRow,
+	Paper,
+	Typography,
+	Box,
+} from '@mui/material';
 import { addJwtHeader } from '../../../../../utils/addJwtHeader';
 
 const GradientBorderWrapper = styled('div')(() => ({
@@ -25,17 +37,10 @@ const GradientBorderWrapper = styled('div')(() => ({
 	},
 }));
 
-// Define the columns for the DataGrid
 const columns = [
-	{ field: 'date', headerName: 'Date' },
-	{ field: 'merchant_name', headerName: 'Merchant' },
-	{ field: 'amount', headerName: 'Amount', type: 'number' },
-	{
-		field: 'category',
-		headerName: 'Category',
-		width: '300',
-		valueGetter: (params) => params.row.category.join(', '),
-	},
+	{ id: 'date', label: 'Date' },
+	{ id: 'merchant_name', label: 'Merchant' },
+	{ id: 'amount', label: 'Amount', align: 'right' },
 ];
 
 const Transactions = () => {
@@ -54,7 +59,7 @@ const Transactions = () => {
 				);
 
 				const fetchedRows = response.data.transactions.map((transaction, index) => ({
-					id: index, // DataGrid requires a unique 'id' field for each row
+					id: index,
 					...transaction,
 				}));
 
@@ -67,35 +72,50 @@ const Transactions = () => {
 			}
 		};
 
-		// Example dates, replace with actual dynamic dates
 		const startDate = '2023-11-01';
 		const endDate = '2024-01-01';
 		fetchTransactions(startDate, endDate);
 	}, []);
 
 	return (
+		// <Stack sx={{ height: '100%' }}>
+		// 	<Typography variant='h3' p={2} textAlign={'center'}>
+		// 		Recent Transactions
+		// 	</Typography>
 		<GradientBorderWrapper>
-			<Card
-				sx={{
-					height: '100%',
-					padding: '1rem',
-					alignItems: 'center',
-					justifyContent: 'center',
-					borderRadius: '1rem',
-					background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
-					border: '1px ',
-				}}>
-				<Stack
-					sx={{
-						height: '100%',
-						alignItems: 'center',
-						justifyContent: 'center',
-						borderRadius: '1rem',
-					}}>
-					<DataGrid rows={rows} columns={columns} pageSize={5} rowsPerPageOptions={[5]} />
-				</Stack>
+			<Card sx={{ height: '100%', width: '100%', p: 0, borderRadius: '1rem', overflow: 'auto' }}>
+				<TableContainer>
+					<Table stickyHeader aria-label='transactions table'>
+						<TableHead
+							sx={{
+								'.MuiTableCell-head': {
+									backgroundColor: 'background.paper',
+								},
+							}}>
+							<TableRow>
+								{columns.map((column) => (
+									<TableCell key={column.id} align={column.align}>
+										{column.label}
+									</TableCell>
+								))}
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							{rows.map((row) => (
+								<TableRow key={row.id} hover>
+									{columns.map((column) => (
+										<TableCell key={column.id} align={column.align}>
+											{row[column.id]}
+										</TableCell>
+									))}
+								</TableRow>
+							))}
+						</TableBody>
+					</Table>
+				</TableContainer>
 			</Card>
 		</GradientBorderWrapper>
+		// </Stack>
 	);
 };
 
