@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Typography, Container } from '@mui/material';
+import { Button, Typography, Container, TextField } from '@mui/material';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signUpContainer, signUpForm } from './styles';
@@ -72,41 +72,20 @@ const SignUpForm = ({ handleLogin }) => {
 						flexDirection: 'column',
 						justifyContent: 'space-evenly',
 					}}>
-					<Typography variant='h5'>Email</Typography>
-					<input
-						style={{
-							backgroundColor: theme.palette.background.paper,
-							// height: '3rem',
-							borderRadius: '0.5rem',
-							padding: '1.5rem',
-							color: theme.palette.gray[1],
-							boxShadow: 'none',
-							borderStyle: 'none',
-							border: `1px solid ${theme.palette.gray[2]}`,
-						}}
+					<TextField
 						type='email'
-						placeholder='Enter your email'
+						variant='outlined'
+						label='Email'
 						onChange={(e) => setEmail(e.target.value)}
-						onKeyPress={handleKeyPress} // Added keypress event handler
+						onKeyPress={handleKeyPress}
 					/>
 
-					<Typography variant='h5'>Password</Typography>
-
-					<input
-						style={{
-							backgroundColor: theme.palette.background.paper,
-							// height: '3rem',
-							borderRadius: '0.5rem',
-							padding: '1.5rem',
-							color: theme.palette.gray[1],
-							boxShadow: 'none',
-							borderStyle: 'none',
-							border: `1px solid ${theme.palette.gray[2]}`,
-						}}
+					<TextField
 						type='password'
-						placeholder='Enter your password'
+						variant='outlined'
+						label='Password'
 						onChange={(e) => setPassword(e.target.value)}
-						onKeyPress={handleKeyPress} // Added keypress event handler
+						onKeyPress={handleKeyPress}
 					/>
 
 					{errorMessage && <div className='error-message'>{errorMessage}</div>}
