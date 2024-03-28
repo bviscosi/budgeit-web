@@ -110,12 +110,12 @@ const Hero = () => {
 							outline: '1px solid',
 							outlineColor:
 								theme.palette.mode === 'light'
-									? alpha('#BFCCD9', 0.5)
-									: alpha('#7673f3', 0.1),
+									? alpha('#d592df', 0.5)
+									: alpha('#d592df', 0.1),
 							boxShadow:
 								theme.palette.mode === 'light'
-									? `0 0 12px 8px ${alpha('#9CCCFC', 0.2)}`
-									: `0 0 24px 12px ${alpha('#7673f3', 0.2)}`,
+									? `0 0 12px 8px ${alpha('#6f71f3', 0.2)}`
+									: `0 0 24px 12px ${alpha('#6f71f3', 0.2)}`,
 						})}
 					/>
 					{/* <img
