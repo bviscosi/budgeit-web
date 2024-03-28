@@ -78,39 +78,39 @@ const Transactions = () => {
 		// 	<Typography variant='h3' p={2} textAlign={'center'}>
 		// 		Recent Transactions
 		// 	</Typography>
-		<GradientBorderWrapper>
-			<Card sx={{ height: '100%', width: '100%', p: 0, borderRadius: '1rem', overflow: 'auto' }}>
-				<TableContainer>
-					<Table stickyHeader aria-label='transactions table'>
-						<TableHead
-							sx={{
-								'.MuiTableCell-head': {
-									backgroundColor: 'background.paper',
-								},
-							}}>
-							<TableRow>
+		// <GradientBorderWrapper>
+		<Card sx={{ height: '100%', width: '100%', p: 0, borderRadius: '1rem', overflow: 'auto' }}>
+			<TableContainer>
+				<Table stickyHeader aria-label='transactions table'>
+					<TableHead
+						sx={{
+							'.MuiTableCell-head': {
+								// backgroundColor: 'background.paper',
+							},
+						}}>
+						<TableRow>
+							{columns.map((column) => (
+								<TableCell key={column.id} align={column.align}>
+									{column.label}
+								</TableCell>
+							))}
+						</TableRow>
+					</TableHead>
+					<TableBody>
+						{rows.map((row) => (
+							<TableRow key={row.id} hover>
 								{columns.map((column) => (
 									<TableCell key={column.id} align={column.align}>
-										{column.label}
+										{row[column.id]}
 									</TableCell>
 								))}
 							</TableRow>
-						</TableHead>
-						<TableBody>
-							{rows.map((row) => (
-								<TableRow key={row.id} hover>
-									{columns.map((column) => (
-										<TableCell key={column.id} align={column.align}>
-											{row[column.id]}
-										</TableCell>
-									))}
-								</TableRow>
-							))}
-						</TableBody>
-					</Table>
-				</TableContainer>
-			</Card>
-		</GradientBorderWrapper>
+						))}
+					</TableBody>
+				</Table>
+			</TableContainer>
+		</Card>
+		// </GradientBorderWrapper>
 		// </Stack>
 	);
 };

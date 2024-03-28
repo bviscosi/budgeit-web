@@ -23,28 +23,26 @@ const GradientBorderWrapper = styled('div')(() => ({
 
 const Analytics = () => {
 	return (
-		<GradientBorderWrapper>
-			<Card
+		<Card
+			sx={{
+				height: '100%',
+				padding: '1rem',
+				alignItems: 'center',
+				justifyContent: 'center',
+				borderRadius: '1rem',
+				// background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
+				border: '1px ',
+			}}>
+			<Stack
 				sx={{
-					height: '100%',
-					padding: '1rem',
+					height: '30rem',
 					alignItems: 'center',
 					justifyContent: 'center',
 					borderRadius: '1rem',
-					background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
-					border: '1px ',
 				}}>
-				<Stack
-					sx={{
-						height: '30rem',
-						alignItems: 'center',
-						justifyContent: 'center',
-						borderRadius: '1rem',
-					}}>
-					Cash Flow Analytics
-				</Stack>
-			</Card>
-		</GradientBorderWrapper>
+				Cash Flow Analytics
+			</Stack>
+		</Card>
 	);
 };
 

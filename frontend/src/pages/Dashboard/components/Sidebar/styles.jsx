@@ -8,7 +8,7 @@ export const sidebar = {
 	position: 'fixed',
 	paddingTop: '0.5rem',
 	paddingBottom: '3rem',
-	background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
+	// background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
 };
 
 export const sidebarItem = {

@@ -22,28 +22,28 @@ const GradientBorderWrapper = styled('div')(({ theme }) => ({
 
 const Budgets = () => {
 	return (
-		<GradientBorderWrapper>
-			<Card
+		// <GradientBorderWrapper>
+		<Card
+			sx={{
+				height: '100%',
+				padding: '1rem',
+				alignItems: 'center',
+				justifyContent: 'center',
+				borderRadius: '1rem',
+				// background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
+				border: '1px ',
+			}}>
+			<Stack
 				sx={{
-					height: '100%',
-					padding: '1rem',
+					height: '27.5rem',
 					alignItems: 'center',
 					justifyContent: 'center',
 					borderRadius: '1rem',
-					background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
-					border: '1px ',
 				}}>
-				<Stack
-					sx={{
-						height: '27.5rem',
-						alignItems: 'center',
-						justifyContent: 'center',
-						borderRadius: '1rem',
-					}}>
-					Your Budgets
-				</Stack>
-			</Card>
-		</GradientBorderWrapper>
+				Your Budgets
+			</Stack>
+		</Card>
+		// </GradientBorderWrapper>
 	);
 };
 

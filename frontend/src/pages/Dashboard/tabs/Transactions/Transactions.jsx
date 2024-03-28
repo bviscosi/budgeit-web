@@ -54,8 +54,14 @@ const Transactions = () => {
 	}, []);
 
 	return (
-		<Paper sx={{ height: '100%', margin: '2rem' }}>
-			<DataGrid rows={rows} columns={columns} pageSize={5} rowsPerPageOptions={[5]} />
+		<Paper sx={{ height: '100%', margin: '2rem', borderRadius: '1rem' }}>
+			<DataGrid
+				rows={rows}
+				columns={columns}
+				pageSize={5}
+				rowsPerPageOptions={[5]}
+				sx={{ borderRadius: '1rem' }}
+			/>
 		</Paper>
 	);
 };

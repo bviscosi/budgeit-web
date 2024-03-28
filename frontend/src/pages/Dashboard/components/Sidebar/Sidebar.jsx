@@ -3,7 +3,7 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import SavingsIcon from '@mui/icons-material/Savings';
 import WalletIcon from '@mui/icons-material/Wallet';
 import ListIcon from '@mui/icons-material/List';
-import { Stack, IconButton, Box } from '@mui/material';
+import { Stack, IconButton, Box, Paper } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import { sidebar, sidebarItem } from './styles';
 import Logo from './components/Logo/Logo';
@@ -14,7 +14,7 @@ const Sidebar = ({ tab, setTab }) => {
 	};
 
 	return (
-		<Box sx={sidebar}>
+		<Paper sx={sidebar}>
 			<Logo />
 			<Stack direction={'column'} gap={7}>
 				<IconButton
@@ -75,7 +75,7 @@ const Sidebar = ({ tab, setTab }) => {
 				}}>
 				<SettingsIcon />
 			</IconButton>
-		</Box>
+		</Paper>
 	);
 };
 
