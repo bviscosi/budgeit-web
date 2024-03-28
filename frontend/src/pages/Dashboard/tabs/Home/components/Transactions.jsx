@@ -11,6 +11,7 @@ import {
 	TableRow,
 } from '@mui/material';
 import { addJwtHeader } from '../../../../../utils/addJwtHeader';
+import { useCustomTheme } from '../../../../../utils/theme/ThemeContext';
 
 const GradientBorderWrapper = styled('div')(() => ({
 	height: '100%',
@@ -40,6 +41,8 @@ const columns = [
 ];
 
 const Transactions = () => {
+	const { mode } = useCustomTheme(); // Get the current mode from the context
+
 	const [rows, setRows] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
@@ -85,7 +88,7 @@ const Transactions = () => {
 					<TableHead
 						sx={{
 							'.MuiTableCell-head': {
-								// backgroundColor: 'background.paper',
+								backgroundColor: mode === 'dark' ? '#25242a' : '#f7f8fa',
 							},
 						}}>
 						<TableRow>
