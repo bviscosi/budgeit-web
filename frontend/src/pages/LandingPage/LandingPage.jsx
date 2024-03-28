@@ -1,14 +1,9 @@
 import Navbar from '../../components/Navbar/Navbar';
 import Hero from './components/Hero';
 import { Footer } from '../../components/Footer/Footer';
-import { useCustomTheme } from '../../utils/theme/ThemeContext';
-import { Box, Container, alpha } from '@mui/material';
-import { landingPageContent } from '../../utils/assets';
+import { Box, alpha } from '@mui/material';
 
 const LandingPage = () => {
-	const { mode } = useCustomTheme(); // Get the current mode from the context
-	const dashboard = { landingPageContent };
-
 	return (
 		<Box
 			id='hero'
@@ -21,12 +16,12 @@ const LandingPage = () => {
 				backgroundSize: '100% 20%',
 				backgroundRepeat: 'no-repeat',
 			})}>
-			<Container>
+			<Box>
 				<Navbar />
 				<Hero />
 				<Box height={300} marginTop='20rem'></Box>
 				<Footer />
-			</Container>
+			</Box>
 		</Box>
 	);
 };

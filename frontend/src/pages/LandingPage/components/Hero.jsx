@@ -97,9 +97,9 @@ const Hero = () => {
 					<Box
 						id='image'
 						sx={(theme) => ({
-							mt: { xs: 8, sm: 10 },
+							mt: { xs: 0, sm: 10 },
 							alignSelf: 'center',
-							height: { xs: 200, sm: 700 },
+							height: { xs: 300, sm: 700 },
 							width: '100%',
 							backgroundImage:
 								theme.palette.mode === 'light'
