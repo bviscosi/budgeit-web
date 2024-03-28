@@ -1,18 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { styled } from '@mui/material/styles';
 import {
 	Card,
-	Stack,
 	Table,
 	TableBody,
 	TableCell,
 	TableContainer,
 	TableHead,
 	TableRow,
-	Paper,
-	Typography,
-	Box,
 } from '@mui/material';
 import { addJwtHeader } from '../../../../../utils/addJwtHeader';
 
