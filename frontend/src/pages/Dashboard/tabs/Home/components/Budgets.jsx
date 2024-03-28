@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-	Card,
-	CardContent,
-	Typography,
-	Stack,
-	Box,
-	Divider,
-	CircularProgress,
-} from '@mui/material';
+import { Card, CardContent, Typography, Box, Divider, CircularProgress } from '@mui/material';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import FlightIcon from '@mui/icons-material/Flight';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
