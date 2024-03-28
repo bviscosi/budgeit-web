@@ -20,8 +20,7 @@ export const button = {
 	borderRadius: '30px',
 	boxShadow: '0px 4px 8px rgba(0.5, 0.5, 0.5, 0.1)',
 	textTransform: 'none',
-	padding: '0 1rem 0 1rem',
-	width: '200px', // Specify the width to match the menu width
+	padding: '0 1rem 0 1.5rem',
 	'&:hover': {
 		backgroundColor: 'rgba(255, 255, 255, 0.08)',
 	},
