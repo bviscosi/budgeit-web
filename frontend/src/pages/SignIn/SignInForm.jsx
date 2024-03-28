@@ -75,21 +75,6 @@ const SignInForm = ({ handleLogin }) => {
 						id='password'
 						autoComplete='current-password'
 					/>
-					{/* <TextField
-						type='email'
-						variant='outlined'
-						label='Email'
-						onChange={(e) => setEmail(e.target.value)}
-						onKeyPress={handleKeyPress}
-					/> */}
-
-					{/* <TextField
-						type='password'
-						variant='outlined'
-						label='Password'
-						onChange={(e) => setPassword(e.target.value)}
-						onKeyPress={handleKeyPress}
-					/> */}
 
 					{errorMessage && (
 						<Typography color='red' textAlign='center'>
