@@ -9,7 +9,7 @@ import Analytics from './components/Analytics';
 // pull this into context eventually
 const Home = () => {
 	return (
-		<Stack style={{ gap: '1.5rem', margin: '1rem' }}>
+		<Stack style={{ gap: '1.5rem', margin: '2rem' }}>
 			{/* top row */}
 			<Grid container spacing={3}>
 				<Grid item xs={4}>
