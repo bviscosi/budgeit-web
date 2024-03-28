@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
-import { signInContainer } from './styles';
-import { Button, Typography, Box, Stack, TextField } from '@mui/material';
+import { Typography, Box, Stack, TextField } from '@mui/material';
 import AuthButton from '../../components/Buttons/AuthButton';
 
 axios.defaults.baseURL = 'http://localhost:5555/';
