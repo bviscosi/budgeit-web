@@ -1,49 +1,71 @@
-import { Card, Stack, styled } from '@mui/material';
+import React from 'react';
+import { Card, CardContent, Typography, Stack, Box, Divider } from '@mui/material';
+import FastfoodIcon from '@mui/icons-material/Fastfood';
+import FlightIcon from '@mui/icons-material/Flight';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
 
-const GradientBorderWrapper = styled('div')(({ theme }) => ({
-	position: 'relative',
-	padding: '2px', // Adjusts the border thickness
-	background:
-		'linear-gradient(0deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.1) 100%)',
-	borderRadius: '1rem', // Match your Card's borderRadius
-	'&:before': {
-		content: '""',
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		right: 0,
-		bottom: 0,
-		borderRadius: 'inherit',
-		padding: '1rem', // Adjusts the space for the border inside the wrapper
-		background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
-		zIndex: -1,
+const budgets = [
+	{
+		title: 'Food & Restaurants',
+		amount: '$412.00',
+		icon: <FastfoodIcon />,
 	},
-}));
+	{
+		title: 'Travel',
+		amount: '$123.00',
+		icon: <FlightIcon />,
+	},
+	{
+		title: 'Credit Card',
+		amount: '$12,003.00',
+		icon: <CreditCardIcon />,
+	},
+	{
+		title: 'Food & Restaurants',
+		amount: '$412.00',
+		icon: <FastfoodIcon />,
+	},
+	{
+		title: 'Travel',
+		amount: '$123.00',
+		icon: <FlightIcon />,
+	},
+	{
+		title: 'Credit Card',
+		amount: '$12,003.00',
+		icon: <CreditCardIcon />,
+	},
+];
+
+const BudgetItem = ({ title, amount, icon }) => {
+	return (
+		<Box sx={{ display: 'flex', alignItems: 'center', padding: '1.5rem 0' }}>
+			<Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
+				{icon}
+				<Typography variant='subtitle1' sx={{ marginLeft: '0.5rem' }}>
+					{title}
+				</Typography>
+			</Box>
+			<Typography variant='subtitle1'>{amount}</Typography>
+		</Box>
+	);
+};
 
 const Budgets = () => {
 	return (
-		// <GradientBorderWrapper>
-		<Card
-			sx={{
-				height: '100%',
-				padding: '1rem',
-				alignItems: 'center',
-				justifyContent: 'center',
-				borderRadius: '1rem',
-				// background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
-				border: '1px ',
-			}}>
-			<Stack
-				sx={{
-					height: '27.5rem',
-					alignItems: 'center',
-					justifyContent: 'center',
-					borderRadius: '1rem',
-				}}>
-				Your Budgets
-			</Stack>
+		<Card sx={{ borderRadius: '1rem', height: '27.5rem' }}>
+			<CardContent sx={{ height: 'calc(27.5rem - 40px)', overflowY: 'auto' }}>
+				<Typography variant='h4' sx={{ marginBottom: '1rem' }}>
+					Budgets
+				</Typography>
+				{budgets.map((budget, index) => (
+					<React.Fragment key={index}>
+						<BudgetItem {...budget} />
+						{index < budgets.length - 1 && <Divider />}
+					</React.Fragment>
+				))}
+			</CardContent>
 		</Card>
-		// </GradientBorderWrapper>
 	);
 };
 
