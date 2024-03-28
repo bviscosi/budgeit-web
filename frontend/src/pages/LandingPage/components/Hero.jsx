@@ -91,7 +91,7 @@ const Hero = () => {
 						display: 'flex',
 						flexDirection: 'column',
 						alignItems: 'center',
-						pt: { xs: 14, sm: 20 },
+						pt: { xs: 10, sm: 14 },
 						pb: { xs: 8, sm: 12 },
 					}}>
 					<Box
@@ -110,7 +110,7 @@ const Hero = () => {
 							outline: '1px solid',
 							outlineColor:
 								theme.palette.mode === 'light'
-									? alpha('#d592df', 0.5)
+									? alpha('#eff1f5', 0.5)
 									: alpha('#d592df', 0.1),
 							boxShadow:
 								theme.palette.mode === 'light'

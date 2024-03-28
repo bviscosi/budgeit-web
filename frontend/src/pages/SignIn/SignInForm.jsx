@@ -38,54 +38,61 @@ const SignInForm = ({ handleLogin }) => {
 	};
 
 	return (
-		<Stack direction='column' style={signInContainer} sx={{ backgroundColor: 'background.main' }}>
-			<div
-				style={{
-					display: 'flex',
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				justifyContent: 'center',
+				alignItems: 'center',
+				width: '100%',
+				height: '100vh',
+			}}>
+			<Stack
+				component='form'
+				onSubmit={handleSubmit}
+				noValidate
+				gap={2}
+				sx={{
+					alignItems: 'center',
 					justifyContent: 'center',
+					width: '100%',
+					maxWidth: 480,
 				}}>
-				<img src={b_logo} alt='' style={{ width: '8rem' }}></img>
-			</div>
+				<Box component='img' src={b_logo} alt='' sx={{ width: '8rem' }} />
 
-			<div
-				style={{
-					height: '69%',
-					display: 'flex',
-					flexDirection: 'column',
-					justifyContent: 'space-evenly',
-				}}>
-				<Box component='form' onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-					<TextField
-						margin='normal'
-						required
-						fullWidth
-						id='email'
-						label='Email Address'
-						name='email'
-						autoComplete='email'
-						autoFocus
-					/>
-					<TextField
-						margin='normal'
-						required
-						fullWidth
-						name='password'
-						label='Password'
-						type='password'
-						id='password'
-						autoComplete='current-password'
-					/>
+				<TextField
+					margin='normal'
+					required
+					fullWidth
+					id='email'
+					label='Email Address'
+					name='email'
+					autoComplete='email'
+					autoFocus
+				/>
+				<TextField
+					margin='normal'
+					required
+					fullWidth
+					name='password'
+					label='Password'
+					type='password'
+					id='password'
+					autoComplete='current-password'
+				/>
+				{errorMessage && (
+					<Typography color='error' textAlign='center' sx={{ mt: 2 }}>
+						{errorMessage}
+					</Typography>
+				)}
+				<AuthButton label='Sign In' sx={{ marginTop: 2 }} />
+			</Stack>
+		</Box>
+	);
+};
 
-					{errorMessage && (
-						<Typography color='red' textAlign='center'>
-							{errorMessage}
-						</Typography>
-					)}
-
-					<AuthButton label={'Sign In'} />
-				</Box>
-
-				<Stack
+{
+	/* <Stack
 					direction='row'
 					justifyContent={'space-between'}
 					alignItems={'center'}
@@ -102,9 +109,11 @@ const SignInForm = ({ handleLogin }) => {
 						onClick={() => navigate('/register')}>
 						Forgot Password?
 					</Typography>
-				</Stack>
+				</Stack> */
+}
 
-				<div
+{
+	/* <div
 					style={{
 						display: 'flex',
 						flexDirection: 'row',
@@ -120,11 +129,6 @@ const SignInForm = ({ handleLogin }) => {
 						onClick={() => navigate('/sign-up')}>
 						<Typography>Create account</Typography>
 					</Button>
-				</div>
-			</div>
-			{/* <h2 style={{ fontSize: '1.75rem' }}>Welcome Back</h2> */}
-		</Stack>
-	);
-};
-
+				</div> */
+}
 export default SignInForm;

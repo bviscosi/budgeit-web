@@ -1,6 +1,6 @@
 import { Button, Typography } from '@mui/material';
 
-const AuthButton = ({ label }) => {
+const AuthButton = ({ label, sx }) => {
 	return (
 		<Button
 			variant='contained'
@@ -10,6 +10,7 @@ const AuthButton = ({ label }) => {
 				borderRadius: '1rem',
 				pt: '1.5rem',
 				pb: '1.5rem',
+				...sx,
 			}}>
 			<Typography variant='h5'>{label}</Typography>
 		</Button>

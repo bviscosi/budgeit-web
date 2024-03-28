@@ -1,9 +1,4 @@
-export const signInContainer = {
-	alignItems: 'center',
-	justifyContent: 'center',
-	height: '100vh',
-	width: '100%',
-};
+export const signInContainer = {};
 
 export const signInForm = {
 	maxWidth: '600px',
