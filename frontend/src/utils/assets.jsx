@@ -1,10 +1,12 @@
 import logo from '../assets/b.png';
-import dashboard from '../assets/Dashboard.png';
+import dashboardLight from '../assets/DashboardLight.png';
+import dashboardDark from '../assets/DashboardDark.png';
 
 export const navbarContent = {
 	logo,
 };
 
 export const landingPageContent = {
-	dashboard,
+	dashboardLight,
+	dashboardDark,
 };

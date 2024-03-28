@@ -11,7 +11,7 @@ import {
 import GetStartedButton from '../../../components/Buttons/GetStartedButton';
 import { landingPageContent } from '../../../utils/assets';
 
-const { dashboard } = landingPageContent;
+const { dashboardLight, dashboardDark } = landingPageContent;
 
 const LearnMoreButton = ({ fullWidth }) => {
 	return (
@@ -102,7 +102,9 @@ const Hero = () => {
 							height: { xs: 200, sm: 700 },
 							width: '100%',
 							backgroundImage:
-								theme.palette.mode === 'light' ? `url(${dashboard})` : `url(${dashboard})`,
+								theme.palette.mode === 'light'
+									? `url(${dashboardLight})`
+									: `url(${dashboardDark})`,
 							backgroundSize: 'cover',
 							borderRadius: '10px',
 							outline: '1px solid',
