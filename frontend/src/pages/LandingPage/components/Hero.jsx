@@ -118,16 +118,6 @@ const Hero = () => {
 									: `0 0 24px 12px ${alpha('#6f71f3', 0.2)}`,
 						})}
 					/>
-					{/* <img
-						src={dashboard}
-						alt=''
-						style={{
-							margin: '5rem 15rem 0 15rem',
-							borderRadius: '1rem',
-							border: '2px solid #1e1e23',
-							boxShadow: '0 0 24px 12px #15121a',
-						}}
-					/> */}
 				</Container>
 			</Stack>
 		</>

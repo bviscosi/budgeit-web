@@ -2,7 +2,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Hero from './components/Hero';
 import { Footer } from '../../components/Footer/Footer';
 import { useCustomTheme } from '../../utils/theme/ThemeContext';
-import { Box, alpha } from '@mui/material';
+import { Box, Container, alpha } from '@mui/material';
 import { landingPageContent } from '../../utils/assets';
 
 const LandingPage = () => {
@@ -21,12 +21,12 @@ const LandingPage = () => {
 				backgroundSize: '100% 20%',
 				backgroundRepeat: 'no-repeat',
 			})}>
-			<div>
+			<Container>
 				<Navbar />
 				<Hero />
 				<Box height={300} marginTop='20rem'></Box>
 				<Footer />
-			</div>
+			</Container>
 		</Box>
 	);
 };
