@@ -1,5 +1,13 @@
 import React from 'react';
-import { Card, CardContent, Typography, Stack, Box, Divider } from '@mui/material';
+import {
+	Card,
+	CardContent,
+	Typography,
+	Stack,
+	Box,
+	Divider,
+	CircularProgress,
+} from '@mui/material';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import FlightIcon from '@mui/icons-material/Flight';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
@@ -39,14 +47,31 @@ const budgets = [
 
 const BudgetItem = ({ title, amount, icon }) => {
 	return (
-		<Box sx={{ display: 'flex', alignItems: 'center', padding: '1.5rem 0' }}>
-			<Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
-				{icon}
-				<Typography variant='subtitle1' sx={{ marginLeft: '0.5rem' }}>
-					{title}
-				</Typography>
+		<Box sx={{ display: 'flex', alignItems: 'center', padding: '1rem 0' }}>
+			<Box sx={{ position: 'relative', display: 'inline-flex', marginRight: '1rem' }}>
+				<CircularProgress variant='determinate' value={50} size={50} thickness={3} />
+				<Box
+					sx={{
+						position: 'absolute',
+						top: 0,
+						left: 0,
+						right: 0,
+						bottom: 0,
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+						// color: 'primary.main',
+						'& > *': {
+							padding: '0.1em', // Adding space around the icon
+						},
+					}}>
+					{icon}
+				</Box>
 			</Box>
-			<Typography variant='subtitle1'>{amount}</Typography>
+			<Typography variant='p' sx={{ flexGrow: 1 }}>
+				{title}
+			</Typography>
+			<Typography variant='p'>{amount}</Typography>
 		</Box>
 	);
 };
