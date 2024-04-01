@@ -3,6 +3,10 @@ const typography = {
 	htmlFontSize: 16,
 	fontSize: 16,
 	fontWeight: 400,
+	caption2: {
+		fontSize: '0.65rem',
+		fontWeight: 400,
+	},
 	caption: {
 		fontSize: '0.8rem',
 		fontWeight: 400,
