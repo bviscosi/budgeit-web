@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import { useCustomTheme } from '../../context/ThemeContext';
 
 const WelcomeMessage = () => {
@@ -21,11 +22,9 @@ const WelcomeMessage = () => {
 					alignItems: 'center',
 					justifyContent: 'center',
 				}}>
-				<div style={{ width: '50%' }}>
-					<h1 style={{ fontSize: '3rem', color: '#e6e8ec' }}>Welcome Back</h1>
-					<h3 style={{ fontSize: '1.5rem', color: '#e6e8ec' }}>
-						Please login to access your account
-					</h3>
+				<div>
+					<Typography variant='h1'>Welcome Back</Typography>
+					<Typography variant='h4'>Please login to access your account</Typography>
 				</div>
 			</div>
 		</div>

@@ -36,8 +36,10 @@ const themeSettings = {
 				default: '#000',
 				paper: `linear-gradient(#0f0c15, ${alpha('#0f0c15', 0.1)})`,
 				main: '#141319',
-				purpleGradient:
-					'linear-gradient(60deg, rgba(2,10,18,1) 0%, rgba(82,50,135,1) 70%, rgba(0,90,116,0.8) 100%)',
+				purpleGradient: `linear-gradient(60deg, ${alpha('#8711c1', 0.5)} 0%, ${alpha(
+					'#2472fc',
+					0.2
+				)} 100% )`,
 			},
 		},
 		// components: {

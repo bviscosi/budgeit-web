@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
-import { Typography, Box, Stack, TextField } from '@mui/material';
+import { Typography, Box, Stack, TextField, alpha } from '@mui/material';
 import AuthButton from '../../components/Buttons/AuthButton';
 
 axios.defaults.baseURL = 'http://localhost:5555/';
@@ -45,6 +45,7 @@ const SignInForm = ({ handleLogin }) => {
 				alignItems: 'center',
 				width: '100%',
 				height: '100vh',
+				background: `linear-gradient(#0f0c15, ${alpha('#0f0c15', 0.1)})`,
 			}}>
 			<Stack
 				component='form'
