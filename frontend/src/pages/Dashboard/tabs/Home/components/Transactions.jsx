@@ -10,7 +10,7 @@ import {
 	TableRow,
 } from '@mui/material';
 import { addJwtHeader } from '../../../../../utils/addJwtHeader';
-import { useCustomTheme } from '../../../../../utils/theme/ThemeContext';
+import { useCustomTheme } from '../../../../../context/theme/ThemeContext';
 
 const columns = [
 	{ id: 'date', label: 'Date' },

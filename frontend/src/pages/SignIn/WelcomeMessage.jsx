@@ -1,5 +1,4 @@
-import React from 'react';
-import { useCustomTheme } from '../../utils/theme/ThemeContext';
+import { useCustomTheme } from '../../context/ThemeContext';
 
 const WelcomeMessage = () => {
 	const { theme } = useCustomTheme();

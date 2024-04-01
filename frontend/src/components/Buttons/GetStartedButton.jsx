@@ -1,8 +1,7 @@
 import { Button } from '@mui/material';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCustomTheme } from '../../utils/theme/ThemeContext';
+import { useCustomTheme } from '../../context/ThemeContext';
 
 const GetStartedButton = ({ sx = {}, ...props }) => {
 	const navigate = useNavigate();

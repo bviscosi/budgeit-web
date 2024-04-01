@@ -1,8 +1,7 @@
-import { Box, IconButton, Stack } from '@mui/material';
-import React from 'react';
+import { IconButton, Stack } from '@mui/material';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import { useCustomTheme } from '../../utils/theme/ThemeContext.jsx';
+import { useCustomTheme } from '../../context/ThemeContext.jsx';
 
 const ThemeModeToggle = () => {
 	const { toggleThemeMode, mode } = useCustomTheme(); // Get the current mode from the context

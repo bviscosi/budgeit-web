@@ -1,9 +1,7 @@
-import React from 'react';
-
 const Right = () => {
 	return (
 		<div
-			sx={{
+			style={{
 				display: 'flex',
 				width: '50vw',
 				height: '100vh',

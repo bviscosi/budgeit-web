@@ -1,6 +1,5 @@
 import {
 	AppBar,
-	Box,
 	Button,
 	Divider,
 	IconButton,
@@ -9,7 +8,6 @@ import {
 	useMediaQuery,
 	useTheme,
 } from '@mui/material';
-import React from 'react';
 import { navbarContent } from '../../utils/assets';
 import GetStartedButton from '../Buttons/GetStartedButton';
 import ThemeModeToggle from '../ThemeModeToggle/ThemeModeToggle';

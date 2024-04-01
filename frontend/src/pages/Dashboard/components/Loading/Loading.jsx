@@ -1,4 +1,3 @@
-import React from 'react';
 import './Loading.css'; // Assuming you will create a separate CSS file
 
 const Loading = () => {

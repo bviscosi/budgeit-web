@@ -1,4 +1,3 @@
-import React from 'react';
 import b_logo from '../../../../../../assets/b.png';
 
 const Logo = () => {
