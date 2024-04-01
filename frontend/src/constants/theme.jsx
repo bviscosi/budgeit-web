@@ -1,4 +1,4 @@
-import typography from './Typography';
+import typography from './typography';
 
 const themeSettings = {
 	light: {

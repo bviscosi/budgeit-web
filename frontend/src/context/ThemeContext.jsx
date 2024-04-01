@@ -1,6 +1,6 @@
-import React, { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext } from 'react';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
-import themeSettings from './ThemeSettings';
+import themeSettings from '../constants/theme';
 
 const getTheme = (mode) =>
 	responsiveFontSizes(

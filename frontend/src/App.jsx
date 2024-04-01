@@ -1,4 +1,4 @@
-import RoutesComponent from './utils/navigation/RoutesComponent';
+import RoutesComponent from './navigation/RoutesComponent';
 
 function App() {
 	return (

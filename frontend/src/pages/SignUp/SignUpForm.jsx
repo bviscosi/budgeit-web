@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Typography, Container, TextField } from '@mui/material';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
 import { signUpContainer, signUpForm } from './styles';
-import { useCustomTheme } from '../../utils/theme/ThemeContext';
+import { useCustomTheme } from '../../context/ThemeContext';
 import AuthButton from '../../components/Buttons/AuthButton';
 
 const SignUpForm = ({ handleLogin }) => {
