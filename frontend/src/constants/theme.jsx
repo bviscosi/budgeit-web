@@ -1,5 +1,12 @@
 import getTypography from './typography';
 
+// Correct the function calls by removing the extra parenthesis
+const lightModeTypography = getTypography('light');
+const darkModeTypography = getTypography('dark');
+
+// Assuming console.log(lightModeTypography) is just for debugging and can be removed or commented out
+// console.log(lightModeTypography);
+
 const themeSettings = {
 	light: {
 		palette: {
@@ -15,27 +22,24 @@ const themeSettings = {
 				purpleGradient: 'linear-gradient(#242acf, #b57bee)',
 			},
 		},
-		getTypography,
+		typography: lightModeTypography, // Apply the typography settings here
 	},
 	dark: {
 		palette: {
 			mode: 'dark',
 			primary: { main: '#6573c3' },
 			secondary: { main: '#ff4081' },
-			// Define other colors for dark mode as needed
 			card: { border: '#424242' },
 			gray: { 1: '#bdbdbd', 2: '#424242' },
-
 			background: {
 				default: '#000',
 				paper: '#14131a',
 				main: '#141319',
-				// purpleGradient: 'linear-gradient(#242acf, #b57bee)',
 				purpleGradient:
 					'linear-gradient(60deg, rgba(2,10,18,1) 0%, rgba(82,50,135,1) 70%, rgba(0,90,116,0.8) 100%)',
 			},
 		},
-		getTypography,
+		typography: darkModeTypography, // Apply the typography settings here
 	},
 };
 

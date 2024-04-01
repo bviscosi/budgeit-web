@@ -56,6 +56,7 @@ const Hero = () => {
 						justifyContent='center'>
 						<Typography
 							variant='h1'
+							fontWeight={600}
 							sx={{ mb: 1, letterSpacing: '0.02em', display: 'inline' }}>
 							Save smarter with{' '}
 							<Box
@@ -72,7 +73,7 @@ const Hero = () => {
 								Budgit
 							</Box>
 						</Typography>
-						<Typography variant='h3' sx={{ mb: 6, letterSpacing: '0.05em' }}>
+						<Typography variant='h6' sx={{ mb: 6, letterSpacing: '0.05em' }}>
 							Effortless budgeting, simplified savings.
 						</Typography>
 						<Stack
