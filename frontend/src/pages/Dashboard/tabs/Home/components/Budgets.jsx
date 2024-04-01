@@ -1,5 +1,13 @@
 import React from 'react';
-import { Card, CardContent, Typography, Box, Divider, CircularProgress } from '@mui/material';
+import {
+	Card,
+	CardContent,
+	Typography,
+	Box,
+	Divider,
+	CircularProgress,
+	Stack,
+} from '@mui/material';
 import { budgets } from '../../../../../constants/budgets';
 
 const Budgets = () => {
@@ -60,7 +68,12 @@ const BudgetItem = ({ title, amount, icon, color }) => {
 			<Typography variant='p' sx={{ flexGrow: 1 }}>
 				{title}
 			</Typography>
-			<Typography variant='p'>{amount}</Typography>
+			<Stack direction='column' alignItems={'flex-end'}>
+				<Typography variant='body'>{amount}</Typography>
+				<Typography variant='caption' >
+					{amount} of {amount}
+				</Typography>
+			</Stack>
 		</Box>
 	);
 };

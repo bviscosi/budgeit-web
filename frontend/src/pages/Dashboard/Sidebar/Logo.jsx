@@ -1,4 +1,4 @@
-import b_logo from '../../../../../../assets/b.png';
+import b_logo from '../../../assets/b.png';
 
 const Logo = () => {
 	return (

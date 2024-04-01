@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import Sidebar from './components/Sidebar/Sidebar';
-import Topbar from './components/Topbar/Topbar';
+import Sidebar from './Sidebar/Sidebar';
+import Topbar from './Topbar/Topbar';
 import { Box, Stack } from '@mui/material';
-import Loading from './components/Loading/Loading';
-import Error from './components/Error/Error';
 import Home from './tabs/Home/Home';
 import Transactions from './tabs/Transactions/Transactions';
+import Loading from '../../components/Loading/Loading';
+import Error from '../../components/Error/Error';
 
 const Dashboard = ({ handleLogout }) => {
 	const [tab, setTab] = useState('home');

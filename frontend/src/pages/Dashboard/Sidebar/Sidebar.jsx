@@ -3,10 +3,10 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import SavingsIcon from '@mui/icons-material/Savings';
 import WalletIcon from '@mui/icons-material/Wallet';
 import ListIcon from '@mui/icons-material/List';
-import { Stack, IconButton, Box, Paper } from '@mui/material';
+import { Stack, IconButton, Paper } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import { sidebar, sidebarItem } from './styles';
-import Logo from './components/Logo/Logo';
+import Logo from './Logo';
 
 const Sidebar = ({ tab, setTab }) => {
 	const handleSetTab = (tab) => {

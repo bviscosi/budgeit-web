@@ -1,4 +1,4 @@
-import typography from './typography';
+import getTypography from './typography';
 
 const themeSettings = {
 	light: {
@@ -15,7 +15,7 @@ const themeSettings = {
 				purpleGradient: 'linear-gradient(#242acf, #b57bee)',
 			},
 		},
-		typography,
+		getTypography,
 	},
 	dark: {
 		palette: {
@@ -35,7 +35,7 @@ const themeSettings = {
 					'linear-gradient(60deg, rgba(2,10,18,1) 0%, rgba(82,50,135,1) 70%, rgba(0,90,116,0.8) 100%)',
 			},
 		},
-		typography,
+		getTypography,
 	},
 };
 

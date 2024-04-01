@@ -1,7 +1,7 @@
 import { Stack, Typography } from '@mui/material';
 import UserDropdownMenu from './UserDropdownMenu/UserDropdownMenu';
 import { topbar } from './styles';
-import ThemeModeToggle from '../../../../components/ThemeModeToggle/ThemeModeToggle';
+import ThemeModeToggle from '../../../components/ThemeModeToggle/ThemeModeToggle';
 
 const Topbar = ({ tab, handleLogout }) => {
 	return (
