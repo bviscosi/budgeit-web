@@ -2,6 +2,31 @@ import React from 'react';
 import { Card, CardContent, Typography, Box, Divider, CircularProgress } from '@mui/material';
 import { budgets } from '../../../../../constants/budgets';
 
+const Budgets = () => {
+	return (
+		<Card sx={{ borderRadius: '1rem', height: '27.5rem', overflow: 'hidden' }}>
+			<CardContent sx={{ paddingBottom: '0 !important' }}>
+				<Typography variant='h4' sx={{ marginBottom: '1rem' }}>
+					Budgets
+				</Typography>
+			</CardContent>
+			<Box
+				sx={{
+					px: 3,
+					overflowY: 'auto',
+					height: 'calc(27.5rem - 64px)', // Subtract the height of the title and padding
+				}}>
+				{budgets.map((budget, index) => (
+					<React.Fragment key={index}>
+						<BudgetItem {...budget} />
+						{index < budgets.length - 1 && <Divider />}
+					</React.Fragment>
+				))}
+			</Box>
+		</Card>
+	);
+};
+
 const BudgetItem = ({ title, amount, icon, color }) => {
 	return (
 		<Box sx={{ display: 'flex', alignItems: 'center', padding: '1rem 0' }}>
@@ -37,31 +62,6 @@ const BudgetItem = ({ title, amount, icon, color }) => {
 			</Typography>
 			<Typography variant='p'>{amount}</Typography>
 		</Box>
-	);
-};
-
-const Budgets = () => {
-	return (
-		<Card sx={{ borderRadius: '1rem', height: '27.5rem', overflow: 'hidden' }}>
-			<CardContent sx={{ paddingBottom: '0 !important' }}>
-				<Typography variant='h4' sx={{ marginBottom: '1rem' }}>
-					Budgets
-				</Typography>
-			</CardContent>
-			<Box
-				sx={{
-					px: '2rem',
-					overflowY: 'auto',
-					height: 'calc(27.5rem - 64px)', // Subtract the height of the title and padding
-				}}>
-				{budgets.map((budget, index) => (
-					<React.Fragment key={index}>
-						<BudgetItem {...budget} />
-						{index < budgets.length - 1 && <Divider />}
-					</React.Fragment>
-				))}
-			</Box>
-		</Card>
 	);
 };
 
