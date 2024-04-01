@@ -32,7 +32,7 @@ const Navbar = () => {
 				<Stack direction={'row'} justifyContent={'space-between'} py={3}>
 					<Stack direction='row' alignItems={'center'}>
 						<img src={logo} alt='logo' style={{ height: '50px', objectFit: 'contain' }} />
-						<Typography variant='body2' fontWeight={500}>
+						<Typography variant='h6' fontWeight={600} color='#fff'>
 							BudgeIt
 						</Typography>
 					</Stack>
@@ -40,7 +40,7 @@ const Navbar = () => {
 						direction='row'
 						alignItems={'center'}
 						spacing={3}
-						sx={{ border: '1px solid #3b3c3f', borderRadius: 10, px: 2 }}>
+						sx={{ border: '1px solid #333139', borderRadius: 10, px: 2 }}>
 						<Button sx={{ color: '#fff' }}>
 							<Typography variant='caption'>Features</Typography>
 						</Button>
@@ -65,6 +65,11 @@ const Navbar = () => {
 					) : (
 						<Stack direction={'row'}>
 							<ThemeModeToggle />
+							<Button sx={{ px: '2rem' }}>
+								<Typography variant='body2' fontWeight={600}>
+									Login
+								</Typography>
+							</Button>
 							<GetStartedButton />
 						</Stack>
 					)}

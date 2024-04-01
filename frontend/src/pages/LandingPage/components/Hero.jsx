@@ -11,6 +11,7 @@ import {
 import GetStartedButton from '../../../components/Buttons/GetStartedButton';
 import { landingPageContent } from '../../../utils/assets';
 
+import grid from '../../../assets/grid.png';
 const { dashboardLight, dashboardDark } = landingPageContent;
 
 const LearnMoreButton = ({ fullWidth }) => {
@@ -46,7 +47,7 @@ const Hero = () => {
             `}
 			</style>
 			<Stack direction='column'>
-				<Container sx={{ marginTop: '10rem' }}>
+				<Container sx={{ marginTop: 20 }}>
 					<Stack
 						direction='column'
 						sx={{
@@ -54,6 +55,17 @@ const Hero = () => {
 							textAlign: 'center',
 						}}
 						justifyContent='center'>
+						<img
+							src={grid}
+							alt='grid'
+							style={{
+								position: 'absolute',
+								top: '0',
+								left: '0%',
+								width: '100vw',
+								zIndex: '-1000',
+							}}
+						/>
 						<Typography
 							variant='h1'
 							fontWeight={600}
@@ -92,7 +104,7 @@ const Hero = () => {
 						display: 'flex',
 						flexDirection: 'column',
 						alignItems: 'center',
-						pt: { xs: 10, sm: 14 },
+						pt: { xs: 5, sm: 0 },
 						pb: { xs: 8, sm: 12 },
 					}}>
 					<Box

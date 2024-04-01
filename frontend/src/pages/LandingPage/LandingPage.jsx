@@ -12,7 +12,7 @@ const LandingPage = () => {
 				backgroundImage:
 					theme.palette.mode === 'light'
 						? 'linear-gradient(180deg, #e4f1fe, #FFF)'
-						: `linear-gradient(#0e151d, ${alpha('#0e151d', 0.0)})`,
+						: `linear-gradient(#0f0c15, ${alpha('#0f0c15', 0.1)})`,
 				backgroundSize: '100% 20%',
 				backgroundRepeat: 'no-repeat',
 			})}>

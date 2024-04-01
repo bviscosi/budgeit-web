@@ -24,7 +24,7 @@ const getTypography = (mode) => ({
 		fontSize: '1.25rem',
 		fontWeight: 400,
 		lineHeight: 1.2,
-		color: mode === 'light' ? '#e0e0e0' : '#aba6bf', // Your specified h6 color for dark mode
+		color: mode === 'light' ? '#030303' : '#aba6bf', // Your specified h6 color for dark mode
 	},
 	h5: {
 		fontSize: '1.35rem',
@@ -54,7 +54,7 @@ const getTypography = (mode) => ({
 		fontSize: '4rem',
 		fontWeight: 700,
 		lineHeight: 1.2,
-		color: mode === 'light' ? '#fdfdfd' : '#dedde1', // Closest to white for highest emphasis in dark mode
+		color: mode === 'light' ? '#000' : '#dedde1', // Closest to white for highest emphasis in dark mode
 	},
 });
 

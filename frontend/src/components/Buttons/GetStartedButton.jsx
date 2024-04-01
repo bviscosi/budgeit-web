@@ -19,6 +19,8 @@ const GetStartedButton = ({ sx = {}, ...props }) => {
 						? '0 4px 10px 0 rgba(0,0,0,0.5), inset 0 0 10px #5d79cf'
 						: '0 4px 10px 0 rgba(0,0,0,0.1), inset 0 0 10px #5d79cf',
 				textTransform: 'none',
+				py: 'none',
+				margin: '0',
 				// '&:hover': {
 				// 	boxShadow:
 				// 		mode === 'dark'

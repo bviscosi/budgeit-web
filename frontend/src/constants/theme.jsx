@@ -3,6 +3,7 @@ import getTypography from './typography';
 // Correct the function calls by removing the extra parenthesis
 const lightModeTypography = getTypography('light');
 const darkModeTypography = getTypography('dark');
+import { alpha } from '@mui/material';
 
 // Assuming console.log(lightModeTypography) is just for debugging and can be removed or commented out
 // console.log(lightModeTypography);
@@ -33,12 +34,21 @@ const themeSettings = {
 			gray: { 1: '#bdbdbd', 2: '#424242' },
 			background: {
 				default: '#000',
-				paper: '#14131a',
+				paper: `linear-gradient(#0f0c15, ${alpha('#0f0c15', 0.1)})`,
 				main: '#141319',
 				purpleGradient:
 					'linear-gradient(60deg, rgba(2,10,18,1) 0%, rgba(82,50,135,1) 70%, rgba(0,90,116,0.8) 100%)',
 			},
 		},
+		// components: {
+		// 	MuiPaper: {
+		// 		styleOverrides: {
+		// 			root: {
+		// 				backgroundImage: `linear-gradient(-5deg,#14131a, ${alpha('#00', 0.2)})`,
+		// 			},
+		// 		},
+		// 	},
+		// },
 		typography: darkModeTypography, // Apply the typography settings here
 	},
 };
