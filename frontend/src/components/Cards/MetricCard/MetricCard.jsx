@@ -54,10 +54,10 @@ const MetricCard = ({ title, value, icon, backgroundColor, color }) => {
 						}}>
 						{icon}
 					</Box>
-					<Typography variant='h4'>{title}</Typography>
+					<Typography variant='h6'>{title}</Typography>
 				</Stack>
 
-				<Typography variant='h2'>${value}</Typography>
+				<Typography variant='h4'>${value}</Typography>
 			</Stack>
 		</Card>
 		// </GradientBorderWrapper>
