@@ -9,39 +9,52 @@ const budgets = [
 		title: 'Food & Restaurants',
 		amount: '$412.00',
 		icon: <FastfoodIcon />,
+		color: '#34c5c5', // Predefined MUI color
 	},
 	{
 		title: 'Travel',
 		amount: '$123.00',
 		icon: <FlightIcon />,
+		color: '#347cc5', // Predefined MUI color
 	},
 	{
 		title: 'Credit Card',
 		amount: '$12,003.00',
 		icon: <CreditCardIcon />,
+		color: '#3434c5', // Predefined MUI color
 	},
 	{
 		title: 'Food & Restaurants',
 		amount: '$412.00',
 		icon: <FastfoodIcon />,
+		color: '#7c34c5', // Predefined MUI color
 	},
 	{
 		title: 'Travel',
 		amount: '$123.00',
 		icon: <FlightIcon />,
+		color: '#c534c5', // Predefined MUI color
 	},
 	{
 		title: 'Credit Card',
 		amount: '$12,003.00',
 		icon: <CreditCardIcon />,
+		color: '#347cc5', // Predefined MUI color
 	},
 ];
 
-const BudgetItem = ({ title, amount, icon }) => {
+const BudgetItem = ({ title, amount, icon, color }) => {
 	return (
 		<Box sx={{ display: 'flex', alignItems: 'center', padding: '1rem 0' }}>
 			<Box sx={{ position: 'relative', display: 'inline-flex', marginRight: '1rem' }}>
-				<CircularProgress variant='determinate' value={50} size={50} thickness={3} />
+				<CircularProgress
+					variant='determinate'
+					value={50}
+					size={50}
+					thickness={3}
+					sx={{ color: `${color}` }}
+				/>
+
 				<Box
 					sx={{
 						position: 'absolute',
