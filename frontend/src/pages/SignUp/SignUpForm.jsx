@@ -40,12 +40,6 @@ const SignUpForm = ({ handleLogin }) => {
 		}
 	};
 
-	const handleKeyPress = (e) => {
-		if (e.key === 'Enter') {
-			handleSignUp();
-		}
-	};
-
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const data = new FormData(event.currentTarget);
@@ -76,58 +70,51 @@ const SignUpForm = ({ handleLogin }) => {
 					paddingX: '2rem',
 				}}>
 				<Box component='img' src={b_logo} alt='' sx={{ width: '8rem' }} />
+
+				<TextField
+					margin='normal'
+					required
+					fullWidth
+					id='email'
+					label='Email Address'
+					name='email'
+					autoComplete='email'
+					autoFocus
+				/>
+				<TextField
+					margin='normal'
+					required
+					fullWidth
+					name='password'
+					label='Password'
+					type='password'
+					id='password'
+					autoComplete='current-password'
+				/>
+				{errorMessage && (
+					<Typography color='error' textAlign='center' sx={{ mt: 2 }}>
+						{errorMessage}
+					</Typography>
+				)}
+
+				<AuthButton label={'Sign Up'} onClick={handleSignUp} />
+
 				<div
 					style={{
-						height: '69%',
 						display: 'flex',
-						flexDirection: 'column',
-						justifyContent: 'space-evenly',
+						flexDirection: 'row',
+						alignItems: 'center',
+						justifyContent: 'center',
+						gap: '0.3rem',
+						marginTop: '1rem',
 					}}>
-					<TextField
-						margin='normal'
-						required
-						fullWidth
-						id='email'
-						label='Email Address'
-						name='email'
-						autoComplete='email'
-						autoFocus
-					/>
-					<TextField
-						margin='normal'
-						required
-						fullWidth
-						name='password'
-						label='Password'
-						type='password'
-						id='password'
-						autoComplete='current-password'
-					/>
-					{errorMessage && (
-						<Typography color='error' textAlign='center' sx={{ mt: 2 }}>
-							{errorMessage}
-						</Typography>
-					)}
-
-					<AuthButton label={'Sign Up'} onClick={handleSignUp} />
-
-					<div
-						style={{
-							display: 'flex',
-							flexDirection: 'row',
-							alignItems: 'center',
-							justifyContent: 'center',
-							gap: '0.3rem',
-							marginTop: '1rem',
-						}}>
-						<Typography variant='p'> Already have an account?</Typography>
-						<Button
-							variant='text'
-							sx={{ textTransform: 'none' }}
-							onClick={() => navigate('/sign-in')}>
-							Sign In
-						</Button>
-					</div>
+					<Typography variant='p'> Already have an account?</Typography>
+					<Button
+						variant='text'
+						sx={{ textTransform: 'none' }}
+						onClick={() => navigate('/sign-in')}>
+						Sign In
+					</Button>
 				</div>
 			</Stack>
 		</Box>

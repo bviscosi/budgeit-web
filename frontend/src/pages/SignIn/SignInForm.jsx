@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
-import { Typography, Box, Stack, TextField, alpha } from '@mui/material';
+import { Typography, Box, Stack, TextField, alpha, Button } from '@mui/material';
 import AuthButton from '../../components/Buttons/AuthButton';
 
 axios.defaults.baseURL = 'http://localhost:5555/';
@@ -10,7 +10,6 @@ axios.defaults.baseURL = 'http://localhost:5555/';
 const SignInForm = ({ handleLogin }) => {
 	let navigate = useNavigate();
 	const [errorMessage, setErrorMessage] = useState('');
-	const [rememberMe, setRememberMe] = useState(false);
 
 	const handleSignIn = async (email, password) => {
 		try {
@@ -87,6 +86,23 @@ const SignInForm = ({ handleLogin }) => {
 					</Typography>
 				)}
 				<AuthButton label='Sign In' sx={{ marginTop: 2 }} />
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'row',
+						alignItems: 'center',
+						justifyContent: 'center',
+						gap: '0.3rem',
+						marginTop: '1rem',
+					}}>
+					<Typography variant='p'>Need an account?</Typography>
+					<Button
+						variant='text'
+						sx={{ textTransform: 'none' }}
+						onClick={() => navigate('/sign-up')}>
+						Sign Up
+					</Button>
+				</div>
 			</Stack>
 		</Box>
 	);

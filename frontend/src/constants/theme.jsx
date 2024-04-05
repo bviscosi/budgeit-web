@@ -28,7 +28,7 @@ const themeSettings = {
 	dark: {
 		palette: {
 			mode: 'dark',
-			primary: { main: '#6573c3' },
+			primary: { main: '#6475cc' },
 			secondary: { main: '#ff4081' },
 			card: { border: '#424242' },
 			gray: { 1: '#bdbdbd', 2: '#424242' },
