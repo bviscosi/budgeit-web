@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import {
 	AppBar,
 	Button,
@@ -8,15 +10,17 @@ import {
 	useMediaQuery,
 	useTheme,
 } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+
 import { navbarContent } from '../../utils/assets';
 import GetStartedButton from '../Buttons/GetStartedButton';
 import ThemeModeToggle from '../ThemeModeToggle/ThemeModeToggle';
-import MenuIcon from '@mui/icons-material/Menu';
 
 const { logo } = navbarContent;
 
 const Navbar = () => {
 	const theme = useTheme();
+	const navigate = useNavigate();
 	const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
 	return (
@@ -65,7 +69,11 @@ const Navbar = () => {
 					) : (
 						<Stack direction={'row'}>
 							<ThemeModeToggle />
-							<Button sx={{ px: '2rem' }}>
+							<Button
+								sx={{ px: '2rem' }}
+								onClick={() => {
+									navigate('/sign-in');
+								}}>
 								<Typography variant='body2' fontWeight={600}>
 									Login
 								</Typography>

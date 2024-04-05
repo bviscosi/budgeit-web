@@ -57,6 +57,7 @@ const SignInForm = ({ handleLogin }) => {
 					justifyContent: 'center',
 					width: '100%',
 					maxWidth: 480,
+					paddingX: '2rem',
 				}}>
 				<Box component='img' src={b_logo} alt='' sx={{ width: '8rem' }} />
 

@@ -5,7 +5,6 @@ import { useCustomTheme } from '../../context/ThemeContext';
 
 const GetStartedButton = ({ sx = {}, ...props }) => {
 	const navigate = useNavigate();
-
 	const { mode } = useCustomTheme();
 
 	return (
@@ -32,7 +31,7 @@ const GetStartedButton = ({ sx = {}, ...props }) => {
 			}}
 			{...props}
 			onClick={() => {
-				navigate('/sign-in');
+				navigate('/sign-up');
 			}}>
 			Get Started
 			<KeyboardArrowRightIcon fontSize='small' />
