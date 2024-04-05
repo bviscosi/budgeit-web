@@ -1,22 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Typography, TextField, alpha } from '@mui/material';
+import { Button, Typography, TextField, alpha, Box, Stack } from '@mui/material';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
-import { signUpForm } from './styles';
 import AuthButton from '../../components/Buttons/AuthButton';
 
 const SignUpForm = ({ handleLogin }) => {
 	let navigate = useNavigate();
-
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
 	const [errorMessage, setErrorMessage] = useState('');
-	const [rememberMe, setRememberMe] = useState(false); // If you plan to use this, add a checkbox in the form
 
-	const handleSignUp = async () => {
+	const handleSignUp = async (email, password) => {
 		try {
-			console.log(email, password); // Consider removing console logs in production
 			const response = await axios.post('/signUp', { email, password });
 			if (response.status === 201) {
 				localStorage.setItem('token', response.data.token);
@@ -52,6 +46,12 @@ const SignUpForm = ({ handleLogin }) => {
 		}
 	};
 
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		const data = new FormData(event.currentTarget);
+		handleSignUp(data.get('email'), data.get('password'));
+	};
+
 	return (
 		<Box
 			sx={{
@@ -63,14 +63,19 @@ const SignUpForm = ({ handleLogin }) => {
 				height: '100vh',
 				background: `linear-gradient(#0f0c15, ${alpha('#0f0c15', 0.1)})`,
 			}}>
-			<form style={signUpForm} onSubmit={handleSignUp}>
-				<div
-					style={{
-						display: 'flex',
-						justifyContent: 'center',
-					}}>
-					<img src={b_logo} alt='' style={{ width: '8rem' }}></img>
-				</div>
+			<Stack
+				component='form'
+				onSubmit={handleSubmit}
+				noValidate
+				gap={2}
+				sx={{
+					alignItems: 'center',
+					justifyContent: 'center',
+					width: '100%',
+					maxWidth: 480,
+					paddingX: '2rem',
+				}}>
+				<Box component='img' src={b_logo} alt='' sx={{ width: '8rem' }} />
 				<div
 					style={{
 						height: '69%',
@@ -79,22 +84,30 @@ const SignUpForm = ({ handleLogin }) => {
 						justifyContent: 'space-evenly',
 					}}>
 					<TextField
-						type='email'
-						variant='outlined'
-						label='Email'
-						onChange={(e) => setEmail(e.target.value)}
-						onKeyPress={handleKeyPress}
+						margin='normal'
+						required
+						fullWidth
+						id='email'
+						label='Email Address'
+						name='email'
+						autoComplete='email'
+						autoFocus
 					/>
-
 					<TextField
-						type='password'
-						variant='outlined'
+						margin='normal'
+						required
+						fullWidth
+						name='password'
 						label='Password'
-						onChange={(e) => setPassword(e.target.value)}
-						onKeyPress={handleKeyPress}
+						type='password'
+						id='password'
+						autoComplete='current-password'
 					/>
-
-					{errorMessage && <div className='error-message'>{errorMessage}</div>}
+					{errorMessage && (
+						<Typography color='error' textAlign='center' sx={{ mt: 2 }}>
+							{errorMessage}
+						</Typography>
+					)}
 
 					<AuthButton label={'Sign Up'} onClick={handleSignUp} />
 
@@ -116,7 +129,7 @@ const SignUpForm = ({ handleLogin }) => {
 						</Button>
 					</div>
 				</div>
-			</form>
+			</Stack>
 		</Box>
 	);
 };
