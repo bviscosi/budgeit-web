@@ -1,16 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Typography, Container, TextField } from '@mui/material';
+import { Button, Typography, TextField, alpha } from '@mui/material';
 import axios from 'axios';
 import b_logo from '../../assets/b.png';
-import { signUpContainer, signUpForm } from './styles';
-import { useCustomTheme } from '../../context/ThemeContext';
+import { signUpForm } from './styles';
 import AuthButton from '../../components/Buttons/AuthButton';
 
 const SignUpForm = ({ handleLogin }) => {
 	let navigate = useNavigate();
-
-	const { theme } = useCustomTheme();
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -56,7 +53,16 @@ const SignUpForm = ({ handleLogin }) => {
 	};
 
 	return (
-		<Container style={signUpContainer} sx={{ backgroundColor: theme.palette.background.main }}>
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				justifyContent: 'center',
+				alignItems: 'center',
+				width: '100%',
+				height: '100vh',
+				background: `linear-gradient(#0f0c15, ${alpha('#0f0c15', 0.1)})`,
+			}}>
 			<form style={signUpForm} onSubmit={handleSignUp}>
 				<div
 					style={{
@@ -111,7 +117,7 @@ const SignUpForm = ({ handleLogin }) => {
 					</div>
 				</div>
 			</form>
-		</Container>
+		</Box>
 	);
 };
 
