@@ -92,44 +92,4 @@ const SignInForm = ({ handleLogin }) => {
 	);
 };
 
-{
-	/* <Stack
-					direction='row'
-					justifyContent={'space-between'}
-					alignItems={'center'}
-					width='100%'>
-					<Typography
-						sx={{
-							width: '100%',
-							display: 'flex',
-							justifyContent: 'flex-end',
-							textAlign: 'flex-end',
-							color: '#007BFF',
-							cursor: 'pointer',
-						}}
-						onClick={() => navigate('/register')}>
-						Forgot Password?
-					</Typography>
-				</Stack> */
-}
-
-{
-	/* <div
-					style={{
-						display: 'flex',
-						flexDirection: 'row',
-						alignItems: 'center',
-						justifyContent: 'center',
-						gap: '0.3rem',
-						marginTop: '1rem',
-					}}>
-					<Typography> Not registered yet?</Typography>
-					<Button
-						variant='text'
-						sx={{ textTransform: 'none' }}
-						onClick={() => navigate('/sign-up')}>
-						<Typography>Create account</Typography>
-					</Button>
-				</div> */
-}
 export default SignInForm;
