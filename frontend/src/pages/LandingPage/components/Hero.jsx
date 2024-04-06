@@ -58,17 +58,21 @@ const Hero = () => {
 							textAlign: 'center',
 						}}
 						justifyContent='center'>
-						<img
-							src={grid}
-							alt='grid'
-							style={{
-								position: 'absolute',
-								top: '0',
-								left: '0%',
-								width: '100vw',
-								zIndex: '-1000',
-							}}
-						/>
+						{theme.palette.mode === 'light' ? (
+							<div></div>
+						) : (
+							<img
+								src={grid}
+								alt='grid'
+								style={{
+									position: 'absolute',
+									top: '0',
+									left: '0%',
+									width: '100vw',
+									zIndex: '-1000',
+								}}
+							/>
+						)}
 						<Typography
 							variant='h1'
 							fontWeight={600}
@@ -116,22 +120,24 @@ const Hero = () => {
 							mt: { xs: 0, sm: 10 },
 							alignSelf: 'center',
 							height: { xs: 300, sm: 700 },
-							width: '100%',
-							backgroundImage:
-								theme.palette.mode === 'light'
-									? `url(${dashboardLight})`
-									: `url(${dashboardDark})`,
+							width: '90%',
+							backgroundImage: (theme) =>
+								`linear-gradient(to bottom, ${
+									theme.palette.mode === 'light' ? 'rgba(255,255,255,0)' : 'transparent'
+								} 70%, ${theme.palette.background.default} 100%), url(${
+									theme.palette.mode === 'light' ? dashboardLight : dashboardDark
+								})`,
 							backgroundSize: 'cover',
 							borderRadius: '10px',
 							outline: '1px solid',
 							outlineColor:
 								theme.palette.mode === 'light'
 									? alpha('#eff1f5', 0.5)
-									: alpha('#d592df', 0.1),
-							boxShadow:
-								theme.palette.mode === 'light'
-									? `0 0 12px 8px ${alpha('#6f71f3', 0.2)}`
-									: `0 0 24px 12px ${alpha('#6f71f3', 0.2)}`,
+									: alpha('#b6b9bb', 0.2),
+							// boxShadow:
+							// 	theme.palette.mode === 'light'
+							// 		? `0 0 12px 8px ${alpha('#6f71f3', 0.2)}`
+							// 		: `0 0 24px 12px ${alpha('#6f71f3', 0.2)}`,
 						})}
 					/>
 				</Container>

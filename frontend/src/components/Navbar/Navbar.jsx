@@ -33,7 +33,7 @@ const Navbar = ({ setOpenMenu }) => {
 				justifyContent: 'center',
 			}}>
 			<Stack direction={'column'}>
-				<Stack direction={'row'} justifyContent={'space-between'} py={3}>
+				<Stack direction={'row'} justifyContent={'space-between'} py={1.5}>
 					<Stack direction='row' alignItems={'center'}>
 						<img src={logo} alt='logo' style={{ height: '50px', objectFit: 'contain' }} />
 						{/* <Typography variant='h6' fontWeight={600} color='#fff'>
