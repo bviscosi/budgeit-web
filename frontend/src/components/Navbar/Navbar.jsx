@@ -18,7 +18,7 @@ import ThemeModeToggle from '../ThemeModeToggle/ThemeModeToggle';
 
 const { logo } = navbarContent;
 
-const Navbar = () => {
+const Navbar = ({ setOpenMenu }) => {
 	const theme = useTheme();
 	const navigate = useNavigate();
 	const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
@@ -36,13 +36,17 @@ const Navbar = () => {
 				<Stack direction={'row'} justifyContent={'space-between'} py={3}>
 					<Stack direction='row' alignItems={'center'}>
 						<img src={logo} alt='logo' style={{ height: '50px', objectFit: 'contain' }} />
-						<Typography variant='h6' fontWeight={600} color='#fff'>
+						{/* <Typography variant='h6' fontWeight={600} color='#fff'>
 							BudgeIt
-						</Typography>
+						</Typography> */}
 					</Stack>
 
 					{isMobile ? (
-						<IconButton sx={{ height: '100%', widht: '100%' }}>
+						<IconButton
+							sx={{ height: '100%' }}
+							onClick={() => {
+								setOpenMenu(true);
+							}}>
 							<MenuIcon color='text-secondary' />
 						</IconButton>
 					) : (
