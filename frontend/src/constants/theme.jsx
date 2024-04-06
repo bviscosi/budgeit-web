@@ -32,6 +32,9 @@ const themeSettings = {
 			secondary: { main: '#ff4081' },
 			card: { border: '#424242' },
 			gray: { 1: '#bdbdbd', 2: '#424242' },
+			action: {
+				selected: `#030303`,
+			},
 			background: {
 				default: '#000',
 				paper: `linear-gradient(#0f0c15, ${alpha('#0f0c15', 0.1)})`,

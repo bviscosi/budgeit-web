@@ -57,7 +57,10 @@ export default function Features() {
 						<Typography component='h2' variant='h4' color='text.primary'>
 							Product features
 						</Typography>
-						<Typography variant='body1' color='text.secondary' sx={{ mb: { xs: 2, sm: 4 } }}>
+						<Typography
+							variant='body1'
+							color='text.secondary'
+							sx={{ mb: { xs: 2, sm: 4 }, py: 1 }}>
 							Here you can provide a brief overview of the key features of the product. For
 							example, you could list the number of features, the types of features, add-ons,
 							or the benefits of the features.
