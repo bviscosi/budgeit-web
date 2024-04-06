@@ -13,6 +13,7 @@ const LandingPage = () => {
 	const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
 	return (
+		
 		<Box
 			id='hero'
 			sx={(theme) => ({
