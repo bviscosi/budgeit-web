@@ -27,7 +27,7 @@ const Navbar = () => {
 		<AppBar
 			elevation={0}
 			sx={{
-				px: 20,
+				px: isMobile ? 2 : 10,
 				bgcolor: 'transparent',
 				backdropFilter: 'blur(30px)',
 				justifyContent: 'center',
@@ -40,46 +40,48 @@ const Navbar = () => {
 							BudgeIt
 						</Typography>
 					</Stack>
-					<Stack
-						direction='row'
-						alignItems={'center'}
-						spacing={3}
-						sx={{ border: '1px solid #333139', borderRadius: 10, px: 2 }}>
-						<Button sx={{ color: '#fff' }}>
-							<Typography variant='caption'>Features</Typography>
-						</Button>
-						<Button sx={{ color: '#fff' }}>
-							<Typography variant='caption'>Testimonials</Typography>
-						</Button>
-						<Button sx={{ color: '#fff' }}>
-							<Typography variant='caption'>Highlights</Typography>
-						</Button>
-						<Button sx={{ color: '#fff' }}>
-							<Typography variant='caption'>Pricing</Typography>
-						</Button>
-						<Button sx={{ color: '#fff' }}>
-							<Typography variant='caption'>FAQ</Typography>
-						</Button>
-					</Stack>
 
 					{isMobile ? (
-						<IconButton>
+						<IconButton sx={{ height: '100%', widht: '100%' }}>
 							<MenuIcon color='text-secondary' />
 						</IconButton>
 					) : (
-						<Stack direction={'row'}>
-							<ThemeModeToggle />
-							<Button
-								sx={{ px: '2rem' }}
-								onClick={() => {
-									navigate('/sign-in');
-								}}>
-								<Typography variant='body2' fontWeight={600}>
-									Login
-								</Typography>
-							</Button>
-							<GetStartedButton />
-						</Stack>
+						<>
+							<Stack
+								direction='row'
+								alignItems={'center'}
+								spacing={3}
+								sx={{ border: '1px solid #333139', borderRadius: 10, px: 2 }}>
+								<Button sx={{ color: '#fff' }}>
+									<Typography variant='caption'>Features</Typography>
+								</Button>
+								<Button sx={{ color: '#fff' }}>
+									<Typography variant='caption'>Testimonials</Typography>
+								</Button>
+								<Button sx={{ color: '#fff' }}>
+									<Typography variant='caption'>Highlights</Typography>
+								</Button>
+								<Button sx={{ color: '#fff' }}>
+									<Typography variant='caption'>Pricing</Typography>
+								</Button>
+								<Button sx={{ color: '#fff' }}>
+									<Typography variant='caption'>FAQ</Typography>
+								</Button>
+							</Stack>
+							<Stack direction={'row'}>
+								<ThemeModeToggle />
+								<Button
+									sx={{ px: '2rem' }}
+									onClick={() => {
+										navigate('/sign-in');
+									}}>
+									<Typography variant='body2' fontWeight={600}>
+										Login
+									</Typography>
+								</Button>
+								<GetStartedButton />
+							</Stack>
+						</>
 					)}
 				</Stack>
 				<Divider

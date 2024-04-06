@@ -14,7 +14,7 @@ import { landingPageContent } from '../../../utils/assets';
 import grid from '../../../assets/grid.png';
 const { dashboardLight, dashboardDark } = landingPageContent;
 
-const LearnMoreButton = ({ fullWidth }) => {
+const LearnMoreButton = ({ sx = {}, ...props }) => {
 	return (
 		<Button
 			variant='outlined'
@@ -24,8 +24,11 @@ const LearnMoreButton = ({ fullWidth }) => {
 				px: 3,
 				color: 'text.primary',
 				borderColor: 'text.primary',
+				textTransform: 'none',
+
+				...sx,
 			}}
-			fullWidth={fullWidth}>
+			{...props}>
 			Learn More
 		</Button>
 	);
@@ -89,13 +92,13 @@ const Hero = () => {
 							Effortless budgeting, simplified savings.
 						</Typography>
 						<Stack
-							direction={{ xs: 'column', md: 'row' }}
+							direction={{ xs: 'column', sm: 'row' }}
 							sx={{ justifyContent: 'center' }}
 							alignItems='center'
-							spacing={4}
-							width='100%'>
-							<GetStartedButton sx={{ height: 58, px: 3 }} fullWidth={isMobile} />
-							<LearnMoreButton fullWidth={isMobile} />
+							marginX={5}
+							spacing={2}>
+							<GetStartedButton sx={{ height: 58, px: 6 }} fullWidth={isMobile} />
+							<LearnMoreButton sx={{ height: 58, px: 6 }} fullWidth={isMobile} />
 						</Stack>
 					</Stack>
 				</Container>
