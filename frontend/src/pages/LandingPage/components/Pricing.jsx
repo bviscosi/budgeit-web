@@ -88,7 +88,7 @@ export default function Pricing() {
 								borderRadius: '1rem',
 								background:
 									tier.title === 'Professional'
-										? `linear-gradient(${alpha('#5a77ca', 0.2)}, #000)`
+										? `linear-gradient(${alpha('#5a77ca', 0.2)}, transparent)`
 										: undefined,
 							}}>
 							<CardContent>
@@ -177,7 +177,8 @@ export default function Pricing() {
 									variant={tier.buttonVariant}
 									component='a'
 									href='/material-ui/getting-started/templates/checkout/'
-									target='_blank'>
+									target='_blank'
+									sx={{ padding: '1rem', borderRadius: '0.75rem' }}>
 									{tier.buttonText}
 								</Button>
 							</CardActions>

@@ -101,9 +101,8 @@ export default function Testimonials() {
 				<Typography component='h2' variant='h2' color='text.primary'>
 					Testimonials
 				</Typography>
-				<Typography variant='body1' color='text.secondary'>
-					See what our customers love about our products. Discover how we excel in efficiency,
-					durability, and satisfaction. Join us for quality, innovation, and reliable support.
+				<Typography variant='body1' color='text.secondary' sx={{ pt: '1rem' }}>
+					See what our customers have to say about us
 				</Typography>
 			</Box>
 			<Grid container spacing={2}>
@@ -115,6 +114,7 @@ export default function Testimonials() {
 								flexDirection: 'column',
 								justifyContent: 'space-between',
 								flexGrow: 1,
+								borderRadius: '0.75rem',
 								p: 1,
 							}}>
 							<CardContent>
