@@ -6,6 +6,10 @@ import { useState } from 'react';
 import { useMediaQuery, useTheme } from '@mui/material';
 import MobileNavbar from '../../components/Navbar/MobileNavbar';
 import Highlights from './components/Highlights';
+import Features from './components/Features';
+import Pricing from './components/Pricing';
+import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
 
 const LandingPage = () => {
 	const theme = useTheme();
@@ -13,7 +17,6 @@ const LandingPage = () => {
 	const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
 	return (
-		
 		<Box
 			id='hero'
 			sx={(theme) => ({
@@ -33,6 +36,10 @@ const LandingPage = () => {
 					<Box>
 						<Hero />
 						<Highlights />
+						<Features />
+						<Testimonials />
+						<Pricing />
+						<FAQ />
 						<Box height={300} marginTop='20rem'></Box>
 						<Footer />
 					</Box>

@@ -30,25 +30,25 @@ const getTypography = (mode) => ({
 		fontSize: '1.35rem',
 		fontWeight: 400,
 		lineHeight: 1.2,
-		color: mode === 'light' ? '#ececec' : '#bcb8c2', // Bridging h6 to h2
+		color: mode === 'light' ? '#030303' : '#bcb8c2', // Bridging h6 to h2
 	},
 	h4: {
 		fontSize: '1.75rem',
 		fontWeight: 500,
 		lineHeight: 1.2,
-		color: mode === 'light' ? '#f5f5f5' : '#ccc8d1', // Getting closer to h2 color
+		color: mode === 'light' ? '#030303' : '#ccc8d1', // Getting closer to h2 color
 	},
 	h3: {
 		fontSize: '2.2rem',
 		fontWeight: 500,
 		lineHeight: 1.2,
-		color: mode === 'light' ? '#fafafa' : '#d6d3da', // Almost at h2 color
+		color: mode === 'light' ? '#030303' : '#d6d3da', // Almost at h2 color
 	},
 	h2: {
 		fontSize: '3rem',
 		fontWeight: 500,
 		lineHeight: 1.2,
-		color: mode === 'light' ? '#fcfcfc' : '#dedde1', // Your specified h2 color for dark mode
+		color: mode === 'light' ? '#030303' : '#dedde1', // Your specified h2 color for dark mode
 	},
 	h1: {
 		fontSize: '4rem',
