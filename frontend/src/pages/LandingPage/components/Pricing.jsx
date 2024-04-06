@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { alpha } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -70,10 +70,8 @@ export default function Pricing() {
 				<Typography component='h2' variant='h4' color='text.primary'>
 					Pricing
 				</Typography>
-				<Typography variant='body1' color='text.secondary'>
-					Quickly build an effective pricing table for your potential customers with this
-					layout. <br />
-					It&apos;s built with default Material UI components with little customization.
+				<Typography variant='body1' color='text.secondary' sx={{ pt: '1rem' }}>
+					Explore our options to find the best plan for you
 				</Typography>
 			</Box>
 			<Grid container spacing={3} alignItems='center' justifyContent='center'>
@@ -90,7 +88,7 @@ export default function Pricing() {
 								borderRadius: '1rem',
 								background:
 									tier.title === 'Professional'
-										? 'linear-gradient(#033363, #021F3B)'
+										? `linear-gradient(${alpha('#5a77ca', 0.2)}, #000)`
 										: undefined,
 							}}>
 							<CardContent>
