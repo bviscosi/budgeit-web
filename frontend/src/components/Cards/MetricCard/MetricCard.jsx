@@ -1,4 +1,4 @@
-import { Box, Card, Stack, Typography, styled } from '@mui/material';
+import { Box, Card, Stack, Typography, styled, CardContent } from '@mui/material';
 
 const GradientBorderWrapper = styled('div')(({ theme }) => ({
 	position: 'relative',
@@ -23,42 +23,49 @@ const GradientBorderWrapper = styled('div')(({ theme }) => ({
 const MetricCard = ({ title, value, icon, backgroundColor, color }) => {
 	return (
 		// <GradientBorderWrapper>
+
 		<Card
 			sx={{
 				height: '100%',
-				padding: '1rem',
+				padding: '0.5rem',
 				alignItems: 'center',
 				justifyContent: 'center',
 				borderRadius: '1rem',
+				overflow: 'hidden',
 				// background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
-				border: '1px ',
+				// border: '1px ',
 			}}>
-			<Stack
-				direction='column'
-				justifyContent='space-between'
-				width='100%'
-				height='100%'
-				spacing={1}>
-				<Stack direction='row' alignItems={'center'} spacing={3}>
-					<Box
-						sx={{
-							height: '3rem',
-							width: '3rem',
-							borderRadius: '100%',
-							padding: '1rem',
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'center',
-							backgroundColor: backgroundColor,
-							color: color,
-						}}>
-						{icon}
-					</Box>
-					<Typography variant='h4'>{title}</Typography>
-				</Stack>
+			<CardContent sx={{ paddingBottom: '0 !important' }}>
+				<Stack direction='column' justifyContent='space-between' spacing={1}>
+					<Stack direction='row' justifyContent={'space-between'}>
+						<Stack
+							direction='column'
+							alignItems='flex-start'
+							justifyContent='center'
+							// padding='0.5rem'
+							spacing={0.75}>
+							<Typography variant='h4' color='text.secondary'>
+								{title}
+							</Typography>
 
-				<Typography variant='h2'>${value}</Typography>
-			</Stack>
+							<Typography variant='h2'>${value}</Typography>
+						</Stack>
+						<Box
+							sx={{
+								height: '3rem',
+								width: '3rem',
+								borderRadius: '30%',
+								display: 'flex',
+								justifyContent: 'center',
+								alignItems: 'center',
+								backgroundColor: backgroundColor,
+								color: color,
+							}}>
+							{icon}
+						</Box>
+					</Stack>
+				</Stack>
+			</CardContent>
 		</Card>
 		// </GradientBorderWrapper>
 	);

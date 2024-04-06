@@ -98,7 +98,7 @@ const SignInForm = ({ handleLogin }) => {
 					<Typography variant='p'>Need an account?</Typography>
 					<Button
 						variant='text'
-						sx={{ textTransform: 'none' }}
+						sx={{ textTransform: 'none', fontSize: '1.1rem' }}
 						onClick={() => navigate('/sign-up')}>
 						Sign Up
 					</Button>

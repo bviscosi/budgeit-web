@@ -40,7 +40,6 @@ const LandingPage = () => {
 						<Testimonials />
 						<Pricing />
 						<FAQ />
-						<Box height={300} marginTop='20rem'></Box>
 						<Footer />
 					</Box>
 				)}

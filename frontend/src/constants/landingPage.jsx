@@ -1,0 +1,22 @@
+export const highlights = { 
+`Seamlessly Integrate Your Bank Accounts`,
+`Connect with multiple bank accounts instantly. Experience the ease of having all your financial information in one place, thanks to our secure integration with Plaid.`,
+`Real-Time Budget Tracking`,
+`Stay on top of your finances with live updates. See where your money is going at a glance and adjust your spending before you exceed your budget.`,
+`Customizable Budget Categories`,
+`Tailor your budget to fit your lifestyle. Whether it's groceries, utilities, or entertainment, you can create and modify categories as your needs change.`,
+`Insightful Spending Analysis`,
+`Dive deep into your spending habits with our powerful analytics. Understand your financial patterns and make informed decisions to improve your financial health.`,
+`Set and Achieve Financial Goals`,
+`Whether saving for a vacation, a new home, or building an emergency fund, our goal-setting feature motivates and tracks your progress towards these dreams.`,
+`Alerts and Notifications`,
+`Never miss a bill payment or budget cap again. Our personalized alerts keep you informed and in control, avoiding fees and overspending.`,
+`Collaborative Budgeting`,
+`Share your budgeting goals and progress with a partner or family member. Collaborative budgeting has never been easier or more secure.`,
+`Safe and Secure`,
+`Your privacy and security are our top priorities. Enjoy peace of mind knowing your data is protected with bank-level encryption and security practices.`,
+`Join the Community of Savvy Savers`,
+`Become part of a growing community that’s reshaping their financial future. Share tips, challenges, and successes with peers who understand your journey.`,
+`Start for Free`,
+`Dive into a smarter way to manage your money today. No hidden fees, no commitments. Experience the full suite of features and see the difference for yourself.`
+}

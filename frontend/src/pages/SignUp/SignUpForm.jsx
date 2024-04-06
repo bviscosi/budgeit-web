@@ -111,7 +111,7 @@ const SignUpForm = ({ handleLogin }) => {
 					<Typography variant='p'> Already have an account?</Typography>
 					<Button
 						variant='text'
-						sx={{ textTransform: 'none' }}
+						sx={{ textTransform: 'none', fontSize: '1.1rem' }}
 						onClick={() => navigate('/sign-in')}>
 						Sign In
 					</Button>

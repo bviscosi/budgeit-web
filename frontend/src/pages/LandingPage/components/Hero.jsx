@@ -134,10 +134,10 @@ const Hero = () => {
 								theme.palette.mode === 'light'
 									? alpha('#eff1f5', 0.5)
 									: alpha('#b6b9bb', 0.2),
-							// boxShadow:
-							// 	theme.palette.mode === 'light'
-							// 		? `0 0 12px 8px ${alpha('#6f71f3', 0.2)}`
-							// 		: `0 0 24px 12px ${alpha('#6f71f3', 0.2)}`,
+							boxShadow:
+								theme.palette.mode === 'light'
+									? `0 0 12px 8px ${alpha('#6f71f3', 0.2)}`
+									: `0 0 24px 12px ${alpha('#6f71f3', 0.2)}`,
 						})}
 					/>
 				</Container>
