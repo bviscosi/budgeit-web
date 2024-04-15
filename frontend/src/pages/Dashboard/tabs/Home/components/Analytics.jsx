@@ -1,4 +1,6 @@
+import { useRef, useEffect } from 'react';
 import { Card, Stack, styled } from '@mui/material';
+import { Line } from 'react-chartjs-2';
 
 const GradientBorderWrapper = styled('div')(() => ({
 	height: '100%',
@@ -39,9 +41,73 @@ const Analytics = () => {
 					justifyContent: 'center',
 					borderRadius: '1rem',
 				}}>
-				Cash Flow Analytics
+				<PrettyLineChart />
 			</Stack>
 		</Card>
+	);
+};
+
+const PrettyLineChart = ({ data, labels }) => {
+	const chartRef = useRef(null);
+
+	useEffect(() => {
+		if (chartRef.current) {
+			const chart = chartRef.current.chartInstance;
+			const ctx = chart.ctx;
+			const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+			gradient.addColorStop(0, 'rgba(255, 99, 132, 0.5)');
+			gradient.addColorStop(1, 'rgba(255, 159, 64, 0.2)');
+
+			chart.data.datasets.forEach((dataset) => {
+				dataset.backgroundColor = gradient; // Apply the gradient to dataset
+				dataset.borderColor = 'rgba(255, 99, 132, 1)';
+				dataset.pointBackgroundColor = 'rgba(255, 99, 132, 1)';
+				dataset.pointBorderColor = '#fff';
+				dataset.pointHoverBackgroundColor = '#fff';
+				dataset.pointHoverBorderColor = 'rgba(255, 99, 132, 1)';
+			});
+
+			chart.update();
+		}
+	}, [data]);
+
+	const chartData = {
+		labels,
+		datasets: [
+			{
+				label: 'My First dataset',
+				fill: true,
+				lineTension: 0.3,
+				borderWidth: 2,
+				data,
+				pointRadius: 4,
+				pointHoverRadius: 6,
+			},
+		],
+	};
+
+	const options = {
+		maintainAspectRatio: false,
+		scales: {
+			yAxes: [
+				{
+					ticks: {
+						beginAtZero: true,
+					},
+				},
+			],
+		},
+		legend: {
+			labels: {
+				fontSize: 20,
+			},
+		},
+	};
+
+	return (
+		<div style={{ height: '400px' }}>
+			<Line ref={chartRef} data={chartData} options={options} />
+		</div>
 	);
 };
 
