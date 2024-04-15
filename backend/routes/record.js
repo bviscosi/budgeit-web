@@ -158,7 +158,14 @@ recordRoutes.route('/transactions').get(authenticateJWT, async (req, res) => {
 		});
 
 		// Send the transactions back to the client
-		res.status(200).json({ transactions: response.data.transactions });
+		res.status(200).json({
+			transactions: response.data.transactions.map((transaction) => {
+				if (!transaction.merchant_name) {
+					transaction.merchant_name = 'Unknown'; // Set merchant_name to 'Unknown' if it's null/undefined
+				}
+				return transaction;
+			}),
+		});
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: error.toString() });
