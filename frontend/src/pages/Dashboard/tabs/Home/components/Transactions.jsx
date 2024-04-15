@@ -40,6 +40,8 @@ const Transactions = () => {
 					...transaction,
 				}));
 
+				console.log(fetchedRows);
+
 				setRows(fetchedRows);
 			} catch (error) {
 				console.error('Error fetching transactions:', error);

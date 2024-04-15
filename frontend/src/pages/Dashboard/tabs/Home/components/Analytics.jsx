@@ -31,7 +31,6 @@ const Analytics = () => {
 				justifyContent: 'center',
 				borderRadius: '1rem',
 				// background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
-				border: '1px ',
 			}}>
 			<Stack
 				sx={{
