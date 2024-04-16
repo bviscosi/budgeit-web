@@ -1,6 +1,18 @@
 import { useRef, useEffect } from 'react';
 import { Card, Stack, styled } from '@mui/material';
 import { Line } from 'react-chartjs-2';
+import {
+	Chart as ChartJS,
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Title,
+	Tooltip,
+	Legend,
+} from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const GradientBorderWrapper = styled('div')(() => ({
 	height: '100%',
@@ -23,6 +35,72 @@ const GradientBorderWrapper = styled('div')(() => ({
 	},
 }));
 
+// Example labels representing months
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+// Example dataset representing some metric (e.g., sales, users) over these months
+const data = [120, 190, 300, 500, 200, 300, 450];
+const PrettyLineChart = ({ data, labels }) => {
+	const chartRef = useRef(null);
+	useEffect(() => {
+		const chart = chartRef.current;
+
+		if (chart) {
+			const ctx = chart.ctx;
+			const gradient = ctx.createLinearGradient(0, 0, 0, chart.height);
+			gradient.addColorStop(0, 'rgba(255, 99, 132, 0.5)'); // Start color
+			gradient.addColorStop(1, 'rgba(255, 159, 64, 0)'); // End color, transparent
+
+			const dataset = chart.data.datasets[0];
+			dataset.backgroundColor = gradient; // Apply gradient here
+			dataset.fill = 'start'; // Ensure area under line is filled
+
+			chart.update();
+		}
+	}, []);
+
+	const chartData = {
+		labels,
+		datasets: [
+			{
+				label: 'Spending',
+				// fill: true,
+				lineTension: 0.3,
+				borderWidth: 2,
+				data,
+				// pointRadius: 4,
+				// pointHoverRadius: 6,
+				borderColor: 'rgba(255, 99, 132, 1)',
+				backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			},
+		],
+	};
+
+	const options = {
+		maintainAspectRatio: false,
+		scales: {
+			y: {
+				beginAtZero: true,
+			},
+		},
+		plugins: {
+			legend: {
+				labels: {
+					font: {
+						size: 20,
+					},
+				},
+			},
+		},
+	};
+
+	return (
+		<div style={{ height: '400px', width: '100%' }}>
+			<Line ref={chartRef} data={chartData} options={options} />
+		</div>
+	);
+};
+
 const Analytics = () => {
 	return (
 		<Card
@@ -41,73 +119,9 @@ const Analytics = () => {
 					justifyContent: 'center',
 					borderRadius: '1rem',
 				}}>
-				<PrettyLineChart />
+				<PrettyLineChart data={data} labels={labels} />
 			</Stack>
 		</Card>
-	);
-};
-
-const PrettyLineChart = ({ data, labels }) => {
-	const chartRef = useRef(null);
-
-	useEffect(() => {
-		if (chartRef.current) {
-			const chart = chartRef.current.chartInstance;
-			const ctx = chart.ctx;
-			const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-			gradient.addColorStop(0, 'rgba(255, 99, 132, 0.5)');
-			gradient.addColorStop(1, 'rgba(255, 159, 64, 0.2)');
-
-			chart.data.datasets.forEach((dataset) => {
-				dataset.backgroundColor = gradient; // Apply the gradient to dataset
-				dataset.borderColor = 'rgba(255, 99, 132, 1)';
-				dataset.pointBackgroundColor = 'rgba(255, 99, 132, 1)';
-				dataset.pointBorderColor = '#fff';
-				dataset.pointHoverBackgroundColor = '#fff';
-				dataset.pointHoverBorderColor = 'rgba(255, 99, 132, 1)';
-			});
-
-			chart.update();
-		}
-	}, [data]);
-
-	const chartData = {
-		labels,
-		datasets: [
-			{
-				label: 'My First dataset',
-				fill: true,
-				lineTension: 0.3,
-				borderWidth: 2,
-				data,
-				pointRadius: 4,
-				pointHoverRadius: 6,
-			},
-		],
-	};
-
-	const options = {
-		maintainAspectRatio: false,
-		scales: {
-			yAxes: [
-				{
-					ticks: {
-						beginAtZero: true,
-					},
-				},
-			],
-		},
-		legend: {
-			labels: {
-				fontSize: 20,
-			},
-		},
-	};
-
-	return (
-		<div style={{ height: '400px' }}>
-			<Line ref={chartRef} data={chartData} options={options} />
-		</div>
 	);
 };
 

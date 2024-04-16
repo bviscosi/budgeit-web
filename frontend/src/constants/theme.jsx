@@ -169,7 +169,7 @@ const themeSettings1 = {
 								background: `linear-gradient(to bottom, #070707, #070707)`,
 								'&:hover': {
 									borderColor: brand[700],
-									boxShadow: `0 0 24px ${brand[800]}`,
+									boxShadow: `0 0 24px ${brand[900]}`,
 								},
 							}),
 						}),
