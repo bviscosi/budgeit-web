@@ -200,8 +200,10 @@ recordRoutes.route('/balance').get(authenticateJWT, async (req, res) => {
 			return acc + account.balances.available;
 		}, 0);
 
+		const formattedBalance = sumAvailableBalances.toFixed(2);
+
 		// Send the transactions back to the client
-		res.status(200).json({ balance: sumAvailableBalances });
+		res.status(200).json({ balance: formattedBalance });
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: error.toString() });
