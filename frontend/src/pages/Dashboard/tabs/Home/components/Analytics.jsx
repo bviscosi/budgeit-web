@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Card, Stack, styled } from '@mui/material';
 import { Line } from 'react-chartjs-2';
 import {
@@ -11,37 +11,19 @@ import {
 	Tooltip,
 	Legend,
 } from 'chart.js';
+import { addJwtHeader } from '../../../../../utils/addJwtHeader';
+import axios from 'axios';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
-
-const GradientBorderWrapper = styled('div')(() => ({
-	height: '100%',
-	position: 'relative',
-	padding: '2px', // Adjusts the border thickness
-	background:
-		'linear-gradient(0deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.1) 100%)',
-	borderRadius: '1rem', // Match your Card's borderRadius
-	'&:before': {
-		content: '""',
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		right: 0,
-		bottom: 0,
-		borderRadius: 'inherit',
-		padding: '1rem', // Adjusts the space for the border inside the wrapper
-		background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
-		zIndex: -1,
-	},
-}));
 
 // Example labels representing months
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
 // Example dataset representing some metric (e.g., sales, users) over these months
-const data = [120, 190, 300, 500, 200, 300, 450];
+// const data = [120, 190, 300, 500, 200, 300, 450];
 const PrettyLineChart = ({ data, labels }) => {
 	const chartRef = useRef(null);
+
 	useEffect(() => {
 		const chart = chartRef.current;
 
@@ -65,7 +47,7 @@ const PrettyLineChart = ({ data, labels }) => {
 			{
 				label: 'Spending',
 				// fill: true,
-				lineTension: 0.3,
+				// lineTension: 0.3,
 				borderWidth: 2,
 				data,
 				// pointRadius: 4,
@@ -102,6 +84,47 @@ const PrettyLineChart = ({ data, labels }) => {
 };
 
 const Analytics = () => {
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState('');
+	// Initialize state to hold chart data
+	const [chartData, setChartData] = useState({
+		labels: [],
+		data: [],
+	});
+
+	useEffect(() => {
+		const fetchTransactions = async () => {
+			setLoading(true);
+			setError('');
+
+			const startDate = '2023-11-01'; // example start date
+			const endDate = '2024-01-01'; // example end date
+
+			try {
+				const response = await axios.get(
+					`/spending?startDate=${startDate}&endDate=${endDate}`,
+					{
+						headers: addJwtHeader(),
+					}
+				);
+				// Extract labels (months) and data (spending) from the response
+				const labels = response.data.spendingByDay.map((item) => item.date);
+				const data = response.data.spendingByDay.map((item) => item.totalSpending);
+				setChartData({ labels, data });
+			} catch (error) {
+				console.error('Error fetching transactions:', error);
+				setError('Failed to fetch transactions');
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchTransactions();
+	}, []);
+
+	if (loading) return <div>Loading...</div>;
+	if (error) return <div>{error}</div>;
+
 	return (
 		<Card
 			sx={{
@@ -110,7 +133,6 @@ const Analytics = () => {
 				alignItems: 'center',
 				justifyContent: 'center',
 				borderRadius: '1rem',
-				// background: 'linear-gradient(0deg, rgba(26,25,31,1) 0%, rgba(31,30,36,1) 100%)',
 			}}>
 			<Stack
 				sx={{
@@ -119,7 +141,8 @@ const Analytics = () => {
 					justifyContent: 'center',
 					borderRadius: '1rem',
 				}}>
-				<PrettyLineChart data={data} labels={labels} />
+				{/* Pass the processed data and labels to the PrettyLineChart component */}
+				<PrettyLineChart data={chartData.data} labels={chartData.labels} />
 			</Stack>
 		</Card>
 	);

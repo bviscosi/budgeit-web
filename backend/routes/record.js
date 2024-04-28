@@ -306,4 +306,62 @@ recordRoutes.route('/expenses').get(authenticateJWT, async (req, res) => {
 	}
 });
 
+recordRoutes.route('/spending').get(authenticateJWT, async (req, res) => {
+	try {
+		const { startDate, endDate } = req.query;
+
+		if (!startDate || !endDate) {
+			return res.status(400).json({ message: 'Start date and end date are required.' });
+		}
+
+		const cloudDb = getCloudDb();
+		const BudgeIt = cloudDb.db('BudgeIt');
+		const users = BudgeIt.collection('users');
+
+		const user = await users.findOne({ _id: new ObjectId(req.user.userId) });
+		if (!user) {
+			return res.status(404).json({ message: 'User not found.' });
+		}
+
+		if (!user.plaidAccessToken) {
+			return res.status(400).json({ message: 'Access token not found.' });
+		}
+
+		const response = await client.transactionsGet({
+			access_token: user.plaidAccessToken,
+			start_date: startDate,
+			end_date: endDate,
+		});
+
+		// Process transactions to calculate daily spending
+		const dailySpending = response.data.transactions.reduce((acc, transaction) => {
+			// Extract the full date from the transaction date
+			const date = transaction.date; // YYYY-MM-DD format
+			if (!acc[date]) {
+				acc[date] = 0; // Initialize if not already present
+			}
+			acc[date] += transaction.amount; // Sum the amounts for each day
+			return acc;
+		}, {});
+
+		// Convert the dailySpending object to an array suitable for your chart
+		const spendingData = Object.keys(dailySpending).map((date) => {
+			return {
+				date: date, // You can keep this as is or format it to be more readable
+				totalSpending: dailySpending[date],
+			};
+		});
+
+		console.log(spendingData);
+
+		// Sort by date if necessary
+		spendingData.sort((a, b) => a.date.localeCompare(b.date));
+
+		res.status(200).json({ spendingByDay: spendingData });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ error: error.toString() });
+	}
+});
+
 module.exports = recordRoutes;
