@@ -17,7 +17,7 @@ const Expenses = () => {
 			setError('');
 			try {
 				const response = await axios.get(
-					`/expenses?startDate=${startDate}&endDate=${endDate}`,
+					`/totalExpensesThisMonth?startDate=${startDate}&endDate=${endDate}`,
 					{
 						headers: addJwtHeader(),
 					}

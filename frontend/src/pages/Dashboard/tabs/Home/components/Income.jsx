@@ -16,9 +16,12 @@ const Income = () => {
 			setLoading(true);
 			setError('');
 			try {
-				const response = await axios.get(`/income?startDate=${startDate}&endDate=${endDate}`, {
-					headers: addJwtHeader(),
-				});
+				const response = await axios.get(
+					`/totalIncomeThisMonth?startDate=${startDate}&endDate=${endDate}`,
+					{
+						headers: addJwtHeader(),
+					}
+				);
 				setIncome(response.data.income);
 			} catch (error) {
 				console.error('Error fetching transactions:', error);

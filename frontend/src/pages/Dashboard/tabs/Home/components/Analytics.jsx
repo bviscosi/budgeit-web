@@ -16,12 +16,7 @@ import axios from 'axios';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-// Example labels representing months
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-// Example dataset representing some metric (e.g., sales, users) over these months
-// const data = [120, 190, 300, 500, 200, 300, 450];
-const PrettyLineChart = ({ data, labels }) => {
+const PrettyLineChart = ({ expenses, income, labels }) => {
 	const chartRef = useRef(null);
 
 	useEffect(() => {
@@ -45,15 +40,16 @@ const PrettyLineChart = ({ data, labels }) => {
 		labels,
 		datasets: [
 			{
-				label: 'Spending',
-				// fill: true,
-				// lineTension: 0.3,
-				borderWidth: 2,
-				data,
-				// pointRadius: 4,
-				// pointHoverRadius: 6,
+				label: 'Expenses',
+				expenses,
+				pointRadius: 0,
 				borderColor: 'rgba(255, 99, 132, 1)',
-				backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			},
+			{
+				label: 'Income',
+				income,
+				pointRadius: 0,
+				borderColor: 'rgba(255, 99, 132, 1)',
 			},
 		],
 	};
@@ -89,7 +85,8 @@ const Analytics = () => {
 	// Initialize state to hold chart data
 	const [chartData, setChartData] = useState({
 		labels: [],
-		data: [],
+		expenses: [],
+		income: [],
 	});
 
 	useEffect(() => {
@@ -102,15 +99,15 @@ const Analytics = () => {
 
 			try {
 				const response = await axios.get(
-					`/spending?startDate=${startDate}&endDate=${endDate}`,
+					`/expensesByDay?startDate=${startDate}&endDate=${endDate}`,
 					{
 						headers: addJwtHeader(),
 					}
 				);
 				// Extract labels (months) and data (spending) from the response
-				const labels = response.data.spendingByDay.map((item) => item.date);
-				const data = response.data.spendingByDay.map((item) => item.totalSpending);
-				setChartData({ labels, data });
+				const labels = response.data.expensesByDay.map((item) => item.date);
+				const expenses = response.data.expensesByDay.map((item) => item.totalSpending);
+				setChartData({ labels, expenses, expenses });
 			} catch (error) {
 				console.error('Error fetching transactions:', error);
 				setError('Failed to fetch transactions');
