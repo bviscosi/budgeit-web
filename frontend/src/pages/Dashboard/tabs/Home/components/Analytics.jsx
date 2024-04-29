@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { Card, Stack, styled } from '@mui/material';
+import { Card, Stack } from '@mui/material';
 import { Line } from 'react-chartjs-2';
 import {
 	Chart as ChartJS,
@@ -16,7 +16,7 @@ import axios from 'axios';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const PrettyLineChart = ({ expenses, income, labels }) => {
+const PrettyLineChart = ({ data, labels }) => {
 	const chartRef = useRef(null);
 
 	useEffect(() => {
@@ -40,16 +40,12 @@ const PrettyLineChart = ({ expenses, income, labels }) => {
 		labels,
 		datasets: [
 			{
-				label: 'Expenses',
-				expenses,
+				label: 'Spending',
+				borderWidth: 2,
+				data,
 				pointRadius: 0,
 				borderColor: 'rgba(255, 99, 132, 1)',
-			},
-			{
-				label: 'Income',
-				income,
-				pointRadius: 0,
-				borderColor: 'rgba(255, 99, 132, 1)',
+				backgroundColor: 'rgba(255, 99, 132, 0.2)',
 			},
 		],
 	};
@@ -86,7 +82,6 @@ const Analytics = () => {
 	const [chartData, setChartData] = useState({
 		labels: [],
 		expenses: [],
-		income: [],
 	});
 
 	useEffect(() => {
@@ -107,7 +102,7 @@ const Analytics = () => {
 				// Extract labels (months) and data (spending) from the response
 				const labels = response.data.expensesByDay.map((item) => item.date);
 				const expenses = response.data.expensesByDay.map((item) => item.totalSpending);
-				setChartData({ labels, expenses, expenses });
+				setChartData({ labels, expenses });
 			} catch (error) {
 				console.error('Error fetching transactions:', error);
 				setError('Failed to fetch transactions');
@@ -139,7 +134,7 @@ const Analytics = () => {
 					borderRadius: '1rem',
 				}}>
 				{/* Pass the processed data and labels to the PrettyLineChart component */}
-				<PrettyLineChart data={chartData.data} labels={chartData.labels} />
+				<PrettyLineChart data={chartData.expenses} labels={chartData.labels} />
 			</Stack>
 		</Card>
 	);
