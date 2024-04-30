@@ -19,23 +19,6 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 const PrettyLineChart = ({ data, labels }) => {
 	const chartRef = useRef(null);
 
-	useEffect(() => {
-		const chart = chartRef.current;
-
-		if (chart) {
-			const ctx = chart.ctx;
-			const gradient = ctx.createLinearGradient(0, 0, 0, chart.height);
-			gradient.addColorStop(0, 'rgba(255, 99, 132, 0.5)'); // Start color
-			gradient.addColorStop(1, 'rgba(255, 159, 64, 0)'); // End color, transparent
-
-			const dataset = chart.data.datasets[0];
-			dataset.backgroundColor = gradient; // Apply gradient here
-			dataset.fill = 'start'; // Ensure area under line is filled
-
-			chart.update();
-		}
-	}, []);
-
 	const chartData = {
 		labels,
 		datasets: [
