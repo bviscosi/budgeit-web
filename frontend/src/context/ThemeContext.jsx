@@ -20,14 +20,13 @@ export const useCustomTheme = () => {
 };
 
 export const ThemeContextProvider = ({ children }) => {
-	const [mode, setMode] = useState('dark'); // This state tracks the current theme mode
+	const [mode, setMode] = useState('light');
 	const theme = getTheme(mode);
 
 	const toggleThemeMode = () => {
 		setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
 	};
 
-	// Include `mode` in the value object so it can be consumed by the `useTheme` hook
 	return (
 		<ThemeContext.Provider value={{ theme, toggleThemeMode, mode }}>
 			<ThemeProvider theme={theme}>{children}</ThemeProvider>

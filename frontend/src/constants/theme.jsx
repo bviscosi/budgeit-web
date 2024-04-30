@@ -76,6 +76,35 @@ const themeSettings1 = {
 				purpleGradient: 'linear-gradient(#242acf, #b57bee)',
 			},
 		},
+		components: {
+			MuiCard: {
+				styleOverrides: {
+					root: ({ ownerState }) => ({
+						borderRadius: 10,
+						border: `1px solid ${alpha(gray[200], 0.8)}`,
+						boxShadow: 'none',
+						transition: 'background-color, border, 80ms ease',
+						...(ownerState.variant === 'outlined' && {
+							background: 'linear-gradient(#25242a, #131316)',
+							'&:hover': {
+								borderColor: brand[300],
+								boxShadow: `0 0 24px ${brand[100]}`,
+							},
+						}),
+						...{
+							border: `1px solid ${alpha(gray[300], 0.3)}`,
+							...(ownerState.variant === 'outlined' && {
+								background: `linear-gradient(to bottom, #070707, #070707)`,
+								'&:hover': {
+									borderColor: brand[700],
+									boxShadow: `0 0 24px ${brand[900]}`,
+								},
+							}),
+						},
+					}),
+				},
+			},
+		},
 		typography: lightModeTypography, // Apply the typography settings here
 	},
 	dark: {
@@ -149,7 +178,7 @@ const themeSettings1 = {
 
 			MuiCard: {
 				styleOverrides: {
-					root: ({ theme, ownerState }) => ({
+					root: ({ ownerState }) => ({
 						// backgroundColor: gray[50],
 						borderRadius: 10,
 						border: `1px solid ${alpha(gray[200], 0.8)}`,
@@ -162,8 +191,7 @@ const themeSettings1 = {
 								boxShadow: `0 0 24px ${brand[100]}`,
 							},
 						}),
-						...(theme.palette.mode === 'dark' && {
-							// backgroundColor: alpha(gray[800], 0.6),
+						...{
 							border: `1px solid ${alpha(gray[700], 0.3)}`,
 							...(ownerState.variant === 'outlined' && {
 								background: `linear-gradient(to bottom, #070707, #070707)`,
@@ -172,7 +200,7 @@ const themeSettings1 = {
 									boxShadow: `0 0 24px ${brand[900]}`,
 								},
 							}),
-						}),
+						},
 					}),
 				},
 			},

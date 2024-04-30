@@ -83,6 +83,7 @@ const PrettyLineChart = ({ data, labels }) => {
 					drawBorder: true,
 					drawTicks: false,
 					color: '#272727',
+					// color: '#e0e0e0',
 				},
 			},
 			x: {
