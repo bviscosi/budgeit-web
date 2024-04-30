@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { Card, Stack } from '@mui/material';
+import { Card, Stack, Typography } from '@mui/material';
 import { Line } from 'react-chartjs-2';
 import { addJwtHeader } from '../../../../../utils/addJwtHeader';
 import axios from 'axios';
@@ -68,6 +68,12 @@ const PrettyLineChart = ({ data, labels }) => {
 		maintainAspectRatio: false,
 		scales: {
 			y: {
+				ticks: {
+					padding: 20, // Increase this value to push labels further out
+					font: {
+						size: 14, // Increase this value to enlarge the font size
+					},
+				},
 				beginAtZero: true,
 				border: {
 					dash: [15, 10],
@@ -80,6 +86,12 @@ const PrettyLineChart = ({ data, labels }) => {
 				},
 			},
 			x: {
+				ticks: {
+					font: {
+						size: 14, // Increase this value to enlarge the font size
+					},
+					padding: 10, // Increase this value to push labels further out
+				},
 				grid: {
 					drawBorder: false, // Ensures no border lines are drawn at the edges of the x-axis
 					drawOnChartArea: false, // This will remove the grid lines
@@ -94,7 +106,7 @@ const PrettyLineChart = ({ data, labels }) => {
 	};
 
 	return (
-		<div style={{ height: '400px', width: '100%' }}>
+		<div style={{ height: '90%', width: '100%' }}>
 			<Line ref={chartRef} data={chartData} options={options} />
 		</div>
 	);
@@ -155,9 +167,12 @@ const Analytics = () => {
 				sx={{
 					height: '30rem',
 					alignItems: 'center',
-					justifyContent: 'center',
+					justifyContent: 'space-between',
 					borderRadius: '1rem',
 				}}>
+				<Typography variant='h4' alignSelf='flex-start'>
+					Spending
+				</Typography>
 				{/* Pass the processed data and labels to the PrettyLineChart component */}
 				<PrettyLineChart data={chartData.expenses} labels={chartData.labels} />
 			</Stack>
