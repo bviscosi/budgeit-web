@@ -346,19 +346,19 @@ recordRoutes.route('/expensesByDay').get(authenticateJWT, async (req, res) => {
 			return acc;
 		}, {});
 
-		// Convert the dailySpending object to an array suitable for your chart
+		// Convert the dailySpending object to an array of more easily readable dates
 		const spendingData = Object.keys(dailySpending).map((date) => {
 			const formattedDate = new Date(date).toLocaleDateString('en-US', {
 				month: 'short', // "short" gives the abbreviated month name (e.g., "Nov")
 				day: '2-digit', // "2-digit" gives the two-digit day
 			});
 			return {
-				date: formattedDate, // Now in the format "Nov 24"
+				date: formattedDate,
 				totalSpending: dailySpending[date],
 			};
 		});
 
-		// Sort by date if necessary
+		// Sort by date
 		spendingData.sort((a, b) => a.date.localeCompare(b.date));
 
 		res.status(200).json({ expensesByDay: spendingData });
