@@ -1,6 +1,9 @@
 import { useRef, useEffect, useState } from 'react';
 import { Card, Stack } from '@mui/material';
 import { Line } from 'react-chartjs-2';
+import { addJwtHeader } from '../../../../../utils/addJwtHeader';
+import axios from 'axios';
+
 import {
 	Chart as ChartJS,
 	CategoryScale,
@@ -10,25 +13,53 @@ import {
 	Title,
 	Tooltip,
 	Legend,
+	Filler,
 } from 'chart.js';
-import { addJwtHeader } from '../../../../../utils/addJwtHeader';
-import axios from 'axios';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Title,
+	Tooltip,
+	Legend,
+	Filler
+);
 
 const PrettyLineChart = ({ data, labels }) => {
 	const chartRef = useRef(null);
+
+	useEffect(() => {
+		if (chartRef.current && chartRef.current.ctx) {
+			const ctx = chartRef.current.ctx;
+			const gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.clientHeight);
+			gradient.addColorStop(0, 'rgba(255, 99, 132, 0.2)');
+			gradient.addColorStop(1, 'rgba(255, 99, 132, 0)');
+
+			const chartInstance = chartRef.current;
+			chartInstance.data.datasets.forEach((dataset) => {
+				dataset.backgroundColor = gradient; // Apply gradient to background color
+			});
+			// chartInstance.update();
+		}
+	}, [data]);
 
 	const chartData = {
 		labels,
 		datasets: [
 			{
 				label: 'Spending',
-				borderWidth: 2,
-				data,
+				tension: 0.1,
 				pointRadius: 0,
+				borderJoinStyle: 'round',
+				fill: {
+					target: 'origin', // Set the fill options
+				},
+				showLabelBackdrop: 'true',
+				data,
+				// backgroundColor: 'rgba(255, 99, 132, 0.2)',
 				borderColor: 'rgba(255, 99, 132, 1)',
-				backgroundColor: 'rgba(255, 99, 132, 0.2)',
 			},
 		],
 	};
@@ -38,15 +69,26 @@ const PrettyLineChart = ({ data, labels }) => {
 		scales: {
 			y: {
 				beginAtZero: true,
+				border: {
+					dash: [15, 10],
+					display: false,
+				},
+				grid: {
+					drawBorder: true,
+					drawTicks: false,
+					color: '#272727',
+				},
+			},
+			x: {
+				grid: {
+					drawBorder: false, // Ensures no border lines are drawn at the edges of the x-axis
+					drawOnChartArea: false, // This will remove the grid lines
+				},
 			},
 		},
 		plugins: {
 			legend: {
-				labels: {
-					font: {
-						size: 20,
-					},
-				},
+				display: false, // This hides the legend
 			},
 		},
 	};

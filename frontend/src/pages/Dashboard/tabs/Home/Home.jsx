@@ -11,7 +11,7 @@ const Home = () => {
 		<Stack style={{ gap: '1.5rem', margin: '2rem' }}>
 			{/* top row */}
 			<Grid container spacing={3}>
-				<Grid item xs={12} md={4}>
+				{/* <Grid item xs={12} md={4}>
 					<Balance />
 				</Grid>
 				<Grid item xs={12} md={4}>
@@ -19,7 +19,7 @@ const Home = () => {
 				</Grid>
 				<Grid item xs={12} md={4}>
 					<Expenses />
-				</Grid>
+				</Grid> */}
 			</Grid>
 			{/* main section */}
 			<Grid container spacing={3}>
