@@ -51,14 +51,14 @@ const PrettyLineChart = ({ data, labels }) => {
 			{
 				label: 'Spending',
 				tension: 0.1,
-				pointRadius: 0,
+				pointRadius: 3,
+				pointBackgroundColor: 'rgba(0,0,0,0)',
 				borderJoinStyle: 'round',
 				fill: {
 					target: 'origin', // Set the fill options
 				},
 				showLabelBackdrop: 'true',
 				data,
-				// backgroundColor: 'rgba(255, 99, 132, 0.2)',
 				borderColor: 'rgba(255, 99, 132, 1)',
 			},
 		],
@@ -82,7 +82,7 @@ const PrettyLineChart = ({ data, labels }) => {
 				grid: {
 					drawBorder: true,
 					drawTicks: false,
-					color: '#272727',
+					// color: '#272727',
 					// color: '#e0e0e0',
 				},
 			},

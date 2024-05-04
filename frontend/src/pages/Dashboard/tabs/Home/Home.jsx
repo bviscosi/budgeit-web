@@ -25,8 +25,8 @@ const Home = () => {
 			<Grid container spacing={3}>
 				<Grid item xs={12} md={8}>
 					<Stack direction={'column'} spacing={3}>
-						<Budgets />
 						<Analytics />
+						<Budgets />
 					</Stack>
 				</Grid>
 
