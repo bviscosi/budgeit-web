@@ -20,7 +20,7 @@ export const useCustomTheme = () => {
 };
 
 export const ThemeContextProvider = ({ children }) => {
-	const [mode, setMode] = useState('light');
+	const [mode, setMode] = useState('dark');
 	const theme = getTheme(mode);
 
 	const toggleThemeMode = () => {

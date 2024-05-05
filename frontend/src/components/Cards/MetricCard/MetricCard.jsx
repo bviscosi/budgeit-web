@@ -1,4 +1,4 @@
-import { Box, Card, Stack, Typography, styled, CardContent } from '@mui/material';
+import { Box, Card, Stack, Typography, styled, CardContent, Skeleton } from '@mui/material';
 
 const GradientBorderWrapper = styled('div')(({ theme }) => ({
 	position: 'relative',
@@ -20,7 +20,7 @@ const GradientBorderWrapper = styled('div')(({ theme }) => ({
 	},
 }));
 
-const MetricCard = ({ title, value, icon, backgroundColor, color }) => {
+const MetricCard = ({ title, value, loading, icon, backgroundColor, color }) => {
 	return (
 		// <GradientBorderWrapper>
 
@@ -44,11 +44,19 @@ const MetricCard = ({ title, value, icon, backgroundColor, color }) => {
 							justifyContent='center'
 							// padding='0.5rem'
 							spacing={0.75}>
-							<Typography variant='h4' color='text.secondary'>
-								{title}
-							</Typography>
-
-							<Typography variant='h2'>${value}</Typography>
+							{loading ? (
+								<>
+									<Skeleton variant='rectangular' width={'10rem'} height={'1rem'} />
+									<Skeleton variant='rectangular' width={'20rem'} height={'3rem'} />
+								</>
+							) : (
+								<>
+									<Typography variant='h4' color='text.secondary'>
+										{title}
+									</Typography>
+									<Typography variant='h2'>${value}</Typography>
+								</>
+							)}
 						</Stack>
 						<Box
 							sx={{

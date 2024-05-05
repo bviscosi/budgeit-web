@@ -31,8 +31,9 @@ const Highlights = () => {
 							</Box>
 							<Typography variant='h4'>Real-Time Budget Tracking</Typography>
 							<Typography variant='body2'>
-								Stay on top of your finances with live updates. See where your money is
-								going at a glance and adjust your spending before you exceed your budget.
+								{/* Stay on top of your finances with live updates. */}
+								See where your money is going at a glance and adjust your spending before
+								you exceed your budget.
 							</Typography>
 						</Stack>
 					</Box>
@@ -61,9 +62,9 @@ const Highlights = () => {
 							</Box>
 							<Typography variant='h4'>Safe and Secure</Typography>
 							<Typography variant='body2'>
-								Your privacy and security are our top priorities. Enjoy peace of mind
-								knowing your data is protected with bank-level encryption and security
-								practices.
+								{/* Your privacy and security are our top priorities.  */}
+								Enjoy peace of mind knowing your data is protected with bank-level
+								encryption and security practices.
 							</Typography>
 						</Stack>
 					</Box>

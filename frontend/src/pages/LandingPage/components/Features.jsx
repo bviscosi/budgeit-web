@@ -32,9 +32,9 @@ const items = [
 	},
 	{
 		icon: <DevicesRoundedIcon />,
-		title: 'Available on all platforms',
+		title: 'Accessible Anywhere',
 		description:
-			'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
+			'Manage your budget on the go. Our mobile platform ensures you can access Budgit from any device, anywhere at any time.',
 		imageLight: 'url("/static/images/templates/templates-images/devices-light.png")',
 		imageDark: 'url("/static/images/templates/templates-images/devices-dark.png")',
 	},

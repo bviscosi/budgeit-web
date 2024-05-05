@@ -40,6 +40,7 @@ const Expenses = () => {
 		<MetricCard
 			title={'Expenses'}
 			icon={<ArrowDownwardIcon />}
+			loading={loading}
 			color={'rgb(235, 58, 61)'}
 			backgroundColor={'rgb(235, 58, 61, 0.5)'}
 			value={expenses}

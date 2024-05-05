@@ -35,6 +35,7 @@ const Balance = () => {
 		<MetricCard
 			title={'Total Balance'}
 			icon={<AttachMoneyIcon />}
+			loading={loading}
 			color={'rgb(160, 146, 87)'}
 			backgroundColor={'rgb(160, 146, 87, 0.5)'}
 			value={balance}

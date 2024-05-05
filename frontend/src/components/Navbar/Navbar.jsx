@@ -72,8 +72,8 @@ const Navbar = ({ setOpenMenu }) => {
 									<Typography variant='caption'>FAQ</Typography>
 								</Button>
 							</Stack>
-							<Stack direction={'row'}>
-								<ThemeModeToggle />
+							<Stack direction={'row'} gap='1rem'>
+								{/* <ThemeModeToggle /> */}
 								<Button
 									sx={{ px: '2rem' }}
 									onClick={() => {
@@ -83,7 +83,7 @@ const Navbar = ({ setOpenMenu }) => {
 										Login
 									</Typography>
 								</Button>
-								<GetStartedButton />
+								<GetStartedButton sx={{ px: '2rem' }} />
 							</Stack>
 						</>
 					)}

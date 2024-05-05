@@ -1,5 +1,4 @@
 import { Button } from '@mui/material';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { useNavigate } from 'react-router-dom';
 import { useCustomTheme } from '../../context/ThemeContext';
 
@@ -11,7 +10,7 @@ const GetStartedButton = ({ sx = {}, ...props }) => {
 		<Button
 			variant='contained'
 			sx={{
-				borderRadius: 4,
+				borderRadius: 10,
 				backgroundImage: 'linear-gradient(145deg, #ea98da, #5b6cf9)',
 				boxShadow:
 					mode === 'dark'
@@ -19,7 +18,6 @@ const GetStartedButton = ({ sx = {}, ...props }) => {
 						: '0 4px 10px 0 rgba(0,0,0,0.1), inset 0 0 10px #5d79cf',
 				textTransform: 'none',
 				py: 'none',
-				margin: '0',
 				// '&:hover': {
 				// 	boxShadow:
 				// 		mode === 'dark'
@@ -33,8 +31,7 @@ const GetStartedButton = ({ sx = {}, ...props }) => {
 			onClick={() => {
 				navigate('/sign-up');
 			}}>
-			Get Started
-			<KeyboardArrowRightIcon fontSize='small' />
+			GET STARTED
 		</Button>
 	);
 };

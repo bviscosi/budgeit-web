@@ -4,6 +4,7 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MetricCard from '../../../../../components/Cards/MetricCard/MetricCard';
 import axios from 'axios';
 import { addJwtHeader } from '../../../../../utils/addJwtHeader';
+import { Skeleton } from '@mui/material';
 
 const Income = () => {
 	const [income, setIncome] = useState();
@@ -41,6 +42,7 @@ const Income = () => {
 		<MetricCard
 			title={'Income'}
 			icon={<ArrowUpwardIcon />}
+			loading={loading}
 			color={'rgb(28, 213, 148)'}
 			backgroundColor={'rgb(28, 213, 148, 0.5)'}
 			value={income}
