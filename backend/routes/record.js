@@ -251,7 +251,7 @@ recordRoutes.route('/totalIncomeThisMonth').get(authenticateJWT, async (req, res
 		}, 0);
 
 		// Send the absolute value of the sum back to the client
-		res.status(200).json({ income: Math.abs(totalNegativeAmounts) });
+		res.status(200).json({ income: Math.abs(totalNegativeAmounts).toFixed(2) });
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: error.toString() });
@@ -299,7 +299,7 @@ recordRoutes.route('/totalExpensesThisMonth').get(authenticateJWT, async (req, r
 		}, 0);
 
 		// Send the absolute value of the sum back to the client
-		res.status(200).json({ expenses: Math.abs(totalPositiveAmounts) });
+		res.status(200).json({ expenses: Math.abs(totalPositiveAmounts).toFixed(2) });
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: error.toString() });
