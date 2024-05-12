@@ -22,7 +22,7 @@ const Topbar = ({ tab, handleLogout }) => {
 			</div>
 			<Stack direction='row'>
 				<ThemeModeToggle />
-				{/* <UserDropdownMenu handleLogout={handleLogout} /> */}
+				<UserDropdownMenu handleLogout={handleLogout} />
 			</Stack>
 		</Stack>
 	);

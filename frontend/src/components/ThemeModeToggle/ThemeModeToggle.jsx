@@ -8,8 +8,16 @@ const ThemeModeToggle = () => {
 
 	return (
 		<Stack sx={{ justifyContent: 'center', px: 3 }}>
-			<IconButton onClick={toggleThemeMode} sx={{ color: 'text.secondary' }}>
-				{mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
+			<IconButton
+				onClick={toggleThemeMode}
+				sx={{
+					color: 'text.secondary',
+					height: '60px',
+					width: '60px',
+					borderRadius: '100%',
+					border: '1px solid #474747',
+				}}>
+				{mode === 'dark' ? <LightModeIcon fontSize='medium' /> : <DarkModeIcon />}
 			</IconButton>
 		</Stack>
 	);

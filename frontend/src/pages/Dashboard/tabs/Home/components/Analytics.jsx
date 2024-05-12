@@ -70,9 +70,9 @@ const PrettyLineChart = ({ data, labels }) => {
 		scales: {
 			y: {
 				ticks: {
-					padding: 20, // Increase this value to push labels further out
+					padding: 30, // Increase this value to push labels further out
 					font: {
-						size: 14, // Increase this value to enlarge the font size
+						size: 18, // Increase this value to enlarge the font size
 					},
 				},
 				beginAtZero: true,
@@ -90,9 +90,9 @@ const PrettyLineChart = ({ data, labels }) => {
 			x: {
 				ticks: {
 					font: {
-						size: 14, // Increase this value to enlarge the font size
+						size: 16, // Increase this value to enlarge the font size
 					},
-					padding: 10, // Increase this value to push labels further out
+					padding: 20, // Increase this value to push labels further out
 				},
 				grid: {
 					drawBorder: false, // Ensures no border lines are drawn at the edges of the x-axis
@@ -108,7 +108,7 @@ const PrettyLineChart = ({ data, labels }) => {
 	};
 
 	return (
-		<div style={{ height: '90%', width: '100%' }}>
+		<div style={{ height: '100%', width: '100%', marginTop: '1rem' }}>
 			<Line ref={chartRef} data={chartData} options={options} />
 		</div>
 	);
@@ -157,7 +157,7 @@ const Analytics = () => {
 		<Card
 			sx={{
 				height: '100%',
-				padding: '1rem',
+				padding: '1.5rem',
 				alignItems: 'center',
 				justifyContent: 'center',
 				borderRadius: '1rem',
@@ -169,7 +169,7 @@ const Analytics = () => {
 					// justifyContent: 'space-between',
 					borderRadius: '1rem',
 				}}>
-				<Typography variant='h4' alignSelf='flex-start'>
+				<Typography variant='h4' alignSelf='flex-start' paddingleft='1rem'>
 					Spending
 				</Typography>
 				{/* Pass the processed data and labels to the PrettyLineChart component */}

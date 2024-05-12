@@ -31,34 +31,19 @@ const UserDropdownMenu = ({ handleLogout }) => {
 	};
 
 	return (
-		<>
-			<Button
+		<div>
+			<div
 				ref={buttonRef} // Attach the ref to the button
-				sx={button}
+				style={button}
 				onClick={handleClick}>
-				<Typography
-					variant='p'
-					sx={{
-						textAlign: 'center',
-						color: 'text.primary',
-						padding: 0,
-						margin: 0,
-						fontSize: '14px',
-					}}>
-					B
-				</Typography>
-			</Button>
+				B
+			</div>
 			<StyledMenu
 				anchorEl={anchorEl}
 				open={open}
 				onClose={handleClose}
 				MenuListProps={{
 					'aria-labelledby': 'basic-button',
-				}}
-				PaperProps={{
-					style: {
-						width: buttonRef.current ? buttonRef.current.clientWidth : undefined, // Set the width of the menu
-					},
 				}}>
 				<MenuItem
 					onClick={() => {
@@ -69,7 +54,7 @@ const UserDropdownMenu = ({ handleLogout }) => {
 					Logout
 				</MenuItem>
 			</StyledMenu>
-		</>
+		</div>
 	);
 };
 

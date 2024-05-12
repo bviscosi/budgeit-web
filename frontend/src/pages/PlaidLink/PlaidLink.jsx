@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { usePlaidLink } from 'react-plaid-link';
 import { useNavigate } from 'react-router-dom';
 
+import { addJwtHeader } from '../../utils/addJwtHeader';
+
 axios.defaults.baseURL = 'http://localhost:5555/';
 
 const PlaidLink = () => {
@@ -11,12 +13,6 @@ const PlaidLink = () => {
 	// State for Plaid Link token and public token
 	const [linkToken, setLinkToken] = useState(null);
 	const [publicToken, setPublicToken] = useState(null);
-
-	// Function to add JWT to Axios request headers
-	const addJwtHeader = () => {
-		const token = localStorage.getItem('token');
-		return token ? { Authorization: `Bearer ${token}` } : {};
-	};
 
 	// Fetch link_token from backend
 	useEffect(() => {
@@ -57,7 +53,7 @@ const PlaidLink = () => {
 	// Configuration for Plaid Link
 	const plaidLinkConfig = {
 		token: linkToken,
-		onSuccess: (publicToken, metadata) => {
+		onSuccess: (publicToken) => {
 			setPublicToken(publicToken);
 			console.log('Public Token: ', publicToken);
 		},
