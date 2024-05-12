@@ -44,24 +44,6 @@ const Sidebar = ({ tab, setTab }) => {
 					onClick={() => handleSetTab('savings')}>
 					<SavingsIcon />
 				</IconButton>
-				<IconButton
-					sx={{
-						...sidebarItem,
-						color: tab === 'wallet' ? '#ffffff' : '#858585',
-						backgroundColor: tab === 'wallet' ? '#272727' : 'transparent',
-					}}
-					onClick={() => handleSetTab('wallet')}>
-					<WalletIcon />
-				</IconButton>
-				<IconButton
-					sx={{
-						...sidebarItem,
-						color: tab === 'account' ? '#ffffff' : '#858585',
-						backgroundColor: tab === 'account' ? '#272727' : 'transparent',
-					}}
-					onClick={() => handleSetTab('account')}>
-					<PersonIcon />
-				</IconButton>
 			</Stack>
 
 			<IconButton

@@ -69,7 +69,7 @@ const themeSettings1 = {
 			secondary: { main: '#f50057' },
 			accent: { main: '#000' },
 			gray: { 100: '#e3e3e3' },
-			card: { border: '#e6e8ec' },
+			// card: { border: '#e6e8ec' },
 			background: {
 				paper: '#f7f8fa',
 				main: '#eff1f5',

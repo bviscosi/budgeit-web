@@ -16,6 +16,7 @@ const Topbar = ({ tab, handleLogout }) => {
 				<Typography variant='h3' fontWeight='bold'>
 					{tab === 'home' && 'Dashboard'}
 					{tab === 'transactions' && 'Transactions'}
+					{tab === 'settings' && 'Settings'}
 				</Typography>
 			</div>
 			<Stack direction='row'>
