@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { Card, Stack, Typography } from '@mui/material';
+import { Card, CircularProgress, Stack, Typography } from '@mui/material';
 import { Line } from 'react-chartjs-2';
 import { addJwtHeader } from '../../../../../utils/addJwtHeader';
 import ErrorIcon from '@mui/icons-material/Error';
@@ -174,7 +174,9 @@ const Analytics = () => {
 				</Typography>
 				{/* Pass the processed data and labels to the PrettyLineChart component */}
 				{loading ? (
-					<div style={{ position: 'relative', top: '40%', left: 0 }}>Loading...</div>
+					<div style={{ position: 'relative', top: '40%', left: 0 }}>
+						<CircularProgress />
+					</div>
 				) : error ? (
 					<Stack
 						direction='column'
