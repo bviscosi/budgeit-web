@@ -12,8 +12,8 @@ const ThemeModeToggle = () => {
 				onClick={toggleThemeMode}
 				sx={{
 					color: 'text.secondary',
-					height: '60px',
-					width: '60px',
+					height: '40px',
+					width: '40px',
 					borderRadius: '100%',
 					border: '1px solid #474747',
 				}}>

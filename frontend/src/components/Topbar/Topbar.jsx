@@ -20,7 +20,7 @@ const Topbar = ({ tab, handleLogout }) => {
 					{tab === 'settings' && 'Settings'}
 				</Typography>
 			</div>
-			<Stack direction='row'>
+			<Stack direction='row' marginRight='2rem'>
 				<ThemeModeToggle />
 				<UserDropdownMenu handleLogout={handleLogout} />
 			</Stack>

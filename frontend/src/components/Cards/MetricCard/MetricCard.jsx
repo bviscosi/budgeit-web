@@ -27,7 +27,7 @@ const MetricCard = ({ title, value, loading, icon, backgroundColor, color }) => 
 		<Card
 			sx={{
 				height: '100%',
-				padding: '0.5rem',
+				padding: '1rem',
 				alignItems: 'center',
 				justifyContent: 'center',
 				borderRadius: '1rem',
@@ -44,25 +44,26 @@ const MetricCard = ({ title, value, loading, icon, backgroundColor, color }) => 
 							justifyContent='center'
 							// padding='0.5rem'
 							spacing={0.75}>
-							{loading ? (
-								<>
-									<Skeleton variant='rectangular' width={'10rem'} height={'1rem'} />
-									<Skeleton variant='rectangular' width={'20rem'} height={'3rem'} />
-								</>
-							) : (
-								<>
-									<Typography variant='h4' color='text.secondary'>
-										{title}
-									</Typography>
-									<Typography variant='h2'>${value}</Typography>
-								</>
-							)}
+							<>
+								<Typography variant='h4' color='text.primary'>
+									{title}
+								</Typography>
+								<Typography variant='p2' fontSize='14px' color='text.secondary' pt={0.5}>
+									Apr 10 - May 10, 2024
+								</Typography>
+								<Typography variant='h3' color='text.primary' pt={2}>
+									${value || 0.0}
+								</Typography>
+								<Typography variant='p2' fontSize='16px' color='#23c48a' pt={0.5}>
+									+27% since last period
+								</Typography>
+							</>
 						</Stack>
 						<Box
 							sx={{
 								height: '3rem',
 								width: '3rem',
-								borderRadius: '30%',
+								borderRadius: '20%',
 								display: 'flex',
 								justifyContent: 'center',
 								alignItems: 'center',
