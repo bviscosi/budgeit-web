@@ -35,10 +35,17 @@ const UserDropdownMenu = ({ handleLogout }) => {
 			<Button
 				ref={buttonRef} // Attach the ref to the button
 				sx={button}
-				onClick={handleClick}
-				endIcon={open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}>
-				<Typography variant='p' sx={{ textAlign: 'center', color: 'text.primary' }}>
-					Ben Viscosi
+				onClick={handleClick}>
+				<Typography
+					variant='p'
+					sx={{
+						textAlign: 'center',
+						color: 'text.primary',
+						padding: 0,
+						margin: 0,
+						fontSize: '14px',
+					}}>
+					B
 				</Typography>
 			</Button>
 			<StyledMenu

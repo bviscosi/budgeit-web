@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import { DataGrid } from '@mui/x-data-grid';
-import { Paper } from '@mui/material';
+import { Card, Paper } from '@mui/material';
 import { addJwtHeader } from '../../../../utils/addJwtHeader';
 
 const Transactions = () => {
@@ -54,15 +54,15 @@ const Transactions = () => {
 	}, []);
 
 	return (
-		<Paper sx={{ height: '100%', margin: '2rem', borderRadius: '1rem', border: 0 }}>
+		<Card sx={{ height: '100%', margin: '2rem', borderRadius: '1rem' }}>
 			<DataGrid
 				rows={rows}
 				columns={columns}
 				pageSize={5}
 				rowsPerPageOptions={[5]}
-				sx={{ borderRadius: '1rem' }}
+				sx={{ borderRadius: '1rem', border: 0 }}
 			/>
-		</Paper>
+		</Card>
 	);
 };
 

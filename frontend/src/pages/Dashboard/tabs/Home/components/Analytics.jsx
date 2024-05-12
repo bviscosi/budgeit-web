@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Card, Stack, Typography } from '@mui/material';
 import { Line } from 'react-chartjs-2';
 import { addJwtHeader } from '../../../../../utils/addJwtHeader';
+import ErrorIcon from '@mui/icons-material/Error';
 import axios from 'axios';
 
 import {
@@ -152,9 +153,6 @@ const Analytics = () => {
 		fetchTransactions();
 	}, []);
 
-	if (loading) return <div>Loading...</div>;
-	if (error) return <div>{error}</div>;
-
 	return (
 		<Card
 			sx={{
@@ -168,14 +166,27 @@ const Analytics = () => {
 				sx={{
 					height: '30rem',
 					alignItems: 'center',
-					justifyContent: 'space-between',
+					// justifyContent: 'space-between',
 					borderRadius: '1rem',
 				}}>
 				<Typography variant='h4' alignSelf='flex-start'>
 					Spending
 				</Typography>
 				{/* Pass the processed data and labels to the PrettyLineChart component */}
-				<PrettyLineChart data={chartData.expenses} labels={chartData.labels} />
+				{loading ? (
+					<div style={{ position: 'relative', top: '40%', left: 0 }}>Loading...</div>
+				) : error ? (
+					<Stack
+						direction='column'
+						alignItems='center'
+						gap='1rem'
+						sx={{ position: 'relative', top: '35%', left: 0 }}>
+						<ErrorIcon color='error' fontSize='large' />
+						{error}
+					</Stack>
+				) : (
+					<PrettyLineChart data={chartData.expenses} labels={chartData.labels} />
+				)}
 			</Stack>
 		</Card>
 	);
