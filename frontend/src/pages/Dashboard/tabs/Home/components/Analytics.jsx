@@ -157,7 +157,7 @@ const Analytics = () => {
 		<Card
 			sx={{
 				height: '100%',
-				padding: '1.5rem',
+				padding: 2,
 				alignItems: 'center',
 				justifyContent: 'center',
 				borderRadius: '1rem',
@@ -169,7 +169,13 @@ const Analytics = () => {
 					// justifyContent: 'space-between',
 					borderRadius: '1rem',
 				}}>
-				<Typography variant='h4' alignSelf='flex-start' paddingleft='1rem'>
+				<Typography
+					variant='h4'
+					alignSelf='flex-start'
+					fontWeight='600'
+					marginLeft={2}
+					marginTop={2}
+					color='text.primary'>
 					Spending
 				</Typography>
 				{/* Pass the processed data and labels to the PrettyLineChart component */}

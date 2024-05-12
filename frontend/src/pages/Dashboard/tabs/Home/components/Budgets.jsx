@@ -14,7 +14,7 @@ const Budgets = () => {
 	return (
 		<Card sx={{ borderRadius: '1rem', height: '27.5rem', overflow: 'hidden' }}>
 			<CardContent sx={{ paddingBottom: '0 !important' }}>
-				<Typography variant='h4' sx={{ marginBottom: '1rem' }}>
+				<Typography variant='h4' fontWeight={600} ml={2} mt={2} sx={{ marginBottom: '1rem' }}>
 					Budgets
 				</Typography>
 			</CardContent>
@@ -65,12 +65,14 @@ const BudgetItem = ({ title, amount, icon, color }) => {
 					{icon}
 				</Box>
 			</Box>
-			<Typography variant='p' sx={{ flexGrow: 1 }}>
+			<Typography variant='p' fontWeight={500} sx={{ flexGrow: 1 }}>
 				{title}
 			</Typography>
 			<Stack direction='column' alignItems={'flex-end'}>
-				<Typography variant='body'>{amount}</Typography>
-				<Typography variant='caption' >
+				<Typography variant='body' fontWeight={600}>
+					{amount}
+				</Typography>
+				<Typography variant='caption'>
 					{amount} of {amount}
 				</Typography>
 			</Stack>

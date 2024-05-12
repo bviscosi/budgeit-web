@@ -45,16 +45,16 @@ const MetricCard = ({ title, value, loading, icon, backgroundColor, color }) => 
 							// padding='0.5rem'
 							spacing={0.75}>
 							<>
-								<Typography variant='h4' color='text.primary'>
+								<Typography variant='h4' color='text.primary' fontWeight='600'>
 									{title}
 								</Typography>
 								<Typography variant='p2' fontSize='14px' color='text.secondary' pt={0.5}>
 									Apr 10 - May 10, 2024
 								</Typography>
-								<Typography variant='h3' color='text.primary' pt={2}>
+								<Typography variant='h3' color='text.primary' fontWeight='600' pt={2}>
 									${value || 0.0}
 								</Typography>
-								<Typography variant='p2' fontSize='16px' color='#23c48a' pt={0.5}>
+								<Typography variant='p2' fontSize='16px' color='#23c48a' pt={0.5} pb={1}>
 									+27% since last period
 								</Typography>
 							</>
