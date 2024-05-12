@@ -1,4 +1,5 @@
 import { Box, Card, Stack, Typography, styled, CardContent, Skeleton } from '@mui/material';
+import CountUp from 'react-countup';
 
 const GradientBorderWrapper = styled('div')(({ theme }) => ({
 	position: 'relative',
@@ -52,8 +53,10 @@ const MetricCard = ({ title, value, loading, icon, backgroundColor, color }) => 
 									Apr 10 - May 10, 2024
 								</Typography>
 								<Typography variant='h3' color='text.primary' fontWeight='600' pt={2}>
-									${value || 0.0}
+									$<CountUp end={value} decimals={2} />
 								</Typography>
+								{/* <CountUp start={0} end={100000} duration={3} /> */}
+
 								<Typography variant='p2' fontSize='16px' color='#23c48a' pt={0.5} pb={1}>
 									+27% since last period
 								</Typography>

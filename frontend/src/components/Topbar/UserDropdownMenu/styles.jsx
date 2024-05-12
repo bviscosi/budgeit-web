@@ -15,7 +15,8 @@ export const button = {
 };
 
 export const menuItem = {
-	width: '100%',
+	width: '175px',
 	color: 'white',
+
 	'&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' },
 };
