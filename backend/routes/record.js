@@ -396,7 +396,7 @@ recordRoutes.route('/incomeByDay').get(authenticateJWT, async (req, res) => {
 		});
 
 		// Process transactions to calculate daily spending
-		const dailySpending = response.data.transactions.reduce((acc, transaction) => {
+		const dailyIncome = response.data.transactions.reduce((acc, transaction) => {
 			// Extract the full date from the transaction date
 			const date = transaction.date; // YYYY-MM-DD format
 			if (!acc[date]) {
@@ -409,19 +409,19 @@ recordRoutes.route('/incomeByDay').get(authenticateJWT, async (req, res) => {
 		}, {});
 
 		// Convert the dailySpending object to an array suitable for your chart
-		const spendingData = Object.keys(dailySpending).map((date) => {
+		const incomeData = Object.keys(dailyIncome).map((date) => {
 			return {
 				date: date, // You can keep this as is or format it to be more readable
-				totalSpending: dailySpending[date],
+				totalIncome: dailyIncome[date],
 			};
 		});
 
-		console.log(spendingData);
+		console.log(incomeData);
 
 		// Sort by date if necessary
-		spendingData.sort((a, b) => a.date.localeCompare(b.date));
+		incomeData.sort((a, b) => a.date.localeCompare(b.date));
 
-		res.status(200).json({ spendingByDay: spendingData });
+		res.status(200).json({ incomeByDay: incomeData });
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ error: error.toString() });
