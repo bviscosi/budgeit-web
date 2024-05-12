@@ -54,7 +54,7 @@ const Transactions = () => {
 	}, []);
 
 	return (
-		<Paper sx={{ height: '100%', margin: '2rem', borderRadius: '1rem' }}>
+		<Paper sx={{ height: '100%', margin: '2rem', borderRadius: '1rem', border: 0 }}>
 			<DataGrid
 				rows={rows}
 				columns={columns}

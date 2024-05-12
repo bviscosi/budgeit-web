@@ -1,7 +1,7 @@
 import { Stack, Typography } from '@mui/material';
 import UserDropdownMenu from './UserDropdownMenu/UserDropdownMenu';
 import { topbar } from './styles';
-import ThemeModeToggle from '../../../components/ThemeModeToggle/ThemeModeToggle';
+import ThemeModeToggle from '../ThemeModeToggle/ThemeModeToggle';
 
 const Topbar = ({ tab, handleLogout }) => {
 	return (
@@ -16,6 +16,7 @@ const Topbar = ({ tab, handleLogout }) => {
 				<Typography variant='h3' fontWeight='bold'>
 					{tab === 'home' && 'Dashboard'}
 					{tab === 'transactions' && 'Transactions'}
+					{tab === 'budgets' && 'Budgets'}
 					{tab === 'settings' && 'Settings'}
 				</Typography>
 			</div>

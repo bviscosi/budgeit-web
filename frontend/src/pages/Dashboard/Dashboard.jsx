@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import Topbar from './Topbar/Topbar';
+import Topbar from '../../components/Topbar/Topbar';
 import { Box, Stack } from '@mui/material';
 import Home from './tabs/Home/Home';
 import Settings from './tabs/Settings/Settings';

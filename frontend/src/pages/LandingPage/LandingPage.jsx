@@ -1,15 +1,18 @@
-import Navbar from '../../components/Navbar/Navbar';
-import Hero from './components/Hero';
-import { Footer } from '../../components/Footer/Footer';
-import { Box, alpha } from '@mui/material';
 import { useState } from 'react';
+
+import { Box, alpha } from '@mui/material';
 import { useMediaQuery, useTheme } from '@mui/material';
+
+import Navbar from '../../components/Navbar/Navbar';
 import MobileNavbar from '../../components/Navbar/MobileNavbar';
-import Highlights from './components/Highlights';
-import Features from './components/Features';
-import Pricing from './components/Pricing';
-import Testimonials from './components/Testimonials';
-import FAQ from './components/FAQ';
+import { Footer } from '../../components/Footer/Footer';
+
+import Hero from './sections/Hero';
+import Highlights from './sections/Highlights';
+import Features from './sections/Features';
+import Pricing from './sections/Pricing';
+import Testimonials from './sections/Testimonials';
+import FAQ from './sections/FAQ';
 
 const LandingPage = () => {
 	const theme = useTheme();
