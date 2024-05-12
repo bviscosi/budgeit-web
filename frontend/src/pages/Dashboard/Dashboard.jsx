@@ -25,7 +25,7 @@ const Dashboard = ({ handleLogout }) => {
 						<Topbar tab={tab} handleLogout={handleLogout}></Topbar>
 						{tab === 'home' && <Home />}
 						{tab === 'transactions' && <Transactions />}
-						{tab === 'Budgets' && <Budgets />}
+						{tab === 'budgets' && <Budgets />}
 						{tab === 'settings' && <Settings />}
 					</Stack>
 				</Stack>

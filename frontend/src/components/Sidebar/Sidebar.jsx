@@ -41,7 +41,7 @@ const Sidebar = ({ tab, setTab }) => {
 						color: tab === 'savings' ? '#ffffff' : '#858585',
 						backgroundColor: tab === 'savings' ? '#272727' : 'transparent',
 					}}
-					onClick={() => handleSetTab('savings')}>
+					onClick={() => handleSetTab('budgets')}>
 					<SavingsIcon />
 				</IconButton>
 			</Stack>
