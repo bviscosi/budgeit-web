@@ -402,8 +402,8 @@ recordRoutes.route('/incomeByDay').get(authenticateJWT, async (req, res) => {
 			if (!acc[date]) {
 				acc[date] = 0; // Initialize if not already present
 			}
-			if (transaction.amount > 0) {
-				acc[date] += transaction.amount; // Sum the amounts for each day
+			if (transaction.amount < 0) {
+				acc[date] += -1 * transaction.amount; // Sum the amounts for each day
 			}
 			return acc;
 		}, {});
