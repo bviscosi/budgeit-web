@@ -60,7 +60,7 @@ const Transactions = () => {
 				columns={columns}
 				pageSize={5}
 				rowsPerPageOptions={[5]}
-				sx={{ borderRadius: '1rem', border: 0 }}
+				sx={{ borderRadius: '1rem', border: 0, color: 'text.primary' }}
 			/>
 		</Card>
 	);

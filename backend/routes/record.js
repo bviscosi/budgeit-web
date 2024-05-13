@@ -164,6 +164,7 @@ recordRoutes.route('/transactions').get(authenticateJWT, async (req, res) => {
 					transaction.merchant_name = 'Unknown'; // Set merchant_name to 'Unknown' if it's null/undefined
 				}
 
+				transaction.amount = transaction.amount.toFixed(2);
 				transaction.date = new Date(transaction.date).toLocaleDateString('en-US', {
 					month: 'short', // "short" gives the abbreviated month name (e.g., "Nov")
 					day: '2-digit', // "2-digit" gives the two-digit day
@@ -365,7 +366,7 @@ recordRoutes.route('/expensesByDay').get(authenticateJWT, async (req, res) => {
 		});
 
 		// Sort by date
-		spendingData.sort((a, b) => a.date.localeCompare(b.date));
+		spendingData.sort((b, a) => a.date.localeCompare(b.date));
 
 		res.status(200).json({ expensesByDay: spendingData });
 	} catch (error) {
@@ -427,7 +428,7 @@ recordRoutes.route('/incomeByDay').get(authenticateJWT, async (req, res) => {
 		});
 
 		// Sort by date if necessary
-		incomeData.sort((a, b) => a.date.localeCompare(b.date));
+		incomeData.sort((b, a) => a.date.localeCompare(b.date));
 
 		res.status(200).json({ incomeByDay: incomeData });
 	} catch (error) {
