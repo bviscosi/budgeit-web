@@ -8,26 +8,37 @@ const Settings = () => {
 	return (
 		<Stack direction='column' margin={'2rem'}>
 			<Card padding='2rem'>
-				<Stack direction='row' alignItems='center' justifyContent='space-between' m={2}>
-					<Typography variant='h5'>Bank Account</Typography>
-					<Typography variant='h5'>No bank account connected</Typography>
+				<Stack direction='row' alignItems='center' m={2}>
+					<Typography variant='h5' width='25rem'>
+						Bank Account
+					</Typography>
+					<Typography variant='h5' width='100%' textAlign='flex-start'>
+						No bank account connected
+					</Typography>
 
 					<Button
+						width='100%'
 						variant='text'
 						onClick={() => {
 							setShowPlaid(true);
 						}}>
-						Connect New Bank
+						Connect
 					</Button>
 				</Stack>
 				<Divider />
 
-				<Stack direction='row' alignItems='center' justifyContent='space-between' m={2}>
-					<Typography variant='h5'>Subscription</Typography>
-					<Typography variant='h5'>No subscription active</Typography>
+				<Stack direction='row' alignItems='center' m={2}>
+					<Typography variant='h5' width='25rem'>
+						Subscription
+					</Typography>
+					<Typography variant='h5' width='100%' textAlign='flex-start'>
+						No subscription active
+					</Typography>
 
 					<Button
+						width='100%'
 						variant='text'
+						justifySelf={'flex-end'}
 						onClick={() => {
 							// setShowPlaid(true);
 						}}>
