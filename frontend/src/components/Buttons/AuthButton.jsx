@@ -12,7 +12,9 @@ const AuthButton = ({ label, sx }) => {
 				pb: '1.5rem',
 				...sx,
 			}}>
-			<Typography variant='h5'>{label}</Typography>
+			<Typography variant='h5' color='white'>
+				{label}
+			</Typography>
 		</Button>
 	);
 };

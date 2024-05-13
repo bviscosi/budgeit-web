@@ -408,15 +408,17 @@ recordRoutes.route('/incomeByDay').get(authenticateJWT, async (req, res) => {
 			return acc;
 		}, {});
 
-		// Convert the dailySpending object to an array suitable for your chart
+		// Convert the dailySpending object to an array of more easily readable dates
 		const incomeData = Object.keys(dailyIncome).map((date) => {
+			const formattedDate = new Date(date).toLocaleDateString('en-US', {
+				month: 'short', // "short" gives the abbreviated month name (e.g., "Nov")
+				day: '2-digit', // "2-digit" gives the two-digit day
+			});
 			return {
-				date: date, // You can keep this as is or format it to be more readable
+				date: formattedDate,
 				totalIncome: dailyIncome[date],
 			};
 		});
-
-		console.log(incomeData);
 
 		// Sort by date if necessary
 		incomeData.sort((a, b) => a.date.localeCompare(b.date));
