@@ -163,6 +163,12 @@ recordRoutes.route('/transactions').get(authenticateJWT, async (req, res) => {
 				if (!transaction.merchant_name) {
 					transaction.merchant_name = 'Unknown'; // Set merchant_name to 'Unknown' if it's null/undefined
 				}
+
+				transaction.date = new Date(transaction.date).toLocaleDateString('en-US', {
+					month: 'short', // "short" gives the abbreviated month name (e.g., "Nov")
+					day: '2-digit', // "2-digit" gives the two-digit day
+					year: 'numeric', // "2-digit" gives the two-digit day
+				});
 				return transaction;
 			}),
 		});
