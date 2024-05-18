@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import { addJwtHeader } from '../../../../../utils/addJwtHeader';
 import { useCustomTheme } from '../../../../../context/ThemeContext';
+import { useTransactions } from '../../../../../context/TransactionsContext';
 
 const columns = [
 	{ id: 'date', label: 'Date' },
@@ -21,42 +22,41 @@ const columns = [
 const Transactions = () => {
 	const { mode } = useCustomTheme(); // Get the current mode from the context
 
-	const [rows, setRows] = useState([]);
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState('');
+	// const [rows, setRows] = useState([]);
+	const { transactions, loading, error } = useTransactions();
 
-	useEffect(() => {
-		const fetchTransactions = async (startDate, endDate) => {
-			setLoading(true);
-			setError('');
-			try {
-				const response = await axios.get(
-					`/transactions?startDate=${startDate}&endDate=${endDate}`,
-					{ headers: addJwtHeader() }
-				);
+	// useEffect(() => {
+	// 	const fetchTransactions = async (startDate, endDate) => {
+	// 		setLoading(true);
+	// 		setError('');
+	// 		try {
+	// 			const response = await axios.get(
+	// 				`/transactions?startDate=${startDate}&endDate=${endDate}`,
+	// 				{ headers: addJwtHeader() }
+	// 			);
 
-				const fetchedRows = response.data.transactions.map((transaction, index) => ({
-					id: index,
-					...transaction,
-				}));
+	// 			const fetchedRows = response.data.transactions.map((transaction, index) => ({
+	// 				id: index,
+	// 				...transaction,
+	// 			}));
 
-				setRows(fetchedRows);
-			} catch (error) {
-				console.error('Error fetching transactions:', error);
-				setError('Failed to fetch transactions');
-			} finally {
-				setLoading(false);
-			}
-		};
+	// 			setRows(fetchedRows);
+	// 		} catch (error) {
+	// 			console.error('Error fetching transactions:', error);
+	// 			setError('Failed to fetch transactions');
+	// 		} finally {
+	// 			setLoading(false);
+	// 		}
+	// 	};
 
-		const startDate = '2023-11-01';
-		const endDate = '2024-01-01';
-		fetchTransactions(startDate, endDate);
-	}, []);
+	// 	const startDate = '2023-11-01';
+	// 	const endDate = '2024-01-01';
+	// 	fetchTransactions(startDate, endDate);
+	// }, []);
 
 	return (
-		<Card sx={{ height: '100%', width: '100%', p: 0, borderRadius: '1rem', overflow: 'auto' }}>
-			<TableContainer>
+		<Card sx={{ height: '27.5rem', width: '100%', p: 0, borderRadius: '1rem', overflow: 'auto' }}>
+			<TableContainer sx={{ maxHeight: '100%' }}>
 				<Table stickyHeader aria-label='transactions table'>
 					<TableHead
 						sx={{
@@ -73,7 +73,7 @@ const Transactions = () => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{rows.map((row) => (
+						{transactions.map((row) => (
 							<TableRow key={row.id} hover>
 								{columns.map((column) => (
 									<TableCell key={column.id} align={column.align}>

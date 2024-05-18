@@ -5,6 +5,7 @@ import Expenses from './components/Expenses';
 import Budgets from './components/Budgets';
 import Transactions from './components/Transactions';
 import Analytics from './components/Analytics';
+import Categories from './components/Categories';
 
 const Home = () => {
 	return (
@@ -31,7 +32,10 @@ const Home = () => {
 				</Grid>
 
 				<Grid item xs={12} md={4}>
-					<Transactions />
+					<Stack direction={'column'} spacing={3}>
+						<Categories />
+						<Transactions />
+					</Stack>
 				</Grid>
 			</Grid>
 		</Stack>
