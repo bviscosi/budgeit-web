@@ -1,14 +1,5 @@
 import { useState } from 'react';
-import {
-	Box,
-	Card,
-	FormControl,
-	InputLabel,
-	MenuItem,
-	Select,
-	Stack,
-	Typography,
-} from '@mui/material';
+import { Box, Card, FormControl, MenuItem, Select, Stack } from '@mui/material';
 import IncomeChart from './IncomeChart';
 import SpendingChart from './SpendingChart';
 
@@ -58,15 +49,6 @@ const Analytics = () => {
 						</Select>
 					</FormControl>
 				</Box>
-				{/* <Typography
-					variant='h4'
-					alignSelf='flex-start'
-					fontWeight='600'
-					marginLeft={2}
-					marginTop={2}
-					color='text.primary'>
-					{chartType}
-				</Typography> */}
 				{chartType === 'Income' && <IncomeChart />}
 				{chartType === 'Spending' && <SpendingChart />}
 			</Stack>

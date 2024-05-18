@@ -36,6 +36,7 @@ const Categories = () => {
 						return acc;
 					}, {})
 				),
+				borderColor: 'transparent',
 				backgroundColor: [
 					'#FF6384',
 					'#36A2EB',
@@ -52,7 +53,7 @@ const Categories = () => {
 		],
 	};
 
-	const options = {};
+	const options = { cutout: 100 };
 
 	return (
 		<Card sx={{ borderRadius: '1rem', height: '32rem', overflow: 'hidden' }}>
@@ -63,7 +64,9 @@ const Categories = () => {
 			</CardContent>
 			<Box
 				sx={{
-					width: '100%',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
 					px: 3,
 					overflowY: 'auto',
 					height: 'calc(27.5rem - 64px)', // Subtract the height of the title and padding
