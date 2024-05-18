@@ -17,7 +17,7 @@ const Settings = () => {
 					</Typography>
 
 					<Button
-						width='100%'
+						sx={{ px: '1rem' }}
 						variant='text'
 						onClick={() => {
 							setShowPlaid(true);
@@ -36,9 +36,8 @@ const Settings = () => {
 					</Typography>
 
 					<Button
-						width='100%'
 						variant='text'
-						justifySelf={'flex-end'}
+						sx={{ px: '1rem' }}
 						onClick={() => {
 							// setShowPlaid(true);
 						}}>
