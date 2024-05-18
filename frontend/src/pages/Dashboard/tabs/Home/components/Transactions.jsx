@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import {
 	Card,
 	Table,
@@ -9,7 +7,6 @@ import {
 	TableHead,
 	TableRow,
 } from '@mui/material';
-import { addJwtHeader } from '../../../../../utils/addJwtHeader';
 import { useCustomTheme } from '../../../../../context/ThemeContext';
 import { useTransactions } from '../../../../../context/TransactionsContext';
 
@@ -21,38 +18,7 @@ const columns = [
 
 const Transactions = () => {
 	const { mode } = useCustomTheme(); // Get the current mode from the context
-
-	// const [rows, setRows] = useState([]);
 	const { transactions, loading, error } = useTransactions();
-
-	// useEffect(() => {
-	// 	const fetchTransactions = async (startDate, endDate) => {
-	// 		setLoading(true);
-	// 		setError('');
-	// 		try {
-	// 			const response = await axios.get(
-	// 				`/transactions?startDate=${startDate}&endDate=${endDate}`,
-	// 				{ headers: addJwtHeader() }
-	// 			);
-
-	// 			const fetchedRows = response.data.transactions.map((transaction, index) => ({
-	// 				id: index,
-	// 				...transaction,
-	// 			}));
-
-	// 			setRows(fetchedRows);
-	// 		} catch (error) {
-	// 			console.error('Error fetching transactions:', error);
-	// 			setError('Failed to fetch transactions');
-	// 		} finally {
-	// 			setLoading(false);
-	// 		}
-	// 	};
-
-	// 	const startDate = '2023-11-01';
-	// 	const endDate = '2024-01-01';
-	// 	fetchTransactions(startDate, endDate);
-	// }, []);
 
 	return (
 		<Card sx={{ height: '27.5rem', width: '100%', p: 0, borderRadius: '1rem', overflow: 'auto' }}>
