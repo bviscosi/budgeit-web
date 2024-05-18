@@ -39,8 +39,8 @@ const Transactions = () => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{transactions.map((row) => (
-							<TableRow key={row.id} hover>
+						{transactions.map((row, index) => (
+							<TableRow key={index} hover>
 								{columns.map((column) => (
 									<TableCell key={column.id} align={column.align}>
 										{row[column.id]}

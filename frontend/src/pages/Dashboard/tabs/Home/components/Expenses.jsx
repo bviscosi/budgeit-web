@@ -1,41 +1,34 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import MetricCard from '../../../../../components/Cards/MetricCard/MetricCard';
-import { addJwtHeader } from '../../../../../utils/addJwtHeader';
+import { useTransactions } from '../../../../../context/TransactionsContext';
 
 const Expenses = () => {
-	const [expenses, setExpenses] = useState();
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState('');
+	const { transactions, loading, error, fetchTransactions } = useTransactions();
+	const [expenses, setExpenses] = useState(0);
 
-	// get expenses
 	useEffect(() => {
-		const fetchExpenses = async (startDate, endDate) => {
-			setLoading(true);
-			setError('');
-			try {
-				const response = await axios.get(
-					`/totalExpensesThisMonth?startDate=${startDate}&endDate=${endDate}`,
-					{
-						headers: addJwtHeader(),
-					}
-				);
-				setExpenses(response.data.expenses);
-			} catch (error) {
-				console.error('Error fetching transactions:', error);
-				setError('Failed to fetch transactions');
-			} finally {
-				setLoading(false);
-			}
+		const calculateTotalExpenses = () => {
+			const totalIncome = transactions.reduce((acc, transaction) => {
+				if (transaction.amount > 0) {
+					acc += Math.abs(transaction.amount);
+				}
+				return acc;
+			}, 0);
+			setExpenses(totalIncome.toFixed(2));
 		};
 
 		// Example dates, replace with actual dynamic dates
 		const startDate = '2023-11-01';
 		const endDate = '2024-01-01';
-		fetchExpenses(startDate, endDate);
-	}, []);
+
+		if (transactions.length === 0) {
+			fetchTransactions(startDate, endDate);
+		} else {
+			calculateTotalExpenses();
+		}
+	}, [transactions, fetchTransactions]);
+
 	return (
 		<MetricCard
 			title={'Expenses'}
