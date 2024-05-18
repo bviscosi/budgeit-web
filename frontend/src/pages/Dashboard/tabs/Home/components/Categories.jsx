@@ -53,12 +53,25 @@ const Categories = () => {
 		],
 	};
 
-	const options = { cutout: 100 };
+	const options = {
+		cutout: 75,
+		plugins: {
+			legend: {
+				display: false, // This hides the legend
+			},
+		},
+	};
 
 	return (
 		<Card sx={{ borderRadius: '1rem', height: '32rem', overflow: 'hidden' }}>
 			<CardContent sx={{ paddingBottom: '0 !important' }}>
-				<Typography variant='h4' fontWeight={600} ml={2} mt={2} sx={{ marginBottom: '1rem' }}>
+				<Typography
+					variant='h4'
+					fontWeight={600}
+					ml={2}
+					mt={2}
+					color='text.primary'
+					sx={{ marginBottom: '1rem' }}>
 					Spending by Category
 				</Typography>
 			</CardContent>
@@ -67,9 +80,9 @@ const Categories = () => {
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center',
-					px: 3,
+					p: 3,
 					overflowY: 'auto',
-					height: 'calc(27.5rem - 64px)', // Subtract the height of the title and padding
+					height: '80%', // Subtract the height of the title and padding
 				}}>
 				<Doughnut data={data} options={options} />
 			</Box>

@@ -14,7 +14,13 @@ const Budgets = () => {
 	return (
 		<Card sx={{ borderRadius: '1rem', height: '27.5rem', overflow: 'hidden' }}>
 			<CardContent sx={{ paddingBottom: '0 !important' }}>
-				<Typography variant='h4' fontWeight={600} ml={2} mt={2} sx={{ marginBottom: '1rem' }}>
+				<Typography
+					variant='h4'
+					fontWeight={600}
+					ml={2}
+					mt={2}
+					mb={'1rem'}
+					color='text.primary'>
 					Budgets
 				</Typography>
 			</CardContent>
