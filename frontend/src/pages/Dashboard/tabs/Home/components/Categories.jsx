@@ -54,8 +54,6 @@ const Categories = () => {
 
 	const options = {};
 
-	console.log(data);
-
 	return (
 		<Card sx={{ borderRadius: '1rem', height: '32rem', overflow: 'hidden' }}>
 			<CardContent sx={{ paddingBottom: '0 !important' }}>

@@ -17,7 +17,7 @@ const columns = [
 ];
 
 const Transactions = () => {
-	const { mode } = useCustomTheme(); // Get the current mode from the context
+	const { mode } = useCustomTheme();
 	const { transactions, loading, error } = useTransactions();
 
 	return (
