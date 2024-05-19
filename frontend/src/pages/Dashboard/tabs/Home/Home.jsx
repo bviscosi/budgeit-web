@@ -27,13 +27,13 @@ const Home = () => {
 				<Grid item xs={12} md={8}>
 					<Stack direction={'column'} spacing={3}>
 						<Analytics />
-						<Budgets />
+						<Categories />
 					</Stack>
 				</Grid>
 
 				<Grid item xs={12} md={4}>
 					<Stack direction={'column'} spacing={3}>
-						<Categories />
+						<Budgets />
 						<Transactions />
 					</Stack>
 				</Grid>

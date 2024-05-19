@@ -4,14 +4,21 @@ import { useTransactions } from '../../../../context/TransactionsContext';
 
 const Transactions = () => {
 	const columns = [
-		{ field: 'date', headerName: 'Date', width: '300' },
-		{ field: 'merchant_name', headerName: 'Merchant', width: '300' },
-		{ field: 'amount', headerName: 'Amount', type: 'number', width: '300' },
+		{ field: 'date', headerName: 'Date', flex: 1 },
+		{ field: 'merchant_name', headerName: 'Merchant', flex: 1 },
 		{
 			field: 'category',
 			headerName: 'Category',
-			width: '300',
+			flex: 1,
 			valueGetter: (params) => params.row.category.join(', '),
+		},
+		{
+			field: 'amount',
+			headerName: 'Amount',
+			type: 'number',
+			flex: 1,
+			// valueGetter: (params) =>
+			// 	params.row.amount > 0 ? `$${params.row.amount}` : `-$${params.row.amount * -1}`,
 		},
 	];
 
@@ -24,6 +31,7 @@ const Transactions = () => {
 					id: index, // DataGrid requires a unique 'id' field for each row
 					...transaction,
 				}))}
+				fullWidth
 				columns={columns}
 				pageSize={5}
 				rowsPerPageOptions={[5]}

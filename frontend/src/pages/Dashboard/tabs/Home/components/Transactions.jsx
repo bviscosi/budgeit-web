@@ -21,7 +21,7 @@ const Transactions = () => {
 	const { transactions, loading, error } = useTransactions();
 
 	return (
-		<Card sx={{ height: '27.5rem', width: '100%', p: 0, borderRadius: '1rem', overflow: 'auto' }}>
+		<Card sx={{ height: '32rem', width: '100%', p: 0, borderRadius: '1rem', overflow: 'auto' }}>
 			<TableContainer sx={{ maxHeight: '100%' }}>
 				<Table stickyHeader aria-label='transactions table'>
 					<TableHead

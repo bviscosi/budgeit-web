@@ -38,14 +38,14 @@ const Categories = () => {
 				),
 				borderColor: 'transparent',
 				backgroundColor: [
-					'#FF6384',
-					'#36A2EB',
+					'#fbca26',
+					'#4082f5',
 					'#FFCE56',
 					// Add more colors as needed
 				],
 				hoverBackgroundColor: [
-					'#FF6384',
-					'#36A2EB',
+					'#fbca26',
+					'#4082f5',
 					'#FFCE56',
 					// Add more colors as needed
 				],
@@ -54,10 +54,15 @@ const Categories = () => {
 	};
 
 	const options = {
-		cutout: 75,
+		cutout: 125,
 		plugins: {
 			legend: {
-				display: false, // This hides the legend
+				display: true,
+				position: 'right',
+
+				labels: {
+					usePointStyle: true,
+				},
 			},
 		},
 	};
@@ -72,17 +77,17 @@ const Categories = () => {
 					mt={2}
 					color='text.primary'
 					sx={{ marginBottom: '1rem' }}>
-					Spending by Category
+					Categories
 				</Typography>
 			</CardContent>
 			<Box
 				sx={{
 					display: 'flex',
-					alignItems: 'center',
+					alignItems: 'flex-start',
 					justifyContent: 'center',
-					p: 3,
-					overflowY: 'auto',
-					height: '80%', // Subtract the height of the title and padding
+					width: '100%',
+					height: 'calc(100% - 72px)', // Adjust height to fit the content
+					paddingBottom: '1.5rem',
 				}}>
 				<Doughnut data={data} options={options} />
 			</Box>

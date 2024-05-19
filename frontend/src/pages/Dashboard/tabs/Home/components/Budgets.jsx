@@ -12,7 +12,7 @@ import { budgets } from '../../../../../constants/budgets';
 
 const Budgets = () => {
 	return (
-		<Card sx={{ borderRadius: '1rem', height: '27.5rem', overflow: 'hidden' }}>
+		<Card sx={{ borderRadius: '1rem', overflow: 'hidden', height: '32rem' }}>
 			<CardContent sx={{ paddingBottom: '0 !important' }}>
 				<Typography
 					variant='h4'
