@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const ObjectId = require('mongodb').ObjectId;
+const jwt = require('jsonwebtoken');
 
 const { getCloudDb } = require('../db/conn');
 const { client } = require('../db/Plaid');
