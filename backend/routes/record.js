@@ -327,11 +327,52 @@ recordRoutes.route('/incomeByDay').get(authenticateJWT, async (req, res) => {
 	}
 });
 
+// Create a new budget
+recordRoutes.route('/budgets').post(authenticateJWT, async (req, res) => {
+	try {
+		const budget = new Budget({ ...req.body, userId: req.user._id });
+		await budget.save();
+		res.status(201).send(budget);
+	} catch (error) {
+		res.status(400).send(error);
+	}
+});
+
 // Get all budgets for a user
 recordRoutes.route('/budgets').get(authenticateJWT, async (req, res) => {
 	try {
 		const budgets = await Budget.find({ userId: req.user._id });
 		res.send(budgets);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+// Update a budget
+recordRoutes.route('/budgets/:id').patch(authenticateJWT, async (req, res) => {
+	try {
+		const budget = await Budget.findOneAndUpdate(
+			{ _id: req.params.id, userId: req.user._id },
+			req.body,
+			{ new: true }
+		);
+		if (!budget) {
+			return res.status(404).send();
+		}
+		res.send(budget);
+	} catch (error) {
+		res.status(400).send(error);
+	}
+});
+
+// Delete a budget
+recordRoutes.route('/budgets/:id').delete(authenticateJWT, async (req, res) => {
+	try {
+		const budget = await Budget.findOneAndDelete({ _id: req.params.id, userId: req.user._id });
+		if (!budget) {
+			return res.status(404).send();
+		}
+		res.send(budget);
 	} catch (error) {
 		res.status(500).send(error);
 	}
