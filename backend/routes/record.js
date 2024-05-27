@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const { getCloudDb } = require('../db/conn');
 const { client } = require('../db/Plaid');
 const ObjectId = require('mongodb').ObjectId;
+const Budget = require('../models/Budget');
 
 const recordRoutes = express.Router();
 
@@ -313,6 +314,7 @@ recordRoutes.route('/balance').get(authenticateJWT, async (req, res) => {
 // 	}
 // });
 
+// Protected Route: Fetch expenses by day
 recordRoutes.route('/expensesByDay').get(authenticateJWT, async (req, res) => {
 	try {
 		const { startDate, endDate } = req.query;
@@ -375,6 +377,7 @@ recordRoutes.route('/expensesByDay').get(authenticateJWT, async (req, res) => {
 	}
 });
 
+// Protected Route: Fetch income by day
 recordRoutes.route('/incomeByDay').get(authenticateJWT, async (req, res) => {
 	try {
 		const { startDate, endDate } = req.query;

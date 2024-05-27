@@ -63,7 +63,7 @@ const BudgetItem = ({ title, amount, icon, color }) => {
 						display: 'flex',
 						alignItems: 'center',
 						justifyContent: 'center',
-						// color: 'primary.main',
+						color: 'card.primary',
 						'& > *': {
 							padding: '0.1em', // Adding space around the icon
 						},
