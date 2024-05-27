@@ -1,19 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Box, Divider, Stack, Typography, IconButton } from '@mui/material';
+import {
+	Box,
+	Divider,
+	Stack,
+	Typography,
+	IconButton,
+	Dialog,
+	DialogTitle,
+	DialogContent,
+	DialogActions,
+	Button,
+} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import { BudgetItem } from '../../../../components/Budgets/BudgetItem';
+import BudgetItem from '../../../../components/Budgets/BudgetItem';
+import BudgetForm from '../../../../components/Budgets/BudgetForm';
 import { budgets } from '../../../../constants/budgets';
 
 const Budgets = () => {
+	const [open, setOpen] = useState(false);
 	// const [budgets, setBudgets] = useState([]);
 
 	// useEffect(() => {
-	// 	const fetchBudgets = async () => {
-	// 		const response = await axios.get('/api/budgets');
-	// 		setBudgets(response.data);
-	// 	};
-	// 	fetchBudgets();
+	//     const fetchBudgets = async () => {
+	//         const response = await axios.get('/api/budgets');
+	//         setBudgets(response.data);
+	//     };
+	//     fetchBudgets();
 	// }, []);
 
 	const handleDelete = async (id) => {
@@ -22,7 +35,18 @@ const Budgets = () => {
 	};
 
 	const handleAddBudget = () => {
-		// Implement the functionality to add a new budget
+		setOpen(true);
+	};
+
+	const handleSaveBudget = async (budgetData) => {
+		// Send POST request to save the new budget
+		const response = await axios.post('/api/budgets', budgetData);
+		// setBudgets([...budgets, response.data]);
+		setOpen(false);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
 	};
 
 	return (
@@ -48,6 +72,12 @@ const Budgets = () => {
 					</React.Fragment>
 				))}
 			</Box>
+			<Dialog open={open} onClose={handleClose}>
+				<DialogTitle>Add New Budget</DialogTitle>
+				<DialogContent>
+					<BudgetForm onSave={handleSaveBudget} onCancel={handleClose} />
+				</DialogContent>
+			</Dialog>
 		</Stack>
 	);
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, Typography, Box, Divider } from '@mui/material';
 import { budgets } from '../../../../../constants/budgets';
-import { BudgetItem } from '../../../../../components/Budgets/BudgetItem';
+import BudgetItem from '../../../../../components/Budgets/BudgetItem';
 
 const Budgets = () => {
 	return (

@@ -1,4 +1,5 @@
 import { Box, CircularProgress, Stack, Typography } from '@mui/material';
+import BudgetForm from './BudgetForm';
 
 export const BudgetItem = ({ title, amount, limit, icon, color }) => {
 	return (
@@ -44,3 +45,5 @@ export const BudgetItem = ({ title, amount, limit, icon, color }) => {
 		</Box>
 	);
 };
+
+export default BudgetItem;
