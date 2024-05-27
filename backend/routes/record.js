@@ -1,30 +1,13 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const ObjectId = require('mongodb').ObjectId;
+
 const { getCloudDb } = require('../db/conn');
 const { client } = require('../db/Plaid');
-const ObjectId = require('mongodb').ObjectId;
 const Budget = require('../models/Budget');
+const authenticateJWT = require('../middleware/authenticateJWT');
 
 const recordRoutes = express.Router();
-
-// JWT Verification Middleware
-const authenticateJWT = (req, res, next) => {
-	const authHeader = req.headers.authorization;
-	const token = authHeader && authHeader.split(' ')[1];
-
-	if (token == null) {
-		return res.sendStatus(401);
-	}
-
-	jwt.verify(token, process.env.JWT_ACCESS_TOKEN_SECRET, (err, user) => {
-		if (err) {
-			return res.sendStatus(403);
-		}
-		req.user = user;
-		next();
-	});
-};
 
 // SignIn Route
 recordRoutes.route('/signIn').post(async (req, res) => {
@@ -218,102 +201,6 @@ recordRoutes.route('/balance').get(authenticateJWT, async (req, res) => {
 	}
 });
 
-// Protected Route: Fetch income
-// recordRoutes.route('/totalIncomeThisMonth').get(authenticateJWT, async (req, res) => {
-// 	try {
-// 		const { startDate, endDate } = req.query;
-
-// 		// Validate the startDate and endDate
-// 		if (!startDate || !endDate) {
-// 			return res.status(400).json({ message: 'Start date and end date are required.' });
-// 		}
-
-// 		const cloudDb = getCloudDb();
-// 		const BudgeIt = cloudDb.db('BudgeIt');
-// 		const users = BudgeIt.collection('users');
-
-// 		// Retrieve the user from the database
-// 		const user = await users.findOne({ _id: new ObjectId(req.user.userId) });
-// 		if (!user) {
-// 			return res.status(404).json({ message: 'User not found.' });
-// 		}
-
-// 		// Check if the user has a Plaid access token
-// 		if (!user.plaidAccessToken) {
-// 			return res.status(400).json({ message: 'Access token not found.' });
-// 		}
-
-// 		// Fetch transactions from Plaid using the access token
-// 		const response = await client.transactionsGet({
-// 			access_token: user.plaidAccessToken,
-// 			start_date: startDate,
-// 			end_date: endDate,
-// 		});
-
-// 		// Calculate the total of all negative amounts
-// 		const totalNegativeAmounts = response.data.transactions.reduce((acc, transaction) => {
-// 			if (transaction.amount < 0) {
-// 				acc += transaction.amount;
-// 			}
-// 			return acc;
-// 		}, 0);
-
-// 		// Send the absolute value of the sum back to the client
-// 		res.status(200).json({ income: Math.abs(totalNegativeAmounts).toFixed(2) });
-// 	} catch (error) {
-// 		console.log(error);
-// 		res.status(500).json({ error: error.toString() });
-// 	}
-// });
-
-// Protected Route: Fetch expenses
-// recordRoutes.route('/totalExpensesThisMonth').get(authenticateJWT, async (req, res) => {
-// 	try {
-// 		const { startDate, endDate } = req.query;
-
-// 		// Validate the startDate and endDate
-// 		if (!startDate || !endDate) {
-// 			return res.status(400).json({ message: 'Start date and end date are required.' });
-// 		}
-
-// 		const cloudDb = getCloudDb();
-// 		const BudgeIt = cloudDb.db('BudgeIt');
-// 		const users = BudgeIt.collection('users');
-
-// 		// Retrieve the user from the database
-// 		const user = await users.findOne({ _id: new ObjectId(req.user.userId) });
-// 		if (!user) {
-// 			return res.status(404).json({ message: 'User not found.' });
-// 		}
-
-// 		// Check if the user has a Plaid access token
-// 		if (!user.plaidAccessToken) {
-// 			return res.status(400).json({ message: 'Access token not found.' });
-// 		}
-
-// 		// Fetch transactions from Plaid using the access token
-// 		const response = await client.transactionsGet({
-// 			access_token: user.plaidAccessToken,
-// 			start_date: startDate,
-// 			end_date: endDate,
-// 		});
-
-// 		// Calculate the total of all positive amounts
-// 		const totalPositiveAmounts = response.data.transactions.reduce((acc, transaction) => {
-// 			if (transaction.amount > 0) {
-// 				acc += transaction.amount;
-// 			}
-// 			return acc;
-// 		}, 0);
-
-// 		// Send the absolute value of the sum back to the client
-// 		res.status(200).json({ expenses: Math.abs(totalPositiveAmounts).toFixed(2) });
-// 	} catch (error) {
-// 		console.log(error);
-// 		res.status(500).json({ error: error.toString() });
-// 	}
-// });
-
 // Protected Route: Fetch expenses by day
 recordRoutes.route('/expensesByDay').get(authenticateJWT, async (req, res) => {
 	try {
@@ -439,5 +326,111 @@ recordRoutes.route('/incomeByDay').get(authenticateJWT, async (req, res) => {
 		res.status(500).json({ error: error.toString() });
 	}
 });
+
+// Get all budgets for a user
+recordRoutes.route('/budgets').get(authenticateJWT, async (req, res) => {
+	try {
+		const budgets = await Budget.find({ userId: req.user._id });
+		res.send(budgets);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+
+// Protected Route: Fetch income
+// recordRoutes.route('/totalIncomeThisMonth').get(authenticateJWT, async (req, res) => {
+// 	try {
+// 		const { startDate, endDate } = req.query;
+
+// 		// Validate the startDate and endDate
+// 		if (!startDate || !endDate) {
+// 			return res.status(400).json({ message: 'Start date and end date are required.' });
+// 		}
+
+// 		const cloudDb = getCloudDb();
+// 		const BudgeIt = cloudDb.db('BudgeIt');
+// 		const users = BudgeIt.collection('users');
+
+// 		// Retrieve the user from the database
+// 		const user = await users.findOne({ _id: new ObjectId(req.user.userId) });
+// 		if (!user) {
+// 			return res.status(404).json({ message: 'User not found.' });
+// 		}
+
+// 		// Check if the user has a Plaid access token
+// 		if (!user.plaidAccessToken) {
+// 			return res.status(400).json({ message: 'Access token not found.' });
+// 		}
+
+// 		// Fetch transactions from Plaid using the access token
+// 		const response = await client.transactionsGet({
+// 			access_token: user.plaidAccessToken,
+// 			start_date: startDate,
+// 			end_date: endDate,
+// 		});
+
+// 		// Calculate the total of all negative amounts
+// 		const totalNegativeAmounts = response.data.transactions.reduce((acc, transaction) => {
+// 			if (transaction.amount < 0) {
+// 				acc += transaction.amount;
+// 			}
+// 			return acc;
+// 		}, 0);
+
+// 		// Send the absolute value of the sum back to the client
+// 		res.status(200).json({ income: Math.abs(totalNegativeAmounts).toFixed(2) });
+// 	} catch (error) {
+// 		console.log(error);
+// 		res.status(500).json({ error: error.toString() });
+// 	}
+// });
+
+// Protected Route: Fetch expenses
+// recordRoutes.route('/totalExpensesThisMonth').get(authenticateJWT, async (req, res) => {
+// 	try {
+// 		const { startDate, endDate } = req.query;
+
+// 		// Validate the startDate and endDate
+// 		if (!startDate || !endDate) {
+// 			return res.status(400).json({ message: 'Start date and end date are required.' });
+// 		}
+
+// 		const cloudDb = getCloudDb();
+// 		const BudgeIt = cloudDb.db('BudgeIt');
+// 		const users = BudgeIt.collection('users');
+
+// 		// Retrieve the user from the database
+// 		const user = await users.findOne({ _id: new ObjectId(req.user.userId) });
+// 		if (!user) {
+// 			return res.status(404).json({ message: 'User not found.' });
+// 		}
+
+// 		// Check if the user has a Plaid access token
+// 		if (!user.plaidAccessToken) {
+// 			return res.status(400).json({ message: 'Access token not found.' });
+// 		}
+
+// 		// Fetch transactions from Plaid using the access token
+// 		const response = await client.transactionsGet({
+// 			access_token: user.plaidAccessToken,
+// 			start_date: startDate,
+// 			end_date: endDate,
+// 		});
+
+// 		// Calculate the total of all positive amounts
+// 		const totalPositiveAmounts = response.data.transactions.reduce((acc, transaction) => {
+// 			if (transaction.amount > 0) {
+// 				acc += transaction.amount;
+// 			}
+// 			return acc;
+// 		}, 0);
+
+// 		// Send the absolute value of the sum back to the client
+// 		res.status(200).json({ expenses: Math.abs(totalPositiveAmounts).toFixed(2) });
+// 	} catch (error) {
+// 		console.log(error);
+// 		res.status(500).json({ error: error.toString() });
+// 	}
+// });
 
 module.exports = recordRoutes;
