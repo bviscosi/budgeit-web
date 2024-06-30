@@ -20,7 +20,7 @@ const IncomeChart = () => {
 			setError('');
 
 			const startDate = '2023-11-01'; // example start date
-			const endDate = '2024-01-01'; // example end date
+			const endDate = '2024-06-01'; // example end date
 
 			try {
 				const response = await axios.get(

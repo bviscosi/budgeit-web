@@ -206,7 +206,6 @@ recordRoutes.route('/balance').get(authenticateJWT, async (req, res) => {
 // Protected Route: Fetch expenses by day
 recordRoutes.route('/expensesByDay').get(authenticateJWT, async (req, res) => {
 	try {
-		console.log('get expenses by day called...');
 		const { startDate, endDate } = req.query;
 
 		if (!startDate || !endDate) {
