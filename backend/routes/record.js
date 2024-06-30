@@ -113,6 +113,7 @@ recordRoutes.route('/token-exchange').post(authenticateJWT, async (req, res) => 
 // Protected Route: Fetch Transactions
 recordRoutes.route('/transactions').get(authenticateJWT, async (req, res) => {
 	try {
+		// console.log('get transactions called...');
 		const { startDate, endDate } = req.query;
 
 		// Validate the startDate and endDate

@@ -4,7 +4,7 @@ import MetricCard from '../../../../../components/Cards/MetricCard/MetricCard';
 import { useTransactions } from '../../../../../context/TransactionsContext';
 
 const Expenses = () => {
-	const { transactions, loading, error, fetchTransactions } = useTransactions();
+	const { transactions, loading, error } = useTransactions();
 	const [expenses, setExpenses] = useState(0);
 
 	useEffect(() => {
@@ -18,16 +18,10 @@ const Expenses = () => {
 			setExpenses(totalIncome.toFixed(2));
 		};
 
-		// Example dates, replace with actual dynamic dates
-		const startDate = '2023-11-01';
-		const endDate = '2024-01-01';
-
-		if (transactions.length === 0) {
-			fetchTransactions(startDate, endDate);
-		} else {
+		if (transactions.length !== 0) {
 			calculateTotalExpenses();
 		}
-	}, [transactions, fetchTransactions]);
+	}, [transactions]);
 
 	return (
 		<MetricCard

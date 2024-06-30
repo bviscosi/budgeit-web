@@ -10,7 +10,7 @@ import Error from '../../components/Error/Error';
 import Budgets from './tabs/Budgets/Budgets';
 
 const Dashboard = ({ handleLogout }) => {
-	const [tab, setTab] = useState('budgets');
+	const [tab, setTab] = useState('home');
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
 
