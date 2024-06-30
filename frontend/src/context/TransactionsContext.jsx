@@ -12,7 +12,6 @@ export const TransactionsProvider = ({ children }) => {
 	const [error, setError] = useState('');
 
 	const fetchTransactions = useCallback(async (startDate, endDate) => {
-		// console.log('fetching transactions...');
 		setLoading(true);
 		setError('');
 		try {
@@ -22,7 +21,7 @@ export const TransactionsProvider = ({ children }) => {
 			);
 			setTransactions(response.data.transactions);
 		} catch (error) {
-			// console.error('Error fetching transactions:', error);
+			console.error('Error fetching transactions:', error);
 			setError('Failed to fetch transactions');
 		} finally {
 			setLoading(false);
@@ -32,8 +31,6 @@ export const TransactionsProvider = ({ children }) => {
 	useEffect(() => {
 		const startDate = '2023-11-01';
 		const endDate = '2024-06-01';
-		console.log('fetching transactions...');
-
 		fetchTransactions(startDate, endDate);
 	}, [fetchTransactions]);
 
