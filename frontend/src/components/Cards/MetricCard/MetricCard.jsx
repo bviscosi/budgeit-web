@@ -55,7 +55,6 @@ const MetricCard = ({ title, value, loading, icon, backgroundColor, color }) => 
 								<Typography variant='h3' color='text.primary' fontWeight='600' pt={2}>
 									$<CountUp end={value} decimals={2} />
 								</Typography>
-								{/* <CountUp start={0} end={100000} duration={3} /> */}
 
 								{/* <Typography variant='p2' fontSize='16px' color='#23c48a' pt={0.5} pb={1}>
 									+27% since last period

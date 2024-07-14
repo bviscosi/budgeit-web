@@ -119,7 +119,7 @@ const themeSettings1 = {
 			},
 			background: {
 				default: '#000',
-				paper: `linear-gradient(#0f0c15, ${alpha('#0f0c15', 0.1)})`,
+				paper: '#0f0c15',
 				main: '#141319',
 				purpleGradient: `linear-gradient(60deg, ${alpha('#484592', 0.4)} 0%, ${alpha(
 					'#0f0c15',
